@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MCP &amp; Plugin Registry | AETHER_INTEL_NETWORK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-glow-lime {
+            box-shadow: 0 0 15px rgba(157, 227, 46, 0.2);
+        }
+        .terminal-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .terminal-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 181, 156, 0.05), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "fg-text-1": "#f5f5f5",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#111f00",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "on-tertiary": "#00344f",
+                    "inverse-primary": "#ab3600",
+                    "tertiary-container": "#009de4",
+                    "secondary-fixed": "#b0f743",
+                    "on-surface": "#f9dcd4",
+                    "inverse-on-surface": "#3d2c27",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "primary": "#ffb59c",
+                    "tertiary-fixed": "#cae6ff",
+                    "outline-variant": "#5b4138",
+                    "fg-amber": "#f59e0b",
+                    "surface-container-highest": "#42312b",
+                    "primary-fixed": "#ffdbcf",
+                    "on-secondary-container": "#314d00",
+                    "fg-rust": "#ff4444",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "surface": "#1e100b",
+                    "on-tertiary-container": "#00304a",
+                    "primary-fixed-dim": "#ffb59c",
+                    "outline": "#aa897f",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "inverse-surface": "#f9dcd4",
+                    "on-primary": "#5c1900",
+                    "on-primary-container": "#561700",
+                    "surface-container-low": "#271813",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#ffb59c",
+                    "surface-bright": "#47352f",
+                    "fg-orange-dk": "#d9480f",
+                    "on-error": "#690005",
+                    "fg-neutral-85": "#1a1a1a",
+                    "on-tertiary-fixed": "#001e30",
+                    "fg-orange-lt": "#ff7a45",
+                    "surface-container-high": "#372621",
+                    "secondary-fixed-dim": "#95da24",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#8dcdff",
+                    "fg-canvas": "#050505",
+                    "on-background": "#f9dcd4",
+                    "surface-container-lowest": "#180b07",
+                    "on-primary-fixed": "#390c00",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "primary-container": "#ff5f1f",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "background": "#1e100b",
+                    "surface-variant": "#42312b",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "surface-dim": "#1e100b",
+                    "surface-container": "#2b1c17",
+                    "secondary-container": "#83c600",
+                    "on-surface-variant": "#e3bfb3",
+                    "on-secondary": "#213600",
+                    "on-primary-fixed-variant": "#832700",
+                    "secondary": "#9de32e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "20": "80px",
+                    "4": "16px",
+                    "3": "12px",
+                    "12": "48px",
+                    "1": "4px",
+                    "6": "24px",
+                    "2": "8px",
+                    "16": "64px",
+                    "8": "32px"
+            },
+            "fontFamily": {
+                    "section-label": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg antialiased selection:bg-primary selection:text-fg-canvas">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border flex justify-between items-center px-16 h-16">
+<div class="font-mono-data text-mono-data font-bold tracking-widest text-primary">AETHER_INTEL_NETWORK</div>
+<nav class="flex gap-8">
+<a class="text-fg-text-3 font-mono-data font-section-label text-section-label hover:text-fg-text-1 transition-colors duration-200 cursor-crosshair" href="#">MONITOR</a>
+<a class="text-fg-text-3 font-mono-data font-section-label text-section-label hover:text-fg-text-1 transition-colors duration-200 cursor-crosshair" href="#">AGENTS</a>
+<a class="text-fg-text-3 font-mono-data font-section-label text-section-label hover:text-fg-text-1 transition-colors duration-200 cursor-crosshair" href="#">PROTOCOLS</a>
+<a class="text-fg-text-1 border-b-2 border-primary pb-1 font-mono-data font-section-label text-section-label cursor-crosshair" href="#">LEDGER</a>
+</nav>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-fg-text-3 cursor-crosshair hover:text-fg-text-1">notifications</span>
+<span class="material-symbols-outlined text-fg-text-3 cursor-crosshair hover:text-fg-text-1">settings</span>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-fg-canvas/40 backdrop-blur-lg border-r border-fg-border flex flex-col py-8 px-4 gap-4 z-40">
+<div class="mb-8">
+<div class="font-headline-md text-headline-md text-primary uppercase">OP_CENTER_01</div>
+<div class="font-section-label text-section-label text-fg-text-3 uppercase mt-1">SECTOR_G_ACTIVE</div>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 p-3 text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-section-label text-section-label">DASHBOARD</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-section-label text-section-label">NEURAL_MAP</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary bg-fg-surface-md border-r-2 border-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="font-section-label text-section-label">REGISTRY</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-section-label text-section-label">ARCHIVE</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-section-label text-section-label">SYSTEM</span>
+</a>
+</nav>
+<button class="mt-auto w-full p-3 border border-fg-rust/30 text-fg-rust font-section-label text-section-label hover:bg-fg-rust/10 transition-colors">
+            TERMINATE_SESSION
+        </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-16 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h1 class="font-display-md text-display-md text-fg-text-1 mb-2">Registry Control</h1>
+<p class="text-fg-text-3 font-mono-data">MANAGING 14_ACTIVE_INTEGRATIONS // SYSTEM_STATUS: NOMINAL</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-fg-canvas px-6 py-3 font-section-label text-section-label font-bold shadow-[0_0_15px_rgba(255,181,156,0.3)] hover:shadow-[0_0_25px_rgba(255,181,156,0.5)] transition-all">
+<span class="material-symbols-outlined">add</span>
+                    REGISTER_NEW_PLUGIN
+                </button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Terminal Log (Spans 4 columns) -->
+<section class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="glass-panel flex-grow flex flex-col overflow-hidden relative">
+<div class="scanline-effect"></div>
+<div class="p-4 border-b border-fg-border flex justify-between items-center">
+<span class="font-section-label text-section-label text-fg-text-2">REALTIME_CALL_LOG</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+<span class="text-[10px] font-mono-data text-secondary">LIVE</span>
+</div>
+</div>
+<div class="p-4 flex-grow font-mono-data text-xs text-fg-text-3 space-y-2 overflow-y-auto terminal-scroll h-[600px]" id="terminal">
+<div class="text-secondary">[14:22:01] -&gt; CALL: WEB_SEARCH {query: "Aether protocol leaks"}</div>
+<div class="text-fg-text-2">[14:22:03] &lt;- RESP: 12_RESULTS_PARSED</div>
+<div class="text-primary">[14:22:05] -&gt; AUTH: LOCAL_FILE_SYSTEM (READ_ONLY)</div>
+<div class="text-fg-text-3 italic">[14:22:05] SYSTEM: Access granted to /mnt/shared/logs/</div>
+<div class="text-fg-rust">[14:22:10] -&gt; WARN: CRM_CONNECTOR latency &gt; 500ms</div>
+<div class="text-secondary">[14:22:15] -&gt; CALL: SENTIMENT_ANALYST {target: "doc_id_449"}</div>
+<div class="text-fg-text-2">[14:22:18] &lt;- RESP: NEUTRAL (0.04)</div>
+</div>
+</div>
+<!-- Stats Card -->
+<div class="glass-panel p-6 border-t-2 border-primary">
+<div class="text-fg-text-3 font-section-label text-section-label mb-4 uppercase">Network Load</div>
+<div class="flex items-end gap-1 mb-2">
+<span class="text-4xl font-headline-lg">84</span>
+<span class="text-fg-text-3 mb-2 font-mono-data">ToolCalls/Min</span>
+</div>
+<div class="w-full h-1 bg-fg-border relative overflow-hidden">
+<div class="absolute inset-0 bg-primary w-[84%]"></div>
+</div>
+</div>
+</section>
+<!-- Tools & Servers Registry (Spans 8 columns) -->
+<section class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+<!-- Section: Skills -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-wider">Skill Directory</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Skill Card 1 -->
+<div class="glass-panel p-6 group hover:bg-fg-surface-md transition-all duration-300 relative border-t-2 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md">PDF_Parser</h3>
+<p class="font-mono-data text-xs text-fg-text-3">v2.4.1 // SYSTEM_NATIVE</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-fg-neutral-85 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-secondary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary/20"></div>
+</label>
+</div>
+<p class="text-fg-text-2 text-sm mb-4 font-body-sm leading-relaxed">Advanced structural decomposition for OCR and digital documents. Supports complex table extraction and recursive reference mapping.</p>
+<div class="flex justify-between items-center pt-4 border-t border-fg-border">
+<span class="bg-secondary/10 text-secondary text-[10px] font-mono-data px-2 py-1 rounded-full uppercase">L3_Elevated</span>
+<button class="text-fg-text-3 hover:text-fg-text-1 flex items-center gap-1 font-section-label text-[10px]">
+                                        VIEW_DOCS <span class="material-symbols-outlined text-xs">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- Skill Card 2 -->
+<div class="glass-panel p-6 group hover:bg-fg-surface-md transition-all duration-300 relative border-t-2 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md">Web_Search</h3>
+<p class="font-mono-data text-xs text-fg-text-3">v1.0.9 // BING_API_WRAPPER</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-fg-neutral-85 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-secondary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary/20"></div>
+</label>
+</div>
+<p class="text-fg-text-2 text-sm mb-4 font-body-sm leading-relaxed">Real-time indexing and retrieval of global intelligence. Optimized for low-latency fact verification and temporal event tracking.</p>
+<div class="flex justify-between items-center pt-4 border-t border-fg-border">
+<span class="bg-secondary/10 text-secondary text-[10px] font-mono-data px-2 py-1 rounded-full uppercase">L1_Standard</span>
+<button class="text-fg-text-3 hover:text-fg-text-1 flex items-center gap-1 font-section-label text-[10px]">
+                                        VIEW_DOCS <span class="material-symbols-outlined text-xs">arrow_outward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Servers -->
+<div class="mt-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">dns</span>
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-wider">MCP Servers</h2>
+</div>
+<div class="space-y-4">
+<!-- Server Row 1 -->
+<div class="glass-panel p-4 flex flex-col md:flex-row md:items-center gap-6 border-t-2 border-fg-amber">
+<div class="flex-shrink-0 flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-amber text-3xl">storage</span>
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Local_File_System</h3>
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">NODE_ID: 88-ALPHA-9</p>
+</div>
+</div>
+<div class="flex-grow">
+<p class="text-fg-text-2 text-sm leading-snug">Direct read/write access to localized encrypted storage volumes. Restricted to /var/data/vault.</p>
+</div>
+<div class="flex items-center gap-4 border-l border-fg-border pl-6">
+<div class="text-right">
+<p class="text-[10px] font-mono-data text-fg-text-3 uppercase">Permissions</p>
+<p class="text-xs text-fg-text-1 font-mono-data">IO_READ_WRITE</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-fg-neutral-85 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-fg-amber after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-fg-amber/20"></div>
+</label>
+</div>
+</div>
+<!-- Server Row 2 -->
+<div class="glass-panel p-4 flex flex-col md:flex-row md:items-center gap-6 border-t-2 border-fg-amber">
+<div class="flex-shrink-0 flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-amber text-3xl">forum</span>
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">Slack_Bridge</h3>
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">EXT_OAUTH_CONNECTED</p>
+</div>
+</div>
+<div class="flex-grow">
+<p class="text-fg-text-2 text-sm leading-snug">Outgoing intelligence broadcasts and inbound command monitoring for designated security channels.</p>
+</div>
+<div class="flex items-center gap-4 border-l border-fg-border pl-6">
+<div class="text-right">
+<p class="text-[10px] font-mono-data text-fg-text-3 uppercase">Permissions</p>
+<p class="text-xs text-fg-text-1 font-mono-data">NET_EXTERNAL</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-fg-neutral-85 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-fg-amber after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-fg-amber/20"></div>
+</label>
+</div>
+</div>
+<!-- Server Row 3 -->
+<div class="glass-panel p-4 flex flex-col md:flex-row md:items-center gap-6 border-t-2 border-fg-amber">
+<div class="flex-shrink-0 flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-amber text-3xl">hub</span>
+<div>
+<h3 class="font-headline-md text-headline-md leading-tight">CRM_Connector</h3>
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">SALESFORCE_INTEGRATION</p>
+</div>
+</div>
+<div class="flex-grow">
+<p class="text-fg-text-2 text-sm leading-snug">Customer data retrieval for social engineering analysis and background checks on high-profile targets.</p>
+</div>
+<div class="flex items-center gap-4 border-l border-fg-border pl-6">
+<div class="text-right">
+<p class="text-[10px] font-mono-data text-fg-text-3 uppercase">Permissions</p>
+<p class="text-xs text-fg-text-1 font-mono-data">DB_RESTRICTED</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-fg-neutral-85 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-fg-amber after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-fg-amber/20"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="ml-64 bg-fg-canvas border-t border-fg-border-md h-12 flex justify-between items-center px-16 w-[calc(100%-256px)]">
+<div class="font-section-label text-section-label text-fg-text-3 uppercase">© 2024 AETHER_NET // ADMISSIBLE EVIDENCE</div>
+<div class="flex gap-8">
+<a class="font-section-label text-section-label text-fg-text-3 hover:text-primary underline-offset-4 hover:underline transition-all duration-200" href="#">REDACTION_POLICY</a>
+<a class="font-section-label text-section-label text-fg-text-3 hover:text-primary underline-offset-4 hover:underline transition-all duration-200" href="#">SECURITY_PROTOCOL</a>
+<a class="font-section-label text-section-label text-fg-text-3 hover:text-primary underline-offset-4 hover:underline transition-all duration-200" href="#">ENCRYPTION_LOGS</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Simulated Terminal Stream
+        const terminal = document.getElementById('terminal');
+        const logs = [
+            { type: 'primary', msg: '[14:22:25] -> AUTH: SENTIMENT_ANALYST (ELEVATED)' },
+            { type: 'text-2', msg: '[14:22:28] <- RESP: PARSING_COMPLETE (0.8s)' },
+            { type: 'secondary', msg: '[14:22:30] -> CALL: LOCAL_FILE_SYSTEM {read: "config.json"}' },
+            { type: 'fg-rust', msg: '[14:22:32] ERROR: MCP_TIMEOUT_GATEWAY_33' },
+            { type: 'text-3 italic', msg: 'SYSTEM: Auto-retrying connection in 3s...' }
+        ];
+
+        let logIndex = 0;
+        function addLog() {
+            const entry = logs[logIndex % logs.length];
+            const div = document.createElement('div');
+            div.className = `text-${entry.type} opacity-0 transition-opacity duration-500`;
+            div.innerText = entry.msg;
+            terminal.appendChild(div);
+            
+            // Auto scroll
+            terminal.scrollTop = terminal.scrollHeight;
+            
+            // Trigger animation
+            setTimeout(() => div.classList.remove('opacity-0'), 50);
+            
+            // Clean up old logs to keep terminal light
+            if (terminal.children.length > 30) {
+                terminal.removeChild(terminal.firstChild);
+            }
+            
+            logIndex++;
+            setTimeout(addLog, 2000 + Math.random() * 3000);
+        }
+
+        setTimeout(addLog, 1000);
+
+        // Hover effect for navigation items - adding a 'glitch' feel or sound would go here
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                // Future interaction: Subtle haptic sound or cursor change
+            });
+        });
+    </script>
+</body></html>

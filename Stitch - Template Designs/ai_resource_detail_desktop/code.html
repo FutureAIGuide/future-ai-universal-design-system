@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ORACLE_INTEL | NEURAL_CORE_V4_DETAILS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#561700",
+                        "on-surface": "#f9dcd4",
+                        "surface-container-low": "#271813",
+                        "secondary": "#9de32e",
+                        "on-tertiary-container": "#00304a",
+                        "surface-variant": "#42312b",
+                        "primary": "#ffb59c",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "inverse-primary": "#ab3600",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "surface-bright": "#47352f",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "fg-neutral-85": "#1a1a1a",
+                        "surface-container-high": "#372621",
+                        "on-error-container": "#ffdad6",
+                        "fg-orange-lt": "#ff7a45",
+                        "fg-amber": "#f59e0b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#001e30",
+                        "primary-fixed-dim": "#ffb59c",
+                        "background": "#050505",
+                        "surface-container": "#2b1c17",
+                        "fg-rust": "#ff4444",
+                        "surface": "#1e100b",
+                        "secondary-container": "#83c600",
+                        "on-background": "#f9dcd4",
+                        "tertiary-fixed": "#cae6ff",
+                        "tertiary-container": "#009de4",
+                        "surface-container-lowest": "#180b07",
+                        "on-secondary-fixed": "#111f00",
+                        "on-error": "#690005",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "primary-fixed": "#ffdbcf",
+                        "on-secondary": "#213600",
+                        "primary-container": "#ff5f1f",
+                        "surface-dim": "#1e100b",
+                        "on-surface-variant": "#e3bfb3",
+                        "fg-canvas": "#050505",
+                        "secondary-fixed": "#b0f743",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#95da24",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "outline-variant": "#5b4138",
+                        "inverse-on-surface": "#3d2c27",
+                        "on-tertiary": "#00344f",
+                        "tertiary": "#8dcdff",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-highest": "#42312b",
+                        "on-secondary-container": "#314d00",
+                        "on-primary-fixed-variant": "#832700",
+                        "inverse-surface": "#f9dcd4",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "fg-orange-dk": "#d9480f",
+                        "surface-tint": "#ffb59c",
+                        "on-primary": "#5c1900",
+                        "fg-text-1": "#f5f5f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "12": "48px",
+                        "6": "24px",
+                        "20": "80px",
+                        "16": "64px",
+                        "4": "16px",
+                        "8": "32px",
+                        "3": "12px",
+                        "2": "8px",
+                        "1": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "section-label": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe {
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.15);
+        }
+        .glow-lime {
+            box-shadow: 0 0 20px rgba(163, 233, 53, 0.15);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex justify-between items-center h-16 px-6 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-md text-headline-md tracking-tighter text-primary dark:text-primary">ORACLE_INTEL</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-1 border-b border-primary pb-1" href="#">Intel</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">Network</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">Archive</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">Terminal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-fg-text-3 hover:bg-fg-surface-md p-2 transition-all active:scale-95">settings</button>
+<button class="material-symbols-outlined text-fg-text-3 hover:bg-fg-surface-md p-2 transition-all active:scale-95">notifications</button>
+<div class="h-8 w-8 bg-fg-surface-md rounded-full border border-fg-border flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A macro close-up of a cybernetic eye with glowing orange iris and intricate mechanical patterns around the pupil. The lighting is cold and clinical, highlighting the metallic textures and the high-tech investigative aesthetic. Deep blacks and sharp highlights characterize the mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpda80SYyeACy8yzxNuViAxvTaPjJt9VzFq5A2gt3EZZXgNRNgJVs1ZxwBNr6-RcA3def5f0RvggG2ybFcVlbXG39zgoxzNA7yAP96yIrk3SMWZbK6PFjpp-tDemusWGfBkZ_CEc0jmbuSbqbA4x7qyheZaNK8xKO6ldxlQZQOlsxWKvB1cswOJTvhm3aZZKx29WqPzsWMNoAbMR5gzl7e4whjULJ902QPLDpclU2mbGBIpuFyXDvApv0xAF4IqjTbRsXWnMGZcvE"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-20">
+<!-- Hero Section: Technical Schematic -->
+<section class="px-6 lg:px-16 pt-12 pb-16 max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative order-2 lg:order-1">
+<div class="mb-6 flex gap-3">
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full font-mono-data text-section-label text-secondary flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+                        VERIFIED_ACCESS
+                    </span>
+<span class="px-3 py-1 bg-fg-surface border border-fg-border rounded-full font-mono-data text-section-label text-fg-text-2">
+                        NODE: 0X44A2
+                    </span>
+</div>
+<h1 class="font-display-xl text-display-xl mb-6 leading-[0.95] tracking-tighter">
+                    NEURAL<br/>
+<span class="text-primary-container">CORE_V4</span>
+</h1>
+<p class="font-body-lg text-body-lg text-fg-text-2 max-w-xl mb-8">
+                    An advanced hyper-threaded cognitive processor designed for federated learning clusters and high-density neural orchestration. Version 4 utilizes the Ghost Layer protocol for zero-latency inference.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary-container text-white font-section-label uppercase tracking-widest text-section-label hover:shadow-[0_0_20px_rgba(255,95,31,0.4)] transition-all active:scale-95">
+                        INITIALIZE_CORE
+                    </button>
+<button class="px-8 py-4 border border-fg-border-md text-fg-text-1 font-section-label uppercase tracking-widest text-section-label hover:bg-fg-surface transition-all active:scale-95">
+                        DOWNLOAD_SCHEMATICS
+                    </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 h-[500px] lg:h-[600px] group">
+<div class="absolute inset-0 glass-panel overflow-hidden">
+<div class="scanline"></div>
+<!-- Technical Schematic Visual -->
+<div class="absolute inset-0 flex items-center justify-center p-8">
+<div class="w-full h-full relative border border-primary/20 bg-primary/5 rounded-lg flex items-center justify-center">
+
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-primary text-[120px] animate-pulse" style="font-variation-settings: 'wght' 100;">memory</span>
+<div class="mt-4 font-mono-data text-section-label text-primary/40">CORE_ARCHITECTURE_STABLE</div>
+</div>
+<!-- HUD Elements -->
+<div class="absolute top-4 left-4 font-mono-data text-[10px] text-primary/60">X: 44.122 // Y: 99.004</div>
+<div class="absolute bottom-4 right-4 font-mono-data text-[10px] text-primary/60">ENCRYPTION: AES_X256</div>
+<div class="absolute top-4 right-4 w-12 h-12 border-t border-r border-primary/40"></div>
+<div class="absolute bottom-4 left-4 w-12 h-12 border-b border-l border-primary/40"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specifications Grid -->
+<section class="px-6 lg:px-16 py-20 bg-fg-canvas border-y border-fg-border">
+<div class="max-w-[1920px] mx-auto">
+<h2 class="font-section-label text-section-label uppercase tracking-[0.2em] text-primary mb-12">SYSTEM_PARAMETERS</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="glass-panel p-6 relative overflow-hidden group hover:bg-fg-surface-md transition-colors">
+<div class="status-stripe bg-primary"></div>
+<div class="font-mono-data text-fg-text-3 text-[10px] mb-2 uppercase">ID_PREFIX</div>
+<div class="font-display-lg text-headline-lg text-fg-text-1">FG-CORE-9</div>
+</div>
+<div class="glass-panel p-6 relative overflow-hidden group hover:bg-fg-surface-md transition-colors">
+<div class="status-stripe bg-secondary"></div>
+<div class="font-mono-data text-fg-text-3 text-[10px] mb-2 uppercase">LATENCY</div>
+<div class="font-display-lg text-headline-lg text-secondary">0.14ms</div>
+</div>
+<div class="glass-panel p-6 relative overflow-hidden group hover:bg-fg-surface-md transition-colors">
+<div class="status-stripe bg-primary"></div>
+<div class="font-mono-data text-fg-text-3 text-[10px] mb-2 uppercase">UPTIME</div>
+<div class="font-display-lg text-headline-lg text-fg-text-1">99.999%</div>
+</div>
+<div class="glass-panel p-6 relative overflow-hidden group hover:bg-fg-surface-md transition-colors">
+<div class="status-stripe bg-fg-orange-dk"></div>
+<div class="font-mono-data text-fg-text-3 text-[10px] mb-2 uppercase">SECURITY</div>
+<div class="font-display-lg text-headline-lg text-fg-orange-lt">LEVEL_4</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Performance Metrics -->
+<section class="px-6 lg:px-16 py-20 max-w-[1920px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-1">
+<h2 class="font-headline-lg text-headline-lg mb-4">PERFORMANCE_ANALYTICS</h2>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-8">Live telemetry from Node 0X44A2. Core V4 is currently operating within optimal thermal thresholds.</p>
+<div class="p-6 border border-fg-border-md rounded-lg flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-body-sm text-fg-text-2">THERMAL_LVL</span>
+<span class="font-mono-data text-body-sm text-secondary">34°C</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-body-sm text-fg-text-2">POWER_CONS</span>
+<span class="font-mono-data text-body-sm text-fg-text-1">140W</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 grid gap-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-1">Compute Efficiency</span>
+<span class="font-mono-data text-section-label text-primary">94%</span>
+</div>
+<div class="w-full h-2 bg-fg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary-container glow-orange" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-1">Memory Bandwidth</span>
+<span class="font-mono-data text-section-label text-primary">88GB/s</span>
+</div>
+<div class="w-full h-2 bg-fg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary-container glow-orange" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-1">Throughput Capacity</span>
+<span class="font-mono-data text-section-label text-secondary">OPTIMAL</span>
+</div>
+<div class="w-full h-2 bg-fg-surface rounded-full overflow-hidden">
+<div class="h-full bg-secondary glow-lime" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Use Cases / Bento Grid -->
+<section class="px-6 lg:px-16 py-20 bg-surface-container-lowest/50 border-t border-fg-border">
+<div class="max-w-[1920px] mx-auto">
+<h2 class="font-section-label text-section-label uppercase tracking-[0.2em] text-primary mb-12">OPERATIONAL_DOMAINS</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-8 group cursor-crosshair">
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">hub</span>
+<h3 class="font-section-label text-headline-md uppercase mb-4">NEURAL_ORCHESTRATION</h3>
+<p class="font-body-sm text-fg-text-3">Manage complex multi-node environments with intelligent load balancing and zero-copy data transfer protocols.</p>
+</div>
+<div class="glass-panel p-8 group cursor-crosshair">
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">psychology</span>
+<h3 class="font-section-label text-headline-md uppercase mb-4">AUTONOMOUS_REASONING</h3>
+<p class="font-body-sm text-fg-text-3">Deploy local LLMs with sustained high-token throughput for real-time edge processing and critical decision making.</p>
+</div>
+<div class="glass-panel p-8 group cursor-crosshair">
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 32px;">cloud_sync</span>
+<h3 class="font-section-label text-headline-md uppercase mb-4">FEDERATED_LEARNING</h3>
+<p class="font-body-sm text-fg-text-3">Secure, decentralized model training across multiple private nodes without compromising source data integrity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Resources -->
+<section class="px-6 lg:px-16 py-20 max-w-[1920px] mx-auto">
+<h2 class="font-section-label text-section-label uppercase tracking-[0.2em] text-primary mb-12">INTEGRATED_MODULES</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-6 p-6 border border-fg-border hover:border-primary/40 transition-all group">
+<div class="w-32 h-32 flex-shrink-0 bg-fg-surface-md overflow-hidden border border-fg-border">
+<img class="object-cover w-full h-full group-hover:scale-110 transition-transform" data-alt="A technical blueprint of a digital security shield, glowing with emerald green and sharp white lines. The style is highly technical, reminiscent of a futuristic firewall interface in a high-security data center. Professional, cold, and investigative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8wkHU57vBpzVs_r8XU9mhj8jndv2vAWkxwIp6ZaPvtjG-zTqHTia3NtRCGmdoUsUXNm3KfryoEQEZjUQ73s5qnxJwSQjDqlSPPsvZMFUo-SShcFGc5j_wuFKf0gF-xlDs_hm6_w3DOFu9793NYtiyJn7P0GHoYJgYNPvlsQs5vI1CT400TUwYIqdSKKVMxoqxwAYhMJSHhr6Yu3tpPJuh9W_gaxpfRpJRD-Lq_t9rNeNgstYkesOrbTOBMe49aRYthhenQgagXi4"/>
+</div>
+<div>
+<h4 class="font-headline-md text-fg-text-1 mb-2">SYNAPSE_SHIELD</h4>
+<p class="font-body-sm text-fg-text-3 mb-4">Advanced layer 7 security protocol specifically designed for neural network packet inspection.</p>
+<a class="font-mono-data text-section-label text-secondary flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">
+                            VIEW_MODULE <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="flex gap-6 p-6 border border-fg-border hover:border-primary/40 transition-all group">
+<div class="w-32 h-32 flex-shrink-0 bg-fg-surface-md overflow-hidden border border-fg-border">
+<img class="object-cover w-full h-full group-hover:scale-110 transition-transform" data-alt="A stylized representation of an operating system interface with ghostly, semi-transparent windows and deep orange accents. The design looks like a high-end terminal for system administrators, emphasizing minimalism and glassmorphism. Controlled menace atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtpVpEuCtHtlPZ2dYquRIqcuzxfGw2J-vwbZIQmy0NAFge0knQS3L7qoVpiultPbwdoVVjU5V1FfDusWrZSh7x6nKer-ZcLdhxV0GqioQIEwDvNS7b0570_GWP2rCSCe1yXCAuHLn4IgQeL5byQDpkWF3H5uX_R-2746uNW4YfWD_001I7W3PmMA8AiyRn8Um4bzpcPM69l5l0U4LltuGN5O1_kurkJLMfJh9iZPd5-lA67zfo0WOnn1IQ-hIyNd-tqmL-lk7YYLA"/>
+</div>
+<div>
+<h4 class="font-headline-md text-fg-text-1 mb-2">GHOST_LAYER_OS</h4>
+<p class="font-body-sm text-fg-text-3 mb-4">A lightweight, kernel-optimized operating system designed to run exclusively on V4 architecture.</p>
+<a class="font-mono-data text-section-label text-secondary flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">
+                            VIEW_MODULE <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-md border-t border-fg-border">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-16 max-w-[1920px] mx-auto">
+<div>
+<span class="font-mono-data text-body-sm text-fg-text-3 block mb-4">© 2024 NEURAL_NET_INTEL. ALL PROTOCOLS ACTIVE.</span>
+<div class="flex gap-6">
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors cursor-crosshair" href="#">System Status: Operational</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors cursor-crosshair" href="#">Legal Data Protocols</a>
+</div>
+</div>
+<div class="flex md:justify-end gap-6">
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors cursor-crosshair" href="#">Classified Access</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors cursor-crosshair" href="#">Node-741-B</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Update coordinates in real-time or simulated
+        const coords = document.querySelector('.absolute.top-4.left-4');
+        if (coords) {
+            setInterval(() => {
+                const x = (Math.random() * 100).toFixed(3);
+                const y = (Math.random() * 100).toFixed(3);
+                coords.textContent = `X: ${x} // Y: ${y}`;
+            }, 3000);
+        }
+
+        // Mouse move light follow effect for glass panels
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', e => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+                panel.style.background = `radial-gradient(400px circle at ${x}px ${y}px, rgba(255, 95, 31, 0.05), transparent)`;
+            });
+            panel.addEventListener('mouseleave', () => {
+                panel.style.background = `rgba(255, 255, 255, 0.03)`;
+            });
+        });
+    </script>
+</body></html>

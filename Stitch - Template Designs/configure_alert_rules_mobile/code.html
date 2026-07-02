@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ff5f1f;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-surface": "#f9dcd4",
+                        "outline": "#aa897f",
+                        "on-tertiary": "#00344f",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "fg-orange-dk": "#d9480f",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#f9dcd4",
+                        "background": "#1e100b",
+                        "on-secondary-fixed": "#111f00",
+                        "on-error": "#690005",
+                        "on-primary": "#5c1900",
+                        "surface-variant": "#42312b",
+                        "fg-text-1": "#f5f5f5",
+                        "on-primary-fixed": "#390c00",
+                        "surface-container-highest": "#42312b",
+                        "secondary-fixed": "#b0f743",
+                        "surface-bright": "#47352f",
+                        "tertiary": "#8dcdff",
+                        "primary": "#ffb59c",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#f9dcd4",
+                        "secondary-fixed-dim": "#95da24",
+                        "fg-rust": "#ff4444",
+                        "fg-neutral-85": "#1a1a1a",
+                        "secondary": "#9de32e",
+                        "inverse-primary": "#ab3600",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "surface-dim": "#1e100b",
+                        "on-primary-container": "#561700",
+                        "surface-container-low": "#271813",
+                        "surface-container-lowest": "#180b07",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "tertiary-fixed": "#cae6ff",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-canvas": "#050505",
+                        "surface-container-high": "#372621",
+                        "on-secondary": "#213600",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-container": "#00304a",
+                        "surface": "#1e100b",
+                        "tertiary-container": "#009de4",
+                        "primary-container": "#ff5f1f",
+                        "on-secondary-container": "#314d00",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "secondary-container": "#83c600",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#ffb59c",
+                        "on-surface-variant": "#e3bfb3",
+                        "surface-container": "#2b1c17",
+                        "fg-orange-lt": "#ff7a45",
+                        "fg-amber": "#f59e0b",
+                        "on-primary-fixed-variant": "#832700",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "primary-fixed-dim": "#ffb59c",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "inverse-on-surface": "#3d2c27"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "16": "64px",
+                        "6": "24px",
+                        "1": "4px",
+                        "12": "48px",
+                        "20": "80px",
+                        "2": "8px",
+                        "4": "16px",
+                        "8": "32px",
+                        "3": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "display-md": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "section-label": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-xl": ["80px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-md": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "mono-data": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["19px", { "lineHeight": "1.35", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "1.35", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-fg-canvas font-body-lg text-fg-text-1">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-fg-border flex justify-between items-center px-6 h-16 shadow-orange/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">INTEL_CORE_v1.0</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-fg-surface-md border border-fg-border flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A futuristic circular avatar of an intelligence officer profile, high-contrast black and white photography with subtle orange glitch effects, ultra-sharp detail, cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuVZSNJa6XT2JPqaqyxbgdlnS66kQHKSgzKl4V9czmNQtpdO7_jzGyRjrRpsiFW7-keS7IVcEAn6bA2GDhiv3S76rueZG6CwzGmKOTpeSgdpoHR1uN6oVoZOKboU_GkmpnFhn-6JbFKpFwUOq62xV0pyW3VWasR5_D1f9tBfmJrKpKjCxN2dF3FJfuUsFJnNOICiwEROVCctLzJFn45oDbLZViBawUDTh8wldlRl_nzahCoeZvSKZRbLnLQodeUdMVWVHj5drLmtE"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-md mx-auto">
+<!-- Title & Metadata -->
+<div class="mb-12">
+<div class="flex items-center justify-between mb-2">
+<span class="font-section-label text-section-label uppercase tracking-[0.2em] text-primary-container">System Config</span>
+<span class="font-mono-data text-[10px] text-fg-text-3">PROTOCOL: v4.2</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile mb-2">Configure Alert Rule</h2>
+<div class="flex gap-4">
+<span class="font-mono-data text-[10px] text-fg-text-3">ENCRYPTION: AES-256</span>
+<span class="font-mono-data text-[10px] text-fg-text-3">AUTH: LEVEL-4</span>
+</div>
+</div>
+<!-- Step 1: Event Triggers -->
+<section class="mb-8 relative pt-4">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-primary-container shadow-[0_0_8px_rgba(255,95,31,0.5)]"></div>
+<label class="font-section-label text-section-label uppercase mb-4 block text-fg-text-2">STEP 01 // EVENT TRIGGERS</label>
+<div class="space-y-2">
+<!-- Trigger Item -->
+<button class="w-full glass-panel flex items-center p-4 gap-4 transition-all duration-200 active:scale-[0.98] hover:bg-fg-surface-md group" onclick="toggleSelect(this)">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary" data-icon="manage_search">manage_search</span>
+<span class="font-body-sm text-left flex-1">Investigation Completed</span>
+<div class="w-2 h-2 rounded-full border border-fg-border selection-dot"></div>
+</button>
+<button class="w-full glass-panel flex items-center p-4 gap-4 transition-all duration-200 active:scale-[0.98] hover:bg-fg-surface-md group" onclick="toggleSelect(this)">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary" data-icon="memory">memory</span>
+<span class="font-body-sm text-left flex-1">High Resource Usage</span>
+<div class="w-2 h-2 rounded-full border border-fg-border selection-dot"></div>
+</button>
+<button class="w-full glass-panel flex items-center p-4 gap-4 transition-all duration-200 active:scale-[0.98] hover:bg-fg-surface-md group border-primary-container/40" onclick="toggleSelect(this)">
+<span class="material-symbols-outlined text-primary" data-icon="lock_open">lock_open</span>
+<span class="font-body-sm text-left flex-1">Unauthorized Access Detected</span>
+<div class="w-2 h-2 rounded-full bg-primary-container selection-dot shadow-[0_0_4px_rgba(255,95,31,0.8)]"></div>
+</button>
+<button class="w-full glass-panel flex items-center p-4 gap-4 transition-all duration-200 active:scale-[0.98] hover:bg-fg-surface-md group" onclick="toggleSelect(this)">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary" data-icon="sync_problem">sync_problem</span>
+<span class="font-body-sm text-left flex-1">Node Sync Failure</span>
+<div class="w-2 h-2 rounded-full border border-fg-border selection-dot"></div>
+</button>
+</div>
+</section>
+<!-- Step 2: Severity Levels -->
+<section class="mb-8 relative pt-4">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container shadow-[0_0_8px_rgba(131,198,0,0.5)]"></div>
+<label class="font-section-label text-section-label uppercase mb-4 block text-fg-text-2">STEP 02 // SEVERITY LEVEL</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="glass-panel py-3 font-section-label text-section-label transition-colors hover:bg-fg-surface-md border-fg-border">LOW</button>
+<button class="glass-panel py-3 font-section-label text-section-label text-fg-amber border-fg-amber/30 bg-fg-amber/5">MEDIUM</button>
+<button class="glass-panel py-3 font-section-label text-section-label transition-colors hover:bg-fg-surface-md">HIGH</button>
+</div>
+</section>
+<!-- Step 3: Notification Channels -->
+<section class="mb-12 relative pt-4">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-fg-rust shadow-[0_0_8px_rgba(255,68,68,0.5)]"></div>
+<label class="font-section-label text-section-label uppercase mb-4 block text-fg-text-2">STEP 03 // NOTIFICATION CHANNELS</label>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3" data-icon="alternate_email">alternate_email</span>
+<span class="font-body-sm">Email Transmission</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-fg-surface-md border border-fg-border peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3" data-icon="notifications_active">notifications_active</span>
+<span class="font-body-sm">Push Protocol</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-fg-surface-md border border-fg-border peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3" data-icon="sms_failed">sms_failed</span>
+<span class="font-body-sm">Encrypted SMS</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-fg-surface-md border border-fg-border peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Initialize Rule Button -->
+<button class="w-full bg-primary-container text-fg-canvas font-section-label py-5 flex items-center justify-center gap-3 shadow-[0_4px_20px_rgba(255,95,31,0.4)] hover:opacity-90 active:scale-[0.98] transition-all">
+            INITIALIZE_RULE
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 w-full z-50 bg-background/90 backdrop-blur-2xl border-t border-fg-border flex justify-around items-center h-20 pb-4 px-4 shadow-orange/20">
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:text-primary-fixed transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-section-label text-section-label uppercase">INTEL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-container font-bold gap-1 hover:text-primary-fixed transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+<span class="font-section-label text-section-label uppercase">ALERTS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:text-primary-fixed transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-section-label text-section-label uppercase">MONITOR</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:text-primary-fixed transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-section-label text-section-label uppercase">SECURE</span>
+</a>
+</nav>
+<script>
+        function toggleSelect(el) {
+            const dot = el.querySelector('.selection-dot');
+            const icon = el.querySelector('.material-symbols-outlined');
+            
+            if (dot.classList.contains('bg-primary-container')) {
+                dot.classList.remove('bg-primary-container', 'shadow-[0_0_4px_rgba(255,95,31,0.8)]');
+                dot.classList.add('border', 'border-fg-border');
+                el.classList.remove('border-primary-container/40');
+                icon.classList.remove('text-primary');
+                icon.classList.add('text-fg-text-3');
+            } else {
+                dot.classList.add('bg-primary-container', 'shadow-[0_0_4px_rgba(255,95,31,0.8)]');
+                dot.classList.remove('border', 'border-fg-border');
+                el.classList.add('border-primary-container/40');
+                icon.classList.add('text-primary');
+                icon.classList.remove('text-fg-text-3');
+            }
+        }
+    </script>
+</body></html>

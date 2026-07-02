@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // STRATEGIC POSITIONING</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "background": "#1e100b",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#ab3600",
+                    "primary": "#ffb59c",
+                    "on-tertiary": "#00344f",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#42312b",
+                    "on-surface-variant": "#e3bfb3",
+                    "surface-dim": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "secondary-fixed-dim": "#95da24",
+                    "on-background": "#f9dcd4",
+                    "outline-variant": "#5b4138",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "secondary-fixed": "#b0f743",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-container-lowest": "#180b07",
+                    "on-secondary-container": "#314d00",
+                    "primary-fixed": "#ffdbcf",
+                    "surface-container": "#2b1c17",
+                    "surface-tint": "#ffb59c",
+                    "surface-container-high": "#372621",
+                    "on-secondary": "#213600",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary": "#5c1900",
+                    "tertiary": "#8dcdff",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-low": "#271813",
+                    "on-surface": "#f9dcd4",
+                    "outline": "#aa897f",
+                    "surface-variant": "#42312b",
+                    "surface": "#1e100b",
+                    "on-primary-fixed-variant": "#832700",
+                    "surface-bright": "#47352f",
+                    "inverse-on-surface": "#3d2c27",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-tertiary-container": "#00304a",
+                    "primary-container": "#ff5f1f",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "tertiary-container": "#009de4",
+                    "secondary-container": "#83c600",
+                    "on-secondary-fixed": "#111f00",
+                    "inverse-surface": "#f9dcd4",
+                    "secondary": "#9de32e",
+                    "on-primary-container": "#561700",
+                    "fg-canvas": "#050505",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "fg-border": "rgba(255, 255, 255, 0.08)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .coordinate-grid {
+            background-image: radial-gradient(rgba(255, 95, 31, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.2);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10 flex justify-between items-center px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase text-[11px] tracking-widest" href="#">POSITIONING</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">INVESTIGATE</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-md font-label text-[12px] font-bold tracking-widest hover:brightness-110 active:scale-95 transition-all">
+            JOIN NETWORK
+        </button>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-20 fixed left-0 top-0 z-40 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex flex-col items-center py-8 gap-8">
+<div class="mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xl">radar</span>
+</div>
+</div>
+<div class="flex flex-col gap-6 items-center flex-1">
+<div class="group relative">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">radar</span>
+<span class="absolute left-16 bg-surface px-2 py-1 text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_01</span>
+</div>
+<div class="group relative">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">analytics</span>
+<span class="absolute left-16 bg-surface px-2 py-1 text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_02</span>
+</div>
+<div class="group relative bg-primary-container/20 text-primary border-r-2 border-primary p-2">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<div class="group relative">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">query_stats</span>
+<span class="absolute left-16 bg-surface px-2 py-1 text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_04</span>
+</div>
+<div class="group relative">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors cursor-pointer">security</span>
+<span class="absolute left-16 bg-surface px-2 py-1 text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_05</span>
+</div>
+</div>
+<div class="mt-auto flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A minimalist tech avatar monogram for an artificial intelligence intelligence system, featuring glowing geometric patterns in vibrant orange and neon green against a deep black background, rendered in a high-fidelity digital interface style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW7crdkCySMdd4SgVIpKcviHyjyCIcskjhsLbKuzo8BtalTl6IGZeyer3t9Osm4J4-LKwnOaFG6QyH1K_CZtQruEmDaEjeKUpC9bEUt5_jBW_SDf6_8OmQ6vZ0J_My1kIdJag7Z6b1AbQ1xW7oRex0Tg9na1BLx9wmZSxu2Mo5s2I8cl_Rf0AjOJmCiUzuTQah9YjeT1goP6PQ-Lc2kfl40tV91_C1sTHB8hGJJxbydJSym4yj7_n0v5nq2yKHjE9Kivu2GMd5dio"/>
+</div>
+<span class="font-label text-[8px] text-on-surface-variant/40">V.2.0.4</span>
+</div>
+</aside>
+<main class="ml-20 min-h-screen px-16 pt-12 pb-32">
+<!-- Section Header -->
+<div class="max-w-7xl mx-auto mb-16">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-8 h-[2px] bg-primary"></span>
+<span class="font-label text-primary text-xs tracking-[0.2em] uppercase">Strategic Positioning</span>
+</div>
+<h1 class="font-display text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.9]">
+                The New <br/>
+<span class="text-primary-container">Standard</span> of Trust
+            </h1>
+</div>
+<!-- Positioning Matrix -->
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Matrix Visual -->
+<div class="lg:col-span-8 relative aspect-square lg:aspect-video glass-panel rounded-xl overflow-hidden coordinate-grid">
+<!-- X-Axis Label -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant/60 uppercase">Technical Literacy</span>
+<div class="flex items-center w-64 justify-between text-[9px] font-label text-on-surface-variant/30">
+<span>GENERALIST</span>
+<span class="w-24 h-[1px] bg-outline-variant/30"></span>
+<span>ARCHITECTURAL</span>
+</div>
+</div>
+<!-- Y-Axis Label -->
+<div class="absolute left-6 top-1/2 -translate-y-1/2 -rotate-90 flex flex-col items-center gap-1">
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant/60 uppercase">Evidence Density</span>
+<div class="flex items-center w-64 justify-between text-[9px] font-label text-on-surface-variant/30">
+<span>CONJECTURE</span>
+<span class="w-24 h-[1px] bg-outline-variant/30"></span>
+<span>ADMISSIBLE</span>
+</div>
+</div>
+<!-- Quadrant Lines -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[1px] h-full bg-outline-variant/20"></div>
+<div class="h-[1px] w-full bg-outline-variant/20"></div>
+</div>
+<!-- Data Points -->
+<!-- Competitor: Traditional Tech Media -->
+<div class="absolute bottom-[25%] left-[20%] group">
+<div class="w-3 h-3 rounded-full bg-on-surface-variant/20 border border-on-surface-variant/40 group-hover:scale-125 transition-transform"></div>
+<div class="absolute top-4 left-0 glass-panel px-3 py-2 rounded-md border-l-2 border-outline-variant opacity-60 group-hover:opacity-100 transition-opacity">
+<span class="font-label text-[10px] whitespace-nowrap">TECH MEDIA</span>
+</div>
+</div>
+<!-- Competitor: AI Newsletters -->
+<div class="absolute bottom-[45%] left-[45%] group">
+<div class="w-3 h-3 rounded-full bg-on-surface-variant/20 border border-on-surface-variant/40 group-hover:scale-125 transition-transform"></div>
+<div class="absolute top-4 left-0 glass-panel px-3 py-2 rounded-md border-l-2 border-outline-variant opacity-60 group-hover:opacity-100 transition-opacity">
+<span class="font-label text-[10px] whitespace-nowrap">AI NEWSLETTERS</span>
+</div>
+</div>
+<!-- Target: FUTURE AI GUIDE -->
+<div class="absolute top-[15%] right-[15%] group animate-float">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 blur-xl rounded-full"></div>
+<div class="w-6 h-6 rounded-full bg-primary border-2 border-black flex items-center justify-center z-10 relative glow-orange">
+<span class="material-symbols-outlined text-[14px] text-on-primary font-bold">radar</span>
+</div>
+<div class="absolute top-8 right-0 glass-panel px-4 py-3 rounded-lg border-l-4 border-primary z-20 min-w-[200px]">
+<div class="font-display font-bold text-sm tracking-tight mb-1 text-primary">FUTURE AI GUIDE</div>
+<div class="font-label text-[9px] text-on-surface-variant/80 uppercase tracking-widest leading-tight">
+                                Intelligence Grade Reports<br/>
+                                98.4% Evidence Integrity
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Sidebar -->
+<div class="lg:col-span-4 space-y-10">
+<div class="space-y-4">
+<h3 class="font-display text-2xl font-semibold border-l-2 border-primary-container pl-4">The Top-Right Mandate</h3>
+<p class="text-on-surface-variant/70 text-sm leading-relaxed">
+                        While existing platforms focus on volume and hype, we prioritize the <span class="text-primary font-semibold">admissibility</span> of technical data. Our positioning is defined by high-fidelity evidence and deep-stack technical literacy.
+                    </p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-start gap-4">
+<div class="text-primary mt-1">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</div>
+<div>
+<div class="font-label text-[11px] font-bold uppercase tracking-widest mb-1">Architecture-First</div>
+<p class="text-[12px] text-on-surface-variant/60">Moving beyond headlines into codebase and infrastructure analysis.</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-start gap-4">
+<div class="text-secondary mt-1">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<div class="font-label text-[11px] font-bold uppercase tracking-widest mb-1">Evidence Chain</div>
+<p class="text-[12px] text-on-surface-variant/60">Every intelligence point is linked to immutable primary source data.</p>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full flex items-center justify-between group py-4 px-6 border border-outline-variant hover:border-primary transition-all rounded-md">
+<span class="font-label text-xs uppercase tracking-widest">Download Full Thesis</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 fixed z-50 bg-transparent flex justify-between items-center px-16 py-8">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE ONLY
+        </div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-secondary hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<!-- Atmosphere/Micro-interactions Script -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) - 0.5;
+            const y = (e.clientY / window.innerHeight) - 0.5;
+            
+            const panels = document.querySelectorAll('.glass-panel');
+            panels.forEach(panel => {
+                panel.style.transform = `perspective(1000px) rotateY(${x * 2}deg) rotateX(${-y * 2}deg)`;
+            });
+        });
+
+        // Simple typing effect for header subtext (not in JSON but good for brand feel)
+        console.log("INTEL_OS // V.2.0.4-STABLE // SYSTEM OPERATIONAL");
+    </script>
+</body></html>

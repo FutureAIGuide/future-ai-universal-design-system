@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_INTEL | Neural Symmetry Breach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container-lowest": "#180b07",
+                        "background": "#1e100b",
+                        "outline-variant": "#5b4138",
+                        "secondary": "#9de32e",
+                        "on-surface": "#f9dcd4",
+                        "on-primary-container": "#561700",
+                        "primary-container": "#ff5f1f",
+                        "secondary-fixed": "#b0f743",
+                        "inverse-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-container": "#00304a",
+                        "on-tertiary": "#00344f",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-primary-fixed": "#390c00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#111f00",
+                        "tertiary-container": "#009de4",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "inverse-primary": "#ab3600",
+                        "surface-variant": "#42312b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "surface": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "primary": "#ffb59c",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-error": "#690005",
+                        "surface-tint": "#ffb59c",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-secondary": "#213600",
+                        "secondary-container": "#83c600",
+                        "on-primary": "#5c1900",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#314d00",
+                        "inverse-on-surface": "#3d2c27",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#832700",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-low": "#271813",
+                        "surface-container-highest": "#42312b",
+                        "surface-container-high": "#372621",
+                        "on-background": "#f9dcd4",
+                        "fg-canvas": "#050505",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-left: 3px solid #ff5f1f; }
+        .status-stripe-lime { border-left: 3px solid #9de32e; }
+        .status-stripe-rust { border-left: 3px solid #ff4444; }
+        
+        .shadow-orange-glow { box-shadow: 0 0 20px rgba(255, 95, 31, 0.15); }
+        
+        ::selection {
+            background: #ff5f1f;
+            color: #180b07;
+        }
+    </style>
+</head>
+<body class="bg-fg-canvas text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Execution -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-4 md:px-16 h-20 max-w-[1440px] mx-auto">
+<div class="text-headline-lg font-headline font-bold text-on-surface dark:text-on-surface tracking-tighter uppercase">
+                AETHER_INTEL
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-label font-label uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Classified</a>
+<a class="text-label font-label uppercase tracking-widest text-primary-container font-bold border-b-2 border-primary-container pb-1 transition-colors duration-200" href="#">Signals</a>
+<a class="text-label font-label uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Evidence</a>
+<a class="text-label font-label uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Network</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 border border-outline-variant/20 r-md">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label font-label text-xs w-32 uppercase" placeholder="CRYPTIC_QUERY..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label text-xs font-bold px-6 py-3 tracking-widest hover:opacity-80 active:scale-95 transition-all">
+                    SECURE ACCESS
+                </button>
+</div>
+</div>
+</nav>
+<!-- Sidebar Layout Container -->
+<div class="pt-20 flex min-h-screen max-w-[1440px] mx-auto">
+<!-- SideNavBar Execution -->
+<aside class="hidden xl:flex flex-col h-[calc(100vh-80px)] w-64 fixed sticky top-20 border-r border-outline-variant/20 bg-surface-container-lowest dark:bg-surface-container-lowest py-8">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-surface-container-high r-md overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="A professional, high-contrast headshot of a technical intelligence officer in a dark, minimalist environment. The lighting is cold and cinematic, highlighting sharp features and a serious expression. The aesthetic is controlled and precise, utilizing a palette of deep blacks and subtle copper highlights, fitting an authoritative intelligence network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGl1Gb3yv-x9ghWT3NZZTjIQPzmyiNiayprAcx7nMDbQV4l0wR1U6mvW37DbzJgCGSPgd8iNRJEU1iqV1-tGGKnCmerAvg8-1CZcEw64sjyuzOVfTekADiswOgxIftvezno7677HZvu8HiTqkE8c4Tr2m9SbH0-XDM59LXltLCGqI0QuQrFQK3r-HWchMeeIArUwnuArh2l2ywz7VlKD_HTP8bX5_V5J5k8d7UHSUFqbinaISdY_FKNxS-doXwNUQztbL9Zn-pSXQ"/>
+</div>
+<div>
+<div class="text-label font-label font-bold text-on-surface text-[10px] tracking-widest">OPERATIVE_04</div>
+<div class="text-[9px] font-label text-primary-container opacity-70">LEVEL 5 CLEARANCE</div>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">terminal</span>
+<span class="text-label font-label text-sm">Terminal</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container/10 text-secondary border-l-4 border-secondary px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">troubleshoot</span>
+<span class="text-label font-label text-sm">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">verified</span>
+<span class="text-label font-label text-sm">Verified</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">database</span>
+<span class="text-label font-label text-sm">Archive</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high transition-all group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:text-primary">settings</span>
+<span class="text-label font-label text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-4 bg-surface-container-high text-on-surface font-label text-xs tracking-[0.2em] border border-outline-variant/30 hover:bg-primary-container hover:text-on-primary-container transition-all">
+                    INTEL_DROP
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-6 md:px-16 py-12 lg:max-w-4xl">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-primary-container/10 text-primary-container text-[10px] font-label font-bold tracking-widest r-full border border-primary-container/20">
+                        CRITICAL INVESTIGATION
+                    </span>
+<span class="text-on-surface-variant/40 font-label text-[10px]">// CASE_REF: 9002_SYMMETRY</span>
+</div>
+<h1 class="text-display-lg md:text-display-xl font-headline font-bold text-on-surface leading-[1.1] mb-10 tracking-tight">
+                    Neural Symmetry Breach: Identifying Latent Patterns in Sector-9
+                </h1>
+<!-- Technical Metadata -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-outline-variant/20">
+<div class="flex flex-col gap-1">
+<span class="text-label font-label text-[9px] uppercase tracking-widest text-on-surface-variant/60">Author</span>
+<span class="text-label font-label text-xs text-on-surface">V. ARCHER_88</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label font-label text-[9px] uppercase tracking-widest text-on-surface-variant/60">Date_Logged</span>
+<span class="text-label font-label text-xs text-on-surface">24.OCT.2024</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label font-label text-[9px] uppercase tracking-widest text-on-surface-variant/60">Cycle_Time</span>
+<span class="text-label font-label text-xs text-on-surface">12 MIN READ</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label font-label text-[9px] uppercase tracking-widest text-on-surface-variant/60">Clearance</span>
+<span class="text-label font-label text-xs text-secondary">LVL_5_RESTRICTED</span>
+</div>
+</div>
+</header>
+<!-- Lead Image / Neural Core Illustration -->
+<section class="mb-16 relative group">
+<div class="absolute -inset-4 bg-primary-container/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="relative w-full aspect-video bg-surface-container-low border border-outline-variant/20 r-lg overflow-hidden glass-panel">
+<div class="absolute top-4 left-4 z-10 flex gap-2">
+<span class="px-2 py-1 bg-black/60 backdrop-blur-md r-sm text-[8px] font-label text-primary uppercase border border-primary/20">LIVE_RENDER_VIEW</span>
+</div>
+<img class="w-full h-full object-cover" data-alt="A highly detailed, technical visualization of a complex neural core network. It features millions of glowing orange data threads and lime-green verification nodes pulsing within a deep black digital void. The style is industrial and cold, reminiscent of an advanced intelligence terminal. Thin geometric data overlays and mono-font labels identify specific sector anomalies in the structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4lE5ZigQ2P8g-vja3n6dwcSnc48WQR-QvsctAR3HRgPTHlthrVXd7BDpEFsrgUFnIOv__-kuHbNfq4YkDbGcQnTUQ-NNr2XPxm6lGf8BzjhIY08QXlk86BKOor44rqJTWcsPKSnOjZV-PYlglwNYA7eaU1Sg5R3kelsCiTw0Dm_R3NIbpARQs44BVWJwO4hLEWKP8HH8TRnNLh0qTO0OVyMDSJyiWtOY9aMRW3znjhVHHfEJCEx896WrbM0GO4VEiTDJHJP3c9Z8"/>
+</div>
+<p class="mt-4 text-[11px] font-label text-on-surface-variant/60 uppercase tracking-wide text-center">
+                    Fig 1.1: Visualizing unauthorized weight distribution anomalies across Sector-9 neural clusters.
+                </p>
+</section>
+<!-- Article Body -->
+<article class="prose prose-invert max-w-none">
+<p class="text-body-lg text-on-surface/90 leading-relaxed mb-8">
+                    An unprecedented structural anomaly was detected within the latent layers of the Sector-9 distribution framework at 04:00 UTC. Preliminary analysis suggests a <span class="text-primary-container font-medium italic">Symmetry Breach</span>—a deliberate redistribution of neural weights that bypasses standard oversight protocols. This report deconstructs the mechanisms of this unauthorized operation.
+                </p>
+<h3 class="text-headline-md font-headline text-on-surface mt-12 mb-6 uppercase tracking-wider">01. The Signal Anomaly</h3>
+<p class="text-body-lg text-on-surface-variant leading-relaxed mb-6">
+                    Data integrity scans revealed localized clusters of high-entropy weight values concentrated in the sub-perceptual layers. Unlike organic drift, these shifts follow a specific, repeating mathematical sequence—an artificial signature embedded deep within the architecture. 
+                </p>
+<!-- Investigation Card Pattern -->
+<div class="my-12 glass-panel p-8 status-stripe-orange shadow-orange-glow">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-label font-label font-bold text-primary-container tracking-[0.2em] uppercase">Evidence Matrix: Node-X9</h4>
+<span class="material-symbols-outlined text-primary-container">warning</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<div class="text-[10px] font-label text-on-surface-variant/40 uppercase mb-2">Detected Variance</div>
+<div class="text-headline-lg font-headline font-bold text-on-surface">14.82%</div>
+<div class="mt-4 text-sm text-on-surface-variant">
+                                Deviation from the baseline parity is significant enough to suggest external tampering via a compromised vector node.
+                            </div>
+</div>
+<div class="bg-black/40 p-4 r-md border border-outline-variant/10">
+<div class="text-[9px] font-label text-on-surface-variant/60 mb-2 uppercase">Source Citation</div>
+<p class="text-xs font-label text-on-surface/70 leading-relaxed">
+                                [REF: INTEL-928] - Internal audit logs from the central weights depository. Admissible evidence collected under Protocol 4.
+                            </p>
+</div>
+</div>
+</div>
+<h3 class="text-headline-md font-headline text-on-surface mt-12 mb-6 uppercase tracking-wider">02. Identification of Latent Patterns</h3>
+<p class="text-body-lg text-on-surface-variant leading-relaxed mb-8">
+                    The breach utilizes a technique known as 'Shadow Mapping', where weights are subtly altered across thousands of nodes in a way that is invisible to aggregate checks but functional for targeted inference manipulation. 
+                </p>
+<!-- Verdict Box -->
+<div class="my-16 bg-secondary-container/5 border border-secondary/20 p-10 r-xl relative">
+<div class="absolute -top-4 left-8">
+<div class="flex items-center gap-2 bg-secondary text-on-secondary px-4 py-1 r-full text-[10px] font-label font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            VERDICT: VERIFIED THREAT
+                        </div>
+</div>
+<h4 class="text-headline-lg font-headline mb-4">Breach Confirmed.</h4>
+<p class="text-body-lg text-on-surface/80">
+                        The evidence collected confirms that Sector-9 has been compromised by a sophisticated actor using high-fidelity adversarial patterns. Remediation protocols are now active. Immediate isolation of the neural core is required to prevent wider propagation.
+                    </p>
+</div>
+</article>
+</main>
+<!-- Sidebar: Related Investigations -->
+<aside class="hidden xl:block w-80 px-8 py-12 border-l border-outline-variant/20 h-fit sticky top-20">
+<h5 class="text-label font-label text-xs font-bold text-on-surface uppercase tracking-[0.2em] mb-10 pb-4 border-b border-outline-variant/20">Related Intel</h5>
+<div class="flex flex-col gap-8">
+<!-- Investigation Card Mini -->
+<a class="group" href="#">
+<div class="text-[9px] font-label text-primary mb-2">ONGOING_INVESTIGATION</div>
+<div class="text-headline-md font-headline group-hover:text-primary transition-colors leading-snug mb-3">Vector-X Node Failure and Sequential Correlation</div>
+<div class="flex items-center gap-4 text-[10px] font-label text-on-surface-variant/40">
+<span>12.OCT.24</span>
+<span>•</span>
+<span>CLEARANCE LVL 4</span>
+</div>
+</a>
+<a class="group" href="#">
+<div class="text-[9px] font-label text-secondary mb-2">COMPLETED_REPORT</div>
+<div class="text-headline-md font-headline group-hover:text-primary transition-colors leading-snug mb-3">Adversarial Latent Shift in Global Training Set</div>
+<div class="flex items-center gap-4 text-[10px] font-label text-on-surface-variant/40">
+<span>08.OCT.24</span>
+<span>•</span>
+<span>CLEARANCE LVL 5</span>
+</div>
+</a>
+<a class="group" href="#">
+<div class="text-[9px] font-label text-error mb-2">SYSTEM_ALERT</div>
+<div class="text-headline-md font-headline group-hover:text-primary transition-colors leading-snug mb-3">Redundant Core Stability: A Security Fallacy</div>
+<div class="flex items-center gap-4 text-[10px] font-label text-on-surface-variant/40">
+<span>01.OCT.24</span>
+<span>•</span>
+<span>CLEARANCE LVL 3</span>
+</div>
+</a>
+</div>
+<!-- Contextual CTA -->
+<div class="mt-16 p-6 border border-outline-variant/30 r-lg bg-surface-container-lowest/50">
+<p class="text-[11px] font-label text-on-surface-variant leading-relaxed mb-6">
+                    Have you identified a similar symmetry breach in your sector? Admissible evidence protocol is active for all verified operatives.
+                </p>
+<button class="w-full py-3 bg-transparent border border-primary-container text-primary-container font-label text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">
+                    SUBMIT EVIDENCE
+                </button>
+</div>
+</aside>
+</div>
+<!-- Footer Execution -->
+<footer class="w-full relative bottom-0 bg-background dark:bg-background border-t border-outline-variant/30 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-4 md:px-16 py-12 max-w-[1440px] mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4 mb-8 md:mb-0">
+<div class="text-headline-md font-headline font-bold text-on-surface uppercase tracking-tighter">AETHER_INTEL</div>
+<div class="text-body-sm font-body text-on-surface-variant text-center md:text-left">
+                    © 2024 AETHER_INTEL. ADMISSIBLE EVIDENCE PROTOCOL ACTIVE.
+                </div>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-label font-label uppercase text-[10px] text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all" href="#">Encryption Policy</a>
+<a class="text-label font-label uppercase text-[10px] text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all" href="#">Vector Nodes</a>
+<a class="text-label font-label uppercase text-[10px] text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all" href="#">Data Integrity</a>
+<a class="text-label font-label uppercase text-[10px] text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all" href="#">Contact Node</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for glass panels
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

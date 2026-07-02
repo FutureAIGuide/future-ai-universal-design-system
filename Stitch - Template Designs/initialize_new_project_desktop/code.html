@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // INITIALIZE_PROJECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "fg-canvas": "#050505",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#b0f743",
+                    "fg-rust": "#ff4444",
+                    "secondary-container": "#83c600",
+                    "on-background": "#f9dcd4",
+                    "fg-orange-dk": "#d9480f",
+                    "tertiary-container": "#009de4",
+                    "outline": "#aa897f",
+                    "secondary": "#9de32e",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-tertiary-container": "#00304a",
+                    "fg-text-1": "#f5f5f5",
+                    "error-container": "#93000a",
+                    "primary-container": "#ff5f1f",
+                    "surface-container-lowest": "#180b07",
+                    "on-primary-fixed-variant": "#832700",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "surface-container": "#2b1c17",
+                    "surface": "#1e100b",
+                    "inverse-on-surface": "#3d2c27",
+                    "fg-neutral-85": "#1a1a1a",
+                    "on-tertiary": "#00344f",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "on-primary-fixed": "#390c00",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#271813",
+                    "on-secondary-container": "#314d00",
+                    "secondary-fixed-dim": "#95da24",
+                    "background": "#1e100b",
+                    "tertiary": "#8dcdff",
+                    "outline-variant": "#5b4138",
+                    "on-secondary": "#213600",
+                    "surface-variant": "#42312b",
+                    "inverse-primary": "#ab3600",
+                    "surface-dim": "#1e100b",
+                    "on-surface-variant": "#e3bfb3",
+                    "on-error": "#690005",
+                    "on-primary": "#5c1900",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "primary": "#ffb59c",
+                    "surface-container-high": "#372621",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "fg-amber": "#f59e0b",
+                    "surface-bright": "#47352f",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "on-primary-container": "#561700",
+                    "surface-container-highest": "#42312b",
+                    "on-secondary-fixed": "#111f00",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "surface-tint": "#ffb59c",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "tertiary-fixed": "#cae6ff",
+                    "primary-fixed": "#ffdbcf",
+                    "on-tertiary-fixed": "#001e30",
+                    "inverse-surface": "#f9dcd4",
+                    "on-surface": "#f9dcd4",
+                    "fg-orange-lt": "#ff7a45"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "16": "64px",
+                    "1": "4px",
+                    "12": "48px",
+                    "6": "24px",
+                    "20": "80px",
+                    "4": "16px",
+                    "8": "32px",
+                    "3": "12px",
+                    "2": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-md": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "section-label": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Space Grotesk"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 95, 31, 0.2); }
+        ::-webkit-scrollbar-thumb:hover { background: #ff5f1f; }
+        
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .scan-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ff5f1f, transparent);
+            position: absolute;
+            width: 100%;
+            top: -2px;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+          }
+    </style>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg selection:bg-fg-orange-dk/30 selection:text-fg-orange-lt min-h-screen">
+<!-- TOP NAVIGATION SHELL -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center h-20 px-16 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex items-center gap-8">
+<span class="font-display-md text-headline-lg font-bold text-fg-text-1">FUTURE AI <span class="text-fg-orange-lt">GUIDE</span></span>
+<nav class="hidden md:flex gap-8">
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">CORE VALUES</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">RESOURCE HUB</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">KNOWLEDGEBASE</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 font-mono-data text-section-label text-fg-orange-lt bg-fg-surface-md px-3 py-1 border border-fg-border">
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+                NODE_STABLE
+            </div>
+<button class="bg-primary-container text-fg-canvas font-section-label text-section-label px-6 py-3 font-bold hover:bg-fg-orange-lt transition-all active:opacity-80">
+                [YOUR LINK HERE]
+            </button>
+</div>
+</header>
+<!-- SIDE NAVIGATION SHELL -->
+<aside class="fixed left-0 top-20 bottom-0 z-40 flex flex-col pt-8 bg-fg-canvas/40 backdrop-blur-lg border-r border-fg-border w-64">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-fg-surface-md border border-fg-border flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-orange-lt">security</span>
+</div>
+<div>
+<p class="font-mono-data text-[12px] text-fg-text-1 leading-none uppercase">OPERATOR_01</p>
+<p class="font-mono-data text-[10px] text-secondary leading-none uppercase tracking-tighter mt-1">SYSTEM_ACTIVE</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="text-fg-text-3 p-4 flex items-center gap-3 hover:bg-fg-surface hover:text-fg-text-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-mono-data text-mono-data uppercase">INTELLIGENCE</span>
+</a>
+<a class="bg-fg-surface-md text-secondary border-l-2 border-secondary p-4 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-mono-data text-mono-data uppercase">NETWORK</span>
+</a>
+<a class="text-fg-text-3 p-4 flex items-center gap-3 hover:bg-fg-surface hover:text-fg-text-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-mono-data text-mono-data uppercase">ARCHIVE</span>
+</a>
+<a class="text-fg-text-3 p-4 flex items-center gap-3 hover:bg-fg-surface hover:text-fg-text-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-mono-data text-mono-data uppercase">SETTINGS</span>
+</a>
+</nav>
+<div class="mt-auto p-6">
+<button class="w-full py-4 border border-fg-orange-dk text-fg-orange-lt font-mono-data text-section-label uppercase tracking-widest hover:bg-fg-orange-dk hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                NEW INVESTIGATION
+            </button>
+</div>
+</aside>
+<!-- MAIN CANVAS -->
+<main class="ml-64 pt-20 min-h-screen relative overflow-hidden flex flex-col">
+<!-- Background Grid Decoration -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#f5f5f5 1px, transparent 1px), linear-gradient(90deg, #f5f5f5 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="flex-grow p-16 z-10">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-4">
+<span class="px-2 py-1 bg-fg-orange-dk/10 border border-fg-orange-dk/30 text-fg-orange-lt font-mono-data text-[10px] tracking-widest">INITIALIZATION_MODULE_07</span>
+<div class="h-[1px] flex-grow bg-fg-border"></div>
+</div>
+<h1 class="font-display-xl text-display-xl uppercase leading-none mb-4">INITIALIZE <span class="text-fg-orange-lt">PROJECT</span></h1>
+<p class="text-fg-text-2 max-w-2xl font-body-lg">Deploy a new investigative sandbox within the Future AI ecosystem. Define parameters, select neural frameworks, and establish operational goals.</p>
+</div>
+<!-- Dashboard Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Primary Form (8 Columns) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Section: Core Identity -->
+<div class="glass-panel bg-fg-surface border border-fg-border p-8 relative overflow-hidden">
+<div class="scan-line"></div>
+<h2 class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest mb-6 flex items-center gap-2">
+<span class="w-2 h-2 bg-fg-orange-lt rounded-full animate-pulse"></span>
+                            01 // CORE_IDENTITY
+                        </h2>
+<div class="space-y-6">
+<div class="group">
+<label class="block font-mono-data text-section-label text-fg-text-3 uppercase mb-2 group-focus-within:text-fg-orange-lt transition-colors">Project Name</label>
+<input class="w-full bg-[#000000] border-fg-border border text-fg-text-1 font-mono-data px-4 py-4 focus:ring-0 focus:border-fg-orange-lt focus:bg-fg-orange-dk/5 transition-all outline-none" placeholder="E.G., OPERATION_CYBER_SYNAPSE" type="text"/>
+</div>
+<div class="group">
+<label class="block font-mono-data text-section-label text-fg-text-3 uppercase mb-2 group-focus-within:text-fg-orange-lt transition-colors">Tactical Description</label>
+<textarea class="w-full bg-[#000000] border-fg-border border text-fg-text-1 font-mono-data px-4 py-4 focus:ring-0 focus:border-fg-orange-lt focus:bg-fg-orange-dk/5 transition-all outline-none resize-none" placeholder="DEFINE OPERATIONAL SCOPE AND CONSTRAINTS..." rows="4"></textarea>
+</div>
+</div>
+</div>
+<!-- Section: Model Selection -->
+<div class="glass-panel bg-fg-surface border border-fg-border p-8">
+<h2 class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest mb-6">02 // NEURAL_FRAMEWORKS</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Model Card -->
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="bg-fg-canvas border border-fg-border p-5 transition-all group-hover:border-fg-orange-lt/50 peer-checked:border-fg-orange-lt peer-checked:bg-fg-orange-dk/5 relative">
+<div class="flex justify-between items-start mb-4">
+<div class="font-headline-md text-fg-text-1">GPT-4 Omni</div>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary font-mono-data text-[10px] tracking-tight uppercase border border-secondary/20">Verified</span>
+</div>
+<p class="text-fg-text-3 font-mono-data text-[11px] leading-relaxed">Advanced multimodal reasoning. Optimal for complex extraction protocols.</p>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-fg-orange-lt text-sm">check_circle</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input checked="" class="hidden peer" type="checkbox"/>
+<div class="bg-fg-canvas border border-fg-border p-5 transition-all group-hover:border-fg-orange-lt/50 peer-checked:border-fg-orange-lt peer-checked:bg-fg-orange-dk/5 relative">
+<div class="flex justify-between items-start mb-4">
+<div class="font-headline-md text-fg-text-1">Claude 3.5 Sonnet</div>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary font-mono-data text-[10px] tracking-tight uppercase border border-secondary/20">Verified</span>
+</div>
+<p class="text-fg-text-3 font-mono-data text-[11px] leading-relaxed">High-fidelity forensic nuance. Preferred for linguistic scenario modeling.</p>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-fg-orange-lt text-sm">check_circle</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="bg-fg-canvas border border-fg-border p-5 transition-all group-hover:border-fg-orange-lt/50 peer-checked:border-fg-orange-lt peer-checked:bg-fg-orange-dk/5 relative">
+<div class="flex justify-between items-start mb-4">
+<div class="font-headline-md text-fg-text-1">Gemini 1.5 Pro</div>
+<span class="px-2 py-0.5 bg-fg-amber/10 text-fg-amber font-mono-data text-[10px] tracking-tight uppercase border border-fg-amber/20">Under Review</span>
+</div>
+<p class="text-fg-text-3 font-mono-data text-[11px] leading-relaxed">Massive context window. Experimental for long-tail data correlations.</p>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-fg-orange-lt text-sm">check_circle</span>
+</div>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" type="checkbox"/>
+<div class="bg-fg-canvas border border-fg-border p-5 transition-all group-hover:border-fg-orange-lt/50 peer-checked:border-fg-orange-lt peer-checked:bg-fg-orange-dk/5 relative">
+<div class="flex justify-between items-start mb-4">
+<div class="font-headline-md text-fg-text-1">DeepSeek-V2</div>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary font-mono-data text-[10px] tracking-tight uppercase border border-secondary/20">Verified</span>
+</div>
+<p class="text-fg-text-3 font-mono-data text-[11px] leading-relaxed">High-efficiency MOE architecture. Optimized for technical data synthesis.</p>
+<div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-fg-orange-lt text-sm">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Final Action -->
+<div class="flex items-center justify-between pt-4 pb-16">
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Sync State</span>
+<span class="font-mono-data text-mono-data text-secondary uppercase">READY_TO_INITIALIZE</span>
+</div>
+<div class="flex flex-col">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Security Protocol</span>
+<span class="font-mono-data text-mono-data text-fg-text-1 uppercase">AES-256_ENCRYPTED</span>
+</div>
+</div>
+<button class="bg-fg-orange-lt hover:bg-fg-orange-dk text-fg-canvas px-12 py-5 font-headline-lg flex items-center gap-4 transition-all hover:shadow-[0_0_30px_rgba(255,95,31,0.4)] group">
+                            CREATE PROJECT
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Sidebar Metadata (4 Columns) -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Project Goals Dropdown -->
+<div class="glass-panel bg-fg-surface border border-fg-border p-8">
+<h2 class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest mb-6">03 // OPERATIONAL_GOALS</h2>
+<div class="relative">
+<select class="w-full bg-[#000000] border-fg-border border text-fg-text-1 font-mono-data px-4 py-4 appearance-none focus:ring-0 focus:border-fg-orange-lt outline-none">
+<option>Forensic Analysis</option>
+<option>Neural Extraction</option>
+<option>Scenario Modeling</option>
+<option>Threat Simulation</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-fg-text-3">expand_more</span>
+</div>
+<div class="mt-6 p-4 border-l-2 border-fg-orange-lt/30 bg-fg-surface-md">
+<p class="font-mono-data text-[11px] text-fg-text-2 leading-relaxed italic">"Forensic Analysis utilizes advanced backtracking algorithms to identify data anomalies and provenance."</p>
+</div>
+</div>
+<!-- System Status Panel -->
+<div class="glass-panel bg-fg-surface border border-fg-border p-8 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-2">
+<div class="w-2 h-2 bg-secondary rounded-full animate-ping"></div>
+</div>
+<h2 class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest mb-6">REALTIME_TELEMETRY</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-fg-border pb-3">
+<span class="font-mono-data text-[12px] text-fg-text-2 uppercase">LATENCY</span>
+<span class="font-mono-data text-[12px] text-secondary">22.4ms</span>
+</div>
+<div class="flex justify-between items-center border-b border-fg-border pb-3">
+<span class="font-mono-data text-[12px] text-fg-text-2 uppercase">ENCRYPTION</span>
+<span class="font-mono-data text-[12px] text-fg-text-1">AES-256</span>
+</div>
+<div class="flex justify-between items-center border-b border-fg-border pb-3">
+<span class="font-mono-data text-[12px] text-fg-text-2 uppercase">NODE_SYNC</span>
+<span class="font-mono-data text-[12px] text-secondary">COMPLETE</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-[12px] text-fg-text-2 uppercase">UPTIME</span>
+<span class="font-mono-data text-[12px] text-fg-text-1">104:12:08</span>
+</div>
+</div>
+<div class="mt-8">
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase mb-2">Network Load</div>
+<div class="h-1 bg-fg-border w-full relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-fg-orange-lt w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Tactical Visual Decoration -->
+<div class="border border-fg-border aspect-square relative group overflow-hidden">
+<img class="object-cover w-full h-full opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" data-alt="A highly complex technical diagnostic interface showing abstract neural pathways and data flow in a dark investigative aesthetic. Glowing orange and lime green lines intersect against a pitch black background, resembling a high-security intelligence dashboard. Minimalist typography and technical metadata overlays reinforce the investigative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnGjNE9izcLZqq2MAjk5uigLXn5XI5Swx_lFAm1X3xP0g7QZArqe5waxvLdhsF9uvVFgdwnnxx8tE6E50_-ZrUd7Hu0UMIXFnfH_NSA0MjRnS7Z2kpCbAaEaMeyLfYgjliXXojcwK0ArXwDQ6diOU2WhU4oFeGkS-6AAU4zO30TJpBtAUtq43oxEP2laKNIZ5xZJ6FKuu_TFyWrokU40Wj_5FhgbVPjLUVm4CjB3kpzvEJlfOeZE6cvf6KpDVTnd1s2uCFUJ-BNQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-fg-canvas via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 font-mono-data text-[10px] text-fg-orange-lt tracking-tighter">DATA_VIS_STREAM_RX_001</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FOOTER SHELL -->
+<footer class="w-full py-8 px-16 flex justify-between items-center bg-fg-canvas border-t border-fg-border mt-auto">
+<span class="font-display-md text-body-sm text-fg-text-3 font-mono-data">© 2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE</span>
+<div class="flex gap-8">
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-all opacity-70 hover:opacity-100" href="#">PRIVACY_PROTOCOL</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-all opacity-70 hover:opacity-100" href="#">SYSTEM_STATUS</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-all opacity-70 hover:opacity-100" href="#">TERMINAL_ACCESS</a>
+</div>
+</footer>
+</main>
+<!-- Background Atmospheric Effect Script -->
+<script>
+        // Micro-interactions for input focus
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                console.log('Operational focus engaged on system node.');
+            });
+        });
+
+        // Atmospheric random ping generator
+        setInterval(() => {
+            const statusLabels = ['SYNCING', 'DECRYPTING', 'VERIFYING', 'SCANNING'];
+            const randomLabel = statusLabels[Math.floor(Math.random() * statusLabels.length)];
+            const latency = (Math.random() * 10 + 15).toFixed(1);
+            
+            // Console logging for "developer mood"
+            console.log(`[SYS] ${randomLabel}... LATENCY: ${latency}ms`);
+        }, 10000);
+    </script>
+</body></html>

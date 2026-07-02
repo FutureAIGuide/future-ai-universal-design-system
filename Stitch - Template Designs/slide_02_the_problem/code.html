@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE VOID IN AI MEDIA // FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#690005",
+                        "background": "#1e100b",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#ab3600",
+                        "primary": "#ffb59c",
+                        "on-tertiary": "#00344f",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#42312b",
+                        "on-surface-variant": "#e3bfb3",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "secondary-fixed-dim": "#95da24",
+                        "on-background": "#f9dcd4",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "secondary-fixed": "#b0f743",
+                        "on-tertiary-fixed": "#001e30",
+                        "surface-container-lowest": "#180b07",
+                        "on-secondary-container": "#314d00",
+                        "primary-fixed": "#ffdbcf",
+                        "surface-container": "#2b1c17",
+                        "surface-tint": "#ffb59c",
+                        "surface-container-high": "#372621",
+                        "on-secondary": "#213600",
+                        "on-primary-fixed": "#390c00",
+                        "on-primary": "#5c1900",
+                        "tertiary": "#8dcdff",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "surface-container-low": "#271813",
+                        "on-surface": "#f9dcd4",
+                        "outline": "#aa897f",
+                        "surface-variant": "#42312b",
+                        "surface": "#1e100b",
+                        "on-primary-fixed-variant": "#832700",
+                        "surface-bright": "#47352f",
+                        "inverse-on-surface": "#3d2c27",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-tertiary-container": "#00304a",
+                        "primary-container": "#ff5f1f",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "tertiary-container": "#009de4",
+                        "secondary-container": "#83c600",
+                        "on-secondary-fixed": "#111f00",
+                        "inverse-surface": "#f9dcd4",
+                        "secondary": "#9de32e",
+                        "on-primary-container": "#561700"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-rust {
+            border-left: 3px solid #93000a;
+        }
+        .status-stripe-orange {
+            border-left: 3px solid #ff5f1f;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent, rgba(255, 95, 31, 0.05), transparent);
+            animation: scanline 8s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Element -->
+<div class="fixed inset-0 pointer-events-none z-0">
+
+<div class="scanline absolute inset-0 w-full h-full"></div>
+</div>
+<!-- Navigation Header (Shared Component: TopNavBar) -->
+<header class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10">
+<div class="flex justify-between items-center w-full px-4 md:px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">POSITIONING</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase text-[11px] tracking-widest" href="#">INVESTIGATE</a>
+</nav>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container font-label text-[11px] font-bold tracking-widest uppercase rounded-lg scale-95 active:scale-90 transition-transform hover:shadow-[0_0_15px_rgba(255,95,31,0.4)]">
+                JOIN NETWORK
+            </button>
+</div>
+</header>
+<!-- Side Navigation (Shared Component: SideNavBar) -->
+<aside class="hidden lg:flex flex-col items-center py-8 gap-8 h-screen w-20 fixed left-0 top-0 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant z-40">
+<div class="flex flex-col items-center gap-1 mb-8">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-display font-bold text-secondary text-xs">I_OS</div>
+<span class="font-label text-[8px] text-on-surface-variant/60">V.2.0.4</span>
+</div>
+<div class="flex flex-col gap-6 flex-1">
+<button class="p-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all duration-200 ease-in-out group relative">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-surface-container-high text-[10px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_01</span>
+</button>
+<button class="p-3 bg-primary-container/20 text-primary border-r-2 border-primary transition-all duration-200 ease-in-out group relative">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-surface-container-high text-[10px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_02</span>
+</button>
+<button class="p-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all duration-200 ease-in-out group relative">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-surface-container-high text-[10px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_03</span>
+</button>
+<button class="p-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all duration-200 ease-in-out group relative">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-surface-container-high text-[10px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_04</span>
+</button>
+<button class="p-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all duration-200 ease-in-out group relative">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-surface-container-high text-[10px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">PHASE_05</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-12 pb-32 px-6 md:px-16 lg:ml-20">
+<!-- Section Header -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label text-[11px] text-primary tracking-[0.2em] uppercase">INTERNAL_REPORT // SLIDE_02</span>
+<div class="h-px flex-1 bg-outline-variant opacity-30"></div>
+<div class="font-label text-[11px] text-error flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                    SIGNAL_TO_NOISE_RATIO: CRITICAL
+                </div>
+</div>
+<h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-on-surface max-w-4xl leading-tight">
+                THE VOID IN <br/><span class="text-primary">AI MEDIA</span>
+</h1>
+</div>
+<!-- Problem Matrix (Two Columns) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<!-- Column 1: AI Maximalism -->
+<div class="glass-panel p-8 rounded-xl status-stripe-orange group hover:bg-white/[0.06] transition-all duration-500">
+<div class="flex justify-between items-start mb-12">
+<div class="space-y-1">
+<span class="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">DEFECT_01</span>
+<h2 class="font-headline text-2xl md:text-3xl font-semibold text-primary">AI Maximalism</h2>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="trending_up">trending_up</span>
+</div>
+<div class="relative w-full h-48 mb-8 overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A chaotic digital visualization representing high-frequency noise and hype in artificial intelligence reporting. Abstract orange and white data waves clash violently against a deep black background, conveying a sense of sensory overload and zero verification. The visual style is aggressive, technical, and high-contrast, mimicking a glitching intelligence terminal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw9HNqYDwwmItfJKaR-TboKwmKdbtrMbSBxDGuDHYFVtmWDkq_J-d6fTvm6Al9QIgq4LpGpOesixuAye3HHPkHC8huFsxunJ_QjfB4Q_PrO3ltZ8QwCHZ21yibwakycaLBnojaCaJKEUBdchUWTuO0RLAbOy7JQlso28zqk1FSe7QoZkMUHUVDnUzNdjuGF45c8aL4IRj9_-df-Ph1sGnVDtdHOk7pdAxeWvz7HFQYgAwtIAwdnOs9yGJeU7Br8L-7jzott5zCdxs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="font-label text-primary pt-1">01</span>
+<div>
+<span class="block font-headline text-lg text-on-surface">Unchecked Hype Cycle</span>
+<p class="text-on-surface-variant/60 text-sm mt-1 leading-relaxed">Continuous promotion of unreleased models without rigorous technical vetting or benchmarks.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="font-label text-primary pt-1">02</span>
+<div>
+<span class="block font-headline text-lg text-on-surface">Zero Verification Protocols</span>
+<p class="text-on-surface-variant/60 text-sm mt-1 leading-relaxed">Editorial reliance on press releases rather than admissible architectural evidence.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Column 2: AI Catastrophism -->
+<div class="glass-panel p-8 rounded-xl status-stripe-rust group hover:bg-white/[0.06] transition-all duration-500">
+<div class="flex justify-between items-start mb-12">
+<div class="space-y-1">
+<span class="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">DEFECT_02</span>
+<h2 class="font-headline text-2xl md:text-3xl font-semibold text-error">AI Catastrophism</h2>
+</div>
+<span class="material-symbols-outlined text-error/40 group-hover:text-error transition-colors" data-icon="emergency_home">emergency_home</span>
+</div>
+<div class="relative w-full h-48 mb-8 overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A somber and dark digital artistic representation of AI-driven catastrophism and fear. Deep rust and crimson tones dominate a scene of fractured geometric structures emerging from a void, illuminated by harsh cinematic lighting. The mood is one of dread and cold speculation, evoking a sense of imminent technological doom in an investigative intelligence context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxIfVfR7je4KkdUMvjYnwvsed0RR6i5JMK6PP8F9nrtATXnj428SIOYnC9_suTzeq_gqIHO4Z86OruD6yxkSpeOuUpkQcUfwKRJObCdkGI2OAxvUiizxRnwrQkwvtx1xvHKiFQKY9JU_6SiP1JEEAgLb7Ck9C_KBxIObEkZ7alQ6O-tyXz5xwWjcQ_kV3OjGg6OC-quzKNxHG7H9yxEbkbEtRHRLouJLZVyFZMC5DO3Hvbg782eh7KA8m1VQ7DV85tSciAxuuQCqQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="font-label text-error pt-1">01</span>
+<div>
+<span class="block font-headline text-lg text-on-surface">Speculative Fearmongering</span>
+<p class="text-on-surface-variant/60 text-sm mt-1 leading-relaxed">Click-driven narratives focused on terminal outcomes with zero grounding in current compute constraints.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="font-label text-error pt-1">02</span>
+<div>
+<span class="block font-headline text-lg text-on-surface">Intellectual Stagnation</span>
+<p class="text-on-surface-variant/60 text-sm mt-1 leading-relaxed">Replacing nuanced risk analysis with generalized 'doom' scenarios that obscure actual vulnerabilities.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Bottom Insight Bar -->
+<div class="mt-16 glass-panel border-l-4 border-primary p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="troubleshoot">troubleshoot</span>
+<div>
+<h3 class="font-headline font-bold text-on-surface">THE DELTA IS SHRINKING</h3>
+<p class="text-on-surface-variant/40 text-xs font-label uppercase tracking-widest">Objective Intelligence is the only remaining currency</p>
+</div>
+</div>
+<button class="flex items-center gap-3 px-8 py-3 bg-surface-container-high border border-outline-variant hover:border-primary transition-all rounded-md group">
+<span class="font-label text-[11px] tracking-widest text-on-surface uppercase">Initiate Verification</span>
+<span class="material-symbols-outlined text-sm text-primary group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Footer (Shared Component: Footer) -->
+<footer class="w-full bottom-0 fixed z-50 bg-transparent flex justify-between items-center px-4 md:px-16 py-8">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // <span class="text-primary/70">ADMISSIBLE EVIDENCE ONLY</span>
+</div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover glow effects
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = panel.getBoundingClientRect();
+                const x = ((e.clientX - left) / width) * 100;
+                const y = ((e.clientY - top) / height) * 100;
+                panel.style.setProperty('--mouse-x', `${x}%`);
+                panel.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // ACTIVITY_FEED</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --fg-canvas: #050505;
+            --fg-surface: rgba(255, 255, 255, 0.04);
+            --fg-border: rgba(255, 255, 255, 0.08);
+            --fg-orange: #ff5f1f;
+            --fg-lime: #9de32e;
+        }
+        body {
+            background-color: var(--fg-canvas);
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background-color: var(--fg-surface);
+            border: 1px solid var(--fg-border);
+        }
+        .status-scan {
+            background: linear-gradient(to bottom, transparent 0%, var(--fg-lime) 50%, transparent 100%);
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            animation: scan 4s linear infinite;
+            opacity: 0.2;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-orange:hover {
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#f9dcd4",
+                    "fg-orange-dk": "#d9480f",
+                    "tertiary-container": "#009de4",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "fg-rust": "#ff4444",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "surface-variant": "#42312b",
+                    "on-primary-container": "#561700",
+                    "error": "#ffb4ab",
+                    "surface": "#1e100b",
+                    "inverse-primary": "#ab3600",
+                    "surface-container-high": "#372621",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "primary-fixed": "#ffdbcf",
+                    "primary": "#ffb59c",
+                    "on-tertiary-fixed": "#001e30",
+                    "on-primary": "#5c1900",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "on-tertiary-container": "#00304a",
+                    "on-tertiary": "#00344f",
+                    "secondary-container": "#83c600",
+                    "on-primary-fixed-variant": "#832700",
+                    "fg-orange-lt": "#ff7a45",
+                    "surface-container": "#2b1c17",
+                    "surface-dim": "#1e100b",
+                    "surface-container-low": "#271813",
+                    "on-secondary-container": "#314d00",
+                    "tertiary": "#8dcdff",
+                    "on-secondary": "#213600",
+                    "surface-tint": "#ffb59c",
+                    "surface-bright": "#47352f",
+                    "error-container": "#93000a",
+                    "on-surface": "#f9dcd4",
+                    "outline": "#aa897f",
+                    "on-surface-variant": "#e3bfb3",
+                    "fg-text-1": "#f5f5f5",
+                    "surface-container-lowest": "#180b07",
+                    "fg-amber": "#f59e0b",
+                    "outline-variant": "#5b4138",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "on-secondary-fixed": "#111f00",
+                    "primary-container": "#ff5f1f",
+                    "on-primary-fixed": "#390c00",
+                    "fg-canvas": "#050505",
+                    "tertiary-fixed": "#cae6ff",
+                    "background": "#1e100b",
+                    "secondary": "#9de32e",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#b0f743",
+                    "fg-neutral-85": "#1a1a1a",
+                    "primary-fixed-dim": "#ffb59c",
+                    "surface-container-highest": "#42312b",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#f9dcd4",
+                    "inverse-on-surface": "#3d2c27",
+                    "secondary-fixed-dim": "#95da24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "4": "16px",
+                    "2": "8px",
+                    "1": "4px",
+                    "8": "32px",
+                    "3": "12px",
+                    "6": "24px",
+                    "16": "64px",
+                    "20": "80px",
+                    "12": "48px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "section-label": ["JetBrains Mono"],
+                    "display-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-body-lg text-fg-text-1 antialiased selection:bg-primary-container selection:text-white">
+<!-- TOP NAVIGATION SHELL -->
+<header class="fixed top-0 w-full z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border h-20 flex justify-between items-center px-12">
+<div class="flex items-center gap-8">
+<h1 class="font-display-md text-headline-lg text-primary-container tracking-tighter cursor-pointer">FUTURE AI GUIDE</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-mono-data text-mono-data uppercase tracking-wider text-fg-text-3 hover:text-primary-container transition-colors duration-200" href="#">INTEL</a>
+<a class="font-mono-data text-mono-data uppercase tracking-wider text-fg-text-1 border-b border-primary-container transition-colors duration-200" href="#">NETWORK</a>
+<a class="font-mono-data text-mono-data uppercase tracking-wider text-fg-text-3 hover:text-primary-container transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="font-mono-data text-mono-data uppercase tracking-wider text-fg-text-3 hover:text-primary-container transition-colors duration-200" href="#">TERMINAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-mono-data text-mono-data uppercase tracking-wider bg-primary-container text-on-primary-container px-6 py-2 active:scale-95 duration-150 glow-orange">DECRYPT</button>
+<div class="flex items-center gap-4 text-fg-text-2">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">settings</span>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-20 px-12 max-w-screen-2xl mx-auto grid grid-cols-12 gap-8">
+<!-- SIDEBAR: ACTIVE NODES & SEARCH -->
+<aside class="col-span-12 lg:col-span-3 space-y-8 order-2 lg:order-1">
+<!-- Global Search -->
+<section class="glass-panel p-6 space-y-4">
+<h3 class="font-mono-data text-section-label text-fg-text-3 uppercase">GLOBAL_SEARCH_PARAMETERS</h3>
+<div class="relative">
+<input class="w-full bg-black border border-fg-border focus:border-primary-container focus:ring-0 text-sm font-mono-data px-4 py-3" placeholder="QUERY_SYSTEM..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-fg-text-3">search</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2 py-1 bg-fg-surface-md text-[10px] font-mono-data border border-fg-border cursor-pointer hover:border-primary-container transition-colors">TYPE:EVENT</span>
+<span class="px-2 py-1 bg-fg-surface-md text-[10px] font-mono-data border border-fg-border cursor-pointer hover:border-primary-container transition-colors">RANK:CLASSIFIED</span>
+<span class="px-2 py-1 bg-fg-surface-md text-[10px] font-mono-data border border-fg-border cursor-pointer hover:border-primary-container transition-colors">DATE:ALL</span>
+</div>
+</section>
+<!-- Active Nodes -->
+<section class="glass-panel p-6 space-y-6 relative overflow-hidden">
+<div class="status-scan"></div>
+<h3 class="font-mono-data text-section-label text-fg-text-3 uppercase">ACTIVE_NODES // STATUS</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between group cursor-help">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_#9de32e]"></div>
+<span class="font-mono-data text-body-sm text-fg-text-1">NODE_CENTRAL_01</span>
+</div>
+<span class="text-[10px] font-mono-data text-secondary">STABLE</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_#9de32e]"></div>
+<span class="font-mono-data text-body-sm text-fg-text-1">ANALYSIS_CORE_X</span>
+</div>
+<span class="text-[10px] font-mono-data text-secondary">STABLE</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-fg-amber animate-pulse"></div>
+<span class="font-mono-data text-body-sm text-fg-text-1">EXT_RELAY_ALPHA</span>
+</div>
+<span class="text-[10px] font-mono-data text-fg-amber">SYNCING</span>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<div class="flex items-center gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-fg-text-3"></div>
+<span class="font-mono-data text-body-sm text-fg-text-3">SATELLITE_LINK_09</span>
+</div>
+<span class="text-[10px] font-mono-data text-fg-text-3">OFFLINE</span>
+</div>
+</div>
+<!-- Atmospheric Data Visualization Placeholder -->
+<div class="h-32 w-full mt-4 bg-black/40 border border-fg-border relative">
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-widest">REALTIME_TRAFFIC_MAP</span>
+</div>
+</div>
+</section>
+<!-- Visual Asset Contextual -->
+<div class="relative h-64 w-full overflow-hidden border border-fg-border">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="A dark cinematic photograph of a high-tech server room with glowing orange and green diagnostic lights reflecting on polished black surfaces. The environment is cold and industrial with rows of powerful computational hardware. Low angle perspective with shallow depth of field, emphasizing the technical complexity and investigative mood of the AI Guide network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzSbY-z2GGd0j6M1u33-hvw5n6RCGaoQGBmI0pRUmhNGa_6Er39lFqkYWIDwZsFPL-Q6MncF6oU3lK4opBe71IrVYE6kqBeTkxAdkCgwLqqy3papWEjuRiILFrH6EaASx3r7965gc38KnqQmRb5yEhBeI6ZBZwJZ6Gj6nrax8sOsGALpbh6LUG-nOIUvIlZNDoY5XDEj0n-cP-HyosdW7tjyb5O-9onBLnukZaP29aSdQgMgqnrD0s9iOE1NfdGjV4JIJSvfk0byg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4">
+<p class="font-mono-data text-[10px] text-primary-container">SECURE_LOG_VISUAL_002</p>
+</div>
+</div>
+</aside>
+<!-- MAIN ACTIVITY FEED -->
+<div class="col-span-12 lg:col-span-9 space-y-6 order-1 lg:order-2">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-fg-border pb-6">
+<div class="space-y-1">
+<p class="font-mono-data text-section-label text-primary-container">SYSTEM_TELEMETRY</p>
+<h2 class="font-display-md text-display-md tracking-tighter leading-none">ACTIVITY_LOG // SESSION_FEED</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-fg-surface border border-fg-border hover:bg-fg-surface-md transition-colors font-mono-data text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        FILTER
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-fg-surface border border-fg-border hover:bg-fg-surface-md transition-colors font-mono-data text-[11px] uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">download</span>
+                        EXPORT_CSV
+                    </button>
+</div>
+</div>
+<!-- Feed Content -->
+<div class="space-y-0">
+<!-- Item 1 -->
+<div class="group flex flex-col md:flex-row items-start gap-6 py-6 px-4 hover:bg-fg-surface transition-all duration-300 border-b border-fg-border/30 relative">
+<div class="absolute top-0 left-0 w-1 h-0 bg-secondary group-hover:h-full transition-all duration-300"></div>
+<div class="w-full md:w-48 flex-shrink-0 pt-1">
+<p class="font-mono-data text-secondary text-sm">2026-06-26 14:02:11</p>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3 text-lg">psychology</span>
+<span class="font-mono-data text-xs px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary/20">NEW_INVESTIGATION</span>
+</div>
+<h4 class="font-headline-md text-fg-text-1">Case File #882-X: Multi-Modal Core analysis initiated by Unit_Lead</h4>
+<p class="text-fg-text-3 text-sm max-w-2xl">Automatic pattern recognition flagged anomalies in the Central European data stream. Cross-referencing with Archive_Alpha results in high-probability correlation with Operation: SILENT_EYE.</p>
+</div>
+<div class="flex-shrink-0 pt-1">
+<a class="font-mono-data text-[11px] text-primary-container tracking-widest hover:underline decoration-primary-container underline-offset-4" href="#">[ VIEW_CONTENT ]</a>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex flex-col md:flex-row items-start gap-6 py-6 px-4 hover:bg-fg-surface transition-all duration-300 border-b border-fg-border/30 relative">
+<div class="absolute top-0 left-0 w-1 h-0 bg-primary-container group-hover:h-full transition-all duration-300"></div>
+<div class="w-full md:w-48 flex-shrink-0 pt-1">
+<p class="font-mono-data text-secondary text-sm">2026-06-26 13:58:45</p>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3 text-lg">description</span>
+<span class="font-mono-data text-xs px-2 py-0.5 bg-primary-container/10 text-primary-container border border-primary-container/20">REPORT_GENERATED</span>
+</div>
+<h4 class="font-headline-md text-fg-text-1">Synthesis Report #V09: Geo-political influence mapping complete</h4>
+<p class="text-fg-text-3 text-sm max-w-2xl">Detailed breakdown of AI cluster migration patterns across the Northern Sector. Data includes heatmaps and predicted node shifts for Q3. Access level: ADMISSIBLE.</p>
+</div>
+<div class="flex-shrink-0 pt-1">
+<a class="font-mono-data text-[11px] text-primary-container tracking-widest hover:underline decoration-primary-container underline-offset-4" href="#">[ VIEW_CONTENT ]</a>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex flex-col md:flex-row items-start gap-6 py-6 px-4 hover:bg-fg-surface transition-all duration-300 border-b border-fg-border/30 relative">
+<div class="absolute top-0 left-0 w-1 h-0 bg-secondary group-hover:h-full transition-all duration-300"></div>
+<div class="w-full md:w-48 flex-shrink-0 pt-1">
+<p class="font-mono-data text-secondary text-sm">2026-06-26 13:45:02</p>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3 text-lg">verified</span>
+<span class="font-mono-data text-xs px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary/20">SOURCE_VERIFIED</span>
+</div>
+<h4 class="font-headline-md text-fg-text-1">Primary Feed Source [ENCRYPT_77] validated</h4>
+<p class="text-fg-text-3 text-sm max-w-2xl">Integrity check passed. Source identity confirmed via cryptographic handshake with NODE_CENTRAL_01. Reliability rating: 99.8%.</p>
+</div>
+<div class="flex-shrink-0 pt-1">
+<a class="font-mono-data text-[11px] text-primary-container tracking-widest hover:underline decoration-primary-container underline-offset-4" href="#">[ VIEW_CONTENT ]</a>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group flex flex-col md:flex-row items-start gap-6 py-6 px-4 hover:bg-fg-surface transition-all duration-300 border-b border-fg-border/30 relative">
+<div class="absolute top-0 left-0 w-1 h-0 bg-tertiary-container group-hover:h-full transition-all duration-300"></div>
+<div class="w-full md:w-48 flex-shrink-0 pt-1">
+<p class="font-mono-data text-secondary text-sm">2026-06-26 13:22:19</p>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3 text-lg">sync</span>
+<span class="font-mono-data text-xs px-2 py-0.5 bg-tertiary-container/10 text-tertiary-container border border-tertiary-container/20">NODE_SYNC</span>
+</div>
+<h4 class="font-headline-md text-fg-text-1">Terminal Handshake: EXT_RELAY_ALPHA synchronized</h4>
+<p class="text-fg-text-3 text-sm max-w-2xl">Local data buffer purged and successfully uploaded to global ledger. Latency within acceptable investigative parameters (14ms).</p>
+</div>
+<div class="flex-shrink-0 pt-1">
+<a class="font-mono-data text-[11px] text-primary-container tracking-widest hover:underline decoration-primary-container underline-offset-4" href="#">[ VIEW_CONTENT ]</a>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="group flex flex-col md:flex-row items-start gap-6 py-6 px-4 hover:bg-fg-surface transition-all duration-300 border-b border-fg-border/30 relative">
+<div class="absolute top-0 left-0 w-1 h-0 bg-fg-rust group-hover:h-full transition-all duration-300"></div>
+<div class="w-full md:w-48 flex-shrink-0 pt-1">
+<p class="font-mono-data text-secondary text-sm">2026-06-26 12:59:01</p>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-fg-text-3 text-lg">lock_open</span>
+<span class="font-mono-data text-xs px-2 py-0.5 bg-fg-rust/10 text-fg-rust border border-fg-rust/20">ACCESS_GRANTED</span>
+</div>
+<h4 class="font-headline-md text-fg-text-1">Temporary clearance issued to Unit_33</h4>
+<p class="text-fg-text-3 text-sm max-w-2xl">Access to Restricted Sector 'ARCHIVE_ZETA' authorized for 24-hour window. Objective: Retrieval of legacy neural weights.</p>
+</div>
+<div class="flex-shrink-0 pt-1">
+<a class="font-mono-data text-[11px] text-primary-container tracking-widest hover:underline decoration-primary-container underline-offset-4" href="#">[ VIEW_CONTENT ]</a>
+</div>
+</div>
+</div>
+<!-- Load More Action -->
+<div class="pt-12 flex justify-center">
+<button class="group flex items-center gap-4 py-4 px-12 border border-fg-border hover:border-primary-container transition-all">
+<span class="font-mono-data text-sm tracking-[0.2em] uppercase">INITIATE_PAGINATION_LOAD</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</main>
+<!-- FOOTER SHELL -->
+<footer class="bg-fg-canvas border-t border-fg-border mt-20">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center px-16 py-12 w-full">
+<div class="flex flex-col gap-2 mb-8 md:mb-0">
+<h3 class="font-display-md text-headline-md text-fg-text-1">FUTURE AI GUIDE</h3>
+<p class="font-mono-data text-mono-data text-fg-text-3">©2024 FUTURE AI GUIDE // ENCRYPTED PROTOCOL</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-12">
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-opacity" href="#">CLASSIFIED</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-opacity" href="#">API_DOCS</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-opacity" href="#">VERIFICATION</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-opacity" href="#">SYSTEM_STATUS</a>
+</nav>
+</div>
+</footer>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-20">
+
+</div>
+<script>
+        // Micro-interaction for timestamp updates or active status simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const nodes = document.querySelectorAll('.group');
+            nodes.forEach(node => {
+                node.addEventListener('mouseenter', () => {
+                    // Subtle hover effect logic if needed beyond CSS
+                });
+            });
+
+            // Simulate real-time logging heartbeat
+            setInterval(() => {
+                const clock = document.querySelector('.status-scan');
+                if (clock) {
+                    clock.style.opacity = Math.random() * 0.3 + 0.1;
+                }
+            }, 2000);
+        });
+    </script>
+</body></html>

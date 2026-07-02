@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // ARCHITECTING OS INTELLIGENCE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-surface {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-glow-lime {
+            box-shadow: 0 0 15px rgba(157, 227, 46, 0.2);
+        }
+        .status-glow-orange {
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.2);
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(157, 227, 46, 0.05), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#42312b",
+                        "outline": "#aa897f",
+                        "inverse-surface": "#f9dcd4",
+                        "primary-fixed": "#ffdbcf",
+                        "on-primary-container": "#561700",
+                        "on-error-container": "#ffdad6",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "fg-canvas": "#050505",
+                        "secondary-fixed": "#b0f743",
+                        "surface-dim": "#1e100b",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#42312b",
+                        "inverse-on-surface": "#3d2c27",
+                        "fg-orange-lt": "#ff7a45",
+                        "fg-text-1": "#f5f5f5",
+                        "surface-container-high": "#372621",
+                        "on-secondary": "#213600",
+                        "inverse-primary": "#ab3600",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "primary-fixed-dim": "#ffb59c",
+                        "primary": "#ffb59c",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "secondary": "#9de32e",
+                        "on-surface-variant": "#e3bfb3",
+                        "background": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "surface": "#1e100b",
+                        "tertiary-container": "#009de4",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "on-tertiary-fixed": "#001e30",
+                        "surface-container-lowest": "#180b07",
+                        "secondary-container": "#83c600",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "on-tertiary": "#00344f",
+                        "on-secondary-container": "#314d00",
+                        "on-primary": "#5c1900",
+                        "fg-amber": "#f59e0b",
+                        "on-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "on-primary-fixed-variant": "#832700",
+                        "secondary-fixed-dim": "#95da24",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "fg-orange-dk": "#d9480f",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#390c00",
+                        "fg-neutral-85": "#1a1a1a",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "primary-container": "#ff5f1f",
+                        "fg-rust": "#ff4444",
+                        "on-tertiary-container": "#00304a",
+                        "surface-container-low": "#271813",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "on-background": "#f9dcd4",
+                        "on-secondary-fixed": "#111f00",
+                        "surface-tint": "#ffb59c",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "4": "16px",
+                        "20": "80px",
+                        "6": "24px",
+                        "12": "48px",
+                        "16": "64px",
+                        "8": "32px",
+                        "3": "12px",
+                        "2": "8px",
+                        "1": "4px"
+                    },
+                    fontFamily: {
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-md": ["Space Grotesk"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-xl": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "mono-data": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["19px", { lineHeight: "1.35", fontWeight: "600" }],
+                        "display-lg": ["64px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-sm": ["13px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "body-lg": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-md": ["48px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "section-label": ["11px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "display-xl": ["80px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["24px", { lineHeight: "1.35", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border h-20 px-16 flex justify-between items-center">
+<div class="flex items-center gap-12 h-full">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">FUTURE AI GUIDE</span>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">INTEL</a>
+<a class="text-on-surface font-bold border-b-2 border-primary-container pb-1 hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">ARCHIVE</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">TERMINAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 border border-fg-border-md font-mono-data text-on-surface uppercase tracking-tighter hover:bg-fg-surface transition-all active:scale-95">SECURE</button>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container font-mono-data font-bold uppercase tracking-tighter shadow-orange/10 hover:brightness-110 transition-all active:scale-95">INITIALIZE</button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center px-16 overflow-hidden">
+
+<div class="relative z-10 max-w-4xl">
+<span class="font-section-label text-section-label text-secondary mb-4 block tracking-[0.3em] uppercase">SYSTEM BLUEPRINT // V4.0.1</span>
+<h1 class="font-display-xl text-display-xl text-white mb-6 leading-tight">Architecting <br/><span class="text-primary-container">OS Intelligence</span></h1>
+<p class="font-body-lg text-body-lg text-fg-text-2 max-w-2xl leading-relaxed mb-8">
+                    The Future AI Guide operates at the intersection of neural architecture and forensic accountability. We don't just observe intelligence; we enforce the structural integrity of the global cognitive stack.
+                </p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-fg-surface-md border border-fg-border rounded-lg">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-mono-data text-xs uppercase tracking-widest text-fg-text-1">System Integrity: Verified</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-fg-surface-md border border-fg-border rounded-lg">
+<span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-mono-data text-xs uppercase tracking-widest text-fg-text-1">Latency: 0.14ms</span>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 scanline-effect opacity-20 pointer-events-none"></div>
+</section>
+<!-- Evidence Frameworks -->
+<section class="px-16 py-20 bg-fg-canvas border-t border-fg-border">
+<div class="mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-2">Evidence Frameworks</h2>
+<p class="font-mono-data text-sm text-fg-text-3 uppercase">Core Operational Protocols for OS Stability</p>
+</div>
+<div class="h-[1px] flex-grow mx-8 bg-fg-border mb-3"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Framework 1 -->
+<div class="glass-surface p-8 group hover:bg-fg-surface-md transition-all duration-300">
+<div class="w-full h-1 bg-secondary mb-8 status-glow-lime"></div>
+<span class="material-symbols-outlined text-4xl text-secondary mb-6 block">history_edu</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Immutable Logging</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 leading-relaxed">
+                        Every decision cycle is hashed and committed to a distributed cryptographic ledger. Retrospective manipulation is mathematically impossible, ensuring a permanent record of synthetic intent.
+                    </p>
+<div class="mt-8 pt-6 border-t border-fg-border">
+<span class="font-mono-data text-[10px] text-secondary tracking-widest uppercase">Protocol: SHA-512_SECURE</span>
+</div>
+</div>
+<!-- Framework 2 -->
+<div class="glass-surface p-8 group hover:bg-fg-surface-md transition-all duration-300">
+<div class="w-full h-1 bg-primary-container mb-8 status-glow-orange"></div>
+<span class="material-symbols-outlined text-4xl text-primary-container mb-6 block">shield_lock</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Cognitive Guardrails</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 leading-relaxed">
+                        Real-time semantic filtering layers that prevent prompt injection and emergent adversarial behaviors. Our guardrails are hard-coded into the inference engine at the kernel level.
+                    </p>
+<div class="mt-8 pt-6 border-t border-fg-border">
+<span class="font-mono-data text-[10px] text-primary-container tracking-widest uppercase">Status: ACTIVE_SHIELD</span>
+</div>
+</div>
+<!-- Framework 3 -->
+<div class="glass-surface p-8 group hover:bg-fg-surface-md transition-all duration-300">
+<div class="w-full h-1 bg-fg-text-3 mb-8"></div>
+<span class="material-symbols-outlined text-4xl text-fg-text-1 mb-6 block">biotech</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Neural Forensics</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 leading-relaxed">
+                        Deep-packet inspection for neural weights. We analyze vector drift to identify subtle model degradation or malicious fine-tuning before it manifests in output.
+                    </p>
+<div class="mt-8 pt-6 border-t border-fg-border">
+<span class="font-mono-data text-[10px] text-fg-text-3 tracking-widest uppercase">Analysis: VECTOR_RECON</span>
+</div>
+</div>
+</div>
+</section>
+<!-- OS Architecture Visualization -->
+<section class="px-16 py-20 bg-fg-surface relative overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="aspect-square glass-surface rounded-full border-dashed border-fg-border p-12 relative flex items-center justify-center">
+<div class="absolute inset-0 animate-spin-slow opacity-20">
+<div class="w-full h-full border-2 border-secondary border-t-transparent rounded-full" style="animation: spin 20s linear infinite;"></div>
+</div>
+<div class="w-full h-full glass-surface rounded-full flex items-center justify-center p-8 bg-black/40">
+<img class="w-full h-full object-contain rounded-full" data-alt="A highly detailed 3D blueprint of a futuristic AI operating system core. The visualization features intricate layers of glowing cyan and orange circuits, floating holographic data nodes, and crystalline neural processors. The style is hyper-technical, minimalist, and shot in low-key lighting with a heavy cinematic grain. The atmosphere is cold, investigative, and authoritative, echoing the controlled menace aesthetic with deep blacks and sharp highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTRopEkDYHV5i_mmRXtMi6-BYpMWoEHT0tkgy4kSIFrIv5cuGCL_urt7Y3NmIJiFkuAD6QKAyB7KvrZvuR3gopuQAX5gU1wdllVwbHzsYMmikpZV2MwLqBtEObu-wY2xXPsI1Q8V35hjK5UYlZcBfxMy71j7o83xMCXolW9EMhUdDMoY-_Epa8WU8Tc50zbq-HALj8vsUheJnlLkZFDvmXNql06bti7uecwzFOoP-h4TDEiwev0HXthie8cXad-wkQywGHUcY2ybY"/>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<span class="font-section-label text-section-label text-primary-container mb-4 block uppercase tracking-widest">Architectural Overview</span>
+<h2 class="font-display-md text-display-md text-white mb-8">The Hardened <br/>Neural Kernel</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 glass-surface flex items-center justify-center border-secondary/30">
+<span class="font-mono-data text-secondary">01</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Isolation Layer</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Prevents AI processes from accessing unauthorized system resources via hardware-level sandboxing.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 glass-surface flex items-center justify-center border-primary-container/30">
+<span class="font-mono-data text-primary-container">02</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Latency Monitoring</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Real-time oversight of inference speeds to detect hidden background computations or unauthorized exfiltration.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 glass-surface flex items-center justify-center border-fg-text-3/30">
+<span class="font-mono-data text-fg-text-1">03</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Evidence Sync</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Constant telemetry stream to our decentralized investigation network for cross-platform threat assessment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Intelligence Unit (Team) -->
+<section class="px-16 py-20 bg-fg-canvas">
+<div class="text-center mb-16">
+<h2 class="font-display-md text-display-md text-white mb-4">The Intelligence Unit</h2>
+<p class="font-mono-data text-fg-text-3 uppercase tracking-widest">Specialized Forensics Division // Personnel Log</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Profile 1 -->
+<div class="glass-surface group">
+<div class="h-64 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of Dr. Aris Vane, a middle-aged man with sharp, analytical features and a focused gaze. He wears a dark, technical turtleneck. The lighting is dramatic and high-contrast, characteristic of an investigative intelligence officer. The background is a dark, textured grey, matching the cold, professional aesthetic of the Future AI Guide platform. Cinematic lighting highlights the precision and authority of the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk96Qx3Dy6XwIYZ0NGRJd_mPku7s2RaY96lm1Xc7_KQLUlHq9c2ghRStJEXGm6g2cKGIAbGp-BCOSIs20w3PqkmjpF85ErkiGO3GZixIL1ubXGsXZ4I9Z3pXmqsEwN5P352vvugbMWJxdieDg81pwvqj_fnSeaIVKTiAtpIN7CuZmipTUvsreFo9bjBJ48dGv_WNeW6itr7zgHwVWtddbSTgRs0yrIIPvSwdA6tLl4Ov66_FekErk5XnKH1bw9FFXXSZejeiUzJw8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-secondary/10 border border-secondary text-secondary font-mono-data text-[10px] uppercase tracking-widest rounded-full">Unit Lead</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-white mb-1">Dr. Aris Vane</h3>
+<p class="font-mono-data text-xs text-primary-container mb-4 tracking-widest uppercase">Lead Neural Architect</p>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-6 italic">"Integrity is not a feature; it is the fundamental physics of any stable cognitive environment."</p>
+<div class="flex gap-2">
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Profile 2 -->
+<div class="glass-surface group">
+<div class="h-64 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of Elena Kross, a woman with an intense and vigilant expression. She has short hair and wears a dark, minimalist blazer. The lighting is sharp, casting architectural shadows across her face to emphasize her role as a high-stakes forensic analyst. The overall style is dark, professional, and slightly menacing, mirroring a high-security intelligence environment. The image is crisp, with deep blacks and high-contrast highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrRELlv_7_UZ6l-Jj2NFN01Vuo-CmJVS5tPYRWFHno7fNQNsVtO6KV1KV4-V7RaeTK7Ge30oGMC4PjQ2-ISytntO_19wIMOJEoGrA4eLxHpsCvCXAhgT3D6Ea2iGiaZSWorTpzWryjgIjB8sqA2wWv2RASxfJYPJ1jJFbyytWc8LvcfnP6rXdtgicfG2i0EjpDWRR-fYO8ybYMunfbRXi15NEaL3V1Kq6MSBBlwHlIHa6UvrkxirNrpBFVd58TGeXM55pfNVokAhA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-primary-container/10 border border-primary-container text-primary-container font-mono-data text-[10px] uppercase tracking-widest rounded-full">Chief Analyst</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-white mb-1">Elena Kross</h3>
+<p class="font-mono-data text-xs text-primary-container mb-4 tracking-widest uppercase">Neural Forensics Specialist</p>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-6 italic">"We don't look for what the AI says. We look for what it tried to hide in the latent space."</p>
+<div class="flex gap-2">
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">search</span>
+</div>
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-primary-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Profile 3 -->
+<div class="glass-surface group">
+<div class="h-64 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A portrait of Marcus Thorne, a man with a stern, focused demeanor. He wears a dark, tactical shirt. His expression is cold and investigative. The lighting is cinematic and atmospheric, emphasizing a sense of high-security and professional discipline. The color palette is strictly limited to blacks, deep greys, and subtle warm skin tones, fitting the controlled menace brand identity. The shot is framed like a profile in a confidential dossier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKlqZYz2vczWl4g-itKn4ZOIV4twWigfjoCgq_VFsT0htDiBzVPl3RBtWexfqbh8z7upIEdSloHkO8tWwFP8GGj2R_PUFpILV08zbkVyhGYP84UK37WoZmWAGIA_9Q9q-ilf1nQRaTUR3EfUAI01tBGubrktdfPb8X6C5gwjVOWCmy27NmJoPnlBM0a3dGAb6Gh8yOyAE9mJ3O7BJKR2QCpVYfy1vzQFTXwywxY0b0-v7FZyQUsn9hr_ZDdytBxYzrOTlWDYzCkuI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-fg-text-3/10 border border-fg-text-3 text-fg-text-3 font-mono-data text-[10px] uppercase tracking-widest rounded-full">SecOps Dir</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-lg text-headline-lg text-white mb-1">Marcus Thorne</h3>
+<p class="font-mono-data text-xs text-primary-container mb-4 tracking-widest uppercase">Guardrail Architect</p>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-6 italic">"A system is only as secure as its most creative adversary. We are that adversary."</p>
+<div class="flex gap-2">
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">lock</span>
+</div>
+<div class="w-8 h-8 flex items-center justify-center bg-fg-surface border border-fg-border hover:border-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">shield</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-16 py-32 bg-fg-canvas relative border-t border-fg-border overflow-hidden">
+
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<h2 class="font-display-lg text-display-lg text-white mb-8">Join the Investigation</h2>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-12 max-w-2xl mx-auto">
+                    The network is expanding. We are currently recruiting field intelligence officers and neural forensic engineers to scale the architecture of truth.
+                </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="px-12 py-5 bg-secondary text-black font-mono-data font-bold uppercase tracking-[0.2em] shadow-lg shadow-secondary/20 hover:scale-105 transition-all">ACCESS TERMINAL</button>
+<button class="px-12 py-5 border border-fg-border-md text-white font-mono-data uppercase tracking-[0.2em] hover:bg-fg-surface transition-all">SUBMIT CREDENTIALS</button>
+</div>
+<div class="mt-16 flex justify-center gap-12 text-fg-text-3 font-mono-data text-[10px] tracking-[0.3em] uppercase">
+<span>Active nodes: 1,429</span>
+<span>Threat level: ELEVATED</span>
+<span>Last breach: 42d 11h</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bottom-0 bg-fg-canvas border-t border-fg-border-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div>
+<span class="font-mono-data text-mono-data text-primary-container mb-6 block">FUTURE AI GUIDE</span>
+<p class="font-body-sm text-body-sm text-fg-text-3 leading-relaxed">
+                Admissible Evidence Protocol v4.0.1. A global network for artificial intelligence transparency and forensic accountability.
+            </p>
+</div>
+<div>
+<h4 class="font-section-label text-section-label text-white uppercase tracking-widest mb-6">PROTOCOLS</h4>
+<ul class="space-y-3 font-mono-data text-xs text-fg-text-3">
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">SYSTEM STATUS: NOMINAL</a></li>
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">ENCRYPTION: AES-256</a></li>
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">TRANSMISSION LOGS</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-section-label text-section-label text-white uppercase tracking-widest mb-6">COMPLIANCE</h4>
+<ul class="space-y-3 font-mono-data text-xs text-fg-text-3">
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">LEGAL DISCLOSURE</a></li>
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">API DOCUMENTATION</a></li>
+<li><a class="hover:text-fg-orange-lt transition-colors" href="#">PRIVACY_HASH</a></li>
+</ul>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-fg-text-3 hover:text-white cursor-pointer">hub</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-white cursor-pointer">database</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-white cursor-pointer">dns</span>
+</div>
+<div class="mt-8">
+<p class="font-body-sm text-[10px] text-fg-text-3 uppercase tracking-tighter">
+                    ©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL v4.0.1
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
+                    entry.target.classList.remove('opacity-0');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-surface').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

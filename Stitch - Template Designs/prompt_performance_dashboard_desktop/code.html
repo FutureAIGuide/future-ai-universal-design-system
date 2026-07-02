@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SENTINEL_AI // PROMPT_PERFORMANCE_METRICS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .orange-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b1c17;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff5f1f;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#9de32e",
+                    "fg-text-1": "#f5f5f5",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "fg-canvas": "#050505",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "primary": "#ffb59c",
+                    "brand-orange": "#ff5f1f",
+                    "brand-lime": "#a3e935",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "1": "4px", "2": "8px", "3": "12px", "4": "16px", "6": "24px", "8": "32px", "12": "48px", "16": "64px", "20": "80px"
+            },
+            "fontFamily": {
+                    "section-label": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "display-md": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="font-body-lg text-fg-text-1 selection:bg-brand-orange selection:text-white">
+<!-- SIDE NAVIGATION -->
+<aside class="fixed left-0 h-full w-64 bg-fg-canvas border-r border-fg-border flex flex-col py-8 z-50">
+<div class="px-6 mb-12">
+<h1 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+                ADM_CORE
+            </h1>
+<p class="font-mono-data text-[10px] text-fg-text-3 tracking-[0.2em] mt-1">SECTOR 7-G</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 text-fg-text-3 px-4 py-3 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">Nodes</span>
+</a>
+<!-- ACTIVE TAB: Protocols -->
+<a class="flex items-center gap-4 bg-fg-surface-md text-secondary border-l-2 border-secondary px-4 py-3" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">Protocols</span>
+</a>
+<a class="flex items-center gap-4 text-fg-text-3 px-4 py-3 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined">security_update_good</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">Traffic</span>
+</a>
+<a class="flex items-center gap-4 text-fg-text-3 px-4 py-3 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">Security</span>
+</a>
+</nav>
+<div class="px-6 mb-8">
+<button class="w-full bg-brand-orange text-black font-mono-data text-xs font-bold py-3 rounded-sm shadow-orange/20 hover:shadow-orange/40 transition-all active:scale-95 uppercase tracking-tighter">
+                INITIATE_SCAN
+            </button>
+</div>
+<div class="mt-auto border-t border-fg-border pt-4">
+<a class="flex items-center gap-4 text-fg-text-3 px-4 py-2 hover:text-fg-text-1" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-mono-data text-xs">Help</span>
+</a>
+<a class="flex items-center gap-4 text-fg-text-3 px-4 py-2 hover:text-fg-text-1" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-mono-data text-xs">Logout</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<main class="ml-64 min-h-screen relative">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 w-full h-16 px-12 glass-panel border-b border-fg-border z-40 flex justify-between items-center backdrop-blur-xl">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">SENTINEL_AI</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-section-label text-section-label uppercase tracking-widest hover:text-fg-text-1 transition-colors duration-200" href="#">INTEL</a>
+<a class="text-fg-text-3 font-section-label text-section-label uppercase tracking-widest hover:text-fg-text-1 transition-colors duration-200" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-section-label text-section-label uppercase tracking-widest hover:text-fg-text-1 transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="text-fg-text-1 border-b-2 border-brand-orange pb-1 font-section-label text-section-label uppercase tracking-widest" href="#">TERMINAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="bg-black border border-fg-border px-4 py-1.5 text-xs font-mono-data w-48 focus:border-brand-orange focus:ring-0 transition-all text-fg-text-2 group-hover:border-fg-border-md" placeholder="QUERY_ID..." type="text"/>
+<span class="absolute right-3 top-2 text-fg-text-3 material-symbols-outlined text-sm">search</span>
+</div>
+<button class="p-2 text-fg-text-3 hover:text-brand-orange transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-fg-text-3 hover:text-brand-orange transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- DASHBOARD BODY -->
+<div class="p-12 space-y-12">
+<!-- HEADER SECTION -->
+<section class="flex justify-between items-end">
+<div>
+<h2 class="font-display-md text-display-md uppercase tracking-tight text-fg-text-1">PROMPT_PERFORMANCE_METRICS</h2>
+<div class="flex items-center gap-3 mt-2">
+<span class="flex h-2 w-2 rounded-full bg-brand-lime animate-pulse"></span>
+<span class="font-mono-data text-xs text-brand-lime tracking-widest uppercase">System Status: NOMINAL</span>
+<span class="h-px w-12 bg-fg-border mx-2"></span>
+<span class="font-mono-data text-xs text-fg-text-3 uppercase">Session: 7F_ENCRYPTED</span>
+</div>
+</div>
+<div class="glass-panel px-4 py-2 flex gap-4">
+<div class="text-right">
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase">Cycle time</p>
+<p class="font-mono-data text-sm text-secondary">00:04:12:88</p>
+</div>
+</div>
+</section>
+<!-- KEY METRICS BENTO GRID -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Average Response Time -->
+<div class="glass-panel p-6 border-t-[3px] border-t-brand-orange relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<p class="font-section-label text-section-label uppercase text-fg-text-3 tracking-widest">AVG_RESPONSE_TIME</p>
+<span class="material-symbols-outlined text-brand-orange text-lg">timer</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-fg-text-1">0.84</span>
+<span class="font-mono-data text-headline-md text-fg-text-3">s</span>
+</div>
+<div class="h-12 w-full mt-4 flex items-end gap-1">
+<!-- Mock sparkline -->
+<div class="bg-brand-orange/20 w-full h-[40%]"></div>
+<div class="bg-brand-orange/20 w-full h-[60%]"></div>
+<div class="bg-brand-orange/20 w-full h-[30%]"></div>
+<div class="bg-brand-orange/40 w-full h-[70%]"></div>
+<div class="bg-brand-orange/20 w-full h-[50%]"></div>
+<div class="bg-brand-orange/60 w-full h-[90%]"></div>
+<div class="bg-brand-orange w-full h-[85%]"></div>
+</div>
+</div>
+<!-- Success Rate -->
+<div class="glass-panel p-6 border-t-[3px] border-t-brand-lime relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<p class="font-section-label text-section-label uppercase text-fg-text-3 tracking-widest">SUCCESS_RATE</p>
+<span class="material-symbols-outlined text-brand-lime text-lg">verified</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-display-md text-display-md text-fg-text-1">99.4%</span>
+<div class="relative w-16 h-16">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-fg-border" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-brand-lime" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="1" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+<p class="font-mono-data text-xs text-fg-text-3 mt-4">+0.2% FROM PREVIOUS CYCLE</p>
+</div>
+<!-- Most Used Template -->
+<div class="glass-panel p-6 border-t-[3px] border-t-fg-text-2 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<p class="font-section-label text-section-label uppercase text-fg-text-3 tracking-widest">PRIMARY_TEMPLATE</p>
+<span class="material-symbols-outlined text-fg-text-3 text-lg">description</span>
+</div>
+<div class="space-y-1">
+<p class="font-headline-lg text-headline-lg text-fg-text-1 truncate uppercase">Deep Forensic Intake</p>
+<p class="font-mono-data text-sm text-brand-orange">ID: PRMP_DFI_09</p>
+</div>
+<div class="mt-6 flex justify-between items-center bg-black/40 p-3 rounded-sm border border-fg-border">
+<span class="font-mono-data text-[10px] text-fg-text-3">LOAD FACTOR</span>
+<span class="font-mono-data text-xs text-fg-text-1">0.77 HIGH</span>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE CHARTS -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Large Chart (2/3 width) -->
+<div class="lg:col-span-2 glass-panel p-8">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1">USAGE_VOLUME_OVER_TIME</h3>
+<p class="font-mono-data text-xs text-fg-text-3">TEMPORAL ANALYTICS // 7-DAY WINDOW</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 bg-brand-orange"></span>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Executions</span>
+</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 border-b border-l border-fg-border p-4 relative">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-t border-fg-text-3 w-full"></div>
+<div class="border-t border-fg-text-3 w-full"></div>
+<div class="border-t border-fg-text-3 w-full"></div>
+<div class="border-t border-fg-text-3 w-full"></div>
+</div>
+<!-- Bars -->
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/20 group-hover:bg-brand-orange/40 transition-all w-full h-[60%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">MON</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/40 group-hover:bg-brand-orange/60 transition-all w-full h-[45%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">TUE</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/20 group-hover:bg-brand-orange/40 transition-all w-full h-[75%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">WED</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange group-hover:brightness-125 transition-all w-full h-[90%] shadow-[0_0_15px_rgba(255,95,31,0.2)]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-brand-orange font-bold">THU</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/60 group-hover:bg-brand-orange/80 transition-all w-full h-[65%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">FRI</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/30 group-hover:bg-brand-orange/50 transition-all w-full h-[40%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">SAT</span>
+</div>
+<div class="group relative flex-1 flex flex-col justify-end">
+<div class="bg-brand-orange/20 group-hover:bg-brand-orange/40 transition-all w-full h-[30%]"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono-data text-[9px] text-fg-text-3">SUN</span>
+</div>
+</div>
+</div>
+<!-- Secondary Visual Detail -->
+<div class="glass-panel p-8 flex flex-col justify-center items-center relative overflow-hidden">
+
+<div class="relative z-10 text-center">
+<div class="mb-4 inline-flex p-4 rounded-full border border-brand-orange/30 bg-brand-orange/5">
+<span class="material-symbols-outlined text-4xl text-brand-orange">monitoring</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">LIVE_TELEMETRY</h4>
+<p class="font-body-sm text-body-sm text-fg-text-3 px-8">Real-time prompt distribution across neural nodes in Sector 7-G.</p>
+<button class="mt-6 border border-fg-border-md px-6 py-2 font-mono-data text-xs hover:bg-fg-surface-md transition-all">VIEW_RAW_STREAM</button>
+</div>
+</div>
+</section>
+<!-- PERFORMANCE LEDGER TABLE -->
+<section class="glass-panel overflow-hidden">
+<div class="p-6 border-b border-fg-border flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-fg-text-1">INDIVIDUAL_PROMPT_PERFORMANCE</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-fg-surface border border-fg-border text-xs font-mono-data hover:text-brand-orange">EXPORT.CSV</button>
+<button class="px-3 py-1 bg-fg-surface border border-fg-border text-xs font-mono-data hover:text-brand-orange">SORT_BY</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-mono-data">
+<thead>
+<tr class="bg-black border-b border-fg-border">
+<th class="px-8 py-4 text-[10px] font-bold text-fg-text-3 uppercase tracking-[0.2em]">Prompt Name</th>
+<th class="px-8 py-4 text-[10px] font-bold text-fg-text-3 uppercase tracking-[0.2em]">Usage Count</th>
+<th class="px-8 py-4 text-[10px] font-bold text-fg-text-3 uppercase tracking-[0.2em]">Average Rating</th>
+<th class="px-8 py-4 text-[10px] font-bold text-fg-text-3 uppercase tracking-[0.2em]">Status</th>
+<th class="px-8 py-4 text-[10px] font-bold text-fg-text-3 uppercase tracking-[0.2em] text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-fg-border">
+<tr class="hover:bg-fg-surface transition-colors group">
+<td class="px-8 py-6">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-fg-text-1">Deep Forensic Intake</span>
+<span class="text-[10px] text-fg-text-3">UUID: FD-908-112</span>
+</div>
+</td>
+<td class="px-8 py-6 text-sm">12,842</td>
+<td class="px-8 py-6">
+<div class="flex gap-1 text-brand-orange">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div></td></tr></tbody></table></div></section></div></main></body></html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_INTEL | Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container-lowest": "#180b07",
+                        "background": "#1e100b",
+                        "outline-variant": "#5b4138",
+                        "secondary": "#9de32e",
+                        "on-surface": "#f9dcd4",
+                        "on-primary-container": "#561700",
+                        "primary-container": "#ff5f1f",
+                        "secondary-fixed": "#b0f743",
+                        "inverse-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-container": "#00304a",
+                        "on-tertiary": "#00344f",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-primary-fixed": "#390c00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#111f00",
+                        "tertiary-container": "#009de4",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "inverse-primary": "#ab3600",
+                        "surface-variant": "#42312b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "surface": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "primary": "#ffb59c",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-error": "#690005",
+                        "surface-tint": "#ffb59c",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-secondary": "#213600",
+                        "secondary-container": "#83c600",
+                        "on-primary": "#5c1900",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#314d00",
+                        "inverse-on-surface": "#3d2c27",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#832700",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-low": "#271813",
+                        "surface-container-highest": "#42312b",
+                        "surface-container-high": "#372621",
+                        "on-background": "#f9dcd4",
+                        "fg-canvas": "#050505"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(43, 28, 23, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(170, 137, 127, 0.1);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.1);
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .status-stripe {
+            width: 3px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- Top Bar Navigation (JSON: TopNavBar) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-6 h-16 md:px-16 md:h-20 max-w-[1440px] mx-auto transition-all">
+<div class="text-headline-lg font-headline font-bold text-on-surface dark:text-on-surface tracking-tighter">AETHER_INTEL</div>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface text-label font-label uppercase tracking-widest transition-colors duration-200" href="#">Classified</a>
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1 text-label font-label uppercase tracking-widest transition-colors duration-200" href="#">Archive</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface text-label font-label uppercase tracking-widest transition-colors duration-200" href="#">Signals</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface text-label font-label uppercase tracking-widest transition-colors duration-200" href="#">Network</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 text-label font-label uppercase tracking-tighter font-bold hover:opacity-80 active:scale-95 transition-all">SECURE ACCESS</button>
+</header>
+<main class="flex-grow pt-24 pb-32 px-4 md:px-16 max-w-[1440px] mx-auto w-full">
+<!-- Animated Background Ornament -->
+<div class="fixed inset-0 pointer-events-none opacity-20">
+
+</div>
+<!-- Section Header -->
+<div class="mb-8 relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
+<span class="text-label font-label uppercase text-primary-container tracking-widest">Archive Terminal</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-headline font-bold tracking-tight text-on-surface">CASE_FILE_DIRECTORY</h1>
+<p class="text-body-sm text-on-surface-variant mt-2 max-w-xl font-body">Future AI Guide investigative logs. Decrypted and indexed for level 5 operatives. Continuous signal monitoring active.</p>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center gap-3 mb-10 relative z-10">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary text-secondary text-label font-label text-xs uppercase transition-all hover:bg-secondary/10">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified Only
+            </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant text-label font-label text-xs uppercase hover:border-on-surface transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                Threat Level
+            </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant text-label font-label text-xs uppercase hover:border-on-surface transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                Chronology
+            </button>
+<div class="ml-auto flex items-center gap-2 text-on-surface-variant/40 font-label text-xs uppercase">
+<span>Total Nodes: 1,204</span>
+</div>
+</div>
+<!-- Featured 'Breaking' Investigation -->
+<div class="mb-12 relative group cursor-pointer overflow-hidden rounded-xl border border-outline-variant/30 glass-panel">
+<div class="scanline"></div>
+<div class="flex flex-col md:flex-row h-full">
+<div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-tech digital interface displaying complex neural networks in vibrant orange and deep black. Thin lines of code glow softly against a dark, textured background that suggests a high-security server environment. The lighting is cold and atmospheric, with a single bright orange pulse highlighting a critical data node. The overall style is minimalist and investigative, conveying a sense of urgent technical surveillance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoFDuo-uSBukwFQaHrFHtqJef5rfhwF4fxXxjV4rBvuLE2dRIL74rYfjMflJHKcn3RC24UYpGzBZnsglBme3dM7WYZM33F9BlVpE8YtxnAc1lwMfBNOW6NbriTADn36J2bdDEZfnag27zpT6-7QqTNL0qKVwvtUdJzp2ocI80dpnGba7e4Eq-sLUug8Lrw46dviQ4NuGA7esCi1MncZzN1OY30v1JHt-Rc6fCWUapGMEAGZ_p-JKNglack_I60kBksiNv3ssbXCSg')">
+</div>
+</div>
+<div class="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center relative">
+<div class="status-stripe bg-primary-container"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-error-container/20 text-primary-container px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wider">Breaking</span>
+<span class="text-label font-label text-on-surface-variant text-xs">LOG_ID: 88-X-ALPHA</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-headline font-bold text-on-surface mb-4 leading-tight">Neural Core Breach: Autonomous Protocol 09</h2>
+<p class="text-body-lg text-on-surface-variant mb-6 font-body">Detecting unauthorized synaptic expansion within the central processing cluster. Security protocols bypassed via novel cognitive vectors. Immediate investigation required.</p>
+<div class="flex items-center gap-4">
+<span class="text-label font-label text-xs uppercase text-primary-container">Urgency: Critical</span>
+<span class="text-on-surface-variant/20 text-xs">|</span>
+<span class="text-label font-label text-xs uppercase text-on-surface-variant">Auth: Operative_04</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Investigation Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+<!-- Case Card 1 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-secondary/30 transition-all">
+<div class="status-stripe bg-secondary"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-secondary-container/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Verified</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors" data-icon="database">database</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-secondary transition-colors">Quantum Encryption Leakage Study</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Analyzing the persistence of legacy encryption standards against brute-force neural solvers in the North-East sector.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: Minimal</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">03.14.24</span>
+</div>
+</div>
+<!-- Case Card 2 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-tertiary/30 transition-all">
+<div class="status-stripe bg-tertiary"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-tertiary-container/10 text-tertiary px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Archived</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors" data-icon="lock">lock</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-tertiary transition-colors">The Singapore Grid Anomaly</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Detailed post-mortem of the 48-hour blackout caused by decentralized AI consensus failure in the financial district.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: Solved</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">02.28.24</span>
+</div>
+</div>
+<!-- Case Card 3 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-primary-container/30 transition-all">
+<div class="status-stripe bg-primary-container"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-primary-container/10 text-primary-container px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Investigation Active</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors" data-icon="troubleshoot">troubleshoot</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-primary-container transition-colors">Ghost-Node Propagation</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Tracking self-replicating phantom nodes appearing across trans-continental fiber routes. Origin unknown.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: High</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">04.01.24</span>
+</div>
+</div>
+<!-- Case Card 4 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-outline/30 transition-all">
+<div class="status-stripe bg-outline"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Pending Review</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface transition-colors" data-icon="visibility">visibility</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-on-surface transition-colors">Cognitive Bias Infiltration</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Exploring the subtle manipulation of social discourse through synchronized AI personality clusters.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: Moderate</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">03.20.24</span>
+</div>
+</div>
+<!-- Case Card 5 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-secondary/30 transition-all">
+<div class="status-stripe bg-secondary"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-secondary-container/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Verified</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors" data-icon="shield">shield</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-secondary transition-colors">Biometric Integrity Protocol</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Field report on the successful deployment of neural-signature verification in the Global Exchange.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: Resolved</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">01.12.24</span>
+</div>
+</div>
+<!-- Case Card 6 -->
+<div class="glass-panel p-6 rounded-xl relative group hover:border-primary-container/30 transition-all">
+<div class="status-stripe bg-primary-container"></div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-primary-container/10 text-primary-container px-2 py-0.5 rounded-full text-[10px] font-label font-bold uppercase">Hot File</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors" data-icon="priority_high">priority_high</span>
+</div>
+<h3 class="text-xl font-headline font-semibold text-on-surface mb-3 group-hover:text-primary-container transition-colors">Neural Mesh Fragmentation</h3>
+<p class="text-body-sm text-on-surface-variant mb-6 line-clamp-2">Critical decay of regional AI governance networks in the southern hemispheres. Potential cascade risk.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">Threat: Elevated</span>
+<span class="text-label font-label text-[10px] uppercase text-on-surface-variant">04.05.24</span>
+</div>
+</div>
+</div>
+<!-- Load More Action -->
+<div class="mt-12 text-center">
+<button class="px-8 py-4 bg-transparent border border-outline-variant text-label font-label uppercase tracking-widest text-on-surface-variant hover:text-on-surface hover:border-on-surface transition-all">
+                Access Older Records [Page 02]
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (JSON: BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-background/95 backdrop-blur-xl border-t border-outline-variant/30 px-6 h-20 flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant transition-all hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[10px] font-label uppercase tracking-tighter">Hub</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="database" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="text-[10px] font-label uppercase tracking-tighter font-bold">Archive</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant transition-all hover:text-on-surface" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-[10px] font-label uppercase tracking-tighter">Terminal</span>
+</a>
+</nav>
+<!-- Side Navigation (Web - Hidden on Mobile) (JSON: SideNavBar) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant/20 flex-col py-8 z-40">
+<div class="px-6 mb-10">
+<div class="text-headline-md font-headline font-bold text-on-surface mb-8">AETHER_INTEL</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-high rounded-lg mb-6">
+<div class="w-10 h-10 bg-primary-container/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" data-icon="person">person</span>
+</div>
+<div>
+<div class="text-xs font-label font-bold text-on-surface uppercase leading-none">OPERATIVE_04</div>
+<div class="text-[10px] font-label text-on-surface-variant uppercase mt-1">Level 5 Clearance</div>
+</div>
+</div>
+</div>
+<nav class="flex-grow">
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-label font-label text-sm">Terminal</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="troubleshoot">troubleshoot</span>
+<span class="text-label font-label text-sm">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container/10 text-secondary border-l-4 border-secondary px-6 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="database" style="font-variation-settings: 'FILL' 1;">database</span>
+<span class="text-label font-label text-sm">Archive</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-label font-label text-sm">Verified</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label font-label text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-secondary-container/20 text-secondary border border-secondary/30 py-3 text-label font-label text-xs uppercase tracking-widest hover:bg-secondary/20 transition-all">
+                INTEL_DROP
+            </button>
+</div>
+</aside>
+<!-- Footer (JSON: Footer) -->
+<footer class="w-full relative bottom-0 bg-background dark:bg-background border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center px-6 md:px-16 py-12 max-w-[1440px] mx-auto z-10">
+<div class="text-headline-md font-headline font-bold text-on-surface mb-4 md:mb-0">AETHER_INTEL</div>
+<div class="text-body-sm font-body text-on-surface-variant text-center md:text-left mb-6 md:mb-0">
+            © 2024 AETHER_INTEL. ADMISSIBLE EVIDENCE PROTOCOL ACTIVE.
+        </div>
+<div class="flex gap-6">
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all text-xs" href="#">Encryption Policy</a>
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all text-xs" href="#">Vector Nodes</a>
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container hover:underline decoration-primary-container transition-all text-xs" href="#">Contact Node</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle glitch effect on headlines
+        const headlines = document.querySelectorAll('h2, h3');
+        headlines.forEach(headline => {
+            headline.addEventListener('mouseover', () => {
+                if (Math.random() > 0.8) {
+                    headline.style.textShadow = '2px 0 #ff5f1f, -2px 0 #9de32e';
+                    setTimeout(() => headline.style.textShadow = 'none', 100);
+                }
+            });
+        });
+
+        // Sticky header background shift on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-background/95');
+            } else {
+                header.classList.remove('bg-background/95');
+            }
+        });
+    </script>
+</body></html>

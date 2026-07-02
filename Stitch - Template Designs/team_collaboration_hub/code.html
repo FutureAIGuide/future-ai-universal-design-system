@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>INTEL_CORE // Collaboration Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-surface {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-top: 3px solid #ff5f1f; }
+        .status-stripe-lime { border-top: 3px solid #9de32e; }
+        .status-stripe-rust { border-top: 3px solid #ff4444; }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+        
+        @keyframes pulse-orange {
+            0%, 100% { opacity: 1; text-shadow: 0 0 8px #ff5f1f; }
+            50% { opacity: 0.6; text-shadow: 0 0 2px #ff5f1f; }
+        }
+        .animate-pulse-orange { animation: pulse-orange 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#00344f",
+                      "surface-dim": "#1e100b",
+                      "secondary-container": "#83c600",
+                      "on-secondary-fixed": "#111f00",
+                      "fg-amber": "#f59e0b",
+                      "tertiary": "#8dcdff",
+                      "surface-container": "#2b1c17",
+                      "on-tertiary-container": "#00304a",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "surface-container-lowest": "#180b07",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#cae6ff",
+                      "secondary": "#9de32e",
+                      "primary-fixed-dim": "#ffb59c",
+                      "secondary-fixed": "#b0f743",
+                      "fg-text-1": "#f5f5f5",
+                      "on-primary-fixed-variant": "#832700",
+                      "secondary-fixed-dim": "#95da24",
+                      "on-primary": "#5c1900",
+                      "on-tertiary-fixed": "#001e30",
+                      "on-secondary": "#213600",
+                      "surface-container-high": "#372621",
+                      "surface-container-highest": "#42312b",
+                      "fg-neutral-85": "#1a1a1a",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "outline-variant": "#5b4138",
+                      "primary-container": "#ff5f1f",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "on-primary-fixed": "#390c00",
+                      "surface": "#1e100b",
+                      "on-secondary-container": "#314d00",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "fg-orange-lt": "#ff7a45",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#ab3600",
+                      "on-error-container": "#ffdad6",
+                      "fg-orange-dk": "#d9480f",
+                      "error-container": "#93000a",
+                      "outline": "#aa897f",
+                      "surface-bright": "#47352f",
+                      "surface-tint": "#ffb59c",
+                      "on-primary-container": "#561700",
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "background": "#1e100b",
+                      "fg-canvas": "#050505",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "on-surface": "#f9dcd4",
+                      "primary-fixed": "#ffdbcf",
+                      "on-surface-variant": "#e3bfb3",
+                      "on-background": "#f9dcd4",
+                      "primary": "#ffb59c",
+                      "inverse-on-surface": "#3d2c27",
+                      "fg-rust": "#ff4444",
+                      "surface-container-low": "#271813",
+                      "inverse-surface": "#f9dcd4",
+                      "tertiary-container": "#009de4",
+                      "surface-variant": "#42312b",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "4": "16px",
+                      "1": "4px",
+                      "16": "64px",
+                      "20": "80px",
+                      "8": "32px",
+                      "6": "24px",
+                      "2": "8px",
+                      "3": "12px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Space Grotesk"],
+                      "display-lg": ["Space Grotesk"],
+                      "mono-data": ["JetBrains Mono"],
+                      "section-label": ["JetBrains Mono"],
+                      "headline-lg": ["Space Grotesk"],
+                      "display-xl": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-md": ["Space Grotesk"],
+                      "display-md": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen bg-fg-canvas overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface/80 backdrop-blur-xl border-b border-fg-border shadow-orange/10 flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<span class="font-mono-data text-mono-data text-fg-orange-lt uppercase tracking-widest">INTEL_CORE_v1.0</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex items-center gap-6">
+<a class="font-section-label text-section-label uppercase text-fg-text-1 hover:text-fg-orange-lt transition-colors" href="#">DASHBOARD</a>
+<a class="font-section-label text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">NODES</a>
+<a class="font-section-label text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">RESOURCES</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-fg-orange-lt transition-colors" data-icon="sensors">sensors</span>
+<div class="w-8 h-8 rounded-full border border-fg-border flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-fg-surface-md" data-alt="A macro close-up of a high-tech iris scanner with intricate orange and lime glowing patterns reflecting off a human eye, set against a dark, cinematic background in an intelligence agency office." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6bhkInRdeq7w1pZQotBxAK-wvrUKsQ7FCuZJM6sRCEK1cJ-RT9yvclYwGg5CkHGPMqkqiu0gsFzdmjMU25pVJqCMy9TtOTG2DiyQY9M9Qk7E9eRp8p7EkEpA45zkKhxgnFtujnfIHhchmsOwXfnp4SQNd2-a33zpLTmnCW9IvCLv1kvDOAJ1Y3zAvHePrbwwYXhjWPcwsx_UqwQVi6zgtUn5L0F3pBspr7a4TslZOFoovjGYMl7gD4LO8P4UTO1-dcdU3aUr3WxI')"></div>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-4 md:px-16 max-w-7xl mx-auto w-full">
+<!-- Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- SECTION 1: Shared Activity Feed (Left Column) -->
+<div class="lg:col-span-4 flex flex-col gap-6 h-full">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-fg-text-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-fg-orange-lt" data-icon="hub">hub</span>
+                        Shared Activity Feed
+                    </h2>
+<span class="font-mono-data text-[10px] text-fg-text-3 border border-fg-border px-2 py-0.5 rounded uppercase">LIVE_SYNC</span>
+</div>
+<div class="glass-surface p-4 flex flex-col gap-4 overflow-hidden max-h-[600px] lg:max-h-none">
+<div class="flex flex-col gap-6 custom-scrollbar overflow-y-auto">
+<!-- Feed Item 1 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-fg-orange-lt mt-1.5 animate-pulse-orange"></div>
+<div class="w-px h-full bg-fg-border mt-2"></div>
+</div>
+<div class="flex flex-col pb-6 border-b border-fg-border/30 w-full group-last:border-b-0">
+<span class="font-mono-data text-[12px] text-fg-text-3 mb-1">2024-05-24 14:02:11 // ID:EV-0941</span>
+<h3 class="font-headline-md text-headline-md-mobile text-fg-text-1">Evidence Uploaded</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 mt-1">Fragmentary data packet from Northern Grid intercept. Size: 4.2TB.</p>
+<div class="mt-2 flex gap-2">
+<span class="font-mono-data text-[11px] bg-fg-surface-md border border-fg-border px-2 py-1 text-secondary uppercase">ENC_VERIFIED</span>
+</div>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-secondary mt-1.5 shadow-lime/20"></div>
+<div class="w-px h-full bg-fg-border mt-2"></div>
+</div>
+<div class="flex flex-col pb-6 border-b border-fg-border/30 w-full group-last:border-b-0">
+<span class="font-mono-data text-[12px] text-fg-text-3 mb-1">2024-05-24 13:45:55 // ID:SRC-4420</span>
+<h3 class="font-headline-md text-headline-md-mobile text-fg-text-1">Source Verified</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 mt-1">Informant 'Echo' biometric match confirmed via Interpol database.</p>
+</div>
+</div>
+<!-- Feed Item 3 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-fg-amber mt-1.5"></div>
+<div class="w-px h-full bg-fg-border mt-2"></div>
+</div>
+<div class="flex flex-col pb-6 border-b border-fg-border/30 w-full group-last:border-b-0">
+<span class="font-mono-data text-[12px] text-fg-text-3 mb-1">2024-05-24 12:10:02 // ID:PRO-0019</span>
+<h3 class="font-headline-md text-headline-md-mobile text-fg-text-1">Protocol Updated</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 mt-1">Encryption baseline moved to v9.4 post-breach analysis.</p>
+</div>
+</div>
+<!-- Feed Item 4 -->
+<div class="flex gap-4 group opacity-60">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-fg-text-3 mt-1.5"></div>
+<div class="w-px h-full bg-fg-border mt-2"></div>
+</div>
+<div class="flex flex-col pb-6 border-b border-fg-border/30 w-full group-last:border-b-0">
+<span class="font-mono-data text-[12px] text-fg-text-3 mb-1">2024-05-24 11:55:20 // ID:LOG-2211</span>
+<h3 class="font-headline-md text-headline-md-mobile text-fg-text-1">Access Revoked</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2 mt-1">User agent 'Observer_X' cleared from main terminal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Assigned Tasks (Middle Column) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-fg-text-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-fg-orange-lt" data-icon="assignment_turned_in">assignment_turned_in</span>
+                        Assigned Tasks
+                    </h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Task Card 1 -->
+<div class="glass-surface status-stripe-orange p-6 hover:bg-fg-surface-md transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[11px] text-fg-rust uppercase tracking-tighter bg-fg-rust/10 px-2 py-0.5 rounded">High Priority</span>
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-fg-orange-lt transition-colors" data-icon="expand_more">expand_more</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-fg-text-1 mb-2">Verify Neural Leak Source</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2">Tracing back the cryptographic breadcrumbs from the May 20th perimeter breach. Requires DeepSearch level 4 access.</p>
+<div class="mt-6 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border border-fg-border bg-fg-surface" data-alt="Close-up of a diverse intelligence officer with a focused expression, wearing a headset, illuminated by the cold blue light of multiple monitors in a dark control center." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXBiFjHyXPchoyS5aIieNEFjqqp47JEQFfmbrvyrNRiPT3a5WjadRKiBdG9yhcrmWYDr9JsL5mSs8KdtGU-kakTDANuZqq65DZue8Wm08vWFxuOcPVVKj4WJYxBWg67WOABniXolJzAaLtcIzh6GMLmMSrnStqTCei6ESGCIdgeYROlwCvB030yyR5hpEOwCuZBpYqKG7RIOoFtSA95nPewbCZYsCJJjceWSJcZ1RBGusxGsVa1drOyBTzoe21Z4V9BJaRtBUMs2w')"></div>
+<div class="w-8 h-8 rounded-full border border-fg-border bg-fg-surface" data-alt="Portrait of a cyber security specialist with sharp features, partially obscured by shadows and the lime green reflection of terminal code on their face." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRDz1S04VGU28902cF7wIcgoIuCGAGGeX6BfhI-_nkczcWfXuqgY-Ev6H18QdEXUK7KHt0nWJlvI6o1T3K4-iCAvFGrUC7nKknyKXQ4XfPY9H8d_GsZN-lgcVYHtJjaqT8W0aw0SK5nzk2fiW27hENNakEyAYDk5tPPRVk8iqLpyzZbdyArcVjIoABxT7ydZWvuKpBwLTaMIrWS7qYmyDfPXOZkweIm9AYhaBqilPx2Jadn6nKSWO4lm9P9snVJ7e1kKv8H3KR3F0')"></div>
+</div>
+<button class="font-section-label text-section-label uppercase py-1 px-4 border border-fg-orange-lt/40 text-fg-orange-lt hover:bg-fg-orange-lt hover:text-black transition-all">INITIALIZE</button>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="glass-surface status-stripe-lime p-6 hover:bg-fg-surface-md transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[11px] text-secondary uppercase tracking-tighter bg-secondary/10 px-2 py-0.5 rounded">In Progress</span>
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-secondary transition-colors" data-icon="pending">pending</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-fg-text-1 mb-2">Audit FTC Compliance Report</h3>
+<p class="font-body-sm text-body-sm text-fg-text-2">Standard screening of internal operations against federal guidelines. ETA: 12 Hours.</p>
+<div class="mt-6">
+<div class="w-full bg-fg-border h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 65%;"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-mono-data text-[10px] text-fg-text-3">65% COMPLETE</span>
+<span class="font-mono-data text-[10px] text-fg-text-3">7/11 NODES AUDITED</span>
+</div>
+</div>
+</div>
+<!-- Task Card 3 -->
+<div class="glass-surface border-t-0 p-6 opacity-80 hover:opacity-100 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[11px] text-fg-text-3 uppercase tracking-tighter bg-fg-surface-md px-2 py-0.5 rounded">Backlog</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-fg-text-1 mb-2">Review Server Log Artifacts</h3>
+<p class="font-body-sm text-body-sm text-fg-text-3">Post-hoc analysis of non-critical signal noise from Sector 7.</p>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Team Communications (Right Column) -->
+<div class="lg:col-span-3 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-fg-text-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-fg-orange-lt" data-icon="encrypted">encrypted</span>
+                        Team Comms
+                    </h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Message 1 -->
+<div class="glass-surface p-4 flex gap-4 hover:border-secondary/30 transition-colors cursor-pointer group">
+<div class="relative flex-shrink-0">
+<div class="w-12 h-12 rounded border border-fg-border bg-fg-surface-md" data-alt="A shadowy silhouette of a person against a bright, hazy office window in a futuristic, high-contrast black and white style, typical of a noir intelligence setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUrdCX9aZbKYViVBDPwODscjHDt2HY0rMiGwUuKBTsv-Hiirq2LnY1iJypRNwjFYqdMiHqwAs5klOu1ugNaEHXhAyRdcbR7MYEMPWAV_sSyM2OmBB23NC2nTOBA6xRzzK3ihIwuEdPTr8F4CyDfBKaheNs3O29Qi4FHPImLBz3MwRMkRU7L5-lspBedykBw9aqqPhJdoRxwv7vJcR8yReY7wHQda4JO6ElqMWEBan09mSu4Wc0VvJctBTLswlw-ZGrH0foLue_yqw')"></div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-fg-canvas"></div>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[14px] text-fg-text-1 truncate">Agent K</span>
+<span class="font-mono-data text-[10px] text-secondary bg-secondary/10 px-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="lock">lock</span>
+                                    SECURE
+                                </span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-3 truncate group-hover:text-fg-text-2">The drop is scheduled for 0300. Bring the keys.</p>
+<span class="font-mono-data text-[10px] text-fg-text-3 mt-2">2m ago</span>
+</div>
+</div>
+<!-- Message 2 -->
+<div class="glass-surface p-4 flex gap-4 hover:border-secondary/30 transition-colors cursor-pointer group">
+<div class="relative flex-shrink-0">
+<div class="w-12 h-12 rounded border border-fg-border bg-fg-surface-md" data-alt="A top-down view of a sophisticated workspace with a mechanical keyboard glowing in soft orange, a coffee mug, and a digital tablet showing complex data visualizations in a dark room." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9dK3059cOJT0HIGfg_MNchGgpAVtMA6ZWLAk07kN_DyvkjVE4waYG3cDqyJzkwrRJUaoAcB5uWMt08PnZatCZKsSrdDzXOLfdrozRlzSgKSoDTTdmHxRdHdMDl7RhNyB9ihlYpuHlpf7KuDOQb5Kj_7X99bdiDED4R3-27GyLsyrOGe8OpRpUqSKOxk891MZN84Hj85SIJChrRwd9VhwwH2oSFfkgq6Is048W3sSXD6_hQSucm4cSGzi7wRf-XMw3Qb8t3ouSWK8')"></div>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[14px] text-fg-text-1 truncate">Lead Tech [S]</span>
+<span class="font-mono-data text-[10px] text-secondary bg-secondary/10 px-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="lock">lock</span>
+                                    SECURE
+                                </span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-3 truncate group-hover:text-fg-text-2">Server audit 90% complete. No anomalies detected so far.</p>
+<span class="font-mono-data text-[10px] text-fg-text-3 mt-2">14m ago</span>
+</div>
+</div>
+<!-- Message 3 -->
+<div class="glass-surface p-4 flex gap-4 hover:border-fg-rust/30 transition-colors cursor-pointer group">
+<div class="relative flex-shrink-0">
+<div class="w-12 h-12 rounded border border-fg-border bg-fg-surface-md" data-alt="Close-up of a digital display showing a blurred world map with red and green points of interest, reflected in a piece of dark glass with high-contrast cinematic lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDOujN4eXOrlHadD1LeOqS737Vs86V_33XUqxFGyExzmfcNV9CqWudnIco2l45la3VpLp-NFbMgkk7nuM7L35d3AG4xVKbXfWAcA-7qB1qEFpbszGKuG8xYnGvg7K1WbVxak-iDJdok4MQJvJXW9KSrjgKQRVlaTmHPmhgxzbcgTt5NDmU-NUXZ075rIL58eRY5KiutDBHbpwG-V6nv-o-zujmdspICwSdyCh976WlQuGsmY3qEZCYJ9s2HREXsVoPP1W6wkON3jw8')"></div>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[14px] text-fg-text-1 truncate">Unknown</span>
+<span class="font-mono-data text-[10px] text-fg-rust bg-fg-rust/10 px-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="warning">warning</span>
+                                    UNSTABLE
+                                </span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-3 truncate group-hover:text-fg-text-2">Signal originating from outside the mesh. Caution.</p>
+<span class="font-mono-data text-[10px] text-fg-text-3 mt-2">1h ago</span>
+</div>
+</div>
+<button class="w-full mt-4 glass-surface py-3 flex items-center justify-center gap-2 font-section-label text-section-label uppercase hover:bg-fg-surface-md transition-all active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_comment">add_comment</span>
+                        New Transmission
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-fg-surface/90 backdrop-blur-2xl border-t border-fg-border shadow-lime/5 flex justify-around items-center h-20 px-6 pb-4 w-full">
+<a class="flex flex-col items-center justify-center text-secondary bg-secondary/10 rounded-xl py-1 px-4 border border-secondary/20 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-section-label text-section-label uppercase mt-1">FEED</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 opacity-60 hover:text-fg-text-1 hover:opacity-100 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-section-label text-section-label uppercase mt-1">TASKS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 opacity-60 hover:text-fg-text-1 hover:opacity-100 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="encrypted" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+<span class="font-section-label text-section-label uppercase mt-1">SECURE</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Dashboard) -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-lg shadow-orange/30 flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('.glass-surface').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+        
+        // Simple console log to mimic technical environment
+        console.log("%c[INTEL_CORE] %cSYSTEM_READY :: BOOT_SEQUENCE_COMPLETE", "color: #ff5f1f; font-weight: bold", "color: #9de32e");
+    </script>
+</body></html>

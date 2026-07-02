@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE | SECURE TRANSMISSION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffb59c, transparent);
+            position: absolute;
+            top: -2px;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .glow-orange {
+            box-shadow: 0 0 15px rgba(255, 181, 156, 0.2);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: inset 0 0 10px rgba(255, 181, 156, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcf",
+                        "tertiary": "#8dcdff",
+                        "surface-container": "#2b1c17",
+                        "surface-tint": "#ffb59c",
+                        "primary-container": "#ff5f1f",
+                        "on-tertiary-container": "#00304a",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "inverse-on-surface": "#3d2c27",
+                        "primary-fixed-dim": "#ffb59c",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "surface-container-high": "#372621",
+                        "outline": "#aa897f",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "secondary-container": "#83c600",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#95da24",
+                        "primary": "#ffb59c",
+                        "on-background": "#f9dcd4",
+                        "on-surface-variant": "#e3bfb3",
+                        "inverse-surface": "#f9dcd4",
+                        "secondary": "#9de32e",
+                        "background": "#1e100b",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "on-primary-fixed": "#390c00",
+                        "on-primary-container": "#561700",
+                        "tertiary-container": "#009de4",
+                        "fg-orange-lt": "#ff7a45",
+                        "secondary-fixed": "#b0f743",
+                        "fg-amber": "#f59e0b",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-secondary": "#213600",
+                        "surface-dim": "#1e100b",
+                        "on-secondary-fixed": "#111f00",
+                        "surface-variant": "#42312b",
+                        "fg-neutral-85": "#1a1a1a",
+                        "on-primary-fixed-variant": "#832700",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "on-primary": "#5c1900",
+                        "fg-rust": "#ff4444",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#314d00",
+                        "on-error": "#690005",
+                        "fg-text-1": "#f5f5f5",
+                        "surface-container-lowest": "#180b07",
+                        "surface-bright": "#47352f",
+                        "fg-orange-dk": "#d9480f",
+                        "surface-container-low": "#271813",
+                        "outline-variant": "#5b4138",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "error-container": "#93000a",
+                        "surface": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "inverse-primary": "#ab3600",
+                        "on-surface": "#f9dcd4",
+                        "on-tertiary": "#00344f",
+                        "surface-container-highest": "#42312b",
+                        "fg-canvas": "#050505"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "8": "32px",
+                        "6": "24px",
+                        "3": "12px",
+                        "12": "48px",
+                        "16": "64px",
+                        "4": "16px",
+                        "2": "8px",
+                        "1": "4px",
+                        "20": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "display-md": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-lg": ["Space Grotesk"],
+                        "section-label": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-sm min-h-screen selection:bg-primary selection:text-black">
+<!-- Top Navigation -->
+<header class="bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-4 py-4 mx-auto max-w-7xl">
+<span class="text-headline-lg font-headline-lg font-bold tracking-tighter text-fg-text-1">FUTURE AI GUIDE</span>
+<button class="text-fg-text-1" id="mobile-menu-trigger">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="relative px-4 pt-8 pb-20 overflow-hidden">
+<!-- Atmospheric Background Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-40 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Section Header: Status Indication -->
+<section class="mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-mono-data text-section-label text-secondary uppercase">Network Access Granted</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile leading-tight mb-2">SECURE TIP SUBMISSION</h1>
+<p class="font-body-sm text-fg-text-2 max-w-sm">Establish a direct encrypted channel with the Central Intelligence Node. Your metadata is stripped upon initialization.</p>
+</section>
+<!-- Access Node Map (Physical Location) -->
+<section class="mb-12">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-fg-border-md bg-fg-surface-md group">
+<div class="scan-line"></div>
+<div class="absolute inset-0 grayscale opacity-40 mix-blend-screen bg-cover bg-center" data-alt="A detailed, high-contrast satellite view of a metropolitan area at night, rendered in a cybernetic green and amber color palette. The map features glowing network nodes and data pathways connecting various points of interest, styled like an intelligence agency interface. The aesthetic is cold, technical, and investigative, consistent with a high-security AI monitoring platform." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvZTxvWYlD8iOzQ8reF_nJpQZcPEZznltRF9OAS0sX-NMiV1Ov0HkyiF4a9iRBM1AVUHmxzyKMAuo1CNpm3VX3zpOZgC3l7ZsaVPlXW1KyAu8PkW8DWLbXtPgPSsxy0eOqag8oUf-S3S5YUWJ8aQSytZ0t7iaUd7_TA-na8IbwD8gF0eTO-cgQJ-kYYE13KSeMrejjZEXq5Q9XMkDdwpydO36kFboWsEFDH7HIvGWaj7tJkE3DRbnAaOfPmWnYj9_Utltb9ioegPg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-fg-canvas via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<p class="font-mono-data text-section-label text-fg-text-3 uppercase tracking-widest mb-1">Current Physical Node</p>
+<p class="font-mono-data text-headline-md text-fg-text-1">SVALBARD_STORAGE.VAULT</p>
+</div>
+<!-- Tactical Map Overlay -->
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<div class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg border-fg-border-md">
+<span class="material-symbols-outlined text-primary">my_location</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Secure Form -->
+<section class="space-y-8">
+<div class="glass-panel p-6 rounded-xl border-fg-border-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary shadow-orange"></div>
+<form class="space-y-6">
+<!-- Alias Field -->
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-3 uppercase tracking-[0.2em]" for="alias">
+                            [01] Transmission Alias
+                        </label>
+<input class="w-full bg-black border border-fg-border px-4 py-3 text-fg-text-1 font-mono-data placeholder:text-fg-text-3 focus:border-primary transition-colors rounded-none" id="alias" placeholder="GHOST_USER_77" type="text"/>
+</div>
+<!-- Sensitivity Level -->
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-3 uppercase tracking-[0.2em]">
+                            [02] Sensitivity Level
+                        </label>
+<div class="grid grid-cols-2 gap-2">
+<button class="border border-fg-border-md py-3 text-section-label font-mono-data uppercase hover:bg-fg-surface transition-all text-fg-text-2 bg-fg-surface-md" type="button">Classified</button>
+<button class="border border-primary py-3 text-section-label font-mono-data uppercase text-primary bg-primary/5" type="button">Top Secret</button>
+</div>
+</div>
+<!-- Transmission Data -->
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-3 uppercase tracking-[0.2em]" for="intel">
+                            [03] Intelligence Payload
+                        </label>
+<textarea class="w-full bg-black border border-fg-border px-4 py-3 text-fg-text-1 font-mono-data placeholder:text-fg-text-3 focus:border-primary transition-colors rounded-none resize-none" id="intel" placeholder="Enter encrypted tip data or investigative leads..." rows="5"></textarea>
+</div>
+<!-- Security Verification -->
+<div class="flex items-start gap-3 p-4 bg-primary/5 border border-primary/10 rounded">
+<input class="mt-1 bg-black border-fg-border text-primary focus:ring-primary rounded-none" id="verify" type="checkbox"/>
+<label class="font-body-sm text-fg-text-2 text-[11px] leading-tight" for="verify">
+                            I understand that this transmission is permanent and that evidence tampering is punishable under Article 14 of the AI Governance Accord.
+                        </label>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary py-4 text-black font-headline-md font-bold tracking-tight flex items-center justify-center gap-2 hover:bg-fg-orange-lt active:scale-95 transition-all shadow-orange group" type="submit">
+                        INITIALIZE TRANSMISSION
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</form>
+</div>
+<!-- Evidence Metadata Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 rounded-lg">
+<p class="font-mono-data text-section-label text-fg-text-3 mb-1">LATENCY</p>
+<p class="font-mono-data text-headline-md text-secondary">0.12ms</p>
+</div>
+<div class="glass-panel p-4 rounded-lg">
+<p class="font-mono-data text-section-label text-fg-text-3 mb-1">ENCRYPTION</p>
+<p class="font-mono-data text-headline-md text-fg-text-1">AES-512</p>
+</div>
+</div>
+</section>
+<!-- Technical Footer -->
+<footer class="mt-20 pt-10 border-t border-fg-border-md space-y-8">
+<div class="flex flex-col gap-6">
+<span class="text-headline-md font-headline-md text-fg-text-2">FUTURE AI GUIDE</span>
+<nav class="flex flex-wrap gap-x-6 gap-y-3">
+<a class="text-mono-data font-mono-data text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4" href="#">TERMINOLOGY</a>
+<a class="text-mono-data font-mono-data text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4" href="#">NETWORK STATUS</a>
+<a class="text-mono-data font-mono-data text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4" href="#">API ACCESS</a>
+<a class="text-mono-data font-mono-data text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4" href="#">ADMISSIBLE EVIDENCE</a>
+</nav>
+</div>
+<div class="bg-fg-surface p-4 border border-fg-border">
+<p class="text-mono-data font-mono-data text-[10px] text-fg-text-3 leading-relaxed">
+                    © 2024 FUTURE AI GUIDE. INTERNAL INTELLIGENCE NETWORK. UNAUTHORIZED ACCESS IS LOGGED AND PROSECUTED. ALL DATA PACKETS SUBJECT TO DEEP PACKET INSPECTION BY NEURAL ARBITERS.
+                </p>
+</div>
+</footer>
+</main>
+<!-- Interactive Layer for Scan Effect -->
+<script>
+        // Simple micro-interaction for status toggle
+        const sensitivityBtns = document.querySelectorAll('button[type="button"]');
+        sensitivityBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sensitivityBtns.forEach(b => {
+                    b.classList.remove('border-primary', 'text-primary', 'bg-primary/5');
+                    b.classList.add('border-fg-border-md', 'text-fg-text-2', 'bg-fg-surface-md');
+                });
+                btn.classList.add('border-primary', 'text-primary', 'bg-primary/5');
+                btn.classList.remove('border-fg-border-md', 'text-fg-text-2', 'bg-fg-surface-md');
+            });
+        });
+
+        // Simulation of input activity
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label').classList.replace('text-fg-text-3', 'text-primary');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label').classList.replace('text-primary', 'text-fg-text-3');
+            });
+        });
+    </script>
+</body></html>

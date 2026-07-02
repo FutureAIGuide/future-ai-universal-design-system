@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE | Knowledge Base</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#ffb59c",
+                    "on-error-container": "#ffdad6",
+                    "fg-neutral-85": "#1a1a1a",
+                    "secondary-fixed": "#b0f743",
+                    "surface-container-high": "#372621",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "inverse-surface": "#f9dcd4",
+                    "tertiary-fixed": "#cae6ff",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "fg-canvas": "#050505",
+                    "on-tertiary-container": "#00304a",
+                    "surface": "#1e100b",
+                    "secondary-container": "#83c600",
+                    "primary-fixed": "#ffdbcf",
+                    "surface-variant": "#42312b",
+                    "on-primary-fixed": "#390c00",
+                    "on-surface": "#f9dcd4",
+                    "on-surface-variant": "#e3bfb3",
+                    "on-tertiary-fixed": "#001e30",
+                    "outline": "#aa897f",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "secondary-fixed-dim": "#95da24",
+                    "primary-fixed-dim": "#ffb59c",
+                    "fg-orange-lt": "#ff7a45",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "surface-dim": "#1e100b",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "surface-tint": "#ffb59c",
+                    "surface-container-lowest": "#180b07",
+                    "background": "#1e100b",
+                    "on-tertiary": "#00344f",
+                    "surface-container": "#2b1c17",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#271813",
+                    "inverse-primary": "#ab3600",
+                    "on-primary-container": "#561700",
+                    "on-secondary": "#213600",
+                    "tertiary-container": "#009de4",
+                    "surface-bright": "#47352f",
+                    "fg-orange-dk": "#d9480f",
+                    "fg-text-1": "#f5f5f5",
+                    "primary-container": "#ff5f1f",
+                    "on-background": "#f9dcd4",
+                    "on-secondary-fixed": "#111f00",
+                    "secondary": "#9de32e",
+                    "fg-rust": "#ff4444",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "on-primary-fixed-variant": "#832700",
+                    "surface-container-highest": "#42312b",
+                    "on-secondary-container": "#314d00",
+                    "inverse-on-surface": "#3d2c27",
+                    "error-container": "#93000a",
+                    "fg-amber": "#f59e0b",
+                    "outline-variant": "#5b4138",
+                    "on-primary": "#5c1900",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "on-error": "#690005",
+                    "tertiary": "#8dcdff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "3": "12px",
+                    "12": "48px",
+                    "6": "24px",
+                    "1": "4px",
+                    "4": "16px",
+                    "8": "32px",
+                    "2": "8px",
+                    "16": "64px",
+                    "20": "80px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "display-md": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "section-label": ["JetBrains Mono"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #050505; color: #f5f5f5; }
+        .glass-panel { backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); background-color: rgba(255, 255, 255, 0.04); }
+        .status-verified { border-top: 3px solid #9de32e; }
+        .status-review { border-top: 3px solid #f59e0b; }
+        .status-investigating { border-top: 3px solid #ff4444; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        input[type="range"] { accent-color: #ff7a45; }
+        .custom-checkbox:checked { background-color: #ff7a45; border-color: #ff7a45; }
+    </style>
+</head>
+<body class="font-body-sm text-body-sm selection:bg-fg-orange-lt selection:text-fg-canvas overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border shadow-orange/10 flex justify-between items-center px-16 h-20 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg tracking-tighter text-fg-orange-lt uppercase">FUTURE AI GUIDE</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-mono-data hover:text-fg-text-1 transition-colors duration-300" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data hover:text-fg-text-1 transition-colors duration-300" href="#">NETWORK</a>
+<a class="text-fg-text-1 border-b border-fg-orange-lt font-mono-data" href="#">ARCHIVE</a>
+<a class="text-fg-text-3 font-mono-data hover:text-fg-text-1 transition-colors duration-300" href="#">ASSETS</a>
+</nav>
+</div>
+<div class="flex-1 max-w-xl mx-8 relative">
+<div class="flex items-center bg-black border border-fg-border px-4 py-2 focus-within:border-fg-orange-lt transition-all">
+<span class="material-symbols-outlined text-fg-text-3 mr-3" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-fg-text-1 font-mono-data w-full uppercase" placeholder="SEARCH ARCHIVE..." type="text" value="NEURAL_MAPPING"/>
+<span class="text-fg-text-3 text-[10px] font-mono-data ml-2 opacity-50">[CMD+K]</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-fg-text-3 hover:text-fg-orange-lt transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-fg-text-3 hover:text-fg-orange-lt transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full border border-fg-border bg-fg-surface-md overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A futuristic AI agent profile portrait, high-contrast cinematic lighting with subtle orange rim light. The agent has a sleek, tech-augmented appearance, rendered in a dark, investigative aesthetic consistent with high-end security interfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJDEA1kSteyzTpqXB6oVumHR6joNmAU0ysnkCo4w_R4ZbDlayzM1P8mk54cZ6WQbG880FL_P0i3toxhR6pKTK_T4J-VQer4PYFdrx4KCPShZEFn_jX41LJBbBr1HAVG9RfYR_T_l3Y5XlAMKhjO_2dOc2t0gLHnBJ-yYRz0jrFrZFt26gqrUy8xGGbdDyzM-KSVFP6j-Uw-0PyEYHh5mkCVye_ZwzcoR0QH0XR0RWs25p2mJOYzAKXfOlL7BfUUQRGhqQ5AiEVzLg"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 pt-20 overflow-hidden">
+<!-- SideNavBar / Filter Panel -->
+<aside class="fixed left-0 top-20 h-full w-64 bg-fg-canvas/40 backdrop-blur-md border-r border-fg-border flex flex-col gap-8 py-8 px-6 no-scrollbar overflow-y-auto">
+<div>
+<h3 class="font-mono-data text-fg-orange-lt text-section-label tracking-[0.2em] mb-4">QUERY_PARAMETERS</h3>
+<!-- Section 1: Classification -->
+<div class="mb-8">
+<p class="font-mono-data text-fg-text-3 text-[10px] mb-3 uppercase opacity-50">Classification</p>
+<div class="flex flex-col gap-3">
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="form-checkbox bg-black border-fg-border text-fg-orange-lt focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Verified Access</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="form-checkbox bg-black border-fg-border text-fg-orange-lt focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Under Review</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="form-checkbox bg-black border-fg-border text-fg-orange-lt focus:ring-0 rounded-sm" type="checkbox"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Investigating</span>
+</label>
+</div>
+</div>
+<!-- Section 2: Domains -->
+<div class="mb-8">
+<p class="font-mono-data text-fg-text-3 text-[10px] mb-3 uppercase opacity-50">Domains</p>
+<div class="flex flex-col gap-3">
+<label class="flex items-center group cursor-pointer">
+<input checked="" class="form-radio bg-black border-fg-border text-fg-orange-lt focus:ring-0" name="domain" type="radio"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Neural Security</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="form-radio bg-black border-fg-border text-fg-orange-lt focus:ring-0" name="domain" type="radio"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Core Protocols</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="form-radio bg-black border-fg-border text-fg-orange-lt focus:ring-0" name="domain" type="radio"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">LLM Frameworks</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<input class="form-radio bg-black border-fg-border text-fg-orange-lt focus:ring-0" name="domain" type="radio"/>
+<span class="ml-3 font-mono-data text-fg-text-2 group-hover:text-fg-text-1 transition-colors">Forensic Analysis</span>
+</label>
+</div>
+</div>
+<!-- Section 3: Temporal -->
+<div class="mb-8">
+<p class="font-mono-data text-fg-text-3 text-[10px] mb-3 uppercase opacity-50">Temporal Range</p>
+<div class="px-1">
+<input class="w-full h-1 bg-fg-border rounded-lg appearance-none cursor-pointer" type="range"/>
+<div class="flex justify-between mt-2 font-mono-data text-[10px] text-fg-text-3">
+<span>2024.Q1</span>
+<span>PRESENT</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 border border-fg-orange-lt/40 text-fg-orange-lt font-mono-data text-xs hover:bg-fg-orange-lt hover:text-black transition-all duration-200">
+                    RESET ALL PARAMETERS
+                </button>
+</div>
+<div class="mt-auto border-t border-fg-border pt-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#b0f743]"></div>
+<span class="font-mono-data text-[10px] text-secondary">SYSTEM ACTIVE</span>
+</div>
+<p class="font-mono-data text-[10px] text-fg-text-3">LATENCY: 14MS</p>
+<p class="font-mono-data text-[10px] text-fg-text-3">NODES: 1,402</p>
+</div>
+</aside>
+<!-- Results Feed -->
+<section class="flex-1 ml-64 p-8 overflow-y-auto no-scrollbar">
+<!-- Results Header -->
+<div class="flex justify-between items-end mb-12 border-b border-fg-border pb-6">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-fg-text-1">128 ENTRIES MATCHING: "NEURAL_MAPPING"</h1>
+<p class="font-mono-data text-fg-text-3 text-xs mt-1">QUERY_LATENCY: 0.042s // SOURCE: GLOBAL_ARCHIVE</p>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-mono-data text-xs text-fg-text-3">SORT_BY:</span>
+<div class="flex items-center gap-2 bg-fg-surface-md px-3 py-1.5 border border-fg-border cursor-pointer hover:border-fg-orange-lt transition-colors">
+<span class="font-mono-data text-xs">RELEVANCE_SCORE</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Result Card 1 -->
+<article class="glass-panel status-verified p-6 hover:bg-fg-surface-md transition-all group relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col gap-1">
+<span class="font-mono-data text-[10px] text-fg-orange-lt opacity-60">REF_ID: 8842-DELTA</span>
+<h2 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-fg-orange-lt transition-colors">DEEP_FORENSIC_ARCHITECTURE_V4.0</h2>
+</div>
+<span class="px-3 py-1 bg-secondary/10 border border-secondary/20 text-secondary font-mono-data text-[10px] rounded-full">VERIFIED</span>
+</div>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-6 max-w-3xl">
+                        Detailed technical report on sub-millisecond signal decryption and federated node integrity. Establishes the standard for admissible neural evidence.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[TECHNICAL_REPORT]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[L4_SECURE]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[ARCHIVE_ALPHA]</span>
+</div>
+<div class="absolute right-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-2 text-fg-orange-lt font-mono-data text-xs">
+                            OPEN_PROTOCOL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Result Card 2 -->
+<article class="glass-panel status-review p-6 hover:bg-fg-surface-md transition-all group relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col gap-1">
+<span class="font-mono-data text-[10px] text-fg-orange-lt opacity-60">REF_ID: 9021-OMNI</span>
+<h2 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-fg-orange-lt transition-colors">ETHICAL_GUARDRAIL_PROTOCOLS</h2>
+</div>
+<span class="px-3 py-1 bg-fg-amber/10 border border-fg-amber/20 text-fg-amber font-mono-data text-[10px] rounded-full">UNDER_REVIEW</span>
+</div>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-6 max-w-3xl">
+                        Implementation logic for kernel-level constraints within multi-modal environments to mitigate adversarial hallucination risks.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[OPERATIONAL_GUIDE]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[CORE_OS]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[V2_REF]</span>
+</div>
+<div class="absolute right-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-2 text-fg-orange-lt font-mono-data text-xs">
+                            OPEN_PROTOCOL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Result Card 3 -->
+<article class="glass-panel status-investigating p-6 hover:bg-fg-surface-md transition-all group relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col gap-1">
+<span class="font-mono-data text-[10px] text-fg-orange-lt opacity-60">REF_ID: 7724-SIGMA</span>
+<h2 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-fg-orange-lt transition-colors">SYNAPSE_SHIELD_V2_SECURITY_AUDIT</h2>
+</div>
+<span class="px-3 py-1 bg-fg-rust/10 border border-fg-rust/20 text-fg-rust font-mono-data text-[10px] rounded-full">INVESTIGATING</span>
+</div>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-6 max-w-3xl">
+                        Ongoing investigation into prompt-injection resilience. Preliminary telemetry shows 99.8% verification reliability across Northern Sector nodes.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[AUDIT_REPORT]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[SECURITY]</span>
+<span class="bg-fg-surface border border-fg-border px-2 py-1 font-mono-data text-[10px] text-fg-text-3">[BETA_TEST]</span>
+</div>
+<div class="absolute right-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center gap-2 text-fg-orange-lt font-mono-data text-xs">
+                            OPEN_PROTOCOL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Additional Placeholder for Scroll Depth -->
+<article class="glass-panel p-6 opacity-40 grayscale pointer-events-none">
+<div class="flex justify-between items-start mb-4">
+<h2 class="font-headline-md text-headline-md text-fg-text-1">TEMPORAL_LINK_VALIDATION_08</h2>
+<span class="px-3 py-1 bg-fg-border/20 border border-fg-border text-fg-text-3 font-mono-data text-[10px] rounded-full">ARCHIVED</span>
+</div>
+<p class="font-body-lg text-body-lg text-fg-text-2 mb-6 max-w-3xl">
+                        End-to-end verification of blockchain-anchored temporal signatures for AI decision-making chains.
+                    </p>
+</article>
+</div>
+<div class="py-20 flex flex-col items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-t-fg-orange-lt border-fg-border animate-spin"></div>
+<p class="font-mono-data text-fg-text-3 text-xs tracking-widest uppercase">Fetching deeper layers...</p>
+</div>
+</section>
+</main>
+<!-- Footer System Status -->
+<footer class="fixed bottom-0 w-full bg-fg-canvas border-t border-fg-border px-8 h-12 flex items-center justify-between z-50">
+<div class="flex gap-8">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></div>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Neural_Link: Stable</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-secondary rounded-full"></div>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Enc_Standard: L4_AES</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-fg-amber rounded-full animate-pulse"></div>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Protocol_Sync: 98%</span>
+</div>
+</div>
+<div class="flex gap-6 items-center">
+<span class="font-mono-data text-[10px] text-fg-text-3">© 2024 FUTURE_AI_NETWORK // ADMISSIBLE EVIDENCE ONLY</span>
+<div class="flex bg-fg-surface-md border border-fg-border divide-x divide-fg-border">
+<button class="px-3 py-1 hover:bg-fg-orange-lt hover:text-black transition-colors">
+<span class="material-symbols-outlined text-sm">help</span>
+</button>
+<button class="px-3 py-1 hover:bg-fg-orange-lt hover:text-black transition-colors">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for the range slider
+        const range = document.querySelector('input[type="range"]');
+        if(range) {
+            range.addEventListener('input', (e) => {
+                const val = e.target.value;
+                // Visual feedback if needed
+            });
+        }
+
+        // Global key shortcut simulation
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                document.querySelector('input[type="text"]').focus();
+            }
+        });
+    </script>
+</body></html>

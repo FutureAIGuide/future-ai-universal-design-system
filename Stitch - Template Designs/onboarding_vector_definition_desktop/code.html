@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // ONBOARDING PROTOCOL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..700&amp;family=JetBrains+Mono:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#ffb59c",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#180b07",
+            "fg-text-1": "#f5f5f5",
+            "on-surface": "#f9dcd4",
+            "surface-container": "#2b1c17",
+            "primary-fixed": "#ffdbcf",
+            "on-tertiary-fixed": "#001e30",
+            "fg-rust": "#ff4444",
+            "secondary-fixed-dim": "#95da24",
+            "tertiary": "#8dcdff",
+            "fg-text-3": "rgba(245, 245, 245, 0.42)",
+            "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+            "fg-orange-dk": "#d9480f",
+            "on-secondary-fixed": "#111f00",
+            "on-primary-container": "#561700",
+            "surface": "#1e100b",
+            "on-error-container": "#ffdad6",
+            "fg-surface": "rgba(255, 255, 255, 0.04)",
+            "fg-amber": "#f59e0b",
+            "on-primary-fixed-variant": "#832700",
+            "outline-variant": "#5b4138",
+            "on-surface-variant": "#e3bfb3",
+            "fg-border": "rgba(255, 255, 255, 0.08)",
+            "surface-container-high": "#372621",
+            "tertiary-fixed": "#cae6ff",
+            "on-secondary-fixed-variant": "#324f00",
+            "fg-canvas": "#050505",
+            "fg-border-md": "rgba(255, 255, 255, 0.14)",
+            "tertiary-fixed-dim": "#8dcdff",
+            "on-tertiary-fixed-variant": "#004b70",
+            "fg-text-2": "rgba(245, 245, 245, 0.64)",
+            "primary-container": "#ff5f1f",
+            "on-tertiary-container": "#00304a",
+            "surface-bright": "#47352f",
+            "fg-neutral-85": "#1a1a1a",
+            "outline": "#aa897f",
+            "surface-tint": "#ffb59c",
+            "surface-container-highest": "#42312b",
+            "secondary-container": "#83c600",
+            "error-container": "#93000a",
+            "secondary-fixed": "#b0f743",
+            "on-tertiary": "#00344f",
+            "inverse-surface": "#f9dcd4",
+            "surface-variant": "#42312b",
+            "on-error": "#690005",
+            "background": "#1e100b",
+            "on-primary": "#5c1900",
+            "inverse-on-surface": "#3d2c27",
+            "fg-orange-lt": "#ff7a45",
+            "surface-container-low": "#271813",
+            "tertiary-container": "#009de4",
+            "surface-dim": "#1e100b",
+            "on-primary-fixed": "#390c00",
+            "primary-fixed-dim": "#ffb59c",
+            "on-secondary-container": "#314d00",
+            "on-background": "#f9dcd4",
+            "secondary": "#9de32e",
+            "on-secondary": "#213600",
+            "inverse-primary": "#ab3600"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "6": "24px",
+            "8": "32px",
+            "2": "8px",
+            "16": "64px",
+            "4": "16px",
+            "1": "4px",
+            "3": "12px",
+            "12": "48px",
+            "20": "80px"
+          },
+          "fontFamily": {
+            "display-xl": ["Space Grotesk"],
+            "display-lg": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-md": ["Space Grotesk"],
+            "mono-data": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "section-label": ["JetBrains Mono"],
+            "display-lg-mobile": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+            "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #050505;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .status-stripe-orange { border-top: 3px solid #ff7a45; }
+    .status-stripe-lime { border-top: 3px solid #9de32e; }
+    .glow-orange:hover { box-shadow: 0 0 20px rgba(255, 122, 69, 0.3); }
+    .chip-active {
+      background-color: rgba(157, 227, 46, 0.1);
+      border-color: #9de32e;
+      color: #9de32e;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
+  </style>
+</head>
+<body class="font-body-lg text-fg-text-1">
+<!-- Side Navigation Shell (from JSON) -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 bg-surface-container-lowest border-r border-fg-border py-8 z-50">
+<div class="px-6 mb-12">
+<div class="font-display-md text-primary text-headline-lg tracking-tighter mb-1">FUTURE AI</div>
+<div class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3">ONBOARDING</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- IDENTITY - Completed -->
+<a class="group flex items-center px-6 py-4 text-fg-text-2 hover:bg-fg-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-4 opacity-50" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">IDENTITY</span>
+</a>
+<!-- VECTORS - Active -->
+<a class="group flex items-center px-6 py-4 text-secondary font-bold bg-fg-surface-md border-r-2 border-secondary transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-4">radar</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">VECTORS</span>
+</a>
+<!-- ENCRYPTION - Inactive -->
+<a class="group flex items-center px-6 py-4 text-fg-text-2 hover:bg-fg-surface hover:text-fg-text-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-4">enhanced_encryption</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">ENCRYPTION</span>
+</a>
+<!-- LAUNCH - Inactive -->
+<a class="group flex items-center px-6 py-4 text-fg-text-2 hover:bg-fg-surface hover:text-fg-text-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-4">rocket_launch</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">LAUNCH</span>
+</a>
+</nav>
+<div class="px-6 pt-8 border-t border-fg-border space-y-4">
+<button class="w-full py-3 px-4 border border-fg-rust text-fg-rust font-mono-data text-body-sm tracking-widest uppercase hover:bg-fg-rust/10 transition-colors">
+        ABORT SESSION
+      </button>
+<div class="flex flex-col gap-2 pt-4">
+<a class="flex items-center text-fg-text-3 hover:text-fg-text-1 transition-colors font-mono-data text-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px] mr-2">help_center</span> SUPPORT
+        </a>
+<a class="flex items-center text-fg-text-3 hover:text-fg-text-1 transition-colors font-mono-data text-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px] mr-2">gavel</span> LEGAL
+        </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 min-h-screen relative flex flex-col">
+<!-- Top Progress Indicator -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-fg-border px-6 md:px-16 py-4 flex justify-between items-center">
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase">Protocol Phase 02</span>
+<span class="font-mono-data text-body-sm text-secondary">ACTIVE: VECTOR_CALIBRATION_01</span>
+</div>
+<!-- Simple Horizontal Progress -->
+<div class="hidden md:flex items-center gap-2">
+<div class="h-1 w-12 bg-secondary rounded-full"></div>
+<div class="h-1 w-12 bg-secondary rounded-full"></div>
+<div class="h-1 w-12 bg-fg-border rounded-full"></div>
+<div class="h-1 w-12 bg-fg-border rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-text-3 cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-fg-text-3 cursor-pointer hover:text-primary transition-colors">settings</span>
+<div class="w-8 h-8 rounded-full border border-fg-border overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional investigator profile portrait in high-contrast cinematic lighting. The subject is wearing a dark technical jacket and has a serious, focused expression. The background is a dark intelligence terminal with faint glowing orange and green data streams. The aesthetic is cold, professional, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Z8Y5rVaw8ZXz_1I4N-E27qTh5U_ykmx4ghZ6CUqJRdmh4ATiyzOSpLPuJEh4EiX59DFI-E092LyTe7WcMno8JuUhWA-tzQsQwdemOI_h5iZDjldofTJPNJkmwdLJZn2aWnqcoEBXBDcw_NW1addKr27SCXQbq7gJ5SnIhbC2g7zAnn8hCiUeqFgkJ0q-FHS8DbjVwMIvRnGyTWdxNjdrGyexic6m7rm4TH0Us_ovS__21FaytFz4V0xJlmlKow8ANKpv0udPta8"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<section class="flex-1 px-6 md:px-16 py-12 md:py-20 max-w-7xl mx-auto w-full">
+<!-- Headline Group -->
+<div class="mb-12">
+<div class="inline-flex items-center px-3 py-1 border border-secondary bg-secondary/5 rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse mr-2"></span>
+<span class="font-section-label text-section-label text-secondary uppercase tracking-widest">SYSTEM INITIALIZED</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight mb-4 text-white">
+          Define Intelligence <span class="text-primary">Vectors</span>
+</h1>
+<p class="font-body-lg text-fg-text-2 max-w-2xl leading-relaxed">
+          Calibrate the neural filters of the FUTURE AI GUIDE to align with your specific investigative focus. Select multiple domains to prioritize evidence streams and resource clusters.
+        </p>
+</div>
+<!-- Bento-style Grid Selection -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Multi-select chips container -->
+<div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- LLM Safety Chip -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50 chip-active" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-secondary text-headline-lg">security</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">01</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">LLM Safety</h3>
+<p class="font-body-sm text-fg-text-3">Alignment protocols, jailbreak prevention, and ethical boundary testing.</p>
+</div>
+<!-- Regulatory Compliance -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-primary text-headline-lg">gavel</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">02</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">Regulatory Compliance</h3>
+<p class="font-body-sm text-fg-text-3">EU AI Act, jurisdictional mandates, and enterprise-grade auditing.</p>
+</div>
+<!-- Neural Architecture -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50 chip-active" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-tertiary text-headline-lg">account_tree</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">03</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">Neural Architecture</h3>
+<p class="font-body-sm text-fg-text-3">Transformer efficiency, MoE scaling, and latent space optimization.</p>
+</div>
+<!-- Synthetic Media -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-secondary text-headline-lg">video_settings</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">04</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">Synthetic Media</h3>
+<p class="font-body-sm text-fg-text-3">Deepfake detection, provenance standards, and generative workflows.</p>
+</div>
+<!-- Government Policy -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-fg-amber text-headline-lg">account_balance</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">05</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">Government Policy</h3>
+<p class="font-body-sm text-fg-text-3">National defense strategy, sovereign AI, and global trade impacts.</p>
+</div>
+<!-- Corporate Audit -->
+<div class="glass-panel p-6 cursor-pointer group transition-all duration-300 hover:border-secondary/50" onclick="this.classList.toggle('chip-active')">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-primary text-headline-lg">fact_check</span>
+<span class="font-mono-data text-body-sm opacity-30 group-hover:opacity-100 transition-opacity">06</span>
+</div>
+<h3 class="font-headline-lg text-white mb-2">Corporate Audit</h3>
+<p class="font-body-sm text-fg-text-3">Supply chain transparency, ROI modeling, and workforce transition.</p>
+</div>
+</div>
+<!-- Visual Anchor / Status Side Card -->
+<div class="glass-panel p-8 flex flex-col justify-between relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute -right-16 -top-16 opacity-10">
+<span class="material-symbols-outlined text-[300px]">radar</span>
+</div>
+<div>
+<div class="font-section-label text-section-label text-secondary uppercase tracking-[0.2em] mb-6">System Status</div>
+<div class="relative w-48 h-48 mx-auto mb-8">
+<img class="w-full h-full object-contain" data-alt="A highly detailed 3D visualization of a human head constructed from glowing green and orange circuit board traces on a solid black background. Fine lines of light represent neural connections flowing into the skull. Data points and digital artifacts float around the head like a digital aura. The lighting is sharp, technical, and reminiscent of a high-end intelligence terminal or sci-fi interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj0APA1h29MzQ0BfwfMd2727Zo-jsbM95ZfGbXVd5iVq68DIWEmomsT_fEX4UEH7_2itf7A769QVK3WkBzVrUFIHmglDxxjhYMngBBHDnWLwrBHtThAQC_WexbE8ZCRt8HiQa7JCnO2Ruk3SJljgWBZ-JGWbqOIP-Q5nH_KfGL0PYxWg8YUCOIZTWeXDU5uGaA3nbeQe6_Jz2eVHtJBDyCsKbMQBdDIPC0Ce7SbimbjTKcKnyqiCSxZTS-gw5MWAcR89DVl0VCnRU"/>
+<div class="absolute inset-0 border border-secondary/20 rounded-full animate-ping"></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-mono-data text-body-sm border-b border-fg-border pb-2">
+<span class="text-fg-text-3">ACTIVE NODE</span>
+<span class="text-white">ASTRA-1_INTEL</span>
+</div>
+<div class="flex justify-between text-mono-data text-body-sm border-b border-fg-border pb-2">
+<span class="text-fg-text-3">VECTOR SYNC</span>
+<span class="text-secondary">33% INITIALIZED</span>
+</div>
+<div class="flex justify-between text-mono-data text-body-sm border-b border-fg-border pb-2">
+<span class="text-fg-text-3">ENCRYPTION</span>
+<span class="text-fg-amber">PENDING</span>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<button class="w-full bg-primary text-on-primary-container font-headline-lg py-4 rounded transition-all duration-300 hover:scale-[1.02] active:scale-95 glow-orange">
+              CONFIRM VECTORS
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (from JSON) -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-fg-border px-16 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-display-md text-primary text-headline-lg tracking-tighter">FUTURE AI GUIDE</div>
+<div class="font-mono-data text-body-sm text-fg-text-3 text-center md:text-left">
+          © 2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL
+        </div>
+<div class="flex gap-8">
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">PRIVACY</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">ENCRYPTION STANDARDS</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">NETWORK STATUS</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Nav Bottom (JSON context rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-xl border-t border-fg-border flex justify-around py-3 px-6 z-50">
+<div class="flex flex-col items-center text-fg-text-3">
+<span class="material-symbols-outlined">fingerprint</span>
+<span class="text-[10px] mt-1 font-mono-data">IDENTITY</span>
+</div>
+<div class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined">radar</span>
+<span class="text-[10px] mt-1 font-mono-data font-bold">VECTORS</span>
+</div>
+<div class="flex flex-col items-center text-fg-text-3">
+<span class="material-symbols-outlined">enhanced_encryption</span>
+<span class="text-[10px] mt-1 font-mono-data">ENCRYPT</span>
+</div>
+<div class="flex flex-col items-center text-fg-text-3">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="text-[10px] mt-1 font-mono-data">LAUNCH</span>
+</div>
+</nav>
+<script>
+    // Simple micro-interaction for chips
+    document.querySelectorAll('.glass-panel').forEach(panel => {
+      panel.addEventListener('mousedown', () => {
+        panel.style.transform = 'scale(0.98)';
+      });
+      panel.addEventListener('mouseup', () => {
+        panel.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE_AI_GUIDE | CREDIT_MANAGEMENT_OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdbcf",
+                    "surface-tint": "#ffb59c",
+                    "outline": "#aa897f",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "fg-orange-dk": "#d9480f",
+                    "on-primary-fixed-variant": "#832700",
+                    "error-container": "#93000a",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "primary-container": "#ff5f1f",
+                    "inverse-surface": "#f9dcd4",
+                    "surface-container-highest": "#42312b",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "on-tertiary-container": "#00304a",
+                    "fg-canvas": "#050505",
+                    "on-tertiary-fixed": "#001e30",
+                    "inverse-on-surface": "#3d2c27",
+                    "on-primary-container": "#561700",
+                    "secondary-fixed-dim": "#95da24",
+                    "on-secondary-fixed": "#111f00",
+                    "on-surface": "#f9dcd4",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-lowest": "#180b07",
+                    "surface-container-low": "#271813",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#f9dcd4",
+                    "on-surface-variant": "#e3bfb3",
+                    "surface-variant": "#42312b",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-secondary-container": "#314d00",
+                    "on-primary": "#5c1900",
+                    "tertiary": "#8dcdff",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#b0f743",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "surface-dim": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "secondary-container": "#83c600",
+                    "fg-amber": "#f59e0b",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "primary": "#ffb59c",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "fg-neutral-85": "#1a1a1a",
+                    "on-secondary": "#213600",
+                    "surface-container": "#2b1c17",
+                    "inverse-primary": "#ab3600",
+                    "secondary": "#9de32e",
+                    "tertiary-container": "#009de4",
+                    "surface-container-high": "#372621",
+                    "surface-bright": "#47352f",
+                    "on-tertiary": "#00344f",
+                    "background": "#1e100b",
+                    "surface": "#1e100b",
+                    "fg-text-1": "#f5f5f5",
+                    "fg-rust": "#ff4444",
+                    "error": "#ffb4ab",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "on-primary-fixed": "#390c00",
+                    "fg-orange-lt": "#ff7a45",
+                    "outline-variant": "#5b4138"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "3": "12px",
+                    "2": "8px",
+                    "1": "4px",
+                    "6": "24px",
+                    "12": "48px",
+                    "4": "16px",
+                    "20": "80px",
+                    "16": "64px",
+                    "8": "32px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "section-label": ["JetBrains Mono"],
+                    "display-xl": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "display-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-top: 3px solid #ff5f1f; }
+        .status-stripe-lime { border-top: 3px solid #b0f743; }
+        .status-stripe-rust { border-top: 3px solid #ff4444; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .shadow-glow-orange:hover {
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.2);
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-fg-canvas/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-fg-border flex justify-between items-center px-16 py-4 w-full h-16">
+<div class="flex items-center gap-8">
+<span class="font-display-md text-headline-lg font-bold text-primary tracking-tight uppercase">FUTURE_AI_GUIDE</span>
+<div class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">DASHBOARD</a>
+<a class="text-fg-text-1 border-b-2 border-primary font-section-label uppercase" href="#">ARCHIVE</a>
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">INTEL_FEED</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-black border border-fg-border px-4 py-1.5 rounded-none text-body-sm w-64 focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer transition-colors" title="sensors">sensors</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer transition-colors" title="settings">settings</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer transition-colors" title="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r border-fg-border bg-fg-canvas flex flex-col py-8 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-none border border-primary flex items-center justify-center overflow-hidden bg-fg-surface-md">
+<img class="w-full h-full object-cover" data-alt="A high-contrast profile avatar of a synthetic intelligence administrator, glowing orange neon accents against a dark chrome background, technical cybernetic details, editorial lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzA0u1v76k72J-Pn6zHorxedxN-lT-wQW52Z82HXNWz-yWEZ_VcCAoo3EYEVVU0ceTxYiin4x-wSwq_n4Wpu2lDgVAGSoesoA3VqUXqFOxdqvaD6chPaz_YgYE1nGOuFc70yk40nBQ9NV5B9Cy2Z7y7X6sOu2hwmiU2sKA6vUMjC3Yu1Ki5ehjb97qj0lFisaDxLPyb2-WvszQjWA9-YFbtoTQDy5D_bVqOYqxZzfuBr2NtQJUWto2XUDVR8r4Qj8ZSCvEJNn9Z5s"/>
+</div>
+<div>
+<div class="font-headline-md text-headline-md leading-none text-primary">ADM_INTEL</div>
+<div class="font-section-label text-[10px] text-fg-text-3">SECTOR_7_CREDIT</div>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 text-fg-text-3 hover:text-fg-text-2 hover:bg-fg-surface group transition-all" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">dashboard</span>
+<span class="font-section-label text-section-label uppercase">SECTOR_OVERVIEW</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-fg-surface-md text-primary border-r-2 border-primary group transition-all" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">receipt_long</span>
+<span class="font-section-label text-section-label uppercase">CREDIT_LEDGER</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-fg-text-3 hover:text-fg-text-2 hover:bg-fg-surface group transition-all" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">memory</span>
+<span class="font-section-label text-section-label uppercase">NODE_RESOURCES</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-fg-text-3 hover:text-fg-text-2 hover:bg-fg-surface group transition-all" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">security</span>
+<span class="font-section-label text-section-label uppercase">SECURITY_ACCESS</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-fg-text-3 hover:text-fg-text-2 hover:bg-fg-surface group transition-all" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">admin_panel_settings</span>
+<span class="font-section-label text-section-label uppercase">ACCOUNT_SETTINGS</span>
+</a>
+</div>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary-container text-black font-section-label py-3 uppercase tracking-widest hover:bg-primary-fixed transition-colors active:scale-95 shadow-glow-orange">
+                    ACQUIRE_CREDITS
+                </button>
+<div class="mt-6 flex flex-col gap-2">
+<a class="flex items-center gap-3 text-fg-text-3 hover:text-fg-text-1" href="#">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="font-section-label text-section-label uppercase">SYSTEM_LOGS</span>
+</a>
+<a class="flex items-center gap-3 text-fg-text-3 hover:text-fg-text-1" href="#">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+<span class="font-section-label text-section-label uppercase">SUPPORT</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 p-16 bg-fg-canvas">
+<!-- Hero Header -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<div class="flex items-center gap-4 mb-2">
+<h1 class="font-display-lg text-display-lg uppercase leading-none">CREDIT_MANAGEMENT_OS</h1>
+<span class="bg-fg-rust/10 text-fg-rust font-mono-data text-[10px] px-2 py-0.5 border border-fg-rust/30 tracking-tighter">STATUS: ENCRYPTED</span>
+</div>
+<p class="text-fg-text-3 font-mono-data uppercase tracking-widest text-sm">Centralized node for computational resource allocation and fiscal audit.</p>
+</div>
+</header>
+<!-- Primary Metrics Grid -->
+<section class="grid grid-cols-12 gap-6 mb-16">
+<!-- Accumulated Credits -->
+<div class="col-span-8 glass-panel p-8 status-stripe-orange">
+<div class="flex justify-between items-start mb-12">
+<div>
+<span class="font-section-label text-section-label text-fg-text-3 uppercase block mb-1">ACCUMULATED_CREDITS</span>
+<div class="font-display-md text-display-md text-primary leading-none">2,840.00 <span class="text-headline-lg">/ 5,000.00 CR</span></div>
+</div>
+<div class="text-right">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase block mb-1">REMAINING_BALANCE</span>
+<div class="font-mono-data text-headline-lg text-fg-text-1">2,160.00 CR</div>
+</div>
+</div>
+<div class="relative h-2 w-full bg-fg-surface-md mb-2 overflow-hidden">
+<div class="absolute h-full bg-primary-container shadow-glow-orange transition-all duration-1000" style="width: 56.8%"></div>
+</div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3">
+<span>0% SYSTEM_CAPACITY</span>
+<span>56.8% ALLOCATED</span>
+<span>100% QUOTA_LIMIT</span>
+</div>
+</div>
+<!-- Consumption Velocity -->
+<div class="col-span-4 glass-panel p-8 status-stripe-lime flex flex-col justify-between">
+<div>
+<span class="font-section-label text-section-label text-fg-text-3 uppercase block mb-1">CONSUMPTION_VELOCITY</span>
+<div class="font-headline-lg text-secondary">+12.4% <span class="text-fg-text-3 text-body-sm font-normal">VS PREV. PERIOD</span></div>
+</div>
+<div class="h-24 w-full mt-4 flex items-end gap-1">
+<!-- Tiny visual "sparkline" representation -->
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 40%"></div>
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 65%"></div>
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 50%"></div>
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 85%"></div>
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 70%"></div>
+<div class="w-full bg-secondary/20 hover:bg-secondary transition-colors" style="height: 95%"></div>
+<div class="w-full bg-secondary/60 hover:bg-secondary transition-colors" style="height: 100%"></div>
+</div>
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase mt-2 tracking-widest">7_DAY_TREND_ANALYSIS</span>
+</div>
+</section>
+<!-- Acquisition Section -->
+<section class="mb-16">
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">ACQUIRE_CREDITS</h2>
+<div class="h-[1px] flex-1 bg-fg-border"></div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<!-- Tier 1 -->
+<div class="glass-panel p-8 group hover:bg-fg-surface-md transition-all duration-300">
+<div class="font-mono-data text-fg-text-3 text-xs mb-4">PROTOCOL // L1</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">L1_INJECTION</h3>
+<div class="font-display-md text-primary mb-6">1,000 <span class="text-headline-md">CR</span></div>
+<ul class="font-body-sm text-fg-text-3 space-y-2 mb-8">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                BASIC_ANALYTICS
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                24H_RETENTION
+                            </li>
+</ul>
+<button class="w-full border border-primary-container text-primary-container hover:bg-primary-container hover:text-black font-section-label py-3 transition-all active:scale-95">
+                            PURCHASE_PROTOCOL
+                        </button>
+</div>
+<!-- Tier 2 -->
+<div class="glass-panel p-8 relative overflow-hidden group hover:bg-fg-surface-md transition-all duration-300 bg-primary-container/5 border-primary-container/30">
+<div class="absolute top-0 right-0 bg-primary-container text-black font-section-label text-[9px] px-4 py-1 uppercase rotate-45 translate-x-4 translate-y-2">RECOMMENDED</div>
+<div class="font-mono-data text-fg-text-3 text-xs mb-4">PROTOCOL // L2</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">L2_SATURATION</h3>
+<div class="font-display-md text-primary mb-6">5,000 <span class="text-headline-md">CR</span></div>
+<ul class="font-body-sm text-fg-text-3 space-y-2 mb-8">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                ADVANCED_DECRYPTION
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                UNLIMITED_HISTORY
+                            </li>
+</ul>
+<button class="w-full bg-primary-container text-black font-section-label py-3 transition-all active:scale-95 shadow-glow-orange">
+                            PURCHASE_PROTOCOL
+                        </button>
+</div>
+<!-- Tier 3 -->
+<div class="glass-panel p-8 group hover:bg-fg-surface-md transition-all duration-300">
+<div class="font-mono-data text-fg-text-3 text-xs mb-4">PROTOCOL // L3</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">L3_RESERVE_NODE</h3>
+<div class="font-display-md text-primary mb-6">10,000 <span class="text-headline-md">CR</span></div>
+<ul class="font-body-sm text-fg-text-3 space-y-2 mb-8">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                PRIORITY_QUEUE
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+                                FULL_API_ACCESS
+                            </li>
+</ul>
+<button class="w-full border border-primary-container text-primary-container hover:bg-primary-container hover:text-black font-section-label py-3 transition-all active:scale-95">
+                            PURCHASE_PROTOCOL
+                        </button>
+</div>
+</div>
+</section>
+<!-- Transaction Ledger -->
+<section class="mb-20">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">HISTORICAL_LEDGER</h2>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 border border-fg-border px-4 py-1.5 font-section-label text-fg-text-3 hover:text-fg-text-1 hover:border-fg-text-3 transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span> FILTER
+                        </button>
+<button class="flex items-center gap-2 border border-fg-border px-4 py-1.5 font-section-label text-fg-text-3 hover:text-fg-text-1 hover:border-fg-text-3 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> EXPORT
+                        </button>
+</div>
+</div>
+<div class="glass-panel overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-fg-border bg-fg-surface-md">
+<th class="p-4 font-section-label text-fg-text-3 uppercase">TIMESTAMP</th>
+<th class="p-4 font-section-label text-fg-text-3 uppercase">OPERATION_ID</th>
+<th class="p-4 font-section-label text-fg-text-3 uppercase text-right">VOLUME (GB)</th>
+<th class="p-4 font-section-label text-fg-text-3 uppercase text-right">COST (CR)</th>
+<th class="p-4 font-section-label text-fg-text-3 uppercase text-center">VERIFICATION_STATUS</th>
+</tr>
+</thead>
+<tbody class="font-mono-data text-body-sm">
+<tr class="border-b border-fg-border/50 hover:bg-fg-surface transition-colors">
+<td class="p-4 text-fg-text-2">2024.08.24 14:32:05</td>
+<td class="p-4 text-fg-text-1">TX_8832_ALPHA_SEC</td>
+<td class="p-4 text-fg-text-2 text-right">14.2</td>
+<td class="p-4 text-primary text-right">250.00</td>
+<td class="p-4 flex justify-center">
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] border border-secondary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFIED
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border/50 hover:bg-fg-surface transition-colors">
+<td class="p-4 text-fg-text-2">2024.08.24 12:10:44</td>
+<td class="p-4 text-fg-text-1">TX_7190_GAMMA_VLD</td>
+<td class="p-4 text-fg-text-2 text-right">0.8</td>
+<td class="p-4 text-primary text-right">15.50</td>
+<td class="p-4 flex justify-center">
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] border border-secondary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFIED
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border/50 hover:bg-fg-surface transition-colors">
+<td class="p-4 text-fg-text-2">2024.08.23 23:59:12</td>
+<td class="p-4 text-fg-text-1">TX_0041_BATCH_CR</td>
+<td class="p-4 text-fg-text-2 text-right">122.4</td>
+<td class="p-4 text-primary text-right">1,200.00</td>
+<td class="p-4 flex justify-center">
+<span class="px-2 py-0.5 rounded-full bg-primary-container/10 text-primary-container text-[10px] border border-primary-container/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> PENDING
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border/50 hover:bg-fg-surface transition-colors">
+<td class="p-4 text-fg-text-2">2024.08.23 18:44:21</td>
+<td class="p-4 text-fg-text-1">TX_9912_DELTA_ARC</td>
+<td class="p-4 text-fg-text-2 text-right">4.5</td>
+<td class="p-4 text-primary text-right">88.20</td>
+<td class="p-4 flex justify-center">
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] border border-secondary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFIED
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-fg-surface transition-colors">
+<td class="p-4 text-fg-text-2">2024.08.23 09:12:00</td>
+<td class="p-4 text-fg-text-1">TX_3321_ECHO_P_NOD</td>
+<td class="p-4 text-fg-text-2 text-right">32.1</td>
+<td class="p-4 text-primary text-right">450.00</td>
+<td class="p-4 flex justify-center">
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] border border-secondary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFIED
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="font-section-label text-fg-text-3 hover:text-primary transition-colors py-2 px-8 flex items-center gap-2">
+                        VIEW_FULL_ARCHIVE_HISTORY <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Technical Signature Footer -->
+<footer class="mt-20 pt-12 border-t border-fg-border flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-section-label text-[10px] text-fg-text-3 tracking-[0.2em] uppercase">
+                    © 2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL
+                </div>
+<div class="flex gap-8">
+<a class="font-section-label text-[10px] text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">ENCRYPTION_POLICIES</a>
+<a class="font-section-label text-[10px] text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">NODE_AGREEMENT</a>
+<a class="font-section-label text-[10px] text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">SYSTEM_INTEGRITY</a>
+</div>
+<div class="flex items-center gap-2 font-mono-data text-[10px] text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    SECURE_LINK_ACTIVE
+                </div>
+</footer>
+</main>
+</div>
+<!-- Micro-interaction JS -->
+<script>
+        // Simple hover effect for table rows and buttons
+        document.querySelectorAll('button, tr').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Potential sound effect trigger or subtle glow
+            });
+        });
+
+        // Dynamic credit bar update simulation (optional eye candy)
+        const progressFill = document.querySelector('.absolute.h-full.bg-primary-container');
+        if(progressFill) {
+            setTimeout(() => {
+                progressFill.style.width = '56.8%';
+            }, 500);
+        }
+    </script>
+</body></html>

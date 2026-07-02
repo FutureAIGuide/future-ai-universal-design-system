@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Prompt Library | FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-top: 3px solid #ff5f1f; }
+        .status-stripe-lime { border-top: 3px solid #9de32e; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "primary": "#ffb59c",
+                      "primary-container": "#ff5f1f",
+                      "fg-text-1": "#f5f5f5",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "fg-canvas": "#050505",
+                      "secondary": "#9de32e",
+                      "fg-orange": "#ff5f1f",
+                      "fg-lime": "#a3e935"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "20": "80px",
+                      "1": "4px",
+                      "12": "48px",
+                      "2": "8px",
+                      "16": "64px",
+                      "8": "32px",
+                      "6": "24px",
+                      "4": "16px",
+                      "3": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "mono-data": ["JetBrains Mono"],
+                      "headline-lg": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "section-label": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen max-w-[390px] mx-auto overflow-x-hidden border-x border-fg-border">
+<!-- TopNavBar -->
+<nav class="docked full-width top-0 z-50 sticky bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border flex justify-between items-center w-full px-4 h-20">
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md font-bold tracking-tighter text-fg-text-1">FUTURE AI GUIDE</span>
+<span class="text-section-label font-section-label uppercase tracking-widest text-fg-orange">Terminal Access</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center glass-panel rounded-full">
+<span class="material-symbols-outlined text-fg-text-1">search</span>
+</button>
+</nav>
+<main class="flex-1 px-4 py-8 space-y-12">
+<!-- Header Section -->
+<section class="space-y-2">
+<h1 class="font-headline-lg text-headline-lg text-fg-text-1">PROMPT LIBRARY</h1>
+<p class="font-body-sm text-body-sm text-fg-text-3 max-w-[300px]">Access high-fidelity investigative modules and operational intelligence protocols.</p>
+</section>
+<!-- Section: Intelligence Categories -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-section-label text-section-label uppercase text-fg-text-2">Intelligence Categories</h2>
+<span class="font-mono-data text-[10px] text-fg-lime">04 ACTIVE</span>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
+<button class="flex-shrink-0 px-4 py-2 bg-fg-orange text-black font-mono-data text-body-sm rounded-full shadow-[0_0_15px_rgba(255,95,31,0.3)]">#Forensics</button>
+<button class="flex-shrink-0 px-4 py-2 glass-panel text-fg-text-2 font-mono-data text-body-sm rounded-full">#Extraction</button>
+<button class="flex-shrink-0 px-4 py-2 glass-panel text-fg-text-2 font-mono-data text-body-sm rounded-full">#Simulation</button>
+<button class="flex-shrink-0 px-4 py-2 glass-panel text-fg-text-2 font-mono-data text-body-sm rounded-full">#Synthesis</button>
+</div>
+</section>
+<!-- Section: Prompt Modules -->
+<section class="space-y-12">
+<!-- Category: Forensic Analysis -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-headline-md text-headline-md text-fg-text-1 whitespace-nowrap">Forensic Analysis</h3>
+<div class="h-[1px] w-full bg-fg-border"></div>
+</div>
+<div class="space-y-4">
+<!-- Card: Investigation Intake -->
+<div class="glass-panel status-stripe-orange p-4 space-y-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-[64px]">security</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-section-label text-fg-orange">CODE: INV-01</span>
+<span class="material-symbols-outlined text-fg-text-3 text-lg">more_vert</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-fg-text-1">Investigation Intake</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Standardized deep-scan for unstructured document evidence.</p>
+</div>
+<div class="pt-2">
+<button class="w-full py-3 bg-fg-orange text-black font-bold text-body-sm uppercase tracking-widest shadow-[0_0_10px_rgba(255,95,31,0.2)] active:scale-95 transition-all">Use Template</button>
+</div>
+</div>
+<!-- Card: Source Verification -->
+<div class="glass-panel status-stripe-lime p-4 space-y-4 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-section-label text-fg-lime">CODE: VFY-09</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-fg-lime/10 text-fg-lime font-mono-data text-[10px]">VERIFIED</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-fg-text-1">Source Verification</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Multi-point verification check for digital claims and metadata.</p>
+</div>
+<div class="pt-2">
+<button class="w-full py-3 border border-fg-border-md text-fg-text-1 font-bold text-body-sm uppercase tracking-widest hover:bg-fg-surface-md active:scale-95 transition-all">Use Template</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: Neural Extraction -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-headline-md text-headline-md text-fg-text-1 whitespace-nowrap">Neural Extraction</h3>
+<div class="h-[1px] w-full bg-fg-border"></div>
+</div>
+<div class="space-y-4">
+<!-- Card: JSON Schema Output -->
+<div class="glass-panel status-stripe-orange p-4 space-y-4">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-section-label text-fg-orange">CODE: EXT-42</span>
+<span class="material-symbols-outlined text-fg-text-3 text-lg">code</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-fg-text-1">JSON Schema Output</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Strict protocol for converting text into valid data objects for system integration.</p>
+</div>
+<div class="pt-2">
+<button class="w-full py-3 bg-fg-orange text-black font-bold text-body-sm uppercase tracking-widest shadow-[0_0_10px_rgba(255,95,31,0.2)] active:scale-95 transition-all">Use Template</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: Creative Intelligence -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-headline-md text-headline-md text-fg-text-1 whitespace-nowrap">Creative Intelligence</h3>
+<div class="h-[1px] w-full bg-fg-border"></div>
+</div>
+<div class="space-y-4">
+<!-- Card: Scenario Modeling -->
+<div class="glass-panel status-stripe-orange p-4 space-y-4">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-section-label text-fg-orange">CODE: SIM-03</span>
+<span class="material-symbols-outlined text-fg-text-3 text-lg">insights</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-headline-md text-fg-text-1">Scenario Modeling</h4>
+<p class="font-body-sm text-body-sm text-fg-text-2">Generate high-fidelity futures based on current AI vectors and market signals.</p>
+</div>
+<div class="pt-2">
+<button class="w-full py-3 bg-fg-orange text-black font-bold text-body-sm uppercase tracking-widest shadow-[0_0_10px_rgba(255,95,31,0.2)] active:scale-95 transition-all">Use Template</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="full-width bottom-0 bg-surface-container-lowest border-t border-fg-border-md p-6 pb-12 space-y-8">
+<div class="flex flex-col items-start gap-4">
+<span class="text-headline-md font-headline-md font-bold text-fg-text-2">FUTURE AI GUIDE</span>
+<div class="grid grid-cols-2 gap-4 w-full">
+<a class="text-section-label font-section-label uppercase text-fg-text-3 hover:text-secondary hover:underline transition-all" href="#">Terminal</a>
+<a class="text-section-label font-section-label uppercase text-fg-text-3 hover:text-secondary hover:underline transition-all" href="#">Intelligence</a>
+<a class="text-section-label font-section-label uppercase text-fg-text-3 hover:text-secondary hover:underline transition-all" href="#">Network Stats</a>
+<a class="text-section-label font-section-label uppercase text-fg-text-3 hover:text-secondary hover:underline transition-all" href="#">Encrypted Comms</a>
+</div>
+</div>
+<div class="pt-4 border-t border-fg-border/10">
+<p class="text-mono-data font-mono-data text-[10px] text-fg-text-3 leading-relaxed">
+                © 2024 FUTURE AI GUIDE. ALL OPERATIONAL PARAMETERS LOGGED. UNAUTHORIZED ACCESS IS PROHIBITED.
+            </p>
+</div>
+</footer>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<div class="fixed bottom-0 left-0 right-0 bg-fg-canvas/90 backdrop-blur-xl border-t border-fg-border h-16 flex items-center justify-around px-4 md:hidden z-50 max-w-[390px] mx-auto">
+<button class="flex flex-col items-center gap-1 text-fg-text-3">
+<span class="material-symbols-outlined text-lg">home</span>
+<span class="text-[9px] font-mono-data">HUB</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-fg-orange">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span class="text-[9px] font-mono-data">LIBRARY</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-fg-text-3">
+<span class="material-symbols-outlined text-lg">monitoring</span>
+<span class="text-[9px] font-mono-data">CORE</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-fg-text-3">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span class="text-[9px] font-mono-data">API</span>
+</button>
+</div>
+<script>
+        // Micro-interaction for template cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.borderColor = '#ff5f1f';
+                setTimeout(() => {
+                    card.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                }, 400);
+            });
+        });
+    </script>
+</body></html>

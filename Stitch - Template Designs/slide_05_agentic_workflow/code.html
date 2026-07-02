@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "background": "#1e100b",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#ab3600",
+                        "primary": "#ffb59c",
+                        "on-tertiary": "#00344f",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#42312b",
+                        "on-surface-variant": "#e3bfb3",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "secondary-fixed-dim": "#95da24",
+                        "on-background": "#f9dcd4",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "secondary-fixed": "#b0f743",
+                        "on-tertiary-fixed": "#001e30",
+                        "surface-container-lowest": "#180b07",
+                        "on-secondary-container": "#314d00",
+                        "primary-fixed": "#ffdbcf",
+                        "surface-container": "#2b1c17",
+                        "surface-tint": "#ffb59c",
+                        "surface-container-high": "#372621",
+                        "on-secondary": "#213600",
+                        "on-primary-fixed": "#390c00",
+                        "on-primary": "#5c1900",
+                        "tertiary": "#8dcdff",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "surface-container-low": "#271813",
+                        "on-surface": "#f9dcd4",
+                        "outline": "#aa897f",
+                        "surface-variant": "#42312b",
+                        "surface": "#1e100b",
+                        "on-primary-fixed-variant": "#832700",
+                        "surface-bright": "#47352f",
+                        "inverse-on-surface": "#3d2c27",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-tertiary-container": "#00304a",
+                        "primary-container": "#ff5f1f",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "tertiary-container": "#009de4",
+                        "secondary-container": "#83c600",
+                        "on-secondary-fixed": "#111f00",
+                        "inverse-surface": "#f9dcd4",
+                        "secondary": "#9de32e",
+                        "on-primary-container": "#561700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #050505; color: #f9dcd4; scroll-behavior: smooth; overflow-x: hidden; }
+        .glass { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-high { backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); }
+        .status-stripe { width: 3px; position: absolute; left: 0; top: 0; bottom: 0; }
+        .flow-line { height: 2px; background: linear-gradient(90deg, transparent, #ff5f1f, transparent); background-size: 200% 100%; animation: flow 3s linear infinite; }
+        @keyframes flow { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .agent-card:hover { border-color: rgba(255, 95, 31, 0.4); background: rgba(255, 95, 31, 0.05); }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<header class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10 flex justify-between items-center px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">POSITIONING</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase text-[11px] tracking-widest" href="#">INVESTIGATE</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container font-label uppercase text-[11px] font-bold px-6 py-2 rounded-md transition-transform scale-95 active:scale-90 shadow-lg shadow-primary/20">JOIN NETWORK</button>
+</header>
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-20 fixed left-0 top-0 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex flex-col items-center py-8 gap-8 z-40">
+<div class="flex flex-col items-center gap-1 mb-8">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center font-display font-bold text-secondary">OS</div>
+<span class="font-label text-[8px] text-on-surface-variant/60">V.2.0.4</span>
+</div>
+<div class="flex flex-col gap-6">
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">radar</span>
+<span class="font-label text-[9px] uppercase text-on-surface-variant/40 group-hover:text-primary">PHASE_01</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">analytics</span>
+<span class="font-label text-[9px] uppercase text-on-surface-variant/40 group-hover:text-primary">PHASE_02</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">account_tree</span>
+<span class="font-label text-[9px] uppercase text-on-surface-variant/40 group-hover:text-primary">PHASE_03</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">query_stats</span>
+<span class="font-label text-[9px] uppercase text-on-surface-variant/40 group-hover:text-primary">PHASE_04</span>
+</div>
+<div class="group bg-primary-container/20 text-primary border-r-2 border-primary flex flex-col items-center gap-1 py-2 w-full cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label text-[9px] uppercase">PHASE_05</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-20 min-h-screen relative overflow-hidden">
+<!-- Ambient Background Animation -->
+
+<section class="max-w-7xl mx-auto px-16 py-20 relative z-10">
+<!-- Header Section -->
+<div class="mb-16">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-12 h-[1px] bg-primary"></span>
+<span class="font-label text-[11px] tracking-widest text-primary uppercase">PHASE_05: PROTOCOL_EXECUTION</span>
+</div>
+<h1 class="font-display text-5xl md:text-7xl font-bold tracking-tighter text-on-background mb-4">HUMAN-IN-THE-LOOP<br/><span class="text-primary">FORENSICS</span></h1>
+<p class="font-body text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                    Our agentic workflow isn't just about automation. It’s an adversarial intelligence loop designed to treat every data point as admissible evidence, governed by a mandatory cognitive checkpoint.
+                </p>
+</div>
+<!-- Workflow Diagram (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<!-- Agent Column 1 -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<div class="agent-card glass relative p-6 rounded-lg transition-all duration-300">
+<div class="status-stripe bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">search</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label text-[9px] border border-secondary/20">VERIFIED</span>
+</div>
+<h3 class="font-headline text-lg font-semibold mb-2">Research</h3>
+<p class="font-body text-xs text-on-surface-variant/70 leading-relaxed">Multimodal deep-crawl across encrypted and public data silos.</p>
+</div>
+<div class="agent-card glass relative p-6 rounded-lg transition-all duration-300">
+<div class="status-stripe bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label text-[9px] border border-primary/20">ACTIVE</span>
+</div>
+<h3 class="font-headline text-lg font-semibold mb-2">Fact Check</h3>
+<p class="font-body text-xs text-on-surface-variant/70 leading-relaxed">Cross-referencing claims against established truth-baselines.</p>
+</div>
+</div>
+<!-- Connector Column -->
+<div class="hidden md:flex md:col-span-1 justify-center items-center">
+<div class="w-full flow-line"></div>
+</div>
+<!-- Agent Column 2 -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<div class="agent-card glass relative p-6 rounded-lg transition-all duration-300">
+<div class="status-stripe bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label text-[9px] border border-secondary/20">VERIFIED</span>
+</div>
+<h3 class="font-headline text-lg font-semibold mb-2">Writing</h3>
+<p class="font-body text-xs text-on-surface-variant/70 leading-relaxed">Synthesis of raw intelligence into actionable narrative structures.</p>
+</div>
+<div class="agent-card glass relative p-6 rounded-lg transition-all duration-300">
+<div class="status-stripe bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label text-[9px] border border-primary/20">ACTIVE</span>
+</div>
+<h3 class="font-headline text-lg font-semibold mb-2">SEO</h3>
+<p class="font-body text-xs text-on-surface-variant/70 leading-relaxed">Semantic optimization for algorithmic visibility and impact.</p>
+</div>
+</div>
+<!-- Connector Column -->
+<div class="hidden md:flex md:col-span-1 justify-center items-center">
+<div class="w-full flow-line"></div>
+</div>
+<!-- Agent Column 3 -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Core Competitive Advantage Highlight -->
+<div class="glass-high relative p-8 rounded-xl border-primary/30 shadow-2xl shadow-primary/5">
+<div class="status-stripe bg-primary h-full w-1"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">lock_person</span>
+<h2 class="font-headline text-2xl font-bold text-on-background tracking-tight">NON-NEGOTIABLE HUMAN APPROVAL GATE</h2>
+</div>
+<div class="bg-primary/5 rounded-lg p-4 mb-6 border border-primary/10">
+<p class="font-label text-[10px] uppercase text-primary tracking-widest mb-2">CORE COMPETITIVE ADVANTAGE</p>
+<p class="font-body text-sm text-on-surface leading-relaxed">
+                                No intelligence output leaves the terminal without a Level-4 Forensic Analyst signature. We automate the drudgery, not the accountability.
+                            </p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 agent-card glass p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<div>
+<h4 class="font-headline font-semibold text-sm">Architect</h4>
+<p class="font-label text-[9px] text-on-surface-variant/60">Final Structure Validation</p>
+</div>
+</div>
+<div class="flex items-center gap-4 agent-card glass p-4 rounded-lg">
+<span class="material-symbols-outlined text-primary">rule</span>
+<div>
+<h4 class="font-headline font-semibold text-sm">Reviewer</h4>
+<p class="font-label text-[9px] text-on-surface-variant/60">Content Integrity Audit</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pipeline Progress Visualization -->
+<div class="mt-20 glass p-8 rounded-xl border-outline-variant/30 relative overflow-hidden">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="font-label text-[10px] text-primary tracking-widest block mb-1">SYSTEM_STATUS</span>
+<h4 class="font-headline text-xl font-bold">PIPELINE THROUGHPUT</h4>
+</div>
+<div class="text-right">
+<span class="font-label text-[14px] text-secondary">0.032s LATENCY</span>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-4 items-center">
+<div class="h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(157,227,46,0.4)]"></div>
+<div class="h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(157,227,46,0.4)]"></div>
+<div class="h-2 rounded-full bg-primary/40"></div>
+<div class="h-2 rounded-full bg-surface-variant"></div>
+<div class="h-2 rounded-full bg-surface-variant"></div>
+<div class="h-2 rounded-full bg-surface-variant"></div>
+</div>
+<div class="flex justify-between mt-4">
+<span class="font-label text-[9px] text-on-surface-variant/60">RESEARCH</span>
+<span class="font-label text-[9px] text-on-surface-variant/60">FACT CHECK</span>
+<span class="font-label text-[9px] text-primary">WRITING (CURRENT)</span>
+<span class="font-label text-[9px] text-on-surface-variant/40">SEO</span>
+<span class="font-label text-[9px] text-on-surface-variant/40">ARCHITECT</span>
+<span class="font-label text-[9px] text-on-surface-variant/40">REVIEWER</span>
+</div>
+</div>
+<!-- Decorative Element: Evidence Mockup -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary opacity-10 blur group-hover:opacity-20 transition duration-1000"></div>
+<img class="relative rounded-xl border border-outline-variant w-full h-80 object-cover shadow-2xl" data-alt="A high-tech digital intelligence dashboard display showing complex node networks, code fragments, and forensic data visualizations. The aesthetic is dark and sophisticated, with deep black backgrounds, glowing orange and lime data streams, and a glassmorphism interface. The atmosphere is professional, technical, and investigative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBtsfHbGo3A-kXA00Q_7Jb1qTRxt8q5um56wnrlrZDLuOXwP4s-v2YvybjSBUGHtpRacJQ_waWC1cS92Ex2UvEAYBerkV4Vhew17dDIvqsb_VxF8CKqcGWS8-1-jH8w9c6GIXDCxYMLRhO9tnr_Ew-Uq459Ot_XxupAJo7-WF2SQpu3z06CEfYz4GiKv_Hlrc-2O4dcq7CGKZ9wHW-4LbIg01Yx8n3J3HJeGDuBJ073lUFCfn_hm9Nvz-Ax8iRWD4XNge35Ic9VLU"/>
+<div class="absolute bottom-6 left-6 right-6 glass p-4 rounded-lg flex justify-between items-center">
+<div class="font-label text-[11px] text-on-surface">TRACE_LOG_ID: #8821-X</div>
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-3xl font-bold mb-6">AUTOMATED RIGOR,<br/><span class="text-secondary">HUMAN INTUITION.</span></h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                        The "Forensics" approach treats AI as a powerful magnifying glass, not a replacement for the eye. By forcing a human gate at the end of every 6-agent loop, we eliminate hallucinations and ensure every insight is verified by a human expert.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label text-xs uppercase tracking-wider">Zero-Hallucination Policy</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label text-xs uppercase tracking-wider">Context-Aware Architectural Review</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label text-xs uppercase tracking-wider">Admissible Evidence Documentation</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full bg-transparent flex justify-between items-center px-16 py-8 relative z-50">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE ONLY
+        </div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions for agent cards
+        document.querySelectorAll('.agent-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simple scanline effect for the main canvas
+        const canvas = document.createElement('div');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.background = 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01))';
+        canvas.style.backgroundSize = '100% 2px, 3px 100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '100';
+        canvas.style.opacity = '0.3';
+        document.body.appendChild(canvas);
+    </script>
+</body></html>

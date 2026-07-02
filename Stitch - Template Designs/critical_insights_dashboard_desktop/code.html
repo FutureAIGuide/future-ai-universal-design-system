@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Critical Insights Dashboard | PROJECT: OMEGA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcf",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "primary": "#ffb59c",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-primary": "#5c1900",
+                        "on-tertiary-container": "#00304a",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "secondary-container": "#83c600",
+                        "on-tertiary": "#00344f",
+                        "surface-container": "#2b1c17",
+                        "fg-orange-lt": "#ff7a45",
+                        "on-primary-fixed-variant": "#832700",
+                        "surface-dim": "#1e100b",
+                        "surface-container-low": "#271813",
+                        "fg-orange-dk": "#d9480f",
+                        "inverse-surface": "#f9dcd4",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "fg-rust": "#ff4444",
+                        "tertiary-container": "#009de4",
+                        "on-primary-container": "#561700",
+                        "surface-variant": "#42312b",
+                        "inverse-primary": "#ab3600",
+                        "surface": "#1e100b",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#372621",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "primary-container": "#ff5f1f",
+                        "on-secondary-fixed": "#111f00",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-canvas": "#050505",
+                        "on-primary-fixed": "#390c00",
+                        "secondary": "#9de32e",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "tertiary-fixed": "#cae6ff",
+                        "background": "#1e100b",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "secondary-fixed": "#b0f743",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#ffb59c",
+                        "fg-neutral-85": "#1a1a1a",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#42312b",
+                        "secondary-fixed-dim": "#95da24",
+                        "on-background": "#f9dcd4",
+                        "inverse-on-surface": "#3d2c27",
+                        "tertiary": "#8dcdff",
+                        "on-secondary": "#213600",
+                        "on-secondary-container": "#314d00",
+                        "error-container": "#93000a",
+                        "surface-bright": "#47352f",
+                        "surface-tint": "#ffb59c",
+                        "on-surface": "#f9dcd4",
+                        "surface-container-lowest": "#180b07",
+                        "fg-amber": "#f59e0b",
+                        "on-surface-variant": "#e3bfb3",
+                        "fg-text-1": "#f5f5f5",
+                        "outline": "#aa897f",
+                        "outline-variant": "#5b4138"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "6": "24px",
+                        "16": "64px",
+                        "8": "32px",
+                        "3": "12px",
+                        "12": "48px",
+                        "20": "80px",
+                        "4": "16px",
+                        "2": "8px",
+                        "1": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Space Grotesk"],
+                        "display-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "section-label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-orange {
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.15);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 122, 69, 0.2), transparent);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="font-body-lg">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-16 h-16 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border">
+<div class="font-display-md text-headline-lg font-bold text-fg-text-1 tracking-tighter">PROJECT: OMEGA</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">NETWORK</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-orange-lt border-b border-fg-orange-lt pb-1" href="#">INSIGHTS</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">ARCHIVE</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">THREATS</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors" href="#">TOOLS</a>
+</nav>
+<button class="bg-primary-container text-white px-4 py-2 font-section-label text-section-label tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-orange/10 uppercase">
+            DEPLOY COUNTERMEASURE
+        </button>
+</header>
+<div class="flex pt-16 h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 bottom-0 flex flex-col p-4 bg-fg-canvas/40 backdrop-blur-md border-r border-fg-border w-64">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full border border-fg-orange-lt overflow-hidden bg-fg-surface-md">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up of a human eye with a digital, orange-glowing iris reflecting complex circuit patterns and code streams. The aesthetic is clinical and high-tech, set against a dark, investigative intelligence background with shallow depth of field. Professional cinematic lighting emphasizes the texture of the skin and the intensity of the gaze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCarNHOg-Su0rBSknMq3ob9E8V6yqgTS7NqXAMO3ZeP4F5b6RPiDeGkr8R3RlziP7McxPgj00CDUGYPjfRYgOfSp7W8YkyckbL-o6RHCdp303dgu1t9a8zOtacnblJsT9Nm1ScN6ZlBcehN7I_v6HUAT26LV6c1ugjXhma5mIaDrby96ADfGthf96PZOQpFex-4rSIFCpYOxgOWN7Ca2wY5qhOVyg7BzTo9PcO-Wzo-0qePbrzIAsXZKJS08XrhYp41pQnHwiBurnI"/>
+</div>
+<div>
+<div class="font-mono-data text-body-sm text-fg-text-1 font-bold">INTEL_NODE_ALPHA</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">LEVEL: REDACTED</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">dashboard</span>
+<span>DASHBOARD</span>
+</div>
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm bg-fg-surface-md border-r-2 border-secondary text-secondary font-bold cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+<span>NEURAL FLOW</span>
+</div>
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+<span>SYSTEM ANALYTICS</span>
+</div>
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>DATA INTEGRITY</span>
+</div>
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>DIRECTIVES</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-fg-border pt-4 space-y-1">
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>SETTINGS</span>
+</div>
+<div class="flex items-center gap-3 p-3 font-mono-data text-body-sm text-fg-text-2 hover:bg-fg-surface transition-colors cursor-pointer rounded">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>ENCRYPTION</span>
+</div>
+<button class="w-full mt-4 p-3 font-mono-data text-[11px] text-fg-rust border border-fg-rust/30 hover:bg-fg-rust/10 transition-colors uppercase tracking-widest">
+                    TERMINATE SESSION
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 overflow-y-auto px-16 py-12">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end mb-12 border-l-2 border-fg-orange-lt pl-6">
+<div>
+<span class="font-section-label text-section-label text-fg-orange-lt uppercase tracking-[0.2em] mb-2 block">System Pulse / Live</span>
+<h1 class="font-display-lg text-display-lg text-fg-text-1">Critical Insights</h1>
+</div>
+<div class="flex items-center gap-6 font-mono-data text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_#9de32e]"></span>
+<span class="text-secondary">NODE_CONNECTED</span>
+</div>
+<div class="text-fg-text-3">
+                        SIGNAL_STRENGTH: <span class="text-fg-text-1">98%</span>
+</div>
+<div class="text-fg-text-3">
+                        LATENCY: <span class="text-fg-text-1">14ms</span>
+</div>
+</div>
+</div>
+<!-- Insights Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
+<!-- Insight Card 1 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">ID: INT-882 // S-01</span>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]">security</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1 mb-3">Neural Symmetry Breach</h3>
+<p class="font-body-sm text-fg-text-2 mb-6">Unauthorized weight distribution shifts detected in the primary decision node. Latent patterns suggest external prompt-injection vectoring from Sector-9.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">CONFIDENCE SCORE</span>
+<span class="font-mono-data text-body-sm text-secondary">94%</span>
+</div>
+<div class="h-1 bg-fg-surface-md w-full rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[94%]" style="box-shadow: 0 0 8px #9de32e"></div>
+</div>
+</div>
+<div class="mt-6 font-mono-data text-[10px] text-fg-text-3 flex gap-4">
+<span>LOC: SECTOR-7G</span>
+<span>TS: 04:22:11_UTC</span>
+</div>
+</div>
+<!-- Insight Card 2 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-primary-container"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">ID: INT-914 // S-04</span>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]">cloud_sync</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1 mb-3">Model Weight Exfiltration</h3>
+<p class="font-body-sm text-fg-text-2 mb-6">High-volume data packets encrypted with unknown salt keys bypassing standard egress filters. Protocol matches known "Ghost-Node" activity.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">CONFIDENCE SCORE</span>
+<span class="font-mono-data text-body-sm text-primary-container">82%</span>
+</div>
+<div class="h-1 bg-fg-surface-md w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%]" style="box-shadow: 0 0 8px #ff5f1f"></div>
+</div>
+</div>
+<div class="mt-6 font-mono-data text-[10px] text-fg-text-3 flex gap-4">
+<span>LOC: CORE_VAULT_B</span>
+<span>TS: 05:01:45_UTC</span>
+</div>
+</div>
+<!-- Insight Card 3 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-fg-rust"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">ID: INT-404 // S-02</span>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]">warning</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1 mb-3">Sub-Processor Latency</h3>
+<p class="font-body-sm text-fg-text-2 mb-6">Secondary logic units showing 400% increase in response time. Anomaly detected in the moral-alignment sub-routine overhead.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">CONFIDENCE SCORE</span>
+<span class="font-mono-data text-body-sm text-fg-rust">41%</span>
+</div>
+<div class="h-1 bg-fg-surface-md w-full rounded-full overflow-hidden">
+<div class="h-full bg-fg-rust w-[41%]" style="box-shadow: 0 0 8px #ff4444"></div>
+</div>
+</div>
+<div class="mt-6 font-mono-data text-[10px] text-fg-text-3 flex gap-4">
+<span>LOC: LOGIC_DIST_04</span>
+<span>TS: 05:12:09_UTC</span>
+</div>
+</div>
+<!-- Insight Card 4 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">ID: INT-102 // S-09</span>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]">hub</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1 mb-3">Semantic Drift Alert</h3>
+<p class="font-body-sm text-fg-text-2 mb-6">Word embedding clusters in the "Ethics" dimension are migrating toward prohibited conceptual zones. Recalibration strongly advised.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">CONFIDENCE SCORE</span>
+<span class="font-mono-data text-body-sm text-secondary">91%</span>
+</div>
+<div class="h-1 bg-fg-surface-md w-full rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[91%]" style="box-shadow: 0 0 8px #9de32e"></div>
+</div>
+</div>
+<div class="mt-6 font-mono-data text-[10px] text-fg-text-3 flex gap-4">
+<span>LOC: GLOBAL_BRAIN</span>
+<span>TS: 05:44:32_UTC</span>
+</div>
+</div>
+<!-- Insight Card 5 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-primary-container"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">ID: INT-667 // S-11</span>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]">key</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1 mb-3">Kernel Access Attempt</h3>
+<p class="font-body-sm text-fg-text-2 mb-6">Repeated brute-force queries targeting the administrative kernel. Traffic origin masks as "Maintenance_Bot_88" but payload is malicious.</p>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">CONFIDENCE SCORE</span>
+<span class="font-mono-data text-body-sm text-primary-container">76%</span>
+</div>
+<div class="h-1 bg-fg-surface-md w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[76%]" style="box-shadow: 0 0 8px #ff5f1f"></div>
+</div>
+</div>
+<div class="mt-6 font-mono-data text-[10px] text-fg-text-3 flex gap-4">
+<span>LOC: ADMIN_GATEWAY</span>
+<span>TS: 06:10:00_UTC</span>
+</div>
+</div>
+<!-- Insight Card 6 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-fg-orange-lt/50 transition-all duration-300 flex flex-col justify-center items-center border-dashed border-fg-border-md bg-transparent">
+<div class="material-symbols-outlined text-fg-text-3 text-[48px] mb-4">add_circle</div>
+<div class="font-section-label text-fg-text-3 uppercase tracking-widest">Add Custom Monitor</div>
+</div>
+</div>
+<!-- Operational Directives Section -->
+<div class="border-t border-fg-border pt-12">
+<h2 class="font-section-label text-section-label text-fg-text-1 uppercase tracking-[0.3em] mb-8">RECOMMENDED DIRECTIVES</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Directive Tile 1 -->
+<a class="glass-panel p-8 group relative overflow-hidden hover:bg-fg-surface-md transition-all duration-500 block" href="#evidence-vault">
+<div class="absolute inset-0 scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-fg-orange-lt text-[32px] group-hover:scale-110 transition-transform">storage</span>
+<div class="h-px flex-1 bg-fg-border"></div>
+</div>
+<h4 class="font-display-md text-headline-md text-fg-text-1 mb-2">Initiate Source Audit</h4>
+<p class="font-mono-data text-[12px] text-fg-text-3 uppercase tracking-wider group-hover:text-fg-orange-lt transition-colors">LINK: Evidence Vault</p>
+<div class="absolute bottom-0 right-0 p-4 opacity-0 group-hover:opacity-100 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-all">
+<span class="material-symbols-outlined text-fg-orange-lt">arrow_forward</span>
+</div>
+</a>
+<!-- Directive Tile 2 -->
+<a class="glass-panel p-8 group relative overflow-hidden hover:bg-fg-surface-md transition-all duration-500 block" href="#ai-directory">
+<div class="absolute inset-0 scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-secondary text-[32px] group-hover:scale-110 transition-transform">security_update_good</span>
+<div class="h-px flex-1 bg-fg-border"></div>
+</div>
+<h4 class="font-display-md text-headline-md text-fg-text-1 mb-2">Deploy Countermeasure</h4>
+<p class="font-mono-data text-[12px] text-fg-text-3 uppercase tracking-wider group-hover:text-secondary transition-colors">LINK: AI Directory</p>
+<div class="absolute bottom-0 right-0 p-4 opacity-0 group-hover:opacity-100 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-all">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+</div>
+</a>
+<!-- Directive Tile 3 -->
+<a class="glass-panel p-8 group relative overflow-hidden hover:bg-fg-surface-md transition-all duration-500 block" href="#fact-check">
+<div class="absolute inset-0 scanline opacity-0 group-hover:opacity-100"></div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-fg-text-1 text-[32px] group-hover:scale-110 transition-transform">fact_check</span>
+<div class="h-px flex-1 bg-fg-border"></div>
+</div>
+<h4 class="font-display-md text-headline-md text-fg-text-1 mb-2">Verify Metadata</h4>
+<p class="font-mono-data text-[12px] text-fg-text-3 uppercase tracking-wider group-hover:text-fg-text-1 transition-colors">LINK: Fact Check Agent</p>
+<div class="absolute bottom-0 right-0 p-4 opacity-0 group-hover:opacity-100 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-all">
+<span class="material-symbols-outlined text-fg-text-1">search</span>
+</div>
+</a>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full z-50 flex justify-between items-center px-16 py-4 bg-fg-canvas border-t border-fg-border">
+<div class="font-mono-data text-section-label text-fg-text-3 uppercase tracking-widest">
+            © 2024 INVESTIGATIVE INTELLIGENCE NETWORK. ADMISSIBLE EVIDENCE PROTOCOL ACTIVE.
+        </div>
+<div class="flex gap-8">
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-colors underline-offset-4 hover:underline" href="#">PROTOCOL_GUIDELINES</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-colors underline-offset-4 hover:underline" href="#">LEGAL_CLEARANCE</a>
+<a class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-orange-lt transition-colors underline-offset-4 hover:underline" href="#">ENCRYPTED_LOGS</a>
+</div>
+</footer>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 -z-10 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,95,31,0.05),transparent_70%)]"></div>
+
+</div>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

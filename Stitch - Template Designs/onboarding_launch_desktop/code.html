@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // SYSTEM INITIALIZATION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffb59c",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#180b07",
+                        "fg-text-1": "#f5f5f5",
+                        "on-surface": "#f9dcd4",
+                        "surface-container": "#2b1c17",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed": "#001e30",
+                        "fg-rust": "#ff4444",
+                        "secondary-fixed-dim": "#95da24",
+                        "tertiary": "#8dcdff",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-orange-dk": "#d9480f",
+                        "on-secondary-fixed": "#111f00",
+                        "on-primary-container": "#561700",
+                        "surface": "#1e100b",
+                        "on-error-container": "#ffdad6",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "fg-amber": "#f59e0b",
+                        "on-primary-fixed-variant": "#832700",
+                        "outline-variant": "#5b4138",
+                        "on-surface-variant": "#e3bfb3",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "surface-container-high": "#372621",
+                        "tertiary-fixed": "#cae6ff",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "fg-canvas": "#050505",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "primary-container": "#ff5f1f",
+                        "on-tertiary-container": "#00304a",
+                        "surface-bright": "#47352f",
+                        "fg-neutral-85": "#1a1a1a",
+                        "outline": "#aa897f",
+                        "surface-tint": "#ffb59c",
+                        "surface-container-highest": "#42312b",
+                        "secondary-container": "#83c600",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#b0f743",
+                        "on-tertiary": "#00344f",
+                        "inverse-surface": "#f9dcd4",
+                        "surface-variant": "#42312b",
+                        "on-error": "#690005",
+                        "background": "#1e100b",
+                        "on-primary": "#5c1900",
+                        "inverse-on-surface": "#3d2c27",
+                        "fg-orange-lt": "#ff7a45",
+                        "surface-container-low": "#271813",
+                        "tertiary-container": "#009de4",
+                        "surface-dim": "#1e100b",
+                        "on-primary-fixed": "#390c00",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-secondary-container": "#314d00",
+                        "on-background": "#f9dcd4",
+                        "secondary": "#9de32e",
+                        "on-secondary": "#213600",
+                        "inverse-primary": "#ab3600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "6": "24px",
+                        "8": "32px",
+                        "2": "8px",
+                        "16": "64px",
+                        "4": "16px",
+                        "1": "4px",
+                        "3": "12px",
+                        "12": "48px",
+                        "20": "80px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-md": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-lg": ["Space Grotesk"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .glass {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(157, 227, 46, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .progress-fill {
+            transition: width 2s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- NAVIGATION SHELL (SideNav Contextual) -->
+<aside class="hidden lg:flex flex-col h-full py-8 fixed left-0 top-0 w-64 bg-surface-container-lowest border-r border-fg-border z-50">
+<div class="px-6 mb-12">
+<h2 class="font-display-md text-primary text-headline-lg mb-1">ONBOARDING</h2>
+<p class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3">INITIATING PROTOCOL</p>
+</div>
+<nav class="flex-grow space-y-1">
+<div class="px-3 flex flex-col gap-1">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-fg-text-2 transition-all duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fingerprint</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">IDENTITY</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-fg-text-2 transition-all duration-150">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">VECTORS</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-fg-text-2 transition-all duration-150">
+<span class="material-symbols-outlined">enhanced_encryption</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">ENCRYPTION</span>
+</div>
+<!-- ACTIVE TAB -->
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary font-bold bg-fg-surface-md border-r-2 border-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">LAUNCH</span>
+</div>
+</div>
+</nav>
+<div class="mt-auto px-6 space-y-6">
+<button class="w-full py-3 border border-fg-rust/30 text-fg-rust font-section-label text-section-label uppercase tracking-widest hover:bg-fg-rust/10 transition-colors">
+                ABORT SESSION
+            </button>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2 text-fg-text-3 hover:text-fg-text-1 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[18px]">help_center</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">SUPPORT</span>
+</div>
+<div class="flex items-center gap-2 text-fg-text-3 hover:text-fg-text-1 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span class="font-section-label text-section-label uppercase tracking-widest">LEGAL</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN CANVAS -->
+<main class="lg:ml-64 min-h-screen relative flex flex-col items-center justify-center p-6 md:p-20 overflow-hidden">
+<!-- Background Asset (Head UI) -->
+<div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-t from-fg-canvas via-transparent to-fg-canvas z-10"></div>
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A futuristic, translucent human head silhouette constructed from glowing green and orange circuitry lines against a deep black background. The head is labeled ASTRA-1 Intelligence Unit with various digital interface elements, checkmarks, and data streams floating around it, creating a high-tech investigative terminal atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvbDWNSrFvF1UrAfahJJk7uZSHjBtY795YSXxPxOcw4KTHrmT52i4_NY5-02g-ps9ibIzPT_TfT123vQZ3dA-l6gtR9ZKOvV5JyIMnX4_QxCKXtG6VkzgzdPyqcKipUsPu7ISJJjWovut1T0cE13AV4s7rSoSH0tj84BFkXHTqLLm529x_I-IOZ19sGmb5_rHdhfFlocaH4MttnHB2Bk5owonMglTAWQvkCiZIMNjzx3FVtEdH5x3QXTVOiFk_6nDYzveFdlymDGM"/>
+</div>
+<div class="scanline"></div>
+<!-- PROGRESS BAR OVERVIEW (Top Header) -->
+<div class="w-full max-w-4xl z-20 mb-12 animate-fade-in">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="font-section-label text-section-label text-fg-text-3 block mb-1">PHASE 04/04</span>
+<h1 class="font-display-md text-headline-lg text-fg-text-1 tracking-tight">System Operational</h1>
+</div>
+<div class="text-right">
+<span class="font-mono-data text-secondary text-headline-md">100% - SYNC COMPLETE</span>
+</div>
+</div>
+<div class="h-1 w-full bg-fg-surface-md overflow-hidden">
+<div class="h-full bg-secondary w-full progress-fill shadow-[0_0_15px_rgba(157,227,46,0.5)]"></div>
+</div>
+</div>
+<!-- CENTER PIECE: COMPLETION STATUS -->
+<div class="relative z-20 flex flex-col items-center max-w-2xl text-center">
+<!-- CENTRAL CHECKMARK -->
+<div class="relative mb-8 group">
+<div class="absolute inset-0 bg-secondary/20 rounded-full blur-3xl animate-pulse"></div>
+<div class="relative h-32 w-32 md:h-48 md:w-48 border-2 border-secondary/30 rounded-full flex items-center justify-center backdrop-blur-sm bg-secondary/5">
+<span class="material-symbols-outlined text-secondary text-[80px] md:text-[120px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Status Details Floating -->
+<div class="absolute -right-12 top-0 glass px-3 py-2 rounded-lg border-secondary/20 hidden md:block">
+<p class="font-mono-data text-[10px] text-secondary">INTEGRITY_CHECK: PASS</p>
+</div>
+<div class="absolute -left-12 bottom-0 glass px-3 py-2 rounded-lg border-secondary/20 hidden md:block">
+<p class="font-mono-data text-[10px] text-secondary">NODE_SYNC: OPTIMAL</p>
+</div>
+</div>
+<!-- CONTENT -->
+<div class="space-y-6">
+<p class="font-body-lg text-fg-text-2 max-w-lg mx-auto">
+                    The core network infrastructure has been fully synchronized with your identity profile. All encryption protocols are active and the investigation dashboard is primed for data ingestion.
+                </p>
+<div class="pt-8">
+<button class="group relative px-12 py-4 bg-primary text-on-primary font-section-label text-section-label uppercase tracking-widest font-bold shadow-orange transition-all hover:scale-105 active:scale-95">
+<span class="flex items-center gap-3">
+                            ENTER NETWORK
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+<!-- Decorative corners -->
+<div class="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-primary"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- BENTO STATS (Bottom) -->
+<div class="w-full max-w-5xl z-20 mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass p-6 border-t-[3px] border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">shield</span>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded-full font-mono-data text-[10px]">VERIFIED</span>
+</div>
+<h3 class="font-headline-md text-fg-text-1 mb-2">Encryption Standards</h3>
+<p class="font-mono-data text-fg-text-3 text-body-sm">Post-quantum AES-512 handshake established via Vector-7 Node.</p>
+</div>
+<div class="glass p-6 border-t-[3px] border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">hub</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary rounded-full font-mono-data text-[10px]">ACTIVE</span>
+</div>
+<h3 class="font-headline-md text-fg-text-1 mb-2">Network Access</h3>
+<p class="font-mono-data text-fg-text-3 text-body-sm">Global resource directory and intel feed unlocked for investigator profile.</p>
+</div>
+<div class="glass p-6 border-t-[3px] border-fg-amber">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-fg-amber">account_tree</span>
+<span class="px-2 py-0.5 bg-fg-amber/10 text-fg-amber rounded-full font-mono-data text-[10px]">READY</span>
+</div>
+<h3 class="font-headline-md text-fg-text-1 mb-2">Protocol Adherence</h3>
+<p class="font-mono-data text-fg-text-3 text-body-sm">All admissible evidence protocols have been initialized for session storage.</p>
+</div>
+</div>
+</main>
+<!-- FOOTER SHELL -->
+<footer class="lg:ml-64 w-full py-12 bg-surface-container-lowest border-t border-fg-border z-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-16 w-full gap-4">
+<div class="flex flex-col gap-1 text-center md:text-left">
+<p class="font-display-md text-primary text-headline-lg leading-none">FUTURE AI GUIDE</p>
+<p class="font-mono-data text-body-sm text-fg-text-3 opacity-80">© 2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL</p>
+</div>
+<div class="flex gap-8">
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">PRIVACY</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">ENCRYPTION STANDARDS</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">NETWORK STATUS</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and UI logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulated delay for "sync" effect on load
+            const fill = document.querySelector('.progress-fill');
+            fill.style.width = '0%';
+            setTimeout(() => {
+                fill.style.width = '100%';
+            }, 500);
+
+            // Button hover effect
+            const btn = document.querySelector('.shadow-orange');
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                btn.style.setProperty('--x', `${x}px`);
+                btn.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

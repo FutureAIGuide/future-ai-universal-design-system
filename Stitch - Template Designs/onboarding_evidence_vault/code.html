@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Evidence Vault | Aegis Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#2b1c17",
+                        "surface-container-highest": "#42312b",
+                        "on-secondary-container": "#314d00",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "primary-container": "#ff5f1f",
+                        "inverse-primary": "#ab3600",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-container": "#00304a",
+                        "on-background": "#f9dcd4",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-surface": "#f9dcd4",
+                        "fg-amber": "#f59e0b",
+                        "fg-neutral-85": "#1a1a1a",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "surface-container-high": "#372621",
+                        "inverse-surface": "#f9dcd4",
+                        "secondary": "#9de32e",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-error-container": "#ffdad6",
+                        "fg-rust": "#ff4444",
+                        "fg-orange-lt": "#ff7a45",
+                        "surface-tint": "#ffb59c",
+                        "tertiary-container": "#009de4",
+                        "surface-variant": "#42312b",
+                        "error": "#ffb4ab",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "surface-dim": "#1e100b",
+                        "on-secondary-fixed": "#111f00",
+                        "background": "#1e100b",
+                        "secondary-fixed": "#b0f743",
+                        "tertiary": "#8dcdff",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "fg-text-1": "#f5f5f5",
+                        "primary": "#ffb59c",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#180b07",
+                        "on-primary-fixed": "#390c00",
+                        "tertiary-fixed": "#cae6ff",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-error": "#690005",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "surface-bright": "#47352f",
+                        "on-primary-container": "#561700",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "fg-orange-dk": "#d9480f",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "secondary-container": "#83c600",
+                        "on-secondary": "#213600",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-low": "#271813",
+                        "on-primary-fixed-variant": "#832700",
+                        "inverse-on-surface": "#3d2c27",
+                        "on-tertiary": "#00344f",
+                        "on-primary": "#5c1900",
+                        "fg-canvas": "#050505",
+                        "surface": "#1e100b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "1": "4px", "2": "8px", "3": "12px", "4": "16px", "6": "24px", "8": "32px", "12": "48px", "16": "64px", "20": "80px"
+                    },
+                    "fontFamily": {
+                        "section-label": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "display-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>body {
+    background-color: #050505;
+    color: #f5f5f5;
+    overflow-x: hidden
+    }
+.glass-panel {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.glow-orange {
+    box-shadow: 0 0 20px rgba(255, 95, 31, 0.2)
+    }
+.glow-lime {
+    box-shadow: 0 0 20px rgba(157, 227, 46, 0.15)
+    }
+.scanline {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 95, 31, 0.5), transparent);
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    animation: scan 4s linear infinite
+    }
+@keyframes scan {
+    0% {
+        top: 0%;
+        } 100% {
+        top: 100%;
+        }
+    }
+.noise-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCllICfunEUIA18ZNnSCWK6rSBz8b7lTtOz4uQp2J54FSOOJW0a0s0Om6z08St7Pt4Y9djAzD5crgDUDXuJg-y3xb5JKRJXAZWA_oFufsBPAwBcmLMeAo8z88lXYulw5pcQiEC8eErKt0lXi8LVwUVGj4B1LpkiWTDTpUXXq7NmejVIqZon-CuGVZ8OFJHCbabeqdZHtR2aJYrle95yh79lRnBFSpJDt6xiYBazXBsbWjLPHK-NgkrqpNJq9qKntqWU1dDkiMM-sM4);
+    opacity: 0.05;
+    pointer-events: none
+    }
+.tab-active {
+    box-shadow: inset 0 -2px 0 #ff5f1f
+    }</style>
+</head>
+<body class="font-body-lg">
+<div class="fixed inset-0 noise-bg z-[100]"></div>
+<!-- Onboarding Shell -->
+<main class="min-h-screen flex flex-col items-center justify-between px-6 py-12 md:py-16 md:px-16 max-w-7xl mx-auto relative">
+<!-- Top Progress Header -->
+<header class="w-full flex flex-col items-center gap-6 z-10">
+<div class="flex items-center gap-4">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest">Protocol Phase</span>
+<div class="flex gap-2">
+<div class="h-1 w-8 bg-primary-container"></div>
+<div class="h-1 w-8 bg-primary-container"></div>
+<div class="h-1 w-8 bg-primary-container shadow-[0_0_8px_#ff5f1f]"></div>
+</div>
+<span class="font-mono-data text-mono-data text-primary-container">03 / 03</span>
+</div>
+<h1 class="font-display-md text-display-md md:text-display-lg text-center tracking-tighter text-fg-text-1">
+                SECURE EVIDENCE VAULT
+            </h1>
+</header>
+<!-- Central Visualization Canvas -->
+<section class="relative w-full flex-grow flex items-center justify-center py-12">
+<div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+<div class="w-[600px] h-[600px] border border-fg-border rounded-full flex items-center justify-center">
+<div class="w-[400px] h-[400px] border border-fg-border/50 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-[200px] h-[200px] border border-fg-border/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="relative z-10 w-full max-w-4xl glass-panel p-1 rounded-lg overflow-hidden group">
+<div class="scanline"></div>
+<!-- Status Stripe -->
+<div class="h-[3px] w-full bg-primary-container absolute top-0 left-0"></div>
+<div class="aspect-video w-full relative overflow-hidden bg-black">
+<img alt="Secure Interface Visualization" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP7TYnjF1KelJm0f9TYbOCyn7905waDn08d6od4Kzdti8i1qaoJRT-HxD7JGRD4jpf8cr1Ik7G49Efp26E-VtadPE3FtoxE3xYsjQBkDHor9BcprhnWhfU82V3zUHdsjDfv3-liMSaH3JPK9y8z7T5_U1DbiOiN17EOkKBdNXRGxANPws0j4C2rx7TP7mJ1ReHge3JbZsUFeQATXdwlJNiMuBQqjigHT8DLGalzQHOHLChWNQFKPq64-0FH5p-rsTqWpuaomZE3Us"/>
+<!-- HUD Overlays -->
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur px-3 py-1 border border-fg-border">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span class="font-mono-data text-[10px] text-fg-text-1 uppercase tracking-tighter">IMMUTABLE_LOG_ACTIVE</span>
+</div>
+<div class="flex items-center gap-2 bg-black/60 backdrop-blur px-3 py-1 border border-fg-border">
+<span class="material-symbols-outlined text-[14px] text-primary-container">description</span>
+<span class="font-mono-data text-[10px] text-fg-text-1 uppercase tracking-tighter">AES_256_STRICT</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 text-right">
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase">Hash Signature</div>
+<div class="font-mono-data text-[12px] text-fg-text-2">f82a...91d2_EVIDENCE_NODE</div>
+</div>
+</div>
+</div>
+<!-- Floating Data Decals (Asymmetric Layout) -->
+<div class="absolute top-1/4 -left-8 hidden lg:block glass-panel p-4 w-48 border-l-4 border-secondary glow-lime">
+<p class="font-section-label text-section-label text-secondary mb-2">INTEGRITY CHECK</p>
+<div class="flex flex-col gap-1">
+<div class="h-1 w-full bg-secondary/20"></div>
+<div class="h-1 w-4/5 bg-secondary/20"></div>
+<div class="h-1 w-full bg-secondary/20"></div>
+</div>
+<p class="font-mono-data text-[10px] text-fg-text-2 mt-2">100% ADMISSIBLE</p>
+</div>
+<div class="absolute bottom-1/4 -right-8 hidden lg:block glass-panel p-4 w-56 border-l-4 border-primary-container glow-orange">
+<p class="font-section-label text-section-label text-primary-container mb-2">LEDGER STATUS</p>
+<div class="flex items-end gap-1 h-8">
+<div class="w-1 bg-primary-container h-4"></div>
+<div class="w-1 bg-primary-container h-6"></div>
+<div class="w-1 bg-primary-container h-8"></div>
+<div class="w-1 bg-primary-container h-5"></div>
+<div class="w-1 bg-primary-container h-7"></div>
+</div>
+<p class="font-mono-data text-[10px] text-fg-text-2 mt-2">REAL-TIME SYNCING...</p>
+</div>
+</section>
+<!-- Descriptive Content & Actions -->
+<footer class="w-full max-w-2xl text-center flex flex-col items-center gap-8 z-10">
+<div class="flex flex-col gap-4">
+<p class="font-body-lg text-fg-text-2 leading-relaxed">
+                    Every finding is logged to an immutable <span class="text-fg-text-1 font-semibold">cryptographically secured ledger</span>. Ensure 100% admissible history for your investigations.
+                </p>
+<div class="flex items-center justify-center gap-2">
+<span class="h-[1px] w-12 bg-fg-border"></span>
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase">Alpha Access Authorized</span>
+<span class="h-[1px] w-12 bg-fg-border"></span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-6 w-full">
+<button class="w-full md:flex-1 bg-primary-container text-black font-section-label text-section-label py-4 px-8 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,95,31,0.4)] hover:shadow-[0_0_35px_rgba(255,95,31,0.6)] active:scale-95 transition-all duration-300">
+<span>ENTER TERMINAL</span>
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</button>
+<button class="w-full md:w-auto px-12 py-4 font-section-label text-section-label text-fg-text-3 hover:text-fg-text-1 border border-transparent hover:bg-fg-surface transition-all duration-300">
+                    SKIP
+                </button>
+</div>
+</footer>
+</main>
+<!-- Corner Decorative elements for Controlled Menace vibe -->
+<div class="fixed top-0 left-0 p-8 hidden md:block opacity-30">
+<div class="font-mono-data text-[10px] text-fg-text-3">SYSTEM_COORD: 40.7128° N, 74.0060° W</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">V_STAMP: 0.12.9_BETA</div>
+</div>
+<div class="fixed bottom-0 right-0 p-8 hidden md:block opacity-30">
+<div class="flex items-center gap-4 justify-end">
+<div class="text-right">
+<div class="font-mono-data text-[10px] text-fg-text-3">UPTIME: 14:22:01</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">THREADS: OPTIMAL</div>
+</div>
+<div class="w-1 h-8 bg-secondary"></div>
+</div>
+</div>
+<script>
+        // Micro-interactions for terminal-like feel
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                const audio = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YTtvT18AAA==');
+                audio.volume = 0.05;
+                // audio.play().catch(e => {}); // Silent if blocked
+            });
+        });
+
+        // Add a subtle flicker to status badges
+        setInterval(() => {
+            const badges = document.querySelectorAll('.glow-lime, .glow-orange');
+            badges.forEach(b => {
+                b.style.opacity = (0.9 + Math.random() * 0.1).toString();
+            });
+        }, 100);
+    </script>
+</body></html>

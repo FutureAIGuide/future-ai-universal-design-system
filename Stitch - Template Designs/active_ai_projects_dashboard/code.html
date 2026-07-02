@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_OS | ACTIVE AI PROJECTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#314d00",
+                    "on-error": "#690005",
+                    "fg-text-1": "#f5f5f5",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "on-primary": "#5c1900",
+                    "fg-rust": "#ff4444",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#832700",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "fg-neutral-85": "#1a1a1a",
+                    "on-secondary-fixed": "#111f00",
+                    "surface-variant": "#42312b",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-dim": "#1e100b",
+                    "on-secondary": "#213600",
+                    "secondary-fixed": "#b0f743",
+                    "fg-orange-lt": "#ff7a45",
+                    "fg-amber": "#f59e0b",
+                    "fg-canvas": "#050505",
+                    "on-tertiary": "#00344f",
+                    "on-surface": "#f9dcd4",
+                    "surface-container-highest": "#42312b",
+                    "surface": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "inverse-primary": "#ab3600",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-low": "#271813",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "outline-variant": "#5b4138",
+                    "surface-container-lowest": "#180b07",
+                    "surface-bright": "#47352f",
+                    "fg-orange-dk": "#d9480f",
+                    "surface-container-high": "#372621",
+                    "outline": "#aa897f",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "primary-fixed-dim": "#ffb59c",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "inverse-on-surface": "#3d2c27",
+                    "primary-container": "#ff5f1f",
+                    "on-tertiary-container": "#00304a",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "surface-tint": "#ffb59c",
+                    "surface-container": "#2b1c17",
+                    "primary-fixed": "#ffdbcf",
+                    "tertiary": "#8dcdff",
+                    "tertiary-container": "#009de4",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary-container": "#561700",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "inverse-surface": "#f9dcd4",
+                    "background": "#1e100b",
+                    "secondary": "#9de32e",
+                    "on-surface-variant": "#e3bfb3",
+                    "on-background": "#f9dcd4",
+                    "primary": "#ffb59c",
+                    "secondary-container": "#83c600",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#95da24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "16": "64px",
+                    "4": "16px",
+                    "12": "48px",
+                    "6": "24px",
+                    "3": "12px",
+                    "8": "32px",
+                    "20": "80px",
+                    "2": "8px",
+                    "1": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "section-label": ["JetBrains Mono"],
+                    "display-md": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "mono-data": ["JetBrains Mono"],
+                    "display-xl": ["Space Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-glow-orange { box-shadow: 0 0 15px rgba(217, 72, 15, 0.2); }
+        .status-glow-lime { box-shadow: 0 0 15px rgba(157, 227, 46, 0.2); }
+        .status-glow-amber { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 2px; }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 95, 31, 0.05) 50%, transparent 100%);
+            height: 20px;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden selection:bg-fg-orange-dk selection:text-white">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen sticky left-0 w-64 bg-fg-canvas/40 backdrop-blur-md border-r border-fg-border flex flex-col h-full py-8 gap-6 z-[60]">
+<div class="px-6 mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded-sm">
+<span class="material-symbols-outlined text-black font-bold">sensors</span>
+</div>
+<div>
+<h2 class="font-headline-md text-fg-text-1 tracking-tighter">NODE_01</h2>
+<p class="font-mono-data text-[10px] text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                        CONNECTED
+                    </p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="group flex items-center px-6 py-3 transition-all duration-200 bg-primary/10 text-primary border-r-2 border-primary" href="#">
+<span class="material-symbols-outlined mr-4 transition-all duration-200 group-hover:translate-x-1" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-mono-data text-mono-data">DASHBOARD</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4 transition-all duration-200 group-hover:translate-x-1">sensors</span>
+<span class="font-mono-data text-mono-data">LIVE_FEEDS</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4 transition-all duration-200 group-hover:translate-x-1">groups</span>
+<span class="font-mono-data text-mono-data">ENTITIES</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4 transition-all duration-200 group-hover:translate-x-1">folder_shared</span>
+<span class="font-mono-data text-mono-data">EVIDENCE</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-4 transition-all duration-200 group-hover:translate-x-1">description</span>
+<span class="font-mono-data text-mono-data">REPORTING</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full bg-fg-orange-dk text-white font-mono-data py-3 px-4 flex items-center justify-center gap-2 hover:bg-fg-orange-lt transition-colors shadow-lg shadow-orange/10">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+                INITIALIZE_SCAN
+            </button>
+<div class="pt-4 border-t border-fg-border space-y-2">
+<a class="flex items-center gap-4 text-fg-text-3 hover:text-fg-text-1 transition-all duration-200 font-mono-data text-[12px]" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span> SETTINGS
+                </a>
+<a class="flex items-center gap-4 text-fg-text-3 hover:text-fg-text-1 transition-all duration-200 font-mono-data text-[12px]" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span> HELP
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- TopNavBar Anchor -->
+<header class="w-full sticky top-0 z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border flex items-center justify-between px-16 py-4 w-full transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-12">
+<span class="font-headline-md text-headline-md text-fg-orange-lt tracking-tighter">AETHER_OS</span>
+<nav class="hidden md:flex items-center gap-8 font-section-label text-section-label uppercase tracking-widest">
+<a class="text-fg-text-1 border-b-2 border-fg-orange-dk pb-2" href="#">INTEL</a>
+<a class="text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">OPERATIONS</a>
+<a class="text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">NETWORK</a>
+<a class="text-fg-text-3 hover:text-fg-text-2 transition-colors" href="#">ARCHIVE</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group hidden lg:block">
+<input class="bg-black/40 border border-fg-border focus:border-fg-orange-dk focus:ring-0 text-fg-text-1 font-mono-data text-xs py-1.5 px-4 w-64 transition-all duration-300" placeholder="SEARCH_DATABASE..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-fg-text-3 text-[18px]">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-fg-text-2 hover:text-fg-orange-lt transition-colors">notifications</button>
+<button class="material-symbols-outlined text-fg-text-2 hover:text-fg-orange-lt transition-colors">terminal</button>
+<div class="w-8 h-8 overflow-hidden rounded-full border border-fg-border">
+<img class="w-full h-full object-cover" data-alt="Close-up artistic portrait of a cybernetic analyst in a dark environment with orange interface light reflecting on a metallic facial augment, sharp and cinematic quality, futuristic intelligence officer aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg6Kr_5qhdJSVcvEcZBWc9cRiq8UmDRaKwios0e6VNHtDCCEd0fINYkvBX3suzlr-YDstFB7Vk91qDsSIlG2muQJJn_cdf3pjNlIchUQBbpwhI9sHEcwarHDWefaomF75v8zwyBT3bRS-amMNzPxv2w4EUIZFVSJtqofobBKsujVhadcgp2sCRY3V9yhn2qbVy9oPwyJY7bICVNf7rFW22hfTTtMl-rqRKZ088RDrJ3IhjuBBDck304QOnWnRL2bmsD-VUDF_nmPg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-fg-canvas p-16 relative">
+<div class="scanline-effect"></div>
+<!-- Page Header -->
+<div class="mb-12">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-fg-orange-dk"></span>
+<span class="font-section-label text-fg-text-3 uppercase tracking-widest">SYSTEM_STATUS / ACTIVE_PROJECTS</span>
+</div>
+<h1 class="font-display-md text-fg-text-1 uppercase">INTELLIGENCE_GRID</h1>
+<div class="h-1 w-24 bg-fg-orange-dk mt-4"></div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="glass-panel group relative overflow-hidden flex flex-col p-6 transition-all duration-300 hover:bg-fg-surface-md">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-fg-orange-dk"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-black/40 border border-fg-border flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-orange-lt text-3xl">psychology</span>
+</div>
+<span class="px-3 py-1 bg-fg-orange-dk/10 text-fg-orange-lt font-mono-data text-[10px] tracking-tighter border border-fg-orange-dk/20">IN_PROGRESS</span>
+</div>
+<h3 class="font-headline-lg text-fg-text-1 mb-2 tracking-tight">NEURAL_OS_RECALIBRATION</h3>
+<p class="font-body-sm text-fg-text-3 mb-6 line-clamp-2">Optimizing synaptic weight distributions for global inference nodes in deep cluster 09.</p>
+<div class="space-y-4 flex-1">
+<!-- Models -->
+<div>
+<p class="font-section-label text-fg-text-3 mb-2">MODELS_DEPLOYED</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">GPT-4O</span>
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">SYSTEM_C1_REFL</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3 mb-1">
+<span>COMPLETION_DELTA</span>
+<span class="text-fg-orange-lt">78.4%</span>
+</div>
+<div class="w-full h-1 bg-fg-surface overflow-hidden">
+<div class="h-full bg-fg-orange-dk w-[78.4%] relative shadow-[0_0_8px_rgba(217,72,15,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-fg-border flex justify-between items-center">
+<div>
+<p class="font-section-label text-fg-text-3 text-[9px]">DEADLINE</p>
+<p class="font-mono-data text-fg-text-1">2024.08.15 : 12:00</p>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-white transition-colors">open_in_new</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel group relative overflow-hidden flex flex-col p-6 transition-all duration-300 hover:bg-fg-surface-md">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-secondary"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-black/40 border border-fg-border flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">shield_with_heart</span>
+</div>
+<span class="px-3 py-1 bg-secondary/10 text-secondary font-mono-data text-[10px] tracking-tighter border border-secondary/20">VERIFYING</span>
+</div>
+<h3 class="font-headline-lg text-fg-text-1 mb-2 tracking-tight">SECTOR_7G_THREAT_SIM</h3>
+<p class="font-body-sm text-fg-text-3 mb-6 line-clamp-2">Running adversarial heuristics on perimeter firewall protocols to identify latent exploit vectors.</p>
+<div class="space-y-4 flex-1">
+<div>
+<p class="font-section-label text-fg-text-3 mb-2">MODELS_DEPLOYED</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">CLAUDE-3.5-SONNET</span>
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">O1-PREVIEW</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3 mb-1">
+<span>COMPLETION_DELTA</span>
+<span class="text-secondary">92.1%</span>
+</div>
+<div class="w-full h-1 bg-fg-surface overflow-hidden">
+<div class="h-full bg-secondary w-[92.1%] relative shadow-[0_0_8px_rgba(157,227,46,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-fg-border flex justify-between items-center">
+<div>
+<p class="font-section-label text-fg-text-3 text-[9px]">DEADLINE</p>
+<p class="font-mono-data text-fg-text-1">2024.08.12 : 23:59</p>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-white transition-colors">open_in_new</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel group relative overflow-hidden flex flex-col p-6 transition-all duration-300 hover:bg-fg-surface-md">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-fg-amber"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-black/40 border border-fg-border flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-amber text-3xl">hub</span>
+</div>
+<span class="px-3 py-1 bg-fg-amber/10 text-fg-amber font-mono-data text-[10px] tracking-tighter border border-fg-amber/20">PENDING</span>
+</div>
+<h3 class="font-headline-lg text-fg-text-1 mb-2 tracking-tight">SYNAPSE_BRIDGE_SYNC</h3>
+<p class="font-body-sm text-fg-text-3 mb-6 line-clamp-2">Synchronizing inter-regional database clusters to ensure zero-latency intelligence parity.</p>
+<div class="space-y-4 flex-1">
+<div>
+<p class="font-section-label text-fg-text-3 mb-2">MODELS_DEPLOYED</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">DEEPSEEK-V2</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3 mb-1">
+<span>COMPLETION_DELTA</span>
+<span class="text-fg-amber">12.5%</span>
+</div>
+<div class="w-full h-1 bg-fg-surface overflow-hidden">
+<div class="h-full bg-fg-amber w-[12.5%] relative shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-fg-border flex justify-between items-center">
+<div>
+<p class="font-section-label text-fg-text-3 text-[9px]">DEADLINE</p>
+<p class="font-mono-data text-fg-text-1">2024.08.28 : 09:15</p>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-white transition-colors">open_in_new</button>
+</div>
+</div>
+<!-- Card 4 (Visualization Card) -->
+<div class="glass-panel group relative overflow-hidden flex flex-col p-6 transition-all duration-300 hover:bg-fg-surface-md border-dashed border-fg-border-md">
+<div class="absolute inset-0 z-0 opacity-10">
+<div class="w-full h-full bg-cover bg-center" data-alt="A complex technical drawing of a neural network architecture, rendered in high-contrast neon lines on a pitch-black background, showing nodes and data paths in a blueprint style, cold and clinical intelligence aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChUsAqpK1lkzBoDtWGEkGcPE-1G2wMl0xfZF2XuBzgbLhhORu1DV01kJBNJQ_tgNx7tlITyfZa9P78RoCzt6gvceexEuYcb0plLesIGecZZWRhjus728S2iHQlgO4bSL1a3Qf8tz9lwNSuqHeKRHrMqK5Kg4KW1IwpUUhHNcdqbRpyKlH6tlGJqabs32h8GVWvhhAkgh934-pBj0FkGgzI7KEMFDuwPnm2SiOJZweOVQ69uL2gy8yK1d-QazXRAMO8eQTccldHwRg')"></div>
+</div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-black/60 border border-fg-orange-dk/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-orange-lt text-3xl">analytics</span>
+</div>
+<span class="px-3 py-1 bg-fg-orange-dk text-white font-mono-data text-[10px] tracking-tighter animate-pulse">LIVE_COMPUTE</span>
+</div>
+<h3 class="font-headline-lg text-fg-text-1 mb-2">PATTERN_ANOMALY_SCAN</h3>
+<p class="font-body-sm text-fg-text-2 mb-4">Real-time processing of encrypted traffic from subterranean nodes. Identifying non-standard packet structures.</p>
+<div class="mt-auto">
+<div class="flex items-center gap-4 py-2 border-y border-fg-border mb-4">
+<div class="flex flex-col">
+<span class="text-[9px] font-section-label text-fg-text-3">CPU_LOAD</span>
+<span class="text-[14px] font-mono-data text-fg-orange-lt">94.8%</span>
+</div>
+<div class="w-px h-8 bg-fg-border"></div>
+<div class="flex flex-col">
+<span class="text-[9px] font-section-label text-fg-text-3">LATENCY</span>
+<span class="text-[14px] font-mono-data text-secondary">0.04ms</span>
+</div>
+</div>
+<button class="w-full py-2 border border-fg-orange-dk text-fg-orange-lt font-mono-data text-xs hover:bg-fg-orange-dk hover:text-white transition-all uppercase tracking-widest">Access Compute Stream</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-panel group relative overflow-hidden flex flex-col p-6 transition-all duration-300 hover:bg-fg-surface-md">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-fg-orange-dk"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-black/40 border border-fg-border flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-orange-lt text-3xl">memory</span>
+</div>
+<span class="px-3 py-1 bg-fg-orange-dk/10 text-fg-orange-lt font-mono-data text-[10px] tracking-tighter border border-fg-orange-dk/20">IN_PROGRESS</span>
+</div>
+<h3 class="font-headline-lg text-fg-text-1 mb-2 tracking-tight">KINETIC_GRID_MAPPING</h3>
+<p class="font-body-sm text-fg-text-3 mb-6 line-clamp-2">Processing orbital telemetry to update tactical spatial awareness databases for rapid response.</p>
+<div class="space-y-4 flex-1">
+<div>
+<p class="font-section-label text-fg-text-3 mb-2">MODELS_DEPLOYED</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-fg-surface px-2 py-1 font-mono-data text-[10px] text-fg-text-2 border border-fg-border">GEMINI-1.5-PRO</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3 mb-1">
+<span>COMPLETION_DELTA</span>
+<span class="text-fg-orange-lt">54.0%</span>
+</div>
+<div class="w-full h-1 bg-fg-surface overflow-hidden">
+<div class="h-full bg-fg-orange-dk w-[54%] relative shadow-[0_0_8px_rgba(217,72,15,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-fg-border flex justify-between items-center">
+<div>
+<p class="font-section-label text-fg-text-3 text-[9px]">DEADLINE</p>
+<p class="font-mono-data text-fg-text-1">2024.08.30 : 00:00</p>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-white transition-colors">open_in_new</button>
+</div>
+</div>
+<!-- Card 6 (Empty/Add) -->
+<button class="glass-panel group relative border-dashed border-fg-border-md flex flex-col items-center justify-center p-12 transition-all duration-300 hover:border-fg-orange-dk hover:bg-fg-orange-dk/5">
+<span class="material-symbols-outlined text-fg-text-3 text-5xl mb-4 group-hover:text-fg-orange-lt transition-colors">add_circle</span>
+<p class="font-mono-data text-fg-text-3 tracking-widest text-xs group-hover:text-fg-text-1 transition-colors uppercase">Initialize_New_Project</p>
+</button>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary-container rounded-full flex items-center justify-center text-black shadow-[0_0_30px_rgba(255,95,31,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 z-[70] group overflow-hidden">
+<span class="material-symbols-outlined text-3xl font-bold transition-transform duration-500 group-hover:rotate-90">add</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<!-- FAB Tooltip -->
+<div class="absolute -top-12 right-0 bg-fg-neutral-85 text-fg-orange-lt font-mono-data text-[10px] py-1 px-3 border border-fg-orange-dk opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                NEW_PROJECT_PROTOCOL
+            </div>
+</button>
+</div>
+<script>
+        // Micro-interactions for Project Cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple real-time update simulation
+        setInterval(() => {
+            document.querySelectorAll('.animate-pulse').forEach(el => {
+                // Just keeping the heartbeat active
+            });
+        }, 2000);
+    </script>
+</body></html>

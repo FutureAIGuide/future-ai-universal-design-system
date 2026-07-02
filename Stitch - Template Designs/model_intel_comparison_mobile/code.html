@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MODEL_INTEL_v4 - Comparison Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#1e100b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "on-secondary": "#213600",
+                        "inverse-surface": "#f9dcd4",
+                        "background": "#050505",
+                        "secondary": "#9de32e",
+                        "secondary-fixed-dim": "#95da24",
+                        "tertiary-fixed": "#cae6ff",
+                        "on-background": "#f9dcd4",
+                        "surface": "#1e100b",
+                        "primary": "#ffb59c",
+                        "surface-bright": "#47352f",
+                        "primary-fixed-dim": "#ffb59c",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-amber": "#f59e0b",
+                        "surface-container-low": "#271813",
+                        "surface-tint": "#ffb59c",
+                        "on-surface": "#f9dcd4",
+                        "fg-orange-dk": "#d9480f",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-secondary-fixed": "#111f00",
+                        "fg-text-1": "#f5f5f5",
+                        "on-primary-fixed-variant": "#832700",
+                        "tertiary-container": "#009de4",
+                        "surface-container-highest": "#42312b",
+                        "outline": "#aa897f",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "inverse-primary": "#ab3600",
+                        "on-primary-container": "#561700",
+                        "on-secondary-container": "#314d00",
+                        "fg-neutral-85": "#1a1a1a",
+                        "on-primary": "#5c1900",
+                        "fg-canvas": "#050505",
+                        "surface-container-high": "#372621",
+                        "fg-orange-lt": "#ff7a45",
+                        "surface-variant": "#42312b",
+                        "on-primary-fixed": "#390c00",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#180b07",
+                        "tertiary": "#8dcdff",
+                        "primary-container": "#ff5f1f",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-tertiary-container": "#00304a",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "primary-fixed": "#ffdbcf",
+                        "secondary-fixed": "#b0f743",
+                        "outline-variant": "#5b4138",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "on-error-container": "#ffdad6",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "secondary-container": "#83c600",
+                        "fg-rust": "#ff4444",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "on-tertiary": "#00344f",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#3d2c27",
+                        "surface-container": "#2b1c17"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "2": "8px",
+                        "20": "80px",
+                        "6": "24px",
+                        "8": "32px",
+                        "12": "48px",
+                        "16": "64px",
+                        "4": "16px",
+                        "3": "12px",
+                        "1": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #050505; color: #f5f5f5; }
+        .glass { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .glow-lime { box-shadow: 0 0 15px rgba(157, 227, 46, 0.15); }
+        .glow-orange { box-shadow: 0 0 15px rgba(255, 95, 31, 0.15); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-sm text-body-sm selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-surface/80 dark:bg-surface/80 border-b border-fg-border backdrop-blur-xl flex justify-between items-center px-4 h-16 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+<h1 class="font-display-md text-headline-md-mobile uppercase tracking-widest text-primary">MODEL_INTEL_v4</h1>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-fg-text-1 transition-colors" data-icon="settings">settings</button>
+</header>
+<main class="pt-20 pb-24 px-4 max-w-lg mx-auto">
+<!-- Controls Section -->
+<section class="mb-8 space-y-4">
+<div class="flex justify-between items-center bg-fg-surface p-4 border border-fg-border">
+<div class="flex flex-col">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase">Operation Mode</span>
+<span class="font-headline-md text-headline-md text-fg-text-1">COMPARISON_ENGINE</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-section-label text-section-label text-fg-text-3">LIVE</span>
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-3 bg-fg-surface-md border border-primary-container/30 group">
+<span class="font-section-label text-section-label text-primary uppercase">Compare Mode</span>
+<div class="w-8 h-4 bg-primary-container/20 border border-primary-container rounded-full relative">
+<div class="absolute right-1 top-0.5 w-2.5 h-2.5 bg-primary-container rounded-full"></div>
+</div>
+</button>
+<button class="flex items-center justify-between px-3 py-3 bg-fg-surface border border-fg-border hover:bg-fg-surface-md transition-all">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase">Verified Only</span>
+<div class="w-8 h-4 bg-fg-border border border-fg-text-3/20 rounded-full relative">
+<div class="absolute left-1 top-0.5 w-2.5 h-2.5 bg-fg-text-3 rounded-full"></div>
+</div>
+</button>
+</div>
+</section>
+<!-- Model Intelligence List -->
+<section class="space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-section-label text-section-label text-fg-text-3 uppercase">Active_Nodes [3]</h2>
+<span class="font-mono-data text-mono-data text-fg-text-3">SORT: PERFORMANCE_DESC</span>
+</div>
+<!-- Model Card 1: GPT-4o -->
+<div class="bg-fg-canvas border border-fg-border relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-secondary"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-section-label text-[9px] tracking-tighter uppercase">Verified</span>
+<span class="font-mono-data text-xs text-fg-text-3 tracking-widest">SOTA_01</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1">GPT-4o</h3>
+</div>
+<button class="p-2 border border-fg-border hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary transition-colors" data-icon="add_box">add_box</span>
+</button>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-4">
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Accuracy</span>
+<span class="font-mono-data text-headline-md text-secondary">88.7%</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Latency</span>
+<span class="font-mono-data text-headline-md text-fg-text-1">42ms</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Cost/1M</span>
+<span class="font-mono-data text-headline-md text-fg-text-1">$5.00</span>
+</div>
+</div>
+<details class="group/details">
+<summary class="list-none flex items-center justify-center py-2 border-t border-fg-border cursor-pointer hover:bg-fg-surface-md transition-colors">
+<span class="font-section-label text-section-label text-fg-text-3 group-open/details:hidden">EXPAND_INTEL</span>
+<span class="font-section-label text-section-label text-fg-text-3 hidden group-open/details:block">COLLAPSE_INTEL</span>
+<span class="material-symbols-outlined text-fg-text-3 ml-2 group-open/details:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 space-y-4">
+<div class="space-y-2">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">Benchmarks</span>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex justify-between p-2 bg-fg-surface-md border-l-2 border-secondary">
+<span class="font-mono-data text-xs">MMLU</span>
+<span class="font-mono-data text-xs text-secondary">88.4</span>
+</div>
+<div class="flex justify-between p-2 bg-fg-surface-md border-l-2 border-secondary">
+<span class="font-mono-data text-xs">GSM8K</span>
+<span class="font-mono-data text-xs text-secondary">92.1</span>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">Feature Highlights</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-fg-surface-md text-fg-text-2 font-mono-data text-[10px] border border-fg-border">NATIVE_VISION</span>
+<span class="px-2 py-1 bg-fg-surface-md text-fg-text-2 font-mono-data text-[10px] border border-fg-border">TOOL_USE_V2</span>
+<span class="px-2 py-1 bg-fg-surface-md text-fg-text-2 font-mono-data text-[10px] border border-fg-border">OMNI_MODAL</span>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<!-- Model Card 2: Claude 3.5 Sonnet -->
+<div class="bg-fg-canvas border border-fg-border relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-secondary"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-section-label text-[9px] tracking-tighter uppercase">Verified</span>
+<span class="font-mono-data text-xs text-fg-text-3 tracking-widest">SOTA_02</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1">Claude 3.5 Sonnet</h3>
+</div>
+<button class="p-2 border border-fg-border hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary transition-colors" data-icon="add_box">add_box</span>
+</button>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-4">
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Accuracy</span>
+<span class="font-mono-data text-headline-md text-secondary">87.1%</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Latency</span>
+<span class="font-mono-data text-headline-md text-fg-text-1">58ms</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Cost/1M</span>
+<span class="font-mono-data text-headline-md text-secondary">$3.00</span>
+</div>
+</div>
+<details class="group/details">
+<summary class="list-none flex items-center justify-center py-2 border-t border-fg-border cursor-pointer hover:bg-fg-surface-md transition-colors">
+<span class="font-section-label text-section-label text-fg-text-3 group-open/details:hidden">EXPAND_INTEL</span>
+<span class="font-section-label text-section-label text-fg-text-3 hidden group-open/details:block">COLLAPSE_INTEL</span>
+<span class="material-symbols-outlined text-fg-text-3 ml-2 group-open/details:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 space-y-4">
+<div class="space-y-2">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">Benchmarks</span>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex justify-between p-2 bg-fg-surface-md border-l-2 border-secondary">
+<span class="font-mono-data text-xs">MMLU</span>
+<span class="font-mono-data text-xs text-secondary">86.7</span>
+</div>
+<div class="flex justify-between p-2 bg-fg-surface-md border-l-2 border-secondary">
+<span class="font-mono-data text-xs">GSM8K</span>
+<span class="font-mono-data text-xs text-secondary">91.4</span>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<!-- Model Card 3: Llama 3 -->
+<div class="bg-fg-canvas border border-fg-border relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-fg-amber"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 bg-fg-surface-md text-fg-text-3 border border-fg-border rounded-full font-section-label text-[9px] tracking-tighter uppercase">Community</span>
+<span class="font-mono-data text-xs text-fg-text-3 tracking-widest">OSS_01</span>
+</div>
+<h3 class="font-display-md text-headline-lg text-fg-text-1">Llama 3 (70B)</h3>
+</div>
+<button class="p-2 border border-fg-border hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-primary transition-colors" data-icon="add_box">add_box</span>
+</button>
+</div>
+<div class="grid grid-cols-3 gap-2 mb-4">
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Accuracy</span>
+<span class="font-mono-data text-headline-md text-fg-text-1">82.0%</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Latency</span>
+<span class="font-mono-data text-headline-md text-secondary">31ms</span>
+</div>
+<div class="flex flex-col gap-1 p-2 bg-fg-surface border border-fg-border">
+<span class="font-section-label text-[9px] text-fg-text-3 uppercase">Cost/1M</span>
+<span class="font-mono-data text-headline-md text-secondary">$0.60</span>
+</div>
+</div>
+<details class="group/details">
+<summary class="list-none flex items-center justify-center py-2 border-t border-fg-border cursor-pointer hover:bg-fg-surface-md transition-colors">
+<span class="font-section-label text-section-label text-fg-text-3 group-open/details:hidden">EXPAND_INTEL</span>
+<span class="font-section-label text-section-label text-fg-text-3 hidden group-open/details:block">COLLAPSE_INTEL</span>
+<span class="material-symbols-outlined text-fg-text-3 ml-2 group-open/details:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="pt-4 space-y-4">
+<div class="space-y-2">
+<span class="font-section-label text-[10px] text-fg-text-3 uppercase">Highlights</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-fg-surface-md text-fg-text-2 font-mono-data text-[10px] border border-fg-border">OPEN_WEIGHTS</span>
+<span class="px-2 py-1 bg-fg-surface-md text-fg-text-2 font-mono-data text-[10px] border border-fg-border">EFFICIENCY_KING</span>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</section>
+<!-- Aesthetic Visualization (Placeholder for background effect) -->
+<div class="mt-12 h-32 border border-fg-border border-dashed relative flex items-center justify-center opacity-50 grayscale group hover:grayscale-0 transition-all cursor-crosshair">
+<div class="absolute inset-0 overflow-hidden">
+<div class="w-full h-full bg-gradient-to-tr from-secondary/5 via-transparent to-primary/5"></div>
+<!-- Simple animated scanline -->
+<div class="absolute top-0 left-0 w-full h-[1px] bg-secondary/20 animate-[scan_3s_linear_infinite]"></div>
+</div>
+<span class="font-section-label text-section-label text-fg-text-3 z-10">NEURAL_TOPOLOGY_VISUALIZER</span>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 dark:bg-surface/90 border-t border-fg-border backdrop-blur-2xl flex justify-around items-center h-20 pb-4 px-6">
+<a class="flex flex-col items-center justify-center text-fg-text-3 hover:text-fg-text-2 scale-95 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="radar">radar</span>
+<span class="font-section-label text-section-label">INTEL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold scale-95 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-section-label text-section-label">COMPARE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 hover:text-fg-text-2 scale-95 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="hub">hub</span>
+<span class="font-section-label text-section-label">NETWORK</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 hover:text-fg-text-2 scale-95 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-section-label text-section-label">ARCHIVE</span>
+</a>
+</nav>
+<style>
+        @keyframes scan {
+            from { transform: translateY(0); }
+            to { transform: translateY(128px); }
+        }
+    </style>
+<script>
+        // Simple micro-interaction for toggle switches
+        document.querySelectorAll('button.group').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const indicator = btn.querySelector('.absolute');
+                const isOff = indicator.classList.contains('left-1');
+                if(isOff) {
+                    indicator.classList.remove('left-1', 'bg-fg-text-3');
+                    indicator.classList.add('right-1', 'bg-primary-container');
+                    btn.classList.add('border-primary-container/30', 'bg-fg-surface-md');
+                } else {
+                    indicator.classList.remove('right-1', 'bg-primary-container');
+                    indicator.classList.add('left-1', 'bg-fg-text-3');
+                    btn.classList.remove('border-primary-container/30', 'bg-fg-surface-md');
+                }
+            });
+        });
+    </script>
+</body></html>

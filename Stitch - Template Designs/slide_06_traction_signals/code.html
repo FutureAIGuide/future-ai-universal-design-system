@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // MARKET TRACTION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "background": "#1e100b",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#ab3600",
+                    "primary": "#ffb59c",
+                    "on-tertiary": "#00344f",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#42312b",
+                    "on-surface-variant": "#e3bfb3",
+                    "surface-dim": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "secondary-fixed-dim": "#95da24",
+                    "on-background": "#f9dcd4",
+                    "outline-variant": "#5b4138",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "secondary-fixed": "#b0f743",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-container-lowest": "#180b07",
+                    "on-secondary-container": "#314d00",
+                    "primary-fixed": "#ffdbcf",
+                    "surface-container": "#2b1c17",
+                    "surface-tint": "#ffb59c",
+                    "surface-container-high": "#372621",
+                    "on-secondary": "#213600",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary": "#5c1900",
+                    "tertiary": "#8dcdff",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-low": "#271813",
+                    "on-surface": "#f9dcd4",
+                    "outline": "#aa897f",
+                    "surface-variant": "#42312b",
+                    "surface": "#1e100b",
+                    "on-primary-fixed-variant": "#832700",
+                    "surface-bright": "#47352f",
+                    "inverse-on-surface": "#3d2c27",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-tertiary-container": "#00304a",
+                    "primary-container": "#ff5f1f",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "tertiary-container": "#009de4",
+                    "secondary-container": "#83c600",
+                    "on-secondary-fixed": "#111f00",
+                    "inverse-surface": "#f9dcd4",
+                    "secondary": "#9de32e",
+                    "on-primary-container": "#561700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["JetBrains Mono"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(43, 28, 23, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-left: 3px solid #ff5f1f; }
+        .status-stripe-lime { border-left: 3px solid #9de32e; }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255, 95, 31, 0.05), transparent);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant flex justify-between items-center px-16 py-6 shadow-orange/10">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">POSITIONING</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline uppercase tracking-tight scale-95 active:scale-90 transition-transform" href="#">INVESTIGATE</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label text-[12px] font-bold tracking-widest rounded-md hover:opacity-90 transition-all scale-95 active:scale-90">JOIN NETWORK</button>
+</nav>
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex h-screen w-20 fixed left-0 top-0 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex-col items-center py-8 gap-8 z-40">
+<div class="mb-4">
+<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center font-display font-bold text-secondary text-xs">I_OS</div>
+</div>
+<nav class="flex flex-col gap-6 w-full">
+<button class="w-full flex flex-col items-center gap-1 py-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-label text-[9px] uppercase">P_01</span>
+</button>
+<button class="w-full flex flex-col items-center gap-1 py-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label text-[9px] uppercase">P_02</span>
+</button>
+<button class="w-full flex flex-col items-center gap-1 py-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label text-[9px] uppercase">P_03</span>
+</button>
+<button class="w-full flex flex-col items-center gap-1 py-3 bg-primary-container/20 text-primary border-r-2 border-primary transition-all">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label text-[9px] uppercase">P_04</span>
+</button>
+<button class="w-full flex flex-col items-center gap-1 py-3 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label text-[9px] uppercase">P_05</span>
+</button>
+</nav>
+</aside>
+<main class="ml-0 lg:ml-20 px-6 md:px-16 py-12 max-w-[1600px] mx-auto">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-center gap-3 mb-4">
+<span class="w-3 h-3 bg-secondary rounded-full animate-pulse shadow-[0_0_10px_#9de32e]"></span>
+<span class="font-label text-[11px] tracking-[0.2em] text-secondary">ACTIVE INVESTIGATION // PHASE_04</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6 leading-none">
+                Beyond the <span class="text-primary-container">Hype Cycle</span>
+</h1>
+<p class="max-w-2xl font-body text-on-surface-variant leading-relaxed text-lg">
+                Quantifying the transition from speculative AI models to high-integrity intelligence networks. Our neural core operates at the intersection of volume and precision.
+            </p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Astra-1 Neural Core Display -->
+<div class="md:col-span-4 lg:col-span-3 glass-panel rounded-lg p-6 relative overflow-hidden flex flex-col justify-between scanline-effect">
+<div class="absolute top-0 right-0 p-4 font-label text-[10px] text-primary/40">SYSTEM_ID: CORE-01</div>
+<div class="mb-8">
+<h3 class="font-headline text-xl font-bold mb-1">Astra-1</h3>
+<div class="font-label text-[10px] uppercase text-on-surface-variant/60 tracking-widest">Neural Intelligence Core</div>
+</div>
+<div class="w-full aspect-square rounded-full border border-outline-variant p-2 mb-8 relative">
+<img class="w-full h-full object-cover rounded-full mix-blend-screen opacity-90 shadow-[0_0_40px_rgba(255,95,31,0.2)]" src="https://lh3.googleusercontent.com/aida/AP1WRLtDEnHe3rITw0T0m5LTsx-0TOMDH6zOhfWd4ABwoQcyp5ALQ0xJkC7BsjP9pMPsga4AETsWAij_WqKSq8Rr5dLLnykusRjoKZTb1KHPn6wzDy6WETCMojPRpgzjUVXSMPHCbjx9sNqsafw38GEMlI8fhiRud0ElFxaWI2C8Lds_oKS2-wqtYg0eAboWvo6q20_FkitWLN8suuJoow_1lDZNuYwvYm2NVn_2O0jAyqMjUjgR3xr8S6YajKY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="font-label text-[10px] text-on-surface-variant/50">CPU LOAD</span>
+<span class="font-mono-data text-primary text-xs">82.4%</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%]" id="cpu-bar"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] font-label text-secondary">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">check_circle</span> VERIFIED</span>
+<span>0.002ms LATENCY</span>
+</div>
+</div>
+</div>
+<!-- Main Metrics Visualization -->
+<div class="md:col-span-8 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Metric Card 1: Network Node Count -->
+<div class="glass-panel rounded-lg p-6 status-stripe-orange flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary">hub</span>
+<span class="font-label text-[10px] text-on-surface-variant/50">NOD_CNT_04</span>
+</div>
+<h4 class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant/70 mb-2">Network Node Count</h4>
+<div class="font-headline text-4xl font-bold text-primary mb-1 tracking-tighter">12,842</div>
+<div class="text-[10px] font-label text-secondary">+14.2% FROM PREV QUARTER</div>
+</div>
+<div class="mt-8 flex items-end gap-1 h-16 w-full">
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 40%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 60%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 45%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 70%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 55%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 85%"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary transition-colors" style="height: 100%"></div>
+</div>
+</div>
+<!-- Metric Card 2: Investigation Volume -->
+<div class="glass-panel rounded-lg p-6 status-stripe-orange flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary">query_stats</span>
+<span class="font-label text-[10px] text-on-surface-variant/50">VOL_IDX_A</span>
+</div>
+<h4 class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant/70 mb-2">Investigation Volume</h4>
+<div class="font-headline text-4xl font-bold text-primary mb-1 tracking-tighter">245M+</div>
+<div class="text-[10px] font-label text-on-surface-variant/40">TOTAL PROCESSED QUERIES</div>
+</div>
+<div class="mt-8 relative h-16 w-full overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 200 60">
+<path d="M0,50 Q25,10 50,45 T100,20 T150,40 T200,10" fill="none" stroke="#ff5f1f" stroke-width="2"></path>
+<path d="M0,50 Q25,10 50,45 T100,20 T150,40 T200,10 V60 H0 Z" fill="url(#grad)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#ff5f1f;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#ff5f1f;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<!-- Metric Card 3: Verification Accuracy -->
+<div class="glass-panel rounded-lg p-6 status-stripe-lime flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="font-label text-[10px] text-on-surface-variant/50">ACC_RATE_V2</span>
+</div>
+<h4 class="font-label text-[11px] uppercase tracking-widest text-on-surface-variant/70 mb-2">Verification Accuracy</h4>
+<div class="font-headline text-4xl font-bold text-secondary mb-1 tracking-tighter">99.98%</div>
+<div class="text-[10px] font-label text-secondary">ZERO-ERROR TARGET REACHED</div>
+</div>
+<div class="mt-8 grid grid-cols-10 gap-1 w-full">
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary rounded-full shadow-[0_0_5px_#9de32e]"></div>
+<div class="h-1 bg-secondary/20 rounded-full"></div>
+</div>
+</div>
+<!-- High-Density Data Visualization Container -->
+<div class="lg:col-span-3 glass-panel rounded-lg p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h5 class="font-headline text-lg font-bold">Temporal Signal Stability</h5>
+<p class="font-label text-[10px] text-on-surface-variant/50">REAL-TIME HETEROGENEOUS DATA STREAM</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label text-[9px] uppercase">TRACTION</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label text-[9px] uppercase">VERIFICATION</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Layout for Data viz -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 relative h-64 border-l border-b border-outline-variant/30 px-4 py-4 flex flex-col justify-end">
+<!-- Faux Histogram Lines -->
+<div class="flex items-end justify-between h-full gap-2 opacity-80">
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 30%"></div>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 50%"></div>
+<div class="w-full bg-primary/60 rounded-t-sm" style="height: 45%"></div>
+<div class="w-full bg-primary/80 rounded-t-sm" style="height: 80%"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 95%"></div>
+<div class="w-full bg-primary-container rounded-t-sm" style="height: 100%"></div>
+<div class="w-full bg-primary/80 rounded-t-sm" style="height: 85%"></div>
+<div class="w-full bg-primary/60 rounded-t-sm" style="height: 70%"></div>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 40%"></div>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 20%"></div>
+<div class="w-full bg-primary/20 rounded-t-sm" style="height: 10%"></div>
+</div>
+<div class="absolute -left-6 top-0 bottom-0 flex flex-col justify-between font-label text-[8px] text-on-surface-variant/30 py-4">
+<span>100%</span>
+<span>50%</span>
+<span>0%</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="p-4 border border-outline-variant/30 rounded-md">
+<span class="font-label text-[9px] text-on-surface-variant/50 uppercase block mb-1">Signal Noise Ratio</span>
+<span class="font-headline text-2xl font-bold text-on-surface">+18.5dB</span>
+</div>
+<div class="p-4 border border-outline-variant/30 rounded-md">
+<span class="font-label text-[9px] text-on-surface-variant/50 uppercase block mb-1">Packet Integrity</span>
+<span class="font-headline text-2xl font-bold text-on-surface">99.9%</span>
+</div>
+<div class="p-4 bg-primary-container/10 border border-primary-container/30 rounded-md">
+<span class="font-label text-[9px] text-primary uppercase block mb-1">Core Health</span>
+<span class="font-headline text-2xl font-bold text-primary">OPTIMAL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full bottom-0 fixed bg-transparent flex justify-between items-center px-16 py-8 z-50">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE ONLY
+        </div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for CPU bar
+        document.addEventListener('DOMContentLoaded', () => {
+            const cpuBar = document.getElementById('cpu-bar');
+            setInterval(() => {
+                const newWidth = Math.floor(Math.random() * (90 - 75 + 1) + 75);
+                cpuBar.style.width = newWidth + '%';
+                cpuBar.style.transition = 'width 1s ease-in-out';
+            }, 2000);
+        });
+    </script>
+</body></html>

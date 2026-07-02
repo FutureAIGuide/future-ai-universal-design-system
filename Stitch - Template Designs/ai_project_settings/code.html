@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>INTEL_OS | AI Project Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .input-dark {
+            background-color: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+        }
+        .input-dark:focus {
+            border-color: #ff5f1f;
+            box-shadow: inset 0 0 8px rgba(255, 95, 31, 0.2);
+            outline: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2b1c17;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ff5f1f;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+        .toggle-checkbox-lime:checked + .toggle-label {
+            background-color: #9de32e;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#001e30",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "on-primary-fixed": "#390c00",
+                        "surface-dim": "#1e100b",
+                        "primary-fixed": "#ffdbcf",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "tertiary-fixed": "#cae6ff",
+                        "tertiary": "#8dcdff",
+                        "on-primary-container": "#561700",
+                        "inverse-surface": "#f9dcd4",
+                        "surface-container-high": "#372621",
+                        "on-secondary-container": "#314d00",
+                        "fg-rust": "#ff4444",
+                        "on-primary": "#5c1900",
+                        "surface-container-low": "#271813",
+                        "on-primary-fixed-variant": "#832700",
+                        "on-surface": "#f9dcd4",
+                        "fg-text-1": "#f5f5f5",
+                        "secondary-fixed-dim": "#95da24",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "secondary-fixed": "#b0f743",
+                        "surface-variant": "#42312b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "primary-container": "#ff5f1f",
+                        "secondary-container": "#83c600",
+                        "surface-container-lowest": "#180b07",
+                        "inverse-on-surface": "#3d2c27",
+                        "fg-amber": "#f59e0b",
+                        "inverse-primary": "#ab3600",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "surface-tint": "#ffb59c",
+                        "surface": "#1e100b",
+                        "tertiary-container": "#009de4",
+                        "primary": "#ffb59c",
+                        "surface-container-highest": "#42312b",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "fg-neutral-85": "#1a1a1a",
+                        "outline-variant": "#5b4138",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "on-tertiary": "#00344f",
+                        "background": "#1e100b",
+                        "outline": "#aa897f",
+                        "on-secondary-fixed": "#111f00",
+                        "fg-orange-dk": "#d9480f",
+                        "on-error": "#690005",
+                        "fg-canvas": "#050505",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-background": "#f9dcd4",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "secondary": "#9de32e",
+                        "on-tertiary-container": "#00304a",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "fg-orange-lt": "#ff7a45",
+                        "on-secondary": "#213600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "20": "80px",
+                        "16": "64px",
+                        "1": "4px",
+                        "2": "8px",
+                        "6": "24px",
+                        "8": "32px",
+                        "4": "16px",
+                        "12": "48px",
+                        "3": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg overflow-x-hidden custom-scrollbar selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Cluster -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-16 h-20 bg-background/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg text-fg-orange-lt tracking-tighter">INTEL_OS</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">Network</a>
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">Intelligence</a>
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">Archives</a>
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-text-1 transition-colors duration-200" href="#">Protocols</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-fg-text-3 hover:text-fg-text-1 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-fg-orange-lt">settings</button>
+</div>
+<div class="w-8 h-8 rounded-full border border-fg-border bg-fg-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up high-resolution profile portrait of a futuristic AI operator, with subtle glowing orange circuit patterns visible beneath the skin on their temple. The background is a deep, dark obsidian grey with soft bokeh lights from a command center. The lighting is cold and cinematic, emphasizing technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwC6LiuGekoptdOUoacQo-x6off4SG3Rzw2BnLvbGCYjwAEm4fzpClhN8lA8S3SBHKRyobIvoSYUr-HG6sGeMHN89PSyjZumuzwzdH6fhj_YZ3wP-enBB2yMgIp2UkUCBG5rSCoNnSjPEZAZ4b-IJm2tcZeTkUUtxHKUp9RElNEQjAHfuiCHZarPXVYiHXI1R0N066tZngrHeNWNB1Qb0IWpBkcDXPqXyVmao0qMyiO9o72jupwHp-TX2m5X9c_V8D94mkHYK1ZoI"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-16 py-12 pb-32">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="flex flex-col gap-4">
+<button class="flex items-center gap-2 text-fg-text-3 font-section-label uppercase hover:text-fg-orange-lt transition-colors group">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Back to Dashboard
+                </button>
+<h1 class="font-headline-lg text-[40px] tracking-tight text-fg-text-1">AI Project Settings</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase">Status:</span>
+<span class="flex items-center gap-1.5 px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-full text-secondary text-section-label font-mono-data">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+                    Operational
+                </span>
+</div>
+</div>
+<!-- Settings Grid -->
+<div class="space-y-6">
+<!-- Section 1: General -->
+<section class="glass-panel rounded-lg overflow-hidden transition-all duration-300">
+<button class="w-full px-8 py-6 flex items-center justify-between hover:bg-fg-surface transition-colors border-b border-fg-border/50" onclick="this.parentElement.classList.toggle('max-h-[80px]')">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-orange-lt">account_tree</span>
+<h2 class="font-headline-md text-headline-md tracking-tight uppercase">General Configuration</h2>
+</div>
+<span class="material-symbols-outlined text-fg-text-3">expand_more</span>
+</button>
+<div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase ml-1">Project Alias</label>
+<input class="w-full h-12 px-4 font-mono-data text-mono-data input-dark rounded text-fg-text-1" type="text" value="PROJECT_ALPHA_7"/>
+</div>
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase ml-1">Network Node ID</label>
+<input class="w-full h-12 px-4 font-mono-data text-mono-data input-dark rounded text-fg-text-1" type="text" value="NODE-8829-QX-0"/>
+</div>
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase ml-1">Intelligence Sector</label>
+<select class="w-full h-12 px-4 font-mono-data text-mono-data input-dark rounded text-fg-text-1 appearance-none">
+<option>Government / Intelligence</option>
+<option selected="">Corporate Research &amp; Development</option>
+<option>Applied Neural Robotics</option>
+</select>
+</div>
+<div class="flex items-center justify-between p-4 bg-fg-surface rounded-lg border border-fg-border mt-auto h-12">
+<span class="font-section-label text-section-label text-fg-text-2 uppercase">Continuous Inference Monitoring</span>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-transparent appearance-none cursor-pointer transition-transform z-10" id="toggle-cim" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-fg-text-3 cursor-pointer" for="toggle-cim"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Access Control -->
+<section class="glass-panel rounded-lg overflow-hidden">
+<button class="w-full px-8 py-6 flex items-center justify-between hover:bg-fg-surface transition-colors border-b border-fg-border/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-orange-lt">lock_person</span>
+<h2 class="font-headline-md text-headline-md tracking-tight uppercase">Access Control</h2>
+</div>
+<span class="material-symbols-outlined text-fg-text-3">expand_more</span>
+</button>
+<div class="p-8 space-y-8">
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase ml-1">Authorized Operators</label>
+<div class="flex flex-wrap gap-2 p-3 min-h-[48px] input-dark rounded">
+<span class="px-2 py-1 bg-fg-orange-lt/10 border border-fg-orange-lt/30 text-fg-orange-lt text-section-label font-mono-data flex items-center gap-2">
+                                OPERATOR_VANCE <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white">close</span>
+</span>
+<span class="px-2 py-1 bg-fg-orange-lt/10 border border-fg-orange-lt/30 text-fg-orange-lt text-section-label font-mono-data flex items-center gap-2">
+                                DIRECTOR_KALE <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white">close</span>
+</span>
+<button class="px-2 py-1 text-fg-text-3 hover:text-fg-text-1 text-section-label font-mono-data uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">add</span> Add Operator
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex items-center justify-between p-6 bg-fg-surface rounded-lg border border-fg-border group hover:border-secondary transition-colors">
+<div class="flex flex-col gap-1">
+<span class="font-section-label text-section-label text-fg-text-1 uppercase flex items-center gap-2">
+                                    Two-Factor Biometric Verification
+                                    <span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<span class="text-fg-text-3 text-[12px] font-mono-data">Retina &amp; Fingerprint scan required for override</span>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox toggle-checkbox-lime absolute block w-6 h-6 rounded-full bg-white border-4 border-transparent appearance-none cursor-pointer transition-transform z-10" id="toggle-bio" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-fg-text-3 cursor-pointer" for="toggle-bio"></label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase ml-1">Encryption Depth</label>
+<select class="w-full h-12 px-4 font-mono-data text-mono-data input-dark rounded text-fg-text-1">
+<option>AES-128 (Standard)</option>
+<option>AES-256 (High Intelligence)</option>
+<option selected="">AES-512 (Quantum Resistant)</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Notifications -->
+<section class="glass-panel rounded-lg overflow-hidden">
+<button class="w-full px-8 py-6 flex items-center justify-between hover:bg-fg-surface transition-colors border-b border-fg-border/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-fg-orange-lt">notifications_active</span>
+<h2 class="font-headline-md text-headline-md tracking-tight uppercase">Network Notifications</h2>
+</div>
+<span class="material-symbols-outlined text-fg-text-3">expand_more</span>
+</button>
+<div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Notification Cards -->
+<div class="p-6 bg-fg-surface rounded-lg border border-fg-border flex flex-col justify-between gap-6 border-l-4 border-l-fg-orange-lt">
+<div class="space-y-1">
+<h3 class="font-section-label text-section-label text-fg-text-1 uppercase">Critical Breach Alerts</h3>
+<p class="text-fg-text-3 font-mono-data text-[12px]">Immediate broadcast on security failure</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-transparent appearance-none cursor-pointer transition-transform z-10" id="toggle-breach" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-fg-text-3 cursor-pointer" for="toggle-breach"></label>
+</div>
+</div>
+<div class="p-6 bg-fg-surface rounded-lg border border-fg-border flex flex-col justify-between gap-6">
+<div class="space-y-1">
+<h3 class="font-section-label text-section-label text-fg-text-1 uppercase">Network Heartbeat</h3>
+<p class="text-fg-text-3 font-mono-data text-[12px]">60-second operational status ping</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-transparent appearance-none cursor-pointer transition-transform z-10" id="toggle-heart" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-fg-text-3 cursor-pointer" for="toggle-heart"></label>
+</div>
+</div>
+<div class="p-6 bg-fg-surface rounded-lg border border-fg-border flex flex-col justify-between gap-6">
+<div class="space-y-1">
+<h3 class="font-section-label text-section-label text-fg-text-1 uppercase">Weekly Evidence Summary</h3>
+<p class="text-fg-text-3 font-mono-data text-[12px]">Encrypted PDF digest of investigations</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-transparent appearance-none cursor-pointer transition-transform z-10" id="toggle-summary" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-fg-text-3 cursor-pointer" for="toggle-summary"></label>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Action -->
+<div class="fixed bottom-0 left-0 right-0 p-8 flex justify-center pointer-events-none">
+<button class="pointer-events-auto flex items-center gap-3 bg-primary-container px-12 py-4 rounded-lg font-headline-md text-headline-md text-black uppercase tracking-widest shadow-[0_0_40px_rgba(255,95,31,0.3)] hover:shadow-[0_0_60px_rgba(255,95,31,0.5)] active:scale-95 transition-all group">
+<span class="material-symbols-outlined group-hover:animate-pulse">security</span>
+                Save Protocol Changes
+            </button>
+</div>
+</main>
+<!-- Side Decoration Elements -->
+<div class="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-12 pointer-events-none opacity-20">
+<div class="font-mono-data text-[10px] [writing-mode:vertical-rl] tracking-[0.4em] text-fg-text-3 uppercase">
+            ESTABLISHING SECURE_TUNNEL // 882.91.0
+        </div>
+<div class="w-px h-32 bg-gradient-to-b from-transparent via-fg-border to-transparent ml-1"></div>
+</div>
+<script>
+        // Simple micro-interaction for toggle switches
+        document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const parent = e.target.closest('section');
+                if(e.target.checked) {
+                    console.log('Setting Activated');
+                }
+            });
+        });
+
+        // Hover glow effect for the main container
+        const panels = document.querySelectorAll('.glass-panel');
+        panels.forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

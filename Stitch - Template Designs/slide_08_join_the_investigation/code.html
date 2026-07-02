@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JOIN THE INVESTIGATION | FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#690005",
+                      "background": "#1e100b",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#ab3600",
+                      "primary": "#ffb59c",
+                      "on-tertiary": "#00344f",
+                      "error-container": "#93000a",
+                      "surface-container-highest": "#42312b",
+                      "on-surface-variant": "#e3bfb3",
+                      "surface-dim": "#1e100b",
+                      "tertiary-fixed": "#cae6ff",
+                      "secondary-fixed-dim": "#95da24",
+                      "on-background": "#f9dcd4",
+                      "outline-variant": "#5b4138",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "secondary-fixed": "#b0f743",
+                      "on-tertiary-fixed": "#001e30",
+                      "surface-container-lowest": "#180b07",
+                      "on-secondary-container": "#314d00",
+                      "primary-fixed": "#ffdbcf",
+                      "surface-container": "#2b1c17",
+                      "surface-tint": "#ffb59c",
+                      "surface-container-high": "#372621",
+                      "on-secondary": "#213600",
+                      "on-primary-fixed": "#390c00",
+                      "on-primary": "#5c1900",
+                      "tertiary": "#8dcdff",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "surface-container-low": "#271813",
+                      "on-surface": "#f9dcd4",
+                      "outline": "#aa897f",
+                      "surface-variant": "#42312b",
+                      "surface": "#1e100b",
+                      "on-primary-fixed-variant": "#832700",
+                      "surface-bright": "#47352f",
+                      "inverse-on-surface": "#3d2c27",
+                      "primary-fixed-dim": "#ffb59c",
+                      "on-tertiary-container": "#00304a",
+                      "primary-container": "#ff5f1f",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "tertiary-container": "#009de4",
+                      "secondary-container": "#83c600",
+                      "on-secondary-fixed": "#111f00",
+                      "inverse-surface": "#f9dcd4",
+                      "secondary": "#9de32e",
+                      "on-primary-container": "#561700"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "display": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["JetBrains Mono"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.2);
+        }
+        .neural-grid-overlay {
+            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10 flex justify-between items-center px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">POSITIONING</a>
+<a class="text-on-surface-variant font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">INVESTIGATE</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label text-[12px] font-bold tracking-widest scale-95 active:scale-90 transition-transform uppercase">JOIN NETWORK</button>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-20 fixed left-0 top-0 z-40 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex flex-col items-center py-8 gap-8">
+<div class="mb-4">
+<div class="w-10 h-10 bg-secondary-container/20 rounded-lg flex items-center justify-center border border-secondary/30">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="group relative flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant/40 hover:text-primary cursor-pointer transition-all">radar</span>
+<span class="text-[8px] font-label text-on-surface-variant/40 mt-1">P_01</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant/40 hover:text-primary cursor-pointer transition-all">analytics</span>
+<span class="text-[8px] font-label text-on-surface-variant/40 mt-1">P_02</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant/40 hover:text-primary cursor-pointer transition-all">account_tree</span>
+<span class="text-[8px] font-label text-on-surface-variant/40 mt-1">P_03</span>
+</div>
+<div class="group relative flex flex-col items-center">
+<span class="material-symbols-outlined text-on-surface-variant/40 hover:text-primary cursor-pointer transition-all">query_stats</span>
+<span class="text-[8px] font-label text-on-surface-variant/40 mt-1">P_04</span>
+</div>
+<div class="group relative flex flex-col items-center bg-primary-container/20 border-r-2 border-primary py-2 px-4 -mx-4">
+<span class="material-symbols-outlined text-primary">security</span>
+<span class="text-[8px] font-label text-primary mt-1">PHASE_05</span>
+</div>
+</div>
+</aside>
+<main class="ml-20 min-h-[calc(100vh-172px)] relative overflow-hidden flex items-center justify-center py-20 px-16">
+<!-- Background Animation -->
+
+<div class="relative z-10 w-full max-w-6xl grid grid-cols-12 gap-6 items-center">
+<!-- Headline Column -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-8">
+<div class="flex items-center gap-4">
+<span class="h-px w-12 bg-primary"></span>
+<span class="font-label text-primary tracking-[0.3em] text-[11px]">CLASSIFIED // CALL FOR ACCESS</span>
+</div>
+<h1 class="font-display font-bold text-7xl md:text-8xl leading-[0.9] tracking-tighter text-on-surface uppercase">
+                    JOIN THE <br/><span class="text-primary">INVESTIGATION</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant/80 max-w-xl leading-relaxed">
+                    The platform is primed. We are seeking <span class="text-secondary font-bold">$X.XM</span> for <span class="text-white">Phase 1 Deployment</span> of the Intelligence Orchestration System.
+                </p>
+<div class="flex items-center gap-6 mt-4">
+<button class="bg-primary-container hover:bg-primary text-on-primary-container font-label font-bold text-sm tracking-widest px-10 py-5 rounded-md transition-all duration-300 shadow-orange/30 shadow-lg group flex items-center gap-3">
+                        INITIALIZE ACCESS
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label text-[10px] text-on-surface-variant/40 tracking-widest">SYSTEM STATUS</span>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label text-[12px] text-secondary">AWAITING INPUT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+<div class="col-span-2 glass-panel p-6 rounded-lg relative overflow-hidden group">
+<div class="status-stripe bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<span class="font-label text-[10px] text-on-surface-variant/60">PILLAR_01</span>
+</div>
+<h3 class="font-display font-bold text-xl mb-2">Design System Hardening</h3>
+<p class="font-body text-sm text-on-surface-variant/70">Structural integrity verification for multi-node intelligence clusters.</p>
+</div>
+<div class="glass-panel p-6 rounded-lg relative overflow-hidden group">
+<div class="status-stripe bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary">automation</span>
+</div>
+<h3 class="font-display font-bold text-md mb-2">CPT Automation</h3>
+<p class="font-body text-[12px] text-on-surface-variant/70">Continuous Processing Threads for autonomous data synthesis.</p>
+</div>
+<div class="glass-panel p-6 rounded-lg relative overflow-hidden group">
+<div class="status-stripe bg-tertiary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary">rocket_launch</span>
+</div>
+<h3 class="font-display font-bold text-md mb-2">Rapid Launch</h3>
+<p class="font-body text-[12px] text-on-surface-variant/70">Zero-latency deployment protocols for immediate field ops.</p>
+</div>
+<div class="col-span-2 glass-panel p-4 rounded-lg bg-surface-container-highest/20 flex justify-between items-center border-dashed border-outline-variant/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant/50" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+<span class="font-label text-[11px] text-on-surface-variant/50">ENCRYPTION: SECURE</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label text-[11px] text-on-surface-variant/50">SESSION_COMPLETE</span>
+<span class="material-symbols-outlined text-on-surface-variant/50 text-sm">done_all</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 fixed z-50 bg-transparent flex justify-between items-center px-16 py-8">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 <span class="text-primary">FUTURE AI GUIDE</span> // ADMISSIBLE EVIDENCE ONLY
+        </div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<!-- Ambient Micro-interactions -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Subtle shift for glass panels
+            const panels = document.querySelectorAll('.glass-panel');
+            panels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const moveX = (e.clientX - centerX) / 100;
+                const moveY = (e.clientY - centerY) / 100;
+                
+                panel.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        // Initialize button pulse effect
+        const ctaBtn = document.querySelector('.bg-primary-container');
+        setInterval(() => {
+            ctaBtn.classList.toggle('shadow-orange/30');
+            ctaBtn.classList.toggle('shadow-orange/50');
+        }, 1500);
+    </script>
+</body></html>

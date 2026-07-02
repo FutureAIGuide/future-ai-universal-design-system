@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AELITH_INTEL | SEMANTICALLY_LINKED_DATA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#832700",
+                        "on-primary": "#5c1900",
+                        "surface-container-low": "#271813",
+                        "surface-container-high": "#372621",
+                        "on-secondary-container": "#314d00",
+                        "fg-rust": "#ff4444",
+                        "inverse-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "on-primary-container": "#561700",
+                        "tertiary-fixed": "#cae6ff",
+                        "surface-container": "#2b1c17",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "surface-bright": "#47352f",
+                        "surface-dim": "#1e100b",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed": "#001e30",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "on-primary-fixed": "#390c00",
+                        "surface-variant": "#42312b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "secondary-fixed": "#b0f743",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#95da24",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#f9dcd4",
+                        "fg-text-1": "#f5f5f5",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "fg-neutral-85": "#1a1a1a",
+                        "outline-variant": "#5b4138",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "primary": "#ffb59c",
+                        "surface-container-highest": "#42312b",
+                        "tertiary-container": "#009de4",
+                        "surface": "#1e100b",
+                        "surface-tint": "#ffb59c",
+                        "inverse-primary": "#ab3600",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "surface-container-lowest": "#180b07",
+                        "inverse-on-surface": "#3d2c27",
+                        "fg-amber": "#f59e0b",
+                        "secondary-container": "#83c600",
+                        "primary-container": "#ff5f1f",
+                        "on-secondary": "#213600",
+                        "fg-orange-lt": "#ff7a45",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "on-tertiary-container": "#00304a",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "secondary": "#9de32e",
+                        "on-background": "#f9dcd4",
+                        "on-surface-variant": "#e3bfb3",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "fg-canvas": "#050505",
+                        "fg-orange-dk": "#d9480f",
+                        "outline": "#aa897f",
+                        "on-secondary-fixed": "#111f00",
+                        "on-tertiary": "#00344f",
+                        "background": "#1e100b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "2": "8px",
+                        "16": "64px",
+                        "1": "4px",
+                        "20": "80px",
+                        "3": "12px",
+                        "12": "48px",
+                        "8": "32px",
+                        "4": "16px",
+                        "6": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.1);
+            transform: translateY(-2px);
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #ff5f1f;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff5f1f;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1440px] mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-fg-text-1">AELITH_INTEL</div>
+<nav class="hidden md:flex items-center space-gap-6 gap-8">
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 font-medium hover:text-fg-text-1 transition-colors duration-300" href="#">INTEL_FEED</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 font-medium hover:text-fg-text-1 transition-colors duration-300" href="#">REGISTRY</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-primary font-bold border-b-2 border-primary pb-1" href="#">ARCHIVES</a>
+<a class="font-section-label text-section-label uppercase tracking-widest text-fg-text-3 font-medium hover:text-fg-text-1 transition-colors duration-300" href="#">NETWORK</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-white px-4 py-1.5 rounded-none font-section-label text-section-label tracking-widest hover:bg-primary-container/80 transition-colors active:scale-95">DECRYPT</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-20 px-8 max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-display-md text-display-md text-fg-text-1 leading-tight tracking-tight uppercase">SEMANTICALLY_LINKED_DATA</h1>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex items-center gap-2">
+<span class="status-dot"></span>
+<span class="font-mono-data text-mono-data text-fg-text-2">ENCRYPTED_ARCHIVE_NODE: 882-X</span>
+</div>
+<span class="h-4 w-px bg-fg-border"></span>
+<span class="font-mono-data text-mono-data text-fg-text-3">CROSS-REFERENCE: ACTIVE</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-fg-border text-fg-text-2 hover:bg-fg-surface transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 border border-fg-border text-fg-text-2 hover:bg-fg-surface transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<!-- Investigation Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-fidelity microscopic view of glowing neural nodes and shimmering circuit patterns in a deep black void. The lighting features intense orange accents and soft white fiber-optic trails, creating a complex web of artificial intelligence architecture. The aesthetic is cold, investigative, and highly technical, rendered in a cinematic 8k resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCN4pbpEY-LfGi684Q8lvMh2-Luz3RBLZqEeJBmBb9N_0rNZUnoopKpVxnYPGYHvEyaKjNFgBaMTnXJnrVMaWSQDLDjL4URrtrYoSzZO8YNT1DskrTpCAbHuLJ8b5k1SvPf-bMJYbV5B5MVUTX9KBTaU4RZ2qf70vOEV1MqkJQoet7V4OsonjiHiu8aKGlAJuoxxVar1SdnyqLeVpV9myFtmG0hQKogGS_4jEhd97AEvl2Du0QWbeTfeXriBHU9a57_8Wg3cwg2_90')">
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-0.5 bg-fg-canvas/60 backdrop-blur font-mono-data text-[10px] text-secondary tracking-tight border border-secondary/20 rounded-full">VERIFIED</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 4492-AX</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.02</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">NEURAL_SYNAPSE_MAPPING</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">database</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">DATA_RELIABILITY: 99.8%</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Abstract digital visualization of cascading code blocks and encrypted data streams flowing through a grid-like structure. The color palette is dominated by deep charcoal and electric orange highlights, suggesting a high-security firewall or decryption process. The atmosphere is dense with information, featuring sharp geometric shapes and a sense of controlled digital menace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfwmWmYoUeSBQPNE8CCs1stV6zFv5jxg9G-WWsefhjfz6K9KRhnlngsbHW89LArGBSViiXPguDaMQxmkhnA4QA6OY60pcYRseN5ryToDgU6UbDT_4W7FE8tt2ReFBfPo5cMRdtfcGUKZ7pUqGW-XBywSXEFlCsQgGKsjZPNst0tHFmgorRMz_lX8dFB69YvAV4ux8jj-E725NiYLkjOdxK1OclSSk6nrKs15wuC50H8M6xKwFYhwMEZK2e4SvYLL_-ay703oBpVoY')">
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-0.5 bg-fg-canvas/60 backdrop-blur font-mono-data text-[10px] text-fg-rust tracking-tight border border-fg-rust/20 rounded-full">BREAKING</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 8821-BC</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.05</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">PROTO_CORE_LEAK</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">security</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">THREAD_STATUS: CRITICAL</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a modular silicon processor with intricate gold tracing and pulsing LED indicators in a cool white and orange glow. The scene is set in a dark, dust-free industrial environment, reflecting a state-of-the-art server architecture. The visual style is minimal yet rich in detail, emphasizing the physical hardware of advanced computing systems." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmxgmQS4RPobfjNorNn3pvcnFas3l8Njig0fIQtTmdyt8DhlMk5ZI4FDNLuLasJzmL8qtrhQMI-ca-gGYKGuso20qGJ-QCH7JursszXe7aIw10-DsFRywXvbUa5sDeQ2h9EUbL2Cj2hDa1NcDJN3js0KKGiiP6hdG2RoQqXmosBXQhIVfMmKPUmCJaVtV6K64nKSY3OWnnvClT1tbPF8tjHl1KNZXwIqdKWbzSPbplAkAZhXCT51QUpFEOWrVhdZSboWItopqvvI8')">
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-0.5 bg-fg-canvas/60 backdrop-blur font-mono-data text-[10px] text-secondary tracking-tight border border-secondary/20 rounded-full">OPTIMIZED</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 1029-Y</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.10.28</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">HARDWARE_NODE_GEN_4</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">memory</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">POWER_DRAW: NOMINAL</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Generative digital landscape representing complex cloud computing architecture, featuring translucent layers of data clusters and floating geometric nodes. The lighting is low-key with sharp orange focal points and deep blue shadows, creating a high-contrast investigative mood. The image communicates the vast scale and depth of semantic network structures in a modern AI framework." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdz9gDUbercCukon2RyT61-pH2mVnb0EXI-6Q-6jUZWVjG4e9QiaZLsV1VcTlR9I1JaXsAAVey50DQji9qIGMXr9DjtHEjE06_54fq7iXXdP_df7gM8sMr3MNZpWzD_C7OuVhhq3adsvZ-8-TjFKNlQ0qH-Mi_i1oWnWWwM2X_-vXgSq2_GEqsSbK_juudtlhuNW7dvqwCDWA2tEWDehKMtHguBHAGZ-TR61qf13N7ny5qfLHyp9svrQ8A8eErfKka-iSRKSlTr0c')">
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-0.5 bg-fg-canvas/60 backdrop-blur font-mono-data text-[10px] text-fg-text-2 tracking-tight border border-fg-border rounded-full">STABLE</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 0041-ZZ</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.08</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">SEMANTIC_INDEX_ROOT</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">hub</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">NODES_MAPPED: 4.2M</span>
+</div>
+</div>
+</div>
+<!-- Card 5 (Repeated Pattern for Grid Density) -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Macro photography of futuristic fiber-optic cables emitting soft orange light, intertwined like organic roots in a sterile dark environment. The cables are partially translucent, revealing internal pulses of data energy. The composition is asymmetrical and editorial, capturing the essence of the physical layer of the global intelligence network." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1fyR2iIZnBjOhR2t7_9axnqde1wDcc_ZDaDaTABenM1fhAUqGQUM_2u1XLAKUrhX8Yz6sfKyKpWFELI3ZIOkxEv_WZtYxLlb8f4HqJVtTbqtlTs75ElnqroUFVQmEa58in9s9U4sn0OIM4EMCPdfjzJzhdY0P70_mlCtr30amk2yE7OSIuUHIZlsTtIV6qBofsZqv8tuohKZwnMEDNRBLYDh_OcnXcXNFvwPPMWgeWQ1fdUMgfErM5NwwyCOE9FDEu8kpUDqafgU')">
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 5521-DF</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.09</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">PHYSICAL_LAYER_INTEL</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">settings_input_component</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">CONNECTION: SECURE</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Digital glitch art representing a corrupted encrypted file, with fragmented orange data particles floating over a deep black background. The visual is sharp and high-contrast, suggesting a data breach or an aggressive decryption attempt. The aesthetic is raw, technical, and investigative, emphasizing the vulnerability of digital information systems." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDioTtQi8FXxLcTHEGh2AGK_7oyyzjgUgzT8HYeVNloBFDcl7glWTBa83_N0oFK1XhEqyOKjubC3f4m-ZiTNYGJ2hB7ihPY-8h6Wtg3Hu8Gg3bgJUm1tSW-bxvqdqJFogiAyo1Q1sqwCJawX1jRwYWv-Q_nUjBMq6htESEfJ0HNwe0E6lTudHXw7LDhewfwzpr0qdqsM2g3mnYXQB8zYo4NP4Lfmz01jwDsC-2o34Afr32tism8sWWLropY2dpTho22fkJgGDpIMYM')">
+</div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-0.5 bg-fg-canvas/60 backdrop-blur font-mono-data text-[10px] text-fg-rust tracking-tight border border-fg-rust/20 rounded-full">WARNING</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 9901-ER</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.10</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">ENCRYPTION_ANOMALY</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">warning</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">ORIGIN: UNKNOWN_NODE</span>
+</div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A futuristic holographic interface projecting a 3D model of a complex data registry. The interface glows with soft white and vibrant orange light against a pitch-black background. The visualization includes floating data points, connecting lines, and technical readouts in a tiny JetBrains Mono font, capturing the look of a high-end intelligence terminal." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8SlDt6jxNtombEBYJ4q83mRbn6tCb4KVAtpjKnCuFgxWZ5I-UUpwgH551evUU7kMcrAbVkMJZyw4JLfglzO4Vlh4BExs6cqPgU04SU3rleB2arOFXXm_Adkj8fLerNEbqQtH-mqpFVIHY97DR2rm3amP4687htOoCRFChtWDmmK4CH_9awtzydg4IqDLY8FL-cW89YHm1CucBJxB9qJcqn6Ile9ysFLZR-vgoZqvcV4T0A7vNr2U5HvJknlyd_jfqHEzxLJeGftg')">
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 3341-LL</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.11</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">REGISTRY_OVERVIEW_HOLO</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">visibility</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">PROJECTION: READY</span>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="glass-card flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/3] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Close-up detail of a dark metallic surface etched with micro-circuitry glowing with a faint orange internal light. The texture is cold and industrial, with sharp edges and a precision-engineered look. The lighting creates dramatic shadows, highlighting the complexity and 'controlled menace' of advanced artificial intelligence hardware components." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBW6sMAj_UaJRQJD00hmqjyPi63QgGctC2K282RxgcxZw6c907bdTTaCy4pBTmYgCdIAHOlE2LuVmgpJuTjz-J1GjhwI2-qibe_k5DvKST4Jle7RSCWwvZXm32QTFZvdxSLHVV5i8x1mwg78XOuTqTX_J5u5iM8k8lnn7rDAaT7scKOlWcfX9HHBsbpQGQZuJ6LZxAsBmL8cIo4epoMEx2_WazEMpyvBU65fev26Mlzta2TU3F63L7VWaxrbKFjE6dj1Lkf3CFedwU')">
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-fg-text-3">ID: 6722-KM</span>
+<span class="font-mono-data text-mono-data text-fg-text-3">2024.11.12</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-fg-text-1 group-hover:text-primary transition-colors">SURFACE_INTEL_SCAN</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[16px] text-fg-text-3">biotech</span>
+<span class="font-mono-data text-mono-data text-fg-text-2 text-xs uppercase">SCAN_COMPLETE: 100%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-16 flex justify-center">
+<button class="group flex items-center gap-4 px-8 py-4 border border-fg-border-md bg-fg-surface hover:bg-fg-surface-md transition-all">
+<span class="font-section-label text-section-label uppercase tracking-widest text-fg-text-1">LOAD_MORE_ARCHIVE_DATA</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 bg-fg-canvas border-t border-fg-border-md">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-16 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-fg-text-2">AELITH_INTEL</div>
+<p class="font-mono-data text-mono-data text-fg-text-3 text-xs leading-relaxed">
+                    ©2024 AELITH INTELLIGENCE NETWORK // ADMISSIBLE EVIDENCE PROTOCOL
+                </p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase mb-2">ACCESS_TERMINAL</h4>
+<a class="font-mono-data text-mono-data text-fg-text-3 hover:text-primary transition-colors" href="#">TERMINAL_ACCESS</a>
+<a class="font-mono-data text-mono-data text-fg-text-3 hover:text-primary transition-colors" href="#">API_DOCS</a>
+<a class="font-mono-data text-mono-data text-fg-text-3 hover:text-primary transition-colors" href="#">NODE_STATUS</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase mb-2">LEGAL_OVERRIDE</h4>
+<a class="font-mono-data text-mono-data text-fg-text-3 hover:text-primary transition-colors" href="#">PRIVACY_ENCRYPTION</a>
+<a class="font-mono-data text-mono-data text-fg-text-3 hover:text-primary transition-colors" href="#">PROTOCOL_TERMS</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase mb-2">SYSTEM_HEALTH</h4>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#9de32e]"></span>
+<span class="font-mono-data text-mono-data text-secondary">ALL_NODES_OPERATIONAL</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for decoding effect on hover
+        document.querySelectorAll('h3').forEach(title => {
+            const originalText = title.innerText;
+            const chars = "ABCDEF0123456789_";
+            let interval = null;
+
+            title.addEventListener('mouseenter', () => {
+                let iteration = 0;
+                clearInterval(interval);
+                interval = setInterval(() => {
+                    title.innerText = originalText.split("")
+                        .map((char, index) => {
+                            if(index < iteration) return originalText[index];
+                            return chars[Math.floor(Math.random() * chars.length)];
+                        }).join("");
+                    if(iteration >= originalText.length) clearInterval(interval);
+                    iteration += 1 / 3;
+                }, 30);
+            });
+
+            title.addEventListener('mouseleave', () => {
+                clearInterval(interval);
+                title.innerText = originalText;
+            });
+        });
+    </script>
+</body></html>

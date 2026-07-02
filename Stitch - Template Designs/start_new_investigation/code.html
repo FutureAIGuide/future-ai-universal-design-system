@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>INTEL_CORE_V.2 // NEW_INVESTIGATION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#050505",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                    "secondary-fixed": "#b0f743",
+                    "fg-orange-lt": "#ff7a45",
+                    "secondary": "#9de32e",
+                    "on-tertiary": "#00344f",
+                    "inverse-surface": "#f9dcd4",
+                    "primary-fixed": "#ffdbcf",
+                    "inverse-on-surface": "#3d2c27",
+                    "secondary-fixed-dim": "#95da24",
+                    "fg-orange-dk": "#d9480f",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-container": "#2b1c17",
+                    "on-secondary": "#213600",
+                    "tertiary-container": "#009de4",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#372621",
+                    "surface-bright": "#47352f",
+                    "fg-rust": "#ff4444",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#ffb59c",
+                    "fg-canvas": "#050505",
+                    "on-surface-variant": "#e3bfb3",
+                    "outline": "#aa897f",
+                    "on-primary-container": "#561700",
+                    "fg-neutral-85": "#1a1a1a",
+                    "tertiary": "#8dcdff",
+                    "on-primary-fixed-variant": "#832700",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "surface-container-highest": "#42312b",
+                    "on-error": "#690005",
+                    "on-tertiary-container": "#00304a",
+                    "on-secondary-container": "#314d00",
+                    "surface-container-lowest": "#180b07",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "on-surface": "#f9dcd4",
+                    "surface": "#1e100b",
+                    "surface-container-low": "#271813",
+                    "surface-tint": "#ffb59c",
+                    "inverse-primary": "#ab3600",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary": "#5c1900",
+                    "secondary-container": "#83c600",
+                    "tertiary-fixed": "#cae6ff",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "fg-amber": "#f59e0b",
+                    "primary-container": "#ff5f1f",
+                    "surface-dim": "#1e100b",
+                    "surface-variant": "#42312b",
+                    "on-secondary-fixed": "#111f00",
+                    "outline-variant": "#5b4138",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "fg-text-1": "#f5f5f5",
+                    "on-error-container": "#ffdad6",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "primary": "#ffb59c",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "on-background": "#f9dcd4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "16": "64px",
+                    "20": "80px",
+                    "2": "8px",
+                    "1": "4px",
+                    "12": "48px",
+                    "8": "32px",
+                    "4": "16px",
+                    "6": "24px",
+                    "3": "12px"
+            },
+            "fontFamily": {
+                    "mono-data": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "display-md": ["Space Grotesk"],
+                    "section-label": ["JetBrains Mono"],
+                    "display-xl": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "body-sm": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent 0%, rgba(255, 95, 31, 0.05) 50%, transparent 100%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: inset 0 0 10px rgba(255, 95, 31, 0.1);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-fg-text-1 font-body-lg overflow-hidden selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-fg-border flex justify-between items-center px-16 h-16">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter uppercase">INTEL_CORE_V.2</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-mono-data text-mono-data uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Network</a>
+<a class="font-mono-data text-mono-data uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Research</a>
+<a class="font-mono-data text-mono-data uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Vault</a>
+<a class="font-mono-data text-mono-data uppercase tracking-widest text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Signals</a>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-fg-text-3 cursor-crosshair hover:text-primary transition-colors">terminal</span>
+<span class="material-symbols-outlined text-fg-text-3 cursor-crosshair hover:text-primary transition-colors">settings</span>
+</div>
+</nav>
+<!-- SideNavBar (Suppressed for focused Intake Journey as per UX goals) -->
+<!-- Main Content Canvas -->
+<main class="relative pt-16 pb-8 h-screen flex overflow-hidden">
+<!-- Left Side: Progress Stepper & Margin Metadata -->
+<aside class="w-64 border-r border-fg-border px-8 py-12 hidden lg:flex flex-col justify-between">
+<div class="space-y-12">
+<div class="space-y-6">
+<p class="font-mono-data text-section-label uppercase text-fg-text-3 tracking-widest">Intake_Sequence</p>
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(255,181,156,0.5)]"></div>
+<span class="font-mono-data text-mono-data text-fg-text-1">01_IDENTITY</span>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-2 rounded-full border border-fg-border"></div>
+<span class="font-mono-data text-mono-data text-fg-text-3">02_BRIEF</span>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-2 rounded-full border border-fg-border"></div>
+<span class="font-mono-data text-mono-data text-fg-text-3">03_METRICS</span>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-2 rounded-full border border-fg-border"></div>
+<span class="font-mono-data text-mono-data text-fg-text-3">04_DEPLOY</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase leading-relaxed">
+                    System_Status: <span class="text-secondary">Optimal</span><br/>
+                    Encryption: <span class="text-primary">AES_4096</span><br/>
+                    Session: <span id="clock">12:44:02:11</span>
+</div>
+</div>
+</aside>
+<!-- Central Column: Input Cards -->
+<section class="flex-1 overflow-y-auto px-4 md:px-16 py-12 custom-scrollbar">
+<div class="max-w-3xl mx-auto space-y-8">
+<header class="mb-12">
+<h1 class="font-display-md text-display-md text-fg-text-1 tracking-tight">NEW_INVESTIGATION</h1>
+<p class="font-mono-data text-mono-data text-fg-text-3 mt-2 uppercase tracking-widest">Initialize encrypted intake sequence // Operator_01</p>
+</header>
+<!-- Section 1: Case Identification -->
+<div class="glass-panel p-8 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-primary-container opacity-50"></div>
+<div class="flex items-start justify-between mb-6">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1 uppercase">01 Case Identification</h2>
+<span class="material-symbols-outlined text-primary" data-icon="fingerprint">fingerprint</span>
+</div>
+<div class="space-y-2">
+<label class="font-mono-data text-section-label uppercase text-fg-text-3">Case Title</label>
+<input class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-mono-data text-primary focus:border-primary-container transition-all" placeholder="e.g., NEURAL_SYNC_LEAK_04" type="text"/>
+</div>
+</div>
+<!-- Section 2: Tactical Brief -->
+<div class="glass-panel p-8 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-fg-border"></div>
+<div class="flex items-start justify-between mb-6">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1 uppercase">02 Tactical Brief</h2>
+<span class="material-symbols-outlined text-fg-text-3" data-icon="description">description</span>
+</div>
+<div class="space-y-2">
+<label class="font-mono-data text-section-label uppercase text-fg-text-3">Description / Narrative Archive</label>
+<textarea class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-mono-data text-fg-text-2 focus:border-primary-container transition-all resize-none" placeholder="Enter investigative parameters and initial threat indicators..." rows="4"></textarea>
+</div>
+</div>
+<!-- Section 3: Classification -->
+<div class="glass-panel p-8 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-fg-border"></div>
+<div class="flex items-start justify-between mb-6">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1 uppercase">03 Classification</h2>
+<span class="material-symbols-outlined text-fg-text-3" data-icon="shield">shield</span>
+</div>
+<div class="space-y-4">
+<label class="font-mono-data text-section-label uppercase text-fg-text-3">Priority Level</label>
+<div class="grid grid-cols-3 gap-1 p-1 bg-black border border-fg-border">
+<button class="py-3 font-mono-data text-mono-data uppercase text-fg-text-3 hover:text-fg-rust border border-transparent hover:border-fg-rust/30 transition-all">High</button>
+<button class="py-3 font-mono-data text-mono-data uppercase text-fg-text-3 hover:text-fg-amber border border-transparent hover:border-fg-amber/30 transition-all">Medium</button>
+<button class="py-3 font-mono-data text-mono-data uppercase text-fg-text-3 hover:text-fg-text-1 border border-transparent hover:border-fg-text-1/30 transition-all">Low</button>
+</div>
+</div>
+</div>
+<!-- Section 4: Deployment -->
+<div class="glass-panel p-8 relative overflow-hidden group mb-20">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-fg-border"></div>
+<div class="flex items-start justify-between mb-6">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1 uppercase">04 Deployment</h2>
+<span class="material-symbols-outlined text-fg-text-3" data-icon="groups">groups</span>
+</div>
+<div class="space-y-4">
+<label class="font-mono-data text-section-label uppercase text-fg-text-3">Assigned Team</label>
+<select class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-mono-data text-fg-text-2 focus:border-primary-container transition-all appearance-none cursor-pointer">
+<option>Intelligence Unit</option>
+<option>Forensic Analysis</option>
+<option>Neural Architects</option>
+<option>Field Operatives</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Action & Metadata -->
+<aside class="w-80 border-l border-fg-border p-8 hidden xl:flex flex-col justify-end bg-surface-container-lowest/20">
+<div class="space-y-8">
+<div class="glass-panel p-6 border-primary-container/20">
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase mb-4 tracking-tighter">Live Transmission Feed</p>
+<div class="h-32 w-full bg-black/50 overflow-hidden relative">
+
+<div class="absolute inset-0 scan-line"></div>
+<div class="absolute bottom-2 left-2 font-mono-data text-[8px] text-primary">SIG_LOCKED: 99.2%</div>
+</div>
+</div>
+<button class="w-full bg-primary-container hover:bg-fg-orange-lt text-black font-mono-data font-bold py-5 px-6 uppercase tracking-widest shadow-[0_0_20px_rgba(255,95,31,0.3)] hover:shadow-[0_0_30px_rgba(255,95,31,0.5)] transition-all flex items-center justify-between group">
+<span>Start Investigation</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</aside>
+</main>
+<!-- Footer Metadata Bar -->
+<footer class="fixed bottom-0 w-full z-50 bg-surface-container-lowest border-t border-fg-border flex justify-between items-center px-16 py-2 h-8">
+<div class="font-mono-data text-section-label uppercase tracking-tighter text-secondary">© 2024 NEURAL_INTEL_NETWORK // ENCRYPTED_STREAM_0X44</div>
+<div class="flex gap-8">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">System_Status: <span class="text-secondary">Optimal</span></span>
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Latency: 14ms</span>
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Auth: Verified</span>
+</div>
+</footer>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-20">
+
+</div>
+<script>
+        // Micro-interaction for system clock
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            const ms = String(now.getMilliseconds()).slice(0, 2).padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}:${s}:${ms}`;
+        }
+        setInterval(updateClock, 100);
+
+        // Priority selector simple logic
+        const buttons = document.querySelectorAll('button[class*="text-fg-text-3"]');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('bg-fg-surface-md', 'text-fg-text-1', 'border-primary-container/30'));
+                btn.classList.add('bg-fg-surface-md', 'text-fg-text-1', 'border-primary-container/30');
+            });
+        });
+    </script>
+</body></html>

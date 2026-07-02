@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE | PROMPT INTELLIGENCE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      background-color: #050505;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .status-stripe-lime { border-top: 3px solid #9de32e; }
+    .status-stripe-rust { border-top: 3px solid #ff4444; }
+    .status-stripe-orange { border-top: 3px solid #ff5f1f; }
+    
+    .glow-orange:hover {
+      box-shadow: 0 0 20px rgba(255, 95, 31, 0.2);
+    }
+    
+    /* Technical scanline effect */
+    .scanline {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 95, 31, 0.1);
+      position: absolute;
+      animation: scan 4s linear infinite;
+      z-index: 10;
+      pointer-events: none;
+    }
+    @keyframes scan {
+      0% { top: 0%; }
+      100% { top: 100%; }
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#ffdad6",
+            "on-surface": "#f9dcd4",
+            "on-secondary-fixed-variant": "#324f00",
+            "fg-orange-dk": "#d9480f",
+            "inverse-surface": "#f9dcd4",
+            "secondary": "#9de32e",
+            "inverse-on-surface": "#3d2c27",
+            "surface-tint": "#ffb59c",
+            "on-tertiary-fixed-variant": "#004b70",
+            "on-secondary-container": "#314d00",
+            "tertiary-fixed": "#cae6ff",
+            "outline": "#aa897f",
+            "fg-amber": "#f59e0b",
+            "on-tertiary-container": "#00304a",
+            "surface-variant": "#42312b",
+            "surface-container-high": "#372621",
+            "on-tertiary-fixed": "#001e30",
+            "surface-bright": "#47352f",
+            "on-primary": "#5c1900",
+            "surface-container-highest": "#42312b",
+            "on-primary-fixed-variant": "#832700",
+            "fg-rust": "#ff4444",
+            "fg-neutral-85": "#1a1a1a",
+            "fg-text-2": "rgba(245, 245, 245, 0.64)",
+            "fg-border": "rgba(255, 255, 255, 0.08)",
+            "surface": "#1e100b",
+            "primary-fixed": "#ffdbcf",
+            "primary-container": "#ff5f1f",
+            "fg-text-1": "#f5f5f5",
+            "fg-surface": "rgba(255, 255, 255, 0.04)",
+            "surface-container-lowest": "#180b07",
+            "error-container": "#93000a",
+            "on-surface-variant": "#e3bfb3",
+            "surface-dim": "#1e100b",
+            "on-primary-fixed": "#390c00",
+            "tertiary": "#8dcdff",
+            "secondary-container": "#83c600",
+            "on-secondary-fixed": "#111f00",
+            "secondary-fixed": "#b0f743",
+            "surface-container-low": "#271813",
+            "fg-border-md": "rgba(255, 255, 255, 0.14)",
+            "surface-container": "#2b1c17",
+            "primary-fixed-dim": "#ffb59c",
+            "primary": "#ffb59c",
+            "on-tertiary": "#00344f",
+            "secondary-fixed-dim": "#95da24",
+            "on-secondary": "#213600",
+            "fg-orange-lt": "#ff7a45",
+            "fg-text-3": "rgba(245, 245, 245, 0.42)",
+            "on-background": "#f9dcd4",
+            "on-primary-container": "#561700",
+            "inverse-primary": "#ab3600",
+            "tertiary-container": "#009de4",
+            "on-error": "#690005",
+            "error": "#ffb4ab",
+            "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+            "tertiary-fixed-dim": "#8dcdff",
+            "fg-canvas": "#050505",
+            "outline-variant": "#5b4138",
+            "background": "#1e100b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "12": "48px",
+            "8": "32px",
+            "20": "80px",
+            "3": "12px",
+            "16": "64px",
+            "2": "8px",
+            "4": "16px",
+            "6": "24px",
+            "1": "4px"
+          },
+          "fontFamily": {
+            "mono-data": ["JetBrains Mono"],
+            "headline-md": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "body-sm": ["Inter"],
+            "display-xl": ["Space Grotesk"],
+            "display-lg": ["Space Grotesk"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Space Grotesk"],
+            "section-label": ["JetBrains Mono"],
+            "display-md": ["Space Grotesk"]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-fg-canvas font-body-lg text-fg-text-1">
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border px-16 h-20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">
+        FUTURE AI <span class="text-primary-container">GUIDE</span>
+</div>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-fg-text-3 font-mono-data text-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data text-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-mono-data text-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="text-on-surface font-headline-md text-headline-md font-bold border-b-2 border-primary-container pb-1" href="#">TERMINAL</a>
+</nav>
+<div class="flex gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-mono-data text-mono-data font-bold active:scale-95 transition-transform">INITIALIZE</button>
+<button class="border border-fg-border-md px-6 py-2 font-mono-data text-mono-data text-fg-text-1 hover:bg-fg-surface transition-colors">SECURE</button>
+</div>
+</header>
+<main class="pt-32 pb-20 px-16 max-w-[1440px] mx-auto space-y-20 relative">
+<!-- Background Animation Layer -->
+<div class="absolute inset-0 -z-10 opacity-20">
+
+</div>
+<!-- Terminal Search Bar -->
+<section class="w-full">
+<div class="glass-panel p-1 border-primary-container/20 group focus-within:border-primary-container transition-all">
+<div class="flex items-center px-4 py-4 bg-black/40">
+<span class="material-symbols-outlined text-primary-container mr-4">terminal</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-mono-data text-headline-md uppercase tracking-wider text-fg-text-1 placeholder:text-fg-text-3" placeholder="QUERY_PROMPT_LIBRARY..." type="text"/>
+<div class="flex gap-2 items-center text-fg-text-3 font-mono-data text-section-label">
+<span>[ENTER] TO SEARCH</span>
+<span class="material-symbols-outlined">search</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero: Neural Command Optimization -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 border border-primary-container/30">
+<span class="w-2 h-2 bg-primary-container animate-pulse"></span>
+<span class="font-mono-data text-section-label text-primary-container">SYSTEM STATUS: ACTIVE_LEARNING</span>
+</div>
+<h1 class="font-display-xl text-display-xl uppercase leading-tight">
+          Neural Command <br/>
+<span class="text-primary-container">Optimization</span>
+</h1>
+<p class="text-body-lg text-fg-text-2 max-w-xl">
+          Protocol-driven prompt engineering for the intelligence age. Master the art of evidence-aware construction to eliminate hallucination loops and enforce structural integrity in LLM outputs.
+        </p>
+<div class="flex gap-6 pt-4">
+<div class="flex flex-col">
+<span class="font-mono-data text-display-md text-primary-container">98.4%</span>
+<span class="font-section-label text-section-label text-fg-text-3">ACCURACY RATING</span>
+</div>
+<div class="border-l border-fg-border h-12 self-center"></div>
+<div class="flex flex-col">
+<span class="font-mono-data text-display-md text-secondary">0.02s</span>
+<span class="font-section-label text-section-label text-fg-text-3">LATENCY OPTIMIZATION</span>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary-container/5 blur-3xl rounded-full group-hover:bg-primary-container/10 transition-colors"></div>
+<div class="glass-panel overflow-hidden aspect-video relative flex items-center justify-center">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="A macro close-up of a futuristic processor core with glowing orange and neon green data pathways pulsing like neural synapses. The lighting is dramatic and high-contrast, casting sharp shadows across a brushed obsidian metal surface. Detailed circuits and microscopic optical fibers create a sense of extreme complexity and investigative technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVgU6n4dX1RfHnMcYlLar2DE1D78-ob_qGKTqK_J-GHlFpAf6QG-EV3GAhsOFLvK5VaMfGFxHMlG73KDClQy7lIKawkyaUZFDMj8f1EJ5zioe3N8-EK717lC7tdZWCbdYpQDfy33eht9nr8dDlimsrqFuNh1lFX2uqPbPovmfVXA4Iw40MnGSWSRGtlKI5Mx1rs09wOFtOjhXTd5MlfYNMrUsJiBKxsWpxlwcP0PM7zPA4mJ1bDuHt0ntt98G2XrdPcIY88sVhkAE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-fg-canvas via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 font-mono-data text-section-label text-primary-container">
+            CORE_VISUALIZATION_V4.02
+          </div>
+</div>
+</div>
+</section>
+<!-- Best Practices Section -->
+<section class="space-y-8">
+<div class="flex justify-between items-end border-b border-fg-border pb-4">
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-tight">Verified Best Practices</h2>
+<span class="font-mono-data text-section-label text-fg-text-3">PROTOCOL_ID: B-77-LIME</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-panel p-6 status-stripe-lime flex flex-col justify-between hover:bg-fg-surface-md transition-colors cursor-pointer group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary">architecture</span>
+<span class="font-mono-data text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full">VERIFIED</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Structural Integrity</h3>
+<p class="text-body-sm text-fg-text-3">Enforce output schemas using JSON or Markdown delimiters to ensure machine-readability.</p>
+</div>
+<div class="mt-8 font-mono-data text-section-label text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+            DEPLOY_SCHEMA &gt;
+          </div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-6 status-stripe-lime flex flex-col justify-between hover:bg-fg-surface-md transition-colors cursor-pointer group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary">database</span>
+<span class="font-mono-data text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full">VERIFIED</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Context Injection</h3>
+<p class="text-body-sm text-fg-text-3">Provide explicit background data strings using RAG-aligned formatting for grounded reasoning.</p>
+</div>
+<div class="mt-8 font-mono-data text-section-label text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+            INJECT_DATA &gt;
+          </div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-6 status-stripe-lime flex flex-col justify-between hover:bg-fg-surface-md transition-colors cursor-pointer group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary">lock_open</span>
+<span class="font-mono-data text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full">VERIFIED</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Output Constraints</h3>
+<p class="text-body-sm text-fg-text-3">Define negative constraints to explicitly prohibit unwanted terminology or stylistic drifts.</p>
+</div>
+<div class="mt-8 font-mono-data text-section-label text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+            SET_LIMITS &gt;
+          </div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel p-6 status-stripe-lime flex flex-col justify-between hover:bg-fg-surface-md transition-colors cursor-pointer group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary">psychology</span>
+<span class="font-mono-data text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full">VERIFIED</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Chain-of-Thought</h3>
+<p class="text-body-sm text-fg-text-3">Mandate step-by-step internal monologue to improve complex logical deduction accuracy.</p>
+</div>
+<div class="mt-8 font-mono-data text-section-label text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+            MAP_LOGIC &gt;
+          </div>
+</div>
+</div>
+</section>
+<!-- Common Pitfalls Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-12 bg-fg-surface p-12 relative overflow-hidden">
+<div class="scanline"></div>
+<div class="lg:col-span-1 space-y-6">
+<h2 class="font-display-md text-display-md text-fg-rust uppercase leading-none">Intelligence<br/>Hazards</h2>
+<p class="text-body-lg text-fg-text-2">Critical failure points in prompt architecture that lead to data corruption or model drift.</p>
+<div class="bg-fg-rust/10 border border-fg-rust/20 p-4">
+<div class="flex items-center gap-2 text-fg-rust mb-2">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-mono-data font-bold">LEVEL 4 WARNING</span>
+</div>
+<p class="text-body-sm text-fg-rust/80">Hallucination probability exceeds 45% when context is unbounded or intent is ambiguous.</p>
+</div>
+</div>
+<div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 status-stripe-rust space-y-4">
+<h4 class="font-mono-data text-headline-md text-fg-rust">Vague Intent</h4>
+<div class="space-y-2">
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-fg-rust opacity-50">
+              FAIL: "Write something about AI trends."
+            </div>
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-secondary">
+              PASS: "Analyze 2024 LLM adoption metrics using the provided dataset. Output: 3 bullet points."
+            </div>
+</div>
+</div>
+<div class="glass-panel p-6 status-stripe-rust space-y-4">
+<h4 class="font-mono-data text-headline-md text-fg-rust">Unbounded Context</h4>
+<div class="space-y-2">
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-fg-rust opacity-50">
+              FAIL: "Use your internal knowledge to explain X."
+            </div>
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-secondary">
+              PASS: "Using ONLY the text provided in the [REFERENCE] block, explain X."
+            </div>
+</div>
+</div>
+<div class="glass-panel p-6 status-stripe-rust space-y-4">
+<h4 class="font-mono-data text-headline-md text-fg-rust">Hallucination Loops</h4>
+<div class="space-y-2">
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-fg-rust opacity-50">
+              FAIL: "Find facts about a person that doesn't exist."
+            </div>
+<div class="bg-black/40 p-3 font-mono-data text-body-sm border-l-2 border-secondary">
+              PASS: "If the information is not present in the dataset, state 'INSUFFICIENT_DATA'."
+            </div>
+</div>
+</div>
+<div class="glass-panel p-6 status-stripe-rust space-y-4 flex items-center justify-center">
+<div class="text-center">
+<span class="material-symbols-outlined text-6xl text-fg-rust/20 mb-2">dangerous</span>
+<div class="font-mono-data text-section-label text-fg-text-3">MORE HAZARDS IN ARCHIVE</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Example Prompts Gallery -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg uppercase">Prompt Blueprint Gallery</h2>
+<div class="h-px flex-1 bg-fg-border"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Blueprint 1 -->
+<div class="glass-panel group overflow-hidden border-fg-border hover:border-primary-container/40 transition-all">
+<div class="p-6 border-b border-fg-border flex justify-between items-center bg-fg-surface-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">search_insights</span>
+<h3 class="font-headline-md text-headline-md">Investigation Prompt</h3>
+</div>
+<span class="font-mono-data text-section-label px-2 py-1 bg-primary-container/10 text-primary-container">CODE: INV-01</span>
+</div>
+<div class="p-6 space-y-4">
+<p class="text-body-sm text-fg-text-3">Designed for deep forensic analysis of unstructured documents with strict evidence citation mandates.</p>
+<div class="bg-black rounded-lg p-4 font-mono-data text-body-sm relative">
+<pre class="text-primary-container/90 whitespace-pre-wrap">SYSTEM: You are a forensic data analyst.
+TASK: Extract all technical anomalies from [DOCUMENT].
+RULES:
+1. Cite page and paragraph for every claim.
+2. If evidence is ambiguous, tag as [SPECULATIVE].
+3. Format output as a markdown table.</pre>
+<button class="absolute top-4 right-4 p-2 hover:bg-primary-container/20 text-fg-text-3 hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Blueprint 2 -->
+<div class="glass-panel group overflow-hidden border-fg-border hover:border-secondary/40 transition-all">
+<div class="p-6 border-b border-fg-border flex justify-between items-center bg-fg-surface-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">data_object</span>
+<h3 class="font-headline-md text-headline-md">Data Extraction Prompt</h3>
+</div>
+<span class="font-mono-data text-section-label px-2 py-1 bg-secondary/10 text-secondary">CODE: EXT-04</span>
+</div>
+<div class="p-6 space-y-4">
+<p class="text-body-sm text-fg-text-3">High-precision extraction for pipeline integration. Guaranteed valid JSON output structure.</p>
+<div class="bg-black rounded-lg p-4 font-mono-data text-body-sm relative">
+<pre class="text-secondary/90 whitespace-pre-wrap">INPUT: [RAW_WEB_SCRAPE]
+OUTPUT_FORMAT: JSON
+SCHEMA: { "entity": "string", "timestamp": "ISO-8601", "risk_level": "float 0.0-1.0" }
+CONSTRAINT: Do not return any text outside the JSON object.</pre>
+<button class="absolute top-4 right-4 p-2 hover:bg-secondary/20 text-fg-text-3 hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-fg-canvas border-t border-fg-border-md w-full relative bottom-0">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div class="space-y-4">
+<div class="font-mono-data text-mono-data text-primary-container uppercase font-bold">FUTURE AI GUIDE</div>
+<p class="text-body-sm text-fg-text-3 max-w-xs">Autonomous intelligence network for the investigation of evolving AI systems and prompt architectures.</p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest">SYSTEM STATUS</span>
+<a class="text-primary-container font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors" href="#">SYSTEM STATUS: NOMINAL</a>
+<a class="text-fg-text-3 font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors uppercase" href="#">ENCRYPTION: AES-256</a>
+<a class="text-fg-text-3 font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors uppercase" href="#">TRANSMISSION LOGS</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest">LEGAL STACK</span>
+<a class="text-fg-text-3 font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors uppercase" href="#">LEGAL DISCLOSURE</a>
+<a class="text-fg-text-3 font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors uppercase" href="#">API DOCUMENTATION</a>
+<a class="text-fg-text-3 font-mono-data text-body-sm hover:text-fg-orange-lt transition-colors uppercase" href="#">PRIVACY_PROTOCOL</a>
+</div>
+<div class="space-y-4">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase tracking-widest">NETWORK ACCESS</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary-container cursor-pointer transition-colors">hub</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary-container cursor-pointer transition-colors">terminal</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary-container cursor-pointer transition-colors">shield_with_heart</span>
+</div>
+<p class="font-mono-data text-[10px] text-fg-text-3 mt-4">©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL v4.0.1</p>
+</div>
+</div>
+</footer>
+<script>
+    // Simple micro-interactions for interactive blocks
+    document.querySelectorAll('.glass-panel').forEach(panel => {
+      panel.addEventListener('mouseenter', () => {
+        panel.classList.add('scale-[1.01]');
+      });
+      panel.addEventListener('mouseleave', () => {
+        panel.classList.remove('scale-[1.01]');
+      });
+    });
+
+    // Copy to clipboard functionality
+    document.querySelectorAll('button:has(.material-symbols-outlined)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pre = btn.parentElement.querySelector('pre');
+        if (pre) {
+          navigator.clipboard.writeText(pre.innerText);
+          const icon = btn.querySelector('.material-symbols-outlined');
+          const original = icon.innerText;
+          icon.innerText = 'check';
+          setTimeout(() => icon.innerText = original, 2000);
+        }
+      });
+    });
+  </script>
+</body></html>

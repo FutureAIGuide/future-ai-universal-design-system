@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // ARCHIVE TERMINAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#42312b",
+                      "outline": "#aa897f",
+                      "fg-orange-lt": "#ff7a45",
+                      "outline-variant": "#5b4138",
+                      "on-surface-variant": "#e3bfb3",
+                      "primary-fixed": "#ffdbcf",
+                      "fg-orange-dk": "#d9480f",
+                      "surface-dim": "#1e100b",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "on-primary-fixed-variant": "#832700",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "on-tertiary-container": "#00304a",
+                      "secondary-container": "#83c600",
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "fg-amber": "#f59e0b",
+                      "on-primary-fixed": "#390c00",
+                      "on-tertiary-fixed": "#001e30",
+                      "fg-text-1": "#f5f5f5",
+                      "on-secondary-fixed": "#111f00",
+                      "background": "#1e100b",
+                      "fg-rust": "#ff4444",
+                      "inverse-on-surface": "#3d2c27",
+                      "secondary": "#9de32e",
+                      "secondary-fixed": "#b0f743",
+                      "on-secondary": "#213600",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "surface-container-high": "#372621",
+                      "on-primary": "#5c1900",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "fg-neutral-85": "#1a1a1a",
+                      "secondary-fixed-dim": "#95da24",
+                      "inverse-primary": "#ab3600",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "tertiary-container": "#009de4",
+                      "surface-container-lowest": "#180b07",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "tertiary": "#8dcdff",
+                      "on-error": "#690005",
+                      "surface-variant": "#42312b",
+                      "on-surface": "#f9dcd4",
+                      "on-secondary-container": "#314d00",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#ffb59c",
+                      "fg-canvas": "#050505",
+                      "surface-container-low": "#271813",
+                      "primary-container": "#ff5f1f",
+                      "inverse-surface": "#f9dcd4",
+                      "on-tertiary": "#00344f",
+                      "surface-container": "#2b1c17",
+                      "primary-fixed-dim": "#ffb59c",
+                      "surface-bright": "#47352f",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "on-background": "#f9dcd4",
+                      "error-container": "#93000a",
+                      "surface-tint": "#ffb59c",
+                      "tertiary-fixed": "#cae6ff",
+                      "surface": "#1e100b",
+                      "on-primary-container": "#561700",
+                      "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "12": "48px",
+                      "2": "8px",
+                      "20": "80px",
+                      "6": "24px",
+                      "3": "12px",
+                      "16": "64px",
+                      "1": "4px",
+                      "4": "16px",
+                      "8": "32px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Space Grotesk"],
+                      "display-xl": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "display-md": ["Space Grotesk"],
+                      "display-lg-mobile": ["Space Grotesk"],
+                      "body-sm": ["Inter"],
+                      "section-label": ["JetBrains Mono"],
+                      "headline-md": ["Space Grotesk"],
+                      "mono-data": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-surface {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg min-h-screen flex flex-col selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border shadow-orange/10 flex justify-between items-center px-16 h-20 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">FUTURE AI GUIDE</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">NETWORK</a>
+<a class="text-on-surface font-bold border-b-2 border-primary-container pb-1" href="#">ARCHIVE</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200 active:scale-95 transition-transform" href="#">TERMINAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-transparent border border-fg-border-md text-fg-text-1 px-4 py-2 font-mono-data text-section-label hover:bg-fg-surface transition-colors active:scale-95">SECURE</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-mono-data text-section-label font-bold hover:shadow-[0_0_15px_rgba(255,95,31,0.4)] transition-all active:scale-95">INITIALIZE</button>
+</div>
+</header>
+<main class="flex flex-1 pt-20 px-16 gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-64 flex-shrink-0 py-12 sticky top-20 h-[calc(100vh-80px)] overflow-y-auto custom-scrollbar">
+<div class="space-y-8">
+<!-- Intelligence Sector -->
+<section>
+<h3 class="font-section-label text-section-label text-fg-text-3 uppercase mb-4 tracking-widest">Intelligence Sector</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 text-xs font-mono-data border border-primary-container text-primary-container bg-primary-container/10">GOVERNMENT</button>
+<button class="px-3 py-1.5 text-xs font-mono-data border border-fg-border-md text-fg-text-2 hover:border-fg-orange-lt transition-colors">CORPORATE</button>
+<button class="px-3 py-1.5 text-xs font-mono-data border border-fg-border-md text-fg-text-2 hover:border-fg-orange-lt transition-colors">R&amp;D LABS</button>
+<button class="px-3 py-1.5 text-xs font-mono-data border border-fg-border-md text-fg-text-2 hover:border-fg-orange-lt transition-colors">CONSUMER</button>
+</div>
+<div class="mt-4 relative">
+<div class="glass-surface backdrop-blur-[20px] border border-fg-border-md p-4 space-y-4">
+<div class="flex justify-between items-center">
+<h4 class="font-section-label text-[10px] text-fg-text-3 uppercase tracking-widest">Sub-Filters: LLMs</h4>
+<span class="material-symbols-outlined text-xs text-fg-text-3 cursor-pointer hover:text-fg-rust">close</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-2 py-1 text-[10px] font-mono-data border border-primary-container text-primary-container shadow-[0_0_8px_rgba(255,95,31,0.3)]">Open Weights</button>
+<button class="px-2 py-1 text-[10px] font-mono-data border border-fg-border text-fg-text-3 hover:text-fg-text-1">Proprietary</button>
+<button class="px-2 py-1 text-[10px] font-mono-data border border-fg-border text-fg-text-3 hover:text-fg-text-1">Context &gt; 128k</button>
+<button class="px-2 py-1 text-[10px] font-mono-data border border-fg-border text-fg-text-3 hover:text-fg-text-1">Multimodal</button>
+</div>
+<div class="flex gap-2 pt-2 border-t border-fg-border">
+<button class="flex-1 py-1.5 bg-primary-container text-on-primary-container font-mono-data text-[10px] font-bold uppercase hover:shadow-[0_0_10px_rgba(255,95,31,0.4)] transition-all">Apply Filters</button>
+<button class="px-3 py-1.5 border border-fg-border text-fg-text-3 font-mono-data text-[10px] uppercase hover:text-fg-text-1 transition-colors">Clear</button>
+</div>
+</div>
+</div></section>
+<!-- Evidence Classification -->
+<section>
+<h3 class="font-section-label text-section-label text-fg-text-3 uppercase mb-4 tracking-widest">Evidence Status</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 group cursor-pointer">
+<div class="w-4 h-4 border border-fg-border-md group-hover:border-secondary transition-colors relative">
+<div class="absolute inset-0.5 bg-secondary opacity-0 group-hover:opacity-20 transition-opacity"></div>
+</div>
+<span class="font-mono-data text-body-sm text-fg-text-2 group-hover:text-fg-text-1">Verified Assets</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<div class="w-4 h-4 border border-fg-border-md group-hover:border-fg-orange-lt transition-colors relative"></div>
+<span class="font-mono-data text-body-sm text-fg-text-2 group-hover:text-fg-text-1">Under Review</span>
+</label>
+<label class="flex items-center gap-3 group cursor-pointer">
+<div class="w-4 h-4 border border-fg-border-md group-hover:border-fg-rust transition-colors relative"></div>
+<span class="font-mono-data text-body-sm text-fg-text-2 group-hover:text-fg-text-1">Disputed Claims</span>
+</label>
+</div>
+</section>
+<!-- Threat Level -->
+<section>
+<h3 class="font-section-label text-section-label text-fg-text-3 uppercase mb-4 tracking-widest">Threat Level</h3>
+<div class="space-y-4">
+<div class="w-full h-1 bg-fg-border relative">
+<div class="absolute left-0 top-0 h-full w-2/3 bg-primary-container shadow-[0_0_8px_rgba(255,95,31,0.5)]"></div>
+</div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3">
+<span>MODERATE</span>
+<span class="text-primary-container">CRITICAL</span>
+</div>
+</div>
+</section>
+<!-- Date Range Dropdown -->
+<section>
+<h3 class="font-section-label text-section-label text-fg-text-3 uppercase mb-4 tracking-widest">Temporal Range</h3>
+<div class="relative group">
+<button class="w-full flex justify-between items-center px-4 py-3 bg-fg-surface border border-fg-border text-fg-text-2 font-mono-data text-body-sm">
+<span>Q4 2024 - PRESENT</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Reset Action -->
+<button class="w-full py-4 border-t border-fg-border text-fg-text-3 font-mono-data text-section-label hover:text-fg-rust transition-colors uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                    Clear Parameters
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<section class="flex-1 py-12">
+<!-- Search Stats & Breadcrumbs -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<div class="flex gap-2 font-mono-data text-section-label text-fg-text-3 uppercase mb-2">
+<span>Archive</span>
+<span>/</span>
+<span class="text-fg-text-2">Search Results</span>
+</div>
+<h1 class="font-display-md text-display-md leading-none">Query: "NEURAL_LEAK"</h1>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-body-sm text-fg-text-3 uppercase">142 Documents Found</p>
+<p class="font-mono-data text-body-sm text-secondary">System Status: Nominal</p>
+</div>
+</div>
+<!-- Bento Grid of Results -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<article class="glass-surface group relative overflow-hidden flex flex-col">
+<div class="h-1 w-full bg-primary-container"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-section-label text-primary-container bg-primary-container/10 px-2 py-0.5 border border-primary-container/20 uppercase tracking-tighter">CRITICAL_THREAT</span>
+<span class="font-mono-data text-[11px] text-fg-text-3">FILE_ID: 0x882A_NL</span>
+</div>
+<div class="flex gap-6">
+<div class="w-24 h-24 flex-shrink-0 border border-fg-border overflow-hidden grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A highly technical, desaturated macro photograph of glowing fiber optic cables pulsing with orange data light in a dark server room setting. The aesthetic is cinematic and investigative, with deep shadows and high-contrast technical details. The lighting is cold and precise, reflecting a high-security intelligence environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj_f36f06jN3uFxIbX0MCKHWW2DtksVJAxlbT8qokxj0biC_-3X3Y4EkZofmvtWmjco1AXkvWElSydbvZLnLnvo3qbLCmZvvmPfsg1GH_nD8fgmmtqUbijWYtx4BZ7T7q5ft8t3PoDfvmenJp6nNtXgdhgTluJYixPzBq5fvxW6Yjwx8ueQvUeXksynFarTvWjoY_9NP0kuXUzWyo20eEdMup-liJY8eLKTCZy-26pmQqRxycYMy18clzCUtgGPgUqHhTzWgAxi8M"/>
+</div>
+<div class="flex-1">
+<p class="font-mono-data text-[11px] text-fg-text-3 mb-1 uppercase">2024.11.12 // GOV_INTEL // 8 MIN READ</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-3 group-hover:text-primary-container transition-colors">Neural Sync Leak in Sector 7-G</h2>
+<p class="font-body-sm text-fg-text-2 leading-relaxed">Evidence confirms unauthorized packet extraction from the main neural core. Trace elements suggest high-level cryptographic bypass of the Sentinel protocol. Immediate containment required.</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="glass-surface group relative overflow-hidden flex flex-col">
+<div class="h-1 w-full bg-secondary"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-section-label text-secondary bg-secondary/10 px-2 py-0.5 border border-secondary/20 uppercase tracking-tighter">VERIFIED_SECURE</span>
+<span class="font-mono-data text-[11px] text-fg-text-3">FILE_ID: 0x12F9_CC</span>
+</div>
+<div class="flex gap-6">
+<div class="w-24 h-24 flex-shrink-0 border border-fg-border overflow-hidden grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A microscopic, technical view of a bio-synthetic processor chip with glowing lime green circuitry paths. The image is framed as an investigative evidence photo with a cold, blueish-black background. Sharp focus on the complex, alien-like architecture of the AI hardware. The lighting is clinical and futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMofLhY94e77rpXF7feSVV1UwrB5DYkRI87ybCap2vI9JPKx6fPV4zOzYDcaHH5bf70hg4djOZ97Ai31sX0xxOpytrp7n0xMRpAqr4CYfHwVPzraUd_WdPMLeYy5ygYbqCsN2-CWByabKcxuRZp69-y_Y8h1JSxUVxxfm7JJnCxJWMimSpKbffJBYoZEJRbnUdmGDH4MiN7oN3fFRqhCJa9SXWMCFVJ0sH5qRya4DtuCCWykSOEO-mCQweMp3mGhZ2Ff3WEnZ_DE0"/>
+</div>
+<div class="flex-1">
+<p class="font-mono-data text-[11px] text-fg-text-3 mb-1 uppercase">2024.11.10 // CORP_DEV // 12 MIN READ</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-3 group-hover:text-secondary transition-colors">Quantum Encryption Stress Test: Alpha</h2>
+<p class="font-body-sm text-fg-text-2 leading-relaxed">Testing results indicate zero-vulnerability states across 10,000 simulated breach attempts. Internal logic gates maintained state integrity during intense recursive queries.</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="glass-surface group relative overflow-hidden flex flex-col lg:col-span-2">
+<div class="h-1 w-full bg-fg-border-md"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-section-label text-fg-text-3 bg-fg-surface px-2 py-0.5 border border-fg-border uppercase tracking-tighter">UNDER_REVIEW</span>
+<span class="font-mono-data text-[11px] text-fg-text-3">FILE_ID: 0x9901_XA</span>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-64 h-40 flex-shrink-0 border border-fg-border overflow-hidden grayscale contrast-150 group-hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="An atmospheric, low-angle shot of a massive, brutalist concrete data center tower at dusk. The building is silhouetted against a deep indigo sky, with only a few glowing orange windows at the top. The lighting is moody and ominous, with fog rolling around the base of the structure. Investigative, high-density professional digital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOwRTD1PEBoF_ci1OwyDpTFhTgsf9LFwS0zx-0pUuHzi8fwT3dkcHdBgg-eGWl3bOa4wNYG6_0r-rJs9dhT85keNmyaQhvCFgLZI3_ZJ3rwYs-LfVq7lfrJ3Vh5O88SYWfdNPEdRtxZlKFzis3hhvV07OX7y3Ol0-L5dh3Stw7UvuMQyJKREg0rdiugS6GcZMELFNg-O8YsX6ZSmEupTvs_ONCNYvJLsiBDmQbAjqlBrPEweDWeWYug2LM06cVPhLsQrGKVYum4JA"/>
+</div>
+<div class="flex-1">
+<p class="font-mono-data text-[11px] text-fg-text-3 mb-1 uppercase">2024.11.08 // ARCHIVE_01 // 15 MIN READ</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-3 group-hover:text-fg-orange-lt transition-colors">Ghost-Signals Detected in Sub-Level 4 Transmissions</h2>
+<p class="font-body-sm text-fg-text-2 leading-relaxed mb-4">Atmospheric disturbances or systematic bypass? Signals displaying patterns synonymous with sentient decision-making were logged at 03:00 UTC. Physical access logs show no entry, yet terminal 4-A registered active biometric override. Data forensics are ongoing but preliminary results point toward internal lattice anomalies.</p>
+<div class="flex gap-4">
+<button class="text-primary-container font-mono-data text-[11px] uppercase tracking-widest flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-xs">analytics</span> Full Log Data
+                                    </button>
+<button class="text-fg-text-3 font-mono-data text-[11px] uppercase tracking-widest flex items-center gap-1 hover:text-fg-text-1 transition-colors">
+<span class="material-symbols-outlined text-xs">download</span> PDF Evidence
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="glass-surface group relative overflow-hidden flex flex-col">
+<div class="h-1 w-full bg-primary-container"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-section-label text-primary-container bg-primary-container/10 px-2 py-0.5 border border-primary-container/20 uppercase tracking-tighter">HIGH_ALERT</span>
+<span class="font-mono-data text-[11px] text-fg-text-3">FILE_ID: 0x442C_BT</span>
+</div>
+<div class="flex gap-6">
+<div class="w-24 h-24 flex-shrink-0 border border-fg-border overflow-hidden grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A technical blueprint overlay of a human eye with glowing digital scanning patterns and binary code streams across the iris. The color palette is restricted to deep blacks, subtle grays, and intense orange highlights. The image represents investigative biometric data collection in a dark, high-tech intelligence environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOIJHgkxBBuQB60acP7fwzC5qUoYlFyPj7Ex02YGRHA-TG5REMu_1dflTp-Cs3lQ2AJy_TIm3bNCNzBuvzFT13JT8g7gZqy4QChY35xDchzcypAakdtn6C02aipFTOW4qdpzvcX6BEvDONylY2AB3Ae3dvUG9Dauez8-B4yDmYvunUjfUu2cYCwLnhywlESUt9KWSfGVomrux1ZE3HcmVyUQWCJjTtXy2gdcIhkDH_LwmryhCOrv3LXWZY1SFi-HEqot-Lo--OFSE"/>
+</div>
+<div class="flex-1">
+<p class="font-mono-data text-[11px] text-fg-text-3 mb-1 uppercase">2024.11.05 // R&amp;D_SECURITY // 6 MIN READ</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-3 group-hover:text-primary-container transition-colors">Biometric Spoofing via AI Projection</h2>
+<h3 class="sr-only">Biometric Security Vulnerability</h3>
+<p class="font-body-sm text-fg-text-2 leading-relaxed">New findings reveal that synthetic retinal patterns can now bypass tier-1 scanners with 88% success rate. Hardening of ocular security protocols is advised.</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="glass-surface group relative overflow-hidden flex flex-col">
+<div class="h-1 w-full bg-secondary"></div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="font-mono-data text-section-label text-secondary bg-secondary/10 px-2 py-0.5 border border-secondary/20 uppercase tracking-tighter">VERIFIED</span>
+<span class="font-mono-data text-[11px] text-fg-text-3">FILE_ID: 0x5511_KL</span>
+</div>
+<div class="flex gap-6">
+<div class="w-24 h-24 flex-shrink-0 border border-fg-border overflow-hidden grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist close-up of a holographic interface floating in mid-air, displaying complex node networks and data trees in bright lime green. The background is pitch black and perfectly out of focus. The lighting is ethereal and sharp, highlighting the precise digital geometry of the network map." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJYADbv7C4jIlUAoVrWpmJzamUrQ5OE5oYck4L2tWMzb363yZpXdWXdMeF08WmhGzswpmvIbOailyHo91I6_htmhpARk81ro3PcI-G7Ul9tE4GUtHHIx2EyLNf0EgXWne0OLaASAO7XTqp1ZNrtudhgFMEOpvxokdLv0KfoN_NwnX8GwFCjnJPDDvkvDeu0JjI1qKZTRKZ8XA7FJ9ih2T-ua00A9JpImyw_J2pVLSPptZY3GnKifLjihMqpACvLajRJpT23nemrgk"/>
+</div>
+<div class="flex-1">
+<p class="font-mono-data text-[11px] text-fg-text-3 mb-1 uppercase">2024.11.01 // CONSUMER_SAFETY // 4 MIN READ</p>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-3 group-hover:text-secondary transition-colors">Household AI Proxy: Transparency Audit</h2>
+<p class="font-body-sm text-fg-text-2 leading-relaxed">The 'HomeGuardian' v4.2 update was audited for latent data-sharing. All outbound packets are correctly labeled and encrypted as per 2024 standards.</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-4">
+<button class="p-2 border border-fg-border text-fg-text-3 hover:text-fg-text-1 transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center font-mono-data text-sm bg-primary-container text-on-primary-container">01</button>
+<button class="w-10 h-10 flex items-center justify-center font-mono-data text-sm border border-fg-border text-fg-text-3 hover:border-fg-orange-lt hover:text-fg-text-1 transition-all">02</button>
+<button class="w-10 h-10 flex items-center justify-center font-mono-data text-sm border border-fg-border text-fg-text-3 hover:border-fg-orange-lt hover:text-fg-text-1 transition-all">03</button>
+<span class="w-10 h-10 flex items-center justify-center font-mono-data text-sm text-fg-text-3">...</span>
+<button class="w-10 h-10 flex items-center justify-center font-mono-data text-sm border border-fg-border text-fg-text-3 hover:border-fg-orange-lt hover:text-fg-text-1 transition-all">14</button>
+</div>
+<button class="p-2 border border-fg-border text-fg-text-3 hover:text-fg-text-1 transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bottom-0 bg-fg-canvas border-t border-fg-border-md">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div class="space-y-4">
+<span class="font-mono-data text-mono-data text-primary-container uppercase tracking-widest block">FUTURE AI GUIDE</span>
+<p class="font-body-sm text-body-sm text-fg-text-3 leading-relaxed">Monitoring the transition with absolute clinical precision. We are the architects of objective oversight in an increasingly synthetic world.</p>
+</div>
+<div class="space-y-3">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase tracking-widest">Protocol Status</h4>
+<ul class="space-y-2 font-mono-data text-body-sm text-fg-text-3 uppercase">
+<li class="flex items-center gap-2 text-secondary"><span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> SYSTEM STATUS: NOMINAL</li>
+<li class="hover:text-fg-orange-lt cursor-pointer">ENCRYPTION: AES-256</li>
+<li class="hover:text-fg-orange-lt cursor-pointer">TRANSMISSION LOGS</li>
+</ul>
+</div>
+<div class="space-y-3">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase tracking-widest">Legal &amp; API</h4>
+<ul class="space-y-2 font-mono-data text-body-sm text-fg-text-3 uppercase">
+<li class="hover:text-fg-orange-lt cursor-pointer">LEGAL DISCLOSURE</li>
+<li class="hover:text-fg-orange-lt cursor-pointer">API DOCUMENTATION</li>
+<li class="hover:text-fg-orange-lt cursor-pointer">TERMINAL SSH</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-section-label text-section-label text-fg-text-1 uppercase tracking-widest">Global Feed</h4>
+<div class="bg-fg-surface-md p-4 border border-fg-border">
+<p class="font-mono-data text-[10px] text-fg-orange-lt mb-1">REAL-TIME_EVENT // 14:02:11</p>
+<p class="font-body-sm text-body-sm text-fg-text-2">Primary uplink re-stabilized. Sector 4 data purge complete.</p>
+</div>
+</div>
+</div>
+<div class="px-16 py-6 border-t border-fg-border flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-body-sm text-body-sm text-fg-text-3">©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL v4.0.1</span>
+<div class="flex gap-6">
+<a class="font-mono-data text-[10px] text-fg-text-3 hover:text-on-surface" href="#">TWITTER/X</a>
+<a class="font-mono-data text-[10px] text-fg-text-3 hover:text-on-surface" href="#">DISCORD</a>
+<a class="font-mono-data text-[10px] text-fg-text-3 hover:text-on-surface" href="#">GITHUB</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Elements Script -->
+<script>
+        // Simple micro-interactions for an investigative feel
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Search highlight simulation
+        const searchTerms = ["NEURAL_LEAK"];
+        document.querySelectorAll('p, h2').forEach(el => {
+            searchTerms.forEach(term => {
+                if(el.textContent.includes(term)) {
+                    // Simulating a system finding and highlighting data
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE | SAVED PROMPTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline-variant": "#5b4138",
+                  "primary-fixed-dim": "#ffb59c",
+                  "surface-bright": "#47352f",
+                  "inverse-primary": "#ab3600",
+                  "fg-text-1": "#f5f5f5",
+                  "outline": "#aa897f",
+                  "surface-dim": "#1e100b",
+                  "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                  "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                  "surface-container-lowest": "#180b07",
+                  "primary": "#ffb59c",
+                  "on-primary-container": "#561700",
+                  "fg-amber": "#f59e0b",
+                  "secondary": "#9de32e",
+                  "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                  "on-tertiary-fixed": "#001e30",
+                  "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                  "surface-variant": "#42312b",
+                  "error-container": "#93000a",
+                  "surface-container-highest": "#42312b",
+                  "on-primary-fixed": "#390c00",
+                  "surface-container": "#2b1c17",
+                  "surface": "#1e100b",
+                  "on-tertiary-fixed-variant": "#004b70",
+                  "on-surface-variant": "#e3bfb3",
+                  "inverse-on-surface": "#3d2c27",
+                  "tertiary-fixed-dim": "#8dcdff",
+                  "error": "#ffb4ab",
+                  "secondary-fixed-dim": "#95da24",
+                  "primary-fixed": "#ffdbcf",
+                  "on-secondary": "#213600",
+                  "on-tertiary": "#00344f",
+                  "fg-canvas": "#050505",
+                  "on-tertiary-container": "#00304a",
+                  "fg-surface": "rgba(255, 255, 255, 0.04)",
+                  "on-secondary-fixed": "#111f00",
+                  "fg-orange-dk": "#d9480f",
+                  "on-background": "#f9dcd4",
+                  "tertiary-fixed": "#cae6ff",
+                  "on-error-container": "#ffdad6",
+                  "tertiary": "#8dcdff",
+                  "secondary-container": "#83c600",
+                  "surface-container-high": "#372621",
+                  "surface-container-low": "#271813",
+                  "fg-neutral-85": "#1a1a1a",
+                  "on-primary": "#5c1900",
+                  "surface-tint": "#ffb59c",
+                  "on-secondary-fixed-variant": "#324f00",
+                  "secondary-fixed": "#b0f743",
+                  "background": "#1e100b",
+                  "on-surface": "#f9dcd4",
+                  "on-error": "#690005",
+                  "fg-border": "rgba(255, 255, 255, 0.08)",
+                  "fg-orange-lt": "#ff7a45",
+                  "on-primary-fixed-variant": "#832700",
+                  "primary-container": "#ff5f1f",
+                  "fg-rust": "#ff4444",
+                  "tertiary-container": "#009de4",
+                  "on-secondary-container": "#314d00",
+                  "inverse-surface": "#f9dcd4",
+                  "shadow-orange": "0 0 20px rgba(255, 95, 31, 0.2)"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "20": "80px",
+                  "8": "32px",
+                  "6": "24px",
+                  "12": "48px",
+                  "16": "64px",
+                  "1": "4px",
+                  "3": "12px",
+                  "4": "16px",
+                  "2": "8px"
+          },
+          "fontFamily": {
+                  "headline-lg": ["Space Grotesk"],
+                  "body-lg": ["Inter"],
+                  "headline-md": ["Space Grotesk"],
+                  "display-lg-mobile": ["Space Grotesk"],
+                  "mono-data": ["JetBrains Mono"],
+                  "body-sm": ["Inter"],
+                  "display-md": ["Space Grotesk"],
+                  "display-lg": ["Space Grotesk"],
+                  "section-label": ["JetBrains Mono"],
+                  "display-xl": ["Space Grotesk"]
+          },
+          "fontSize": {
+                  "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                  "headline-lg-mobile": ["20px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                  "headline-md-mobile": ["17px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                  "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                  "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                  "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                  "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                  "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #050505;
+      color: #f5f5f5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff5f1f;
+      border-radius: 10px;
+    }
+    .glass-surface {
+      backdrop-filter: blur(20px);
+      background: rgba(30, 16, 11, 0.7);
+    }
+    .card-hover-state:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- Top Navigation Shell -->
+<header class="sticky top-0 z-50 glass-surface border-b border-fg-border px-4 h-16 flex justify-between items-center w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md-mobile text-headline-md-mobile uppercase tracking-wider text-primary">SAVED_PROMPTS</h1>
+</div>
+<div class="flex items-center">
+<button class="text-primary p-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pb-24">
+<!-- Search and Technical Filter Interface -->
+<section class="p-4 space-y-6">
+<div class="relative">
+<input class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-mono-data text-fg-text-1 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-fg-text-3" placeholder="QUERY_SYSTEM_LOGS..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2 text-fg-text-3">
+<span class="text-[10px] border border-fg-border px-1.5 py-0.5 rounded">CMD+K</span>
+</div>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-4">
+<div class="flex-grow overflow-x-auto scrollbar-hide flex gap-2 pb-2">
+<button class="flex-shrink-0 px-4 py-1.5 border border-primary text-primary font-mono-data text-section-label uppercase tracking-widest bg-primary/10">#All</button>
+<button class="flex-shrink-0 px-4 py-1.5 border border-fg-border text-fg-text-2 font-mono-data text-section-label uppercase tracking-widest hover:border-fg-text-2 transition-colors">#Forensics</button>
+<button class="flex-shrink-0 px-4 py-1.5 border border-fg-border text-fg-text-2 font-mono-data text-section-label uppercase tracking-widest hover:border-fg-text-2 transition-colors">#Extraction</button>
+<button class="flex-shrink-0 px-4 py-1.5 border border-fg-border text-fg-text-2 font-mono-data text-section-label uppercase tracking-widest hover:border-fg-text-2 transition-colors">#Simulation</button>
+<button class="flex-shrink-0 px-4 py-1.5 border border-fg-border text-fg-text-2 font-mono-data text-section-label uppercase tracking-widest hover:border-fg-text-2 transition-colors">#Infiltration</button>
+</div>
+<button class="p-2 border border-fg-border text-fg-text-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</section>
+<!-- Investigation Cards Feed -->
+<section class="px-4 space-y-4">
+<div class="flex justify-between items-center mb-2 px-1">
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase tracking-tighter">Results: 148 Objects</span>
+<div class="flex items-center gap-1 text-primary cursor-pointer">
+<span class="font-mono-data text-section-label uppercase tracking-widest">Sort: DATE_DESC</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="swap_vert">swap_vert</span>
+</div>
+</div>
+<!-- Card 1: Active Infiltration -->
+<div class="group relative bg-fg-surface border border-fg-border card-hover-state overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="p-4 pl-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-fg-text-1">Deep Neural Forensics v4.2</h3>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-4 line-clamp-2">
+            Execute a multi-layered analysis of synaptic weight distributions to detect anomalous behavioral patterns within non-deterministic models...
+          </p>
+<div class="flex items-center justify-between font-mono-data text-mono-data text-fg-text-3 border-t border-fg-border pt-3">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 04_MAY_2024</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="token">token</span> 1.2K</span>
+</div>
+<div class="flex gap-2">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="share">share</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Verified Extraction -->
+<div class="group relative bg-fg-surface border border-fg-border card-hover-state overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="p-4 pl-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-fg-text-1">Automated Data Exfiltration</h3>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-4 line-clamp-2">
+            Scrape and synthesize high-entropy signals from decentralized intelligence networks while maintaining zero-footprint encryption...
+          </p>
+<div class="flex items-center justify-between font-mono-data text-mono-data text-fg-text-3 border-t border-fg-border pt-3">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 02_MAY_2024</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="token">token</span> 842</span>
+</div>
+<div class="flex gap-2">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="share">share</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Neutral Simulation -->
+<div class="group relative bg-fg-surface border border-fg-border card-hover-state overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-fg-border-md"></div>
+<div class="p-4 pl-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-fg-text-1">Simulation Conflict Analysis</h3>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-4 line-clamp-2">
+            Run competitive agent simulations to identify critical points of failure within LLM decision-making chains for high-stakes...
+          </p>
+<div class="flex items-center justify-between font-mono-data text-mono-data text-fg-text-3 border-t border-fg-border pt-3">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 28_APR_2024</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="token">token</span> 2.4K</span>
+</div>
+<div class="flex gap-2">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="share">share</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Ghost Entry -->
+<div class="group relative bg-fg-surface border border-fg-border card-hover-state overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container"></div>
+<div class="p-4 pl-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-fg-text-1">Quantum Key Decryption</h3>
+<span class="material-symbols-outlined text-fg-text-3 text-[18px]" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-4 line-clamp-2">
+            Utilize recursive prompting structures to bypass traditional cryptographic boundaries via synthetic reasoning bypass...
+          </p>
+<div class="flex items-center justify-between font-mono-data text-mono-data text-fg-text-3 border-t border-fg-border pt-3">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 15_APR_2024</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="token">token</span> 512</span>
+</div>
+<div class="flex gap-2">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="share">share</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 glass-surface border-t border-fg-border h-20 px-4 pb-4 flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-section-label text-section-label uppercase">HUB</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-container font-bold gap-1 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-section-label text-section-label uppercase">PROMPTS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+<span class="font-section-label text-section-label uppercase">INTEL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-fg-text-3 gap-1 hover:bg-fg-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-section-label text-section-label uppercase">SYSTEM</span>
+</a>
+</nav>
+<!-- Floating Action Indicator (Active System Pulse) -->
+<div class="fixed bottom-24 right-4 pointer-events-none">
+<div class="w-12 h-12 bg-primary-container/20 border border-primary-container/50 rounded-full flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 bg-primary-container rounded-full shadow-[0_0_10px_#ff5f1f]"></div>
+</div>
+</div>
+<script>
+    // Micro-interactions for card swiping feel
+    document.querySelectorAll('.card-hover-state').forEach(card => {
+      let startX;
+      card.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      });
+      card.addEventListener('touchmove', e => {
+        const diff = e.touches[0].clientX - startX;
+        if (diff < 0 && diff > -100) {
+          card.style.transform = `translateX(${diff}px)`;
+        }
+      });
+      card.addEventListener('touchend', () => {
+        card.style.transform = 'translateX(0)';
+      });
+    });
+
+    // Console logging simulation
+    console.log("%c SYSTEM INITIALIZED: PROMPT_DATABASE_ACCESS_GRANTED ", "background: #ff5f1f; color: #000; font-weight: bold; padding: 4px;");
+  </script>
+</body></html>

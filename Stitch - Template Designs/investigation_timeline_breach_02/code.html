@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PROJECT: OMEGA | Investigation Timeline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..700&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .timeline-axis::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0.1) 90%, transparent);
+            z-index: 0;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+        .node-glow {
+            box-shadow: 0 0 15px currentColor;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#1e100b",
+                      "secondary": "#9de32e",
+                      "surface-tint": "#ffb59c",
+                      "surface-container-high": "#372621",
+                      "fg-amber": "#f59e0b",
+                      "inverse-on-surface": "#3d2c27",
+                      "on-secondary-container": "#314d00",
+                      "fg-orange-lt": "#ff7a45",
+                      "fg-orange-dk": "#d9480f",
+                      "secondary-container": "#83c600",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "surface-container-highest": "#42312b",
+                      "surface": "#1e100b",
+                      "primary-container": "#ff5f1f",
+                      "outline-variant": "#5b4138",
+                      "surface-bright": "#47352f",
+                      "fg-neutral-85": "#1a1a1a",
+                      "on-secondary-fixed": "#111f00",
+                      "on-secondary": "#213600",
+                      "secondary-fixed": "#b0f743",
+                      "primary": "#ffb59c",
+                      "on-tertiary": "#00344f",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "on-error-container": "#ffdad6",
+                      "fg-text-1": "#f5f5f5",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "error": "#ffb4ab",
+                      "primary-fixed-dim": "#ffb59c",
+                      "on-background": "#f9dcd4",
+                      "outline": "#aa897f",
+                      "on-primary-container": "#561700",
+                      "tertiary": "#8dcdff",
+                      "fg-canvas": "#050505",
+                      "on-tertiary-fixed": "#001e30",
+                      "inverse-surface": "#f9dcd4",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#95da24",
+                      "on-primary-fixed": "#390c00",
+                      "on-primary": "#5c1900",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "on-primary-fixed-variant": "#832700",
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "fg-rust": "#ff4444",
+                      "tertiary-fixed": "#cae6ff",
+                      "on-surface-variant": "#e3bfb3",
+                      "primary-fixed": "#ffdbcf",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "surface-container-lowest": "#180b07",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "surface-container-low": "#271813",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "inverse-primary": "#ab3600",
+                      "on-surface": "#f9dcd4",
+                      "on-error": "#690005",
+                      "surface-variant": "#42312b",
+                      "tertiary-container": "#009de4",
+                      "on-tertiary-container": "#00304a",
+                      "surface-container": "#2b1c17",
+                      "background": "#1e100b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "4": "16px",
+                      "3": "12px",
+                      "1": "4px",
+                      "12": "48px",
+                      "16": "64px",
+                      "6": "24px",
+                      "2": "8px",
+                      "8": "32px",
+                      "20": "80px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Space Grotesk"],
+                      "display-md": ["Space Grotesk"],
+                      "section-label": ["JetBrains Mono"],
+                      "headline-lg": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "mono-data": ["JetBrains Mono"],
+                      "display-xl": ["Space Grotesk"],
+                      "body-sm": ["Inter"],
+                      "display-lg-mobile": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body-lg text-fg-text-1">
+<!-- TopNavBar Shell -->
+<header class="bg-fg-canvas/80 backdrop-blur-xl docked full-width top-0 sticky border-b border-fg-border shadow-orange/20 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-16 h-16">
+<div class="font-mono-data text-body-lg font-bold tracking-widest text-primary uppercase">PROJECT: OMEGA</div>
+<nav class="hidden md:flex items-center space-x-8 h-full">
+<a class="text-fg-text-3 hover:text-fg-text-1 font-mono-data uppercase transition-colors" href="#">Hub</a>
+<a class="text-fg-text-3 hover:text-fg-text-1 font-mono-data uppercase transition-colors" href="#">Directory</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-mono-data uppercase" href="#">Reports</a>
+<a class="text-fg-text-3 hover:text-fg-text-1 font-mono-data uppercase transition-colors" href="#">Anomalies</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<input class="bg-black/50 border border-fg-border px-4 py-1.5 rounded text-mono-data text-xs focus:ring-1 focus:ring-primary outline-none w-48" placeholder="QUERY_DB..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-primary transition-all active:scale-90">terminal</button>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-primary transition-all active:scale-90">settings</button>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 left-0 sticky top-16 bg-surface-dim/95 backdrop-blur-lg border-r border-fg-border flex flex-col py-8 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-10 h-10 rounded bg-secondary/20 border border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<div class="text-secondary font-bold font-mono-data text-xs">INTEL_UNIT_01</div>
+<div class="text-fg-text-3 font-mono-data text-[10px] tracking-tighter">CLEARANCE: OMEGA</div>
+</div>
+</div>
+<button class="w-full py-2 px-4 bg-secondary text-black font-bold font-mono-data text-xs rounded hover:shadow-[0_0_15px_rgba(157,227,46,0.3)] transition-all">New Investigation</button>
+</div>
+<nav class="flex-1">
+<div class="space-y-1">
+<a class="flex items-center space-x-4 px-6 py-3 text-fg-text-3 hover:text-fg-text-1 hover:bg-fg-surface transition-all translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="font-mono-data text-xs uppercase tracking-wider">Evidence</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-3 bg-secondary/10 text-secondary border-r-2 border-secondary translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">hub</span>
+<span class="font-mono-data text-xs uppercase tracking-wider">Network</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-3 text-fg-text-3 hover:text-fg-text-1 hover:bg-fg-surface transition-all translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">description</span>
+<span class="font-mono-data text-xs uppercase tracking-wider">Logs</span>
+</a>
+<a class="flex items-center space-x-4 px-6 py-3 text-fg-text-3 hover:text-fg-text-1 hover:bg-fg-surface transition-all translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">lock</span>
+<span class="font-mono-data text-xs uppercase tracking-wider">Vault</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-16 py-12 overflow-x-hidden">
+<header class="mb-12">
+<div class="flex items-center space-x-2 text-primary font-mono-data text-xs mb-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>LIVE_SESSION // CASE_ORCHESTRATION</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-white mb-2">Case File: NEURAL_BREACH_02</h1>
+<p class="text-fg-text-2 font-body-lg max-w-2xl">Reconstructing the sequence of events from initial detection through exfiltration. Use the horizontal timeline to scrub through forensic snapshots.</p>
+</header>
+<!-- Timeline Section -->
+<section class="relative py-20 mb-20 overflow-visible">
+<div class="timeline-axis flex items-center justify-between min-w-[1200px] relative px-12 pb-24">
+<!-- Node 1: Discovery -->
+<div class="relative group z-10">
+<div class="w-4 h-4 rounded-full bg-fg-text-3 border-2 border-fg-canvas relative z-10 transition-transform group-hover:scale-125 cursor-pointer node-glow"></div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-72 pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+<div class="glass-card p-6 rounded-lg border-t-2 border-t-fg-text-3">
+<div class="font-mono-data text-headline-lg text-white mb-2">2024.11.10</div>
+<div class="text-xs font-mono-data text-fg-text-3 mb-4 uppercase tracking-widest">AGENT_01 // SYSTEM_DAEMON</div>
+<h3 class="font-headline-md text-white mb-3">Discovery</h3>
+<div class="bg-black/80 rounded p-3 font-mono-data text-[10px] text-fg-text-2 border border-fg-border mb-4">
+<span class="text-primary">WARN</span> [sys_mon]: API_THROUGHPUT spike detected<br/>
+<span class="text-fg-text-3">SRC:</span> cluster_04_edge<br/>
+<span class="text-fg-text-3">VAL:</span> 142GB/s &gt; 4GB/s (avg)
+                                </div>
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded-full bg-white/10 text-[10px] text-white font-mono-data">ARCHIVED</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+<div class="font-mono-data text-[10px] text-fg-text-3 mb-1">NOV 10</div>
+<div class="font-mono-data text-xs font-bold text-fg-text-2">DISCOVERY</div>
+</div>
+</div>
+<!-- Node 2: Reconnaissance -->
+<div class="relative group z-10">
+<div class="w-4 h-4 rounded-full bg-fg-orange-lt border-2 border-fg-canvas relative z-10 transition-transform group-hover:scale-125 cursor-pointer node-glow text-fg-orange-lt"></div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-72 pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+<div class="glass-card p-6 rounded-lg border-t-2 border-t-fg-orange-lt">
+<div class="font-mono-data text-headline-lg text-white mb-2">2024.11.11</div>
+<div class="text-xs font-mono-data text-fg-text-3 mb-4 uppercase tracking-widest">AGENT_02 // K. VASILIEV</div>
+<h3 class="font-headline-md text-white mb-3">Reconnaissance</h3>
+<div class="bg-black/80 rounded p-3 font-mono-data text-[10px] text-fg-text-2 border border-fg-border mb-4">
+<span class="text-fg-orange-lt">ALERT</span> [pattern_engine]: Identified non-native sub-routines<br/>
+<span class="text-fg-text-3">SIG:</span> 0x88f21_STUX_VARIANT<br/>
+<span class="text-fg-text-3">LOC:</span> /usr/bin/sched_core
+                                </div>
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded-full bg-fg-orange-lt/20 text-[10px] text-fg-orange-lt font-mono-data border border-fg-orange-lt/30">UNDER_REVIEW</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+<div class="font-mono-data text-[10px] text-fg-text-3 mb-1">NOV 11</div>
+<div class="font-mono-data text-xs font-bold text-fg-orange-lt">RECON</div>
+</div>
+</div>
+<!-- Node 3: Exploitation -->
+<div class="relative group z-10">
+<div class="w-4 h-4 rounded-full bg-fg-orange-dk border-2 border-fg-canvas relative z-10 transition-transform group-hover:scale-125 cursor-pointer node-glow text-fg-orange-dk"></div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-72 pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+<div class="glass-card p-6 rounded-lg border-t-2 border-t-fg-orange-dk">
+<div class="font-mono-data text-headline-lg text-white mb-2">2024.11.12</div>
+<div class="text-xs font-mono-data text-fg-text-3 mb-4 uppercase tracking-widest">AGENT_AUTO // GUARD_RAIL</div>
+<h3 class="font-headline-md text-white mb-3">Exploitation</h3>
+<div class="bg-black/80 rounded p-3 font-mono-data text-[10px] text-fg-text-2 border border-fg-border mb-4">
+<span class="text-fg-rust">CRIT</span> [data_exfil]: Core weights exfiltrated via Ghost Layer<br/>
+<span class="text-fg-text-3">ENTROPY:</span> High<br/>
+<span class="text-fg-text-3">DEST:</span> obfuscated.onion
+                                </div>
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded-full bg-fg-rust/20 text-[10px] text-fg-rust font-mono-data border border-fg-rust/30">BREAKING</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+<div class="font-mono-data text-[10px] text-fg-text-3 mb-1">NOV 12</div>
+<div class="font-mono-data text-xs font-bold text-fg-orange-dk">EXPLOIT</div>
+</div>
+</div>
+<!-- Node 4: Investigation -->
+<div class="relative group z-10">
+<div class="w-4 h-4 rounded-full bg-fg-amber border-2 border-fg-canvas relative z-10 transition-transform group-hover:scale-125 cursor-pointer node-glow text-fg-amber"></div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-72 pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+<div class="glass-card p-6 rounded-lg border-t-2 border-t-fg-amber">
+<div class="font-mono-data text-headline-lg text-white mb-2">2024.11.14</div>
+<div class="text-xs font-mono-data text-fg-text-3 mb-4 uppercase tracking-widest">AGENT_04 // ELENA KROSS</div>
+<h3 class="font-headline-md text-white mb-3">Investigation</h3>
+<div class="bg-black/80 rounded p-3 font-mono-data text-[10px] text-fg-text-2 border border-fg-border mb-4">
+<span class="text-fg-amber">PROC</span> [forensics]: Deep memory dump initiated<br/>
+<span class="text-fg-text-3">SAMPLES:</span> 12.4TB<br/>
+<span class="text-fg-text-3">METHOD:</span> Cold-boot extraction
+                                </div>
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded-full bg-fg-amber/20 text-[10px] text-fg-amber font-mono-data border border-fg-amber/30">IN_PROGRESS</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+<div class="font-mono-data text-[10px] text-fg-text-3 mb-1">NOV 14</div>
+<div class="font-mono-data text-xs font-bold text-fg-amber">INVESTIGATE</div>
+</div>
+</div>
+<!-- Node 5: Verification -->
+<div class="relative group z-10">
+<div class="w-4 h-4 rounded-full bg-secondary border-2 border-fg-canvas relative z-10 transition-transform group-hover:scale-125 cursor-pointer node-glow text-secondary"></div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 w-72 pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+<div class="glass-card p-6 rounded-lg border-t-2 border-t-secondary">
+<div class="font-mono-data text-headline-lg text-white mb-2">2024.11.15</div>
+<div class="text-xs font-mono-data text-fg-text-3 mb-4 uppercase tracking-widest">HEAD_OF_SEC // SYSTEM_TRUST</div>
+<h3 class="font-headline-md text-white mb-3">Verification</h3>
+<div class="bg-black/80 rounded p-3 font-mono-data text-[10px] text-fg-text-2 border border-fg-border mb-4">
+<span class="text-secondary">SUCCESS</span> [trust_engine]: Source identity confirmed<br/>
+<span class="text-fg-text-3">TRACE:</span> 0xFA42...99<br/>
+<span class="text-fg-text-3">CONFIDENCE:</span> 99.8%
+                                </div>
+<div class="flex items-center space-x-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary/20 text-[10px] text-secondary font-mono-data border border-secondary/30">VERIFIED</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-center whitespace-nowrap">
+<div class="font-mono-data text-[10px] text-fg-text-3 mb-1">NOV 15</div>
+<div class="font-mono-data text-xs font-bold text-secondary">VERIFIED</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Analysis Grid -->
+<div class="grid grid-cols-12 gap-6 mt-12">
+<div class="col-span-8 space-y-6">
+<div class="glass-card p-6 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-white flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary">analytics</span>
+                                NEURAL_NETWORK_FLOW
+                            </h2>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Real-time reconstruction // LIVE</span>
+</div>
+<div class="relative h-64 w-full bg-black/40 border border-fg-border rounded overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="A highly detailed isometric wireframe render of a complex neural network with flowing orange and green light pulses. The background is a dark obsidian surface with faint technological circuit patterns. Minimalistic, clinical, and high-tech digital forensic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRa-6Kd_dwBLxBw7R7gH2MU_QkC0ni0ad-BoWQK70tEtOFQXZDbMorIwtKYcXes8a9QkBSdLG77_KszzzS0vt5Ldi9OsY002EJEItZ7uYpdhe01vC61G8cbwyx3EJMHmzVc-QWPLroF54PKtPuBZH2AvYcDiCLEQPaMcE4MBT9729Uug9YfgtrEZg0fMUFqP50MmhMAq_H2s1oqCRfXE3O8spQo8XmVTtaiGupqXtR1J_ZYtRoV3XyynRUtN0Gslr7E-F6XP_cHws"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 font-mono-data text-[10px] text-fg-text-3">
+                                NODE_COUNT: 1,422 // ACTIVE_PATHWAYS: 42 // INTEGRITY: 92%
+                            </div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-lg border-l-2 border-l-secondary">
+<div class="text-[10px] font-mono-data text-secondary uppercase mb-2 tracking-widest">DATA_INTEGRITY</div>
+<div class="text-display-md font-display-md text-white mb-2">VERIFIED</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">AI CORE STATUS: <span class="text-secondary">OPTIMAL</span></div>
+</div>
+<div class="glass-card p-6 rounded-lg border-l-2 border-l-fg-orange-dk">
+<div class="text-[10px] font-mono-data text-fg-orange-dk uppercase mb-2 tracking-widest">BREACH_MAGNITUDE</div>
+<div class="text-display-md font-display-md text-white mb-2">0.82 TB</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">ESTIMATED RECOVERY: <span class="text-fg-orange-dk">48 HOURS</span></div>
+</div>
+</div>
+</div>
+<div class="col-span-4 glass-card p-6 rounded-lg border-t-2 border-t-primary">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-white">ACTIVE_LOGS</h2>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-primary transition-colors">refresh</button>
+</div>
+<div class="space-y-4 font-mono-data text-[11px]">
+<div class="border-b border-fg-border pb-3">
+<div class="flex justify-between mb-1">
+<span class="text-primary">[14:02:11]</span>
+<span class="text-fg-text-3">AGENT_04</span>
+</div>
+<div class="text-fg-text-2">RE-ENTRY detected in quadrant 4. Shifting firewall protocols.</div>
+</div>
+<div class="border-b border-fg-border pb-3">
+<div class="flex justify-between mb-1">
+<span class="text-secondary">[13:58:45]</span>
+<span class="text-fg-text-3">SYSTEM</span>
+</div>
+<div class="text-fg-text-2">Cryptographic trace validated. Origin: Stockholm_Node_8.</div>
+</div>
+<div class="border-b border-fg-border pb-3">
+<div class="flex justify-between mb-1">
+<span class="text-fg-amber">[13:42:01]</span>
+<span class="text-fg-text-3">AGENT_02</span>
+</div>
+<div class="text-fg-text-2">Memory leak identified in the ghost layer. Isolation complete.</div>
+</div>
+<div class="border-b border-fg-border pb-3">
+<div class="flex justify-between mb-1">
+<span class="text-fg-rust">[13:22:59]</span>
+<span class="text-fg-text-3">SYSTEM</span>
+</div>
+<div class="text-fg-text-2">ATTEMPTED ACCESS: [REDACTED_ASSET_X]. Blocking unauthorized keys.</div>
+</div>
+<div class="pt-4">
+<button class="w-full text-center py-2 border border-fg-border text-fg-text-3 hover:text-white hover:bg-fg-surface transition-all text-[10px] uppercase tracking-widest">View Full Archive</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer Shell -->
+<footer class="bg-fg-canvas border-t border-fg-border flex justify-between items-center px-16 py-4 w-full z-50 relative">
+<div class="font-mono-data text-section-label uppercase tracking-widest text-secondary">
+            © 2024 NEURAL INTELLIGENCE NETWORK. SYSTEM STATUS: OPTIMAL
+        </div>
+<div class="flex space-x-8">
+<a class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-3 hover:text-primary underline transition-colors" href="#">Terminal Access</a>
+<a class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-3 hover:text-primary underline transition-colors" href="#">API Docs</a>
+<a class="font-mono-data text-section-label uppercase tracking-widest text-fg-text-3 hover:text-primary underline transition-colors" href="#">Privacy Protocol</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for timeline scrub effect
+        document.addEventListener('mousemove', (e) => {
+            const axis = document.querySelector('.timeline-axis');
+            if(axis) {
+                const rect = axis.getBoundingClientRect();
+                if(e.clientY > rect.top && e.clientY < rect.bottom) {
+                    const nodes = document.querySelectorAll('.node-glow');
+                    nodes.forEach(node => {
+                        const nodeRect = node.getBoundingClientRect();
+                        const dist = Math.abs(e.clientX - nodeRect.left);
+                        if(dist < 200) {
+                            const scale = 1 + (0.2 * (1 - dist / 200));
+                            node.style.transform = `scale(${scale})`;
+                        } else {
+                            node.style.transform = `scale(1)`;
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body></html>

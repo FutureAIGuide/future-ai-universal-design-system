@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Future AI Guide // System Resource Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "fg-text-1": "#f5f5f5",
+                        "on-surface-variant": "#e3bfb3",
+                        "surface-variant": "#42312b",
+                        "inverse-surface": "#f9dcd4",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "on-secondary": "#213600",
+                        "primary": "#ffb59c",
+                        "surface-container-highest": "#42312b",
+                        "surface-bright": "#47352f",
+                        "on-primary-fixed": "#390c00",
+                        "fg-rust": "#ff4444",
+                        "on-background": "#f9dcd4",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "on-primary-container": "#561700",
+                        "fg-neutral-85": "#1a1a1a",
+                        "surface-dim": "#1e100b",
+                        "on-primary": "#5c1900",
+                        "secondary": "#9de32e",
+                        "on-surface": "#f9dcd4",
+                        "outline-variant": "#5b4138",
+                        "secondary-fixed": "#b0f743",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "on-tertiary-container": "#00304a",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-secondary-fixed": "#111f00",
+                        "primary-container": "#ff5f1f",
+                        "fg-orange-lt": "#ff7a45",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "fg-canvas": "#050505",
+                        "secondary-container": "#83c600",
+                        "tertiary-container": "#009de4",
+                        "surface-container-high": "#372621",
+                        "surface": "#1e100b",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "on-tertiary": "#00344f",
+                        "primary-fixed-dim": "#ffb59c",
+                        "background": "#1e100b",
+                        "outline": "#aa897f",
+                        "tertiary-fixed": "#cae6ff",
+                        "on-error": "#690005",
+                        "surface-tint": "#ffb59c",
+                        "inverse-primary": "#ab3600",
+                        "primary-fixed": "#ffdbcf",
+                        "surface-container-lowest": "#180b07",
+                        "on-primary-fixed-variant": "#832700",
+                        "fg-amber": "#f59e0b",
+                        "surface-container-low": "#271813",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "surface-container": "#2b1c17",
+                        "secondary-fixed-dim": "#95da24",
+                        "fg-orange-dk": "#d9480f",
+                        "on-tertiary-fixed": "#001e30",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "error-container": "#93000a",
+                        "tertiary": "#8dcdff",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#3d2c27",
+                        "on-secondary-container": "#314d00",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "4": "16px",
+                        "3": "12px",
+                        "8": "32px",
+                        "1": "4px",
+                        "6": "24px",
+                        "16": "64px",
+                        "12": "48px",
+                        "20": "80px",
+                        "2": "8px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-md": ["Space Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "section-label": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.1);
+            position: absolute;
+            animation: scan 8s linear infinite;
+            z-index: 10;
+            pointer-events: none;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg antialiased overflow-x-hidden min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border flex justify-between items-center px-16 h-20 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">FUTURE AI GUIDE</span>
+<div class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="text-on-surface font-bold border-b-2 border-primary-container pb-1 font-mono-data uppercase tracking-widest" href="#">TERMINAL</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 border border-fg-border-md text-fg-text-2 font-mono-data uppercase tracking-widest hover:text-on-surface transition-all active:scale-95">SECURE</button>
+<button class="px-6 py-2 bg-primary-container text-on-primary-fixed font-mono-data font-bold uppercase tracking-widest shadow-orange/10 hover:shadow-[0_0_15px_rgba(255,95,31,0.4)] transition-all active:scale-95">INITIALIZE</button>
+</div>
+</nav>
+<main class="pt-32 px-16 pb-20 max-w-[1440px] mx-auto relative">
+<div class="scanline"></div>
+<!-- Section Title -->
+<header class="mb-12">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-2 h-2 bg-primary-container inline-block"></span>
+<span class="font-mono-data text-section-label uppercase tracking-widest text-primary-container">SYSTEM RESOURCE LEDGER // AUTH: OMEGA_PROTOCOL</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-fg-text-1">Token Allocation &amp; Node Infrastructure</h1>
+</header>
+<!-- Summary Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="glass-panel p-8 border-t-[3px] border-primary-container group hover:bg-white/[0.05] transition-all cursor-default">
+<div class="flex justify-between items-start mb-6">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Current Token Burn</span>
+<span class="material-symbols-outlined text-primary-container">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-fg-text-1">1.42M</span>
+<span class="font-mono-data text-body-sm text-fg-text-3">/ 24H</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="font-mono-data text-body-sm text-fg-rust font-bold">+12.4%</span>
+<span class="text-fg-text-3 text-body-sm font-mono-data">vs prev. interval</span>
+</div>
+</div>
+<div class="glass-panel p-8 border-t-[3px] border-secondary group hover:bg-white/[0.05] transition-all cursor-default">
+<div class="flex justify-between items-start mb-6">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Projected Monthly Spend</span>
+<span class="material-symbols-outlined text-secondary">analytics</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-fg-text-1">$42,901</span>
+<span class="font-mono-data text-body-sm text-fg-text-3">CR</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="font-mono-data text-body-sm text-secondary font-bold">OPTIMIZED</span>
+<span class="text-fg-text-3 text-body-sm font-mono-data">via Llama Cluster</span>
+</div>
+</div>
+<div class="glass-panel p-8 border-t-[3px] border-fg-text-2 group hover:bg-white/[0.05] transition-all cursor-default">
+<div class="flex justify-between items-start mb-6">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Active Node Credits</span>
+<span class="material-symbols-outlined text-fg-text-2">hub</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-fg-text-1">98.2k</span>
+<span class="font-mono-data text-body-sm text-fg-text-3">RESERVED</span>
+</div>
+<div class="mt-4 w-full bg-fg-surface h-1 relative">
+<div class="absolute left-0 top-0 h-full bg-fg-text-2 w-[82%]"></div>
+</div>
+</div>
+</section>
+<!-- Main Visualization Area -->
+<section class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+<div class="lg:col-span-3 glass-panel p-8 relative overflow-hidden h-[480px]">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-lg text-headline-lg">Usage by Model Hierarchy</h2>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary-container"></span>
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">GPT-4o</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary"></span>
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Claude 3.5</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-fg-text-2"></span>
+<span class="font-mono-data text-section-label uppercase text-fg-text-3">Llama 3</span>
+</div>
+</div>
+</div>
+<!-- Abstract Visual Chart -->
+<div class="absolute inset-x-8 bottom-8 top-32 flex flex-col justify-end">
+
+<!-- Overlay Grid Labels -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-t border-fg-border w-full flex justify-end"><span class="font-mono-data text-[10px] text-fg-text-3 mt-1">MAX_CAP</span></div>
+<div class="border-t border-fg-border w-full flex justify-end"><span class="font-mono-data text-[10px] text-fg-text-3 mt-1">75%</span></div>
+<div class="border-t border-fg-border w-full flex justify-end"><span class="font-mono-data text-[10px] text-fg-text-3 mt-1">50%</span></div>
+<div class="border-t border-fg-border w-full flex justify-end"><span class="font-mono-data text-[10px] text-fg-text-3 mt-1">25%</span></div>
+<div class="border-t border-fg-border w-full"></div>
+</div>
+</div>
+</div>
+<!-- Side Stats Column -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="glass-panel p-6 flex-1 flex flex-col justify-center">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3 mb-2">Efficiency Rating</span>
+<div class="text-display-md font-display-md text-secondary tracking-tighter">94.8%</div>
+<p class="font-body-sm text-fg-text-2 mt-2 leading-tight">Optimization protocols applied to Node Cluster Alpha-4 resulting in reduced overhead.</p>
+</div>
+<div class="glass-panel p-6 flex-1 flex flex-col justify-center">
+<span class="font-mono-data text-section-label uppercase text-fg-text-3 mb-2">Network Latency</span>
+<div class="text-display-md font-display-md text-fg-text-1 tracking-tighter">18<span class="text-body-lg">ms</span></div>
+<div class="mt-4 flex gap-1">
+<div class="h-8 w-1 bg-secondary"></div>
+<div class="h-8 w-1 bg-secondary"></div>
+<div class="h-8 w-1 bg-secondary"></div>
+<div class="h-8 w-1 bg-secondary opacity-50"></div>
+<div class="h-8 w-1 bg-secondary opacity-20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="mb-6 flex flex-wrap items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="flex flex-col gap-1">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Model Type</label>
+<select class="bg-fg-canvas border border-fg-border text-fg-text-1 font-mono-data text-body-sm px-4 py-2 focus:border-primary-container focus:ring-0 outline-none w-48">
+<option>ALL_ARCHITECTURES</option>
+<option>PROPRIETARY_ONLY</option>
+<option>OPEN_SOURCE_ONLY</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Node Cluster</label>
+<select class="bg-fg-canvas border border-fg-border text-fg-text-1 font-mono-data text-body-sm px-4 py-2 focus:border-primary-container focus:ring-0 outline-none w-48">
+<option>GLOBAL_NETWORK</option>
+<option>LOCAL_EDGE_V3</option>
+<option>DEEP_ARCHIVE</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-end">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Time Horizon</label>
+<div class="flex border border-fg-border overflow-hidden">
+<button class="px-4 py-2 font-mono-data text-section-label bg-fg-surface text-fg-text-1 border-r border-fg-border hover:bg-white/10 transition-colors">24H</button>
+<button class="px-4 py-2 font-mono-data text-section-label text-fg-text-3 border-r border-fg-border hover:bg-white/10 transition-colors">7D</button>
+<button class="px-4 py-2 font-mono-data text-section-label text-fg-text-3 border-r border-fg-border hover:bg-white/10 transition-colors">30D</button>
+<button class="px-4 py-2 font-mono-data text-section-label text-fg-text-3 hover:bg-white/10 transition-colors">ALL</button>
+</div>
+</div>
+</section>
+<!-- Data Table -->
+<section class="glass-panel overflow-hidden">
+<div class="p-6 border-b border-fg-border flex justify-between items-center bg-white/[0.02]">
+<h3 class="font-headline-md text-headline-md">Transmission History</h3>
+<button class="flex items-center gap-2 px-4 py-2 border border-fg-border-md text-fg-text-1 font-mono-data text-section-label hover:bg-white/10 transition-all uppercase tracking-widest group">
+<span class="material-symbols-outlined text-body-lg group-hover:text-primary-container">download</span>
+                    Download Audit (.XLS)
+                </button>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-mono-data text-section-label text-fg-text-3 uppercase border-b border-fg-border">
+<th class="px-8 py-4 font-normal">Timestamp</th>
+<th class="px-8 py-4 font-normal">Node ID</th>
+<th class="px-8 py-4 font-normal">Model/Protocol</th>
+<th class="px-8 py-4 font-normal">Volume (GB)</th>
+<th class="px-8 py-4 font-normal text-right">Cost (CR)</th>
+<th class="px-8 py-4 font-normal text-center">Status</th>
+</tr>
+</thead>
+<tbody class="font-mono-data text-body-sm divide-y divide-fg-border">
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5 text-fg-text-2">2024-10-24 14:22:08</td>
+<td class="px-8 py-5 text-fg-text-1">NODE_ALPHA_772</td>
+<td class="px-8 py-5 text-fg-text-1">GPT-4O-PRO</td>
+<td class="px-8 py-5 text-fg-text-2">12.44</td>
+<td class="px-8 py-5 text-right text-primary-container font-bold">142.00</td>
+<td class="px-8 py-5">
+<div class="mx-auto w-fit px-2 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest uppercase">Verified</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5 text-fg-text-2">2024-10-24 14:18:52</td>
+<td class="px-8 py-5 text-fg-text-1">NODE_GAMMA_012</td>
+<td class="px-8 py-5 text-fg-text-1">CLAUDE-3.5-SON</td>
+<td class="px-8 py-5 text-fg-text-2">8.12</td>
+<td class="px-8 py-5 text-right text-primary-container font-bold">94.20</td>
+<td class="px-8 py-5">
+<div class="mx-auto w-fit px-2 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest uppercase">Verified</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5 text-fg-text-2">2024-10-24 14:15:30</td>
+<td class="px-8 py-5 text-fg-text-1">NODE_EDGE_V9</td>
+<td class="px-8 py-5 text-fg-text-1">LLAMA-3-70B</td>
+<td class="px-8 py-5 text-fg-text-2">0.89</td>
+<td class="px-8 py-5 text-right text-primary-container font-bold">2.44</td>
+<td class="px-8 py-5">
+<div class="mx-auto w-fit px-2 py-1 rounded-full bg-fg-amber/10 border border-fg-amber/20 text-fg-amber text-[10px] font-bold tracking-widest uppercase">Pending</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5 text-fg-text-2">2024-10-24 14:02:11</td>
+<td class="px-8 py-5 text-fg-text-1">NODE_ALPHA_772</td>
+<td class="px-8 py-5 text-fg-text-1">GPT-4O-PRO</td>
+<td class="px-8 py-5 text-fg-text-2">22.10</td>
+<td class="px-8 py-5 text-right text-primary-container font-bold">288.10</td>
+<td class="px-8 py-5">
+<div class="mx-auto w-fit px-2 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest uppercase">Verified</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5 text-fg-text-2">2024-10-24 13:58:44</td>
+<td class="px-8 py-5 text-fg-text-1">NODE_DELTA_990</td>
+<td class="px-8 py-5 text-fg-text-1">CUSTOM_TUNED_V1</td>
+<td class="px-8 py-5 text-fg-text-2">4.20</td>
+<td class="px-8 py-5 text-right text-primary-container font-bold">12.00</td>
+<td class="px-8 py-5">
+<div class="mx-auto w-fit px-2 py-1 rounded-full bg-fg-rust/10 border border-fg-rust/20 text-fg-rust text-[10px] font-bold tracking-widest uppercase">Critical Error</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-fg-canvas border-t border-fg-border-md w-full relative bottom-0">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div class="flex flex-col gap-4">
+<span class="font-mono-data text-mono-data text-primary-container">FUTURE AI GUIDE</span>
+<p class="font-body-sm text-body-sm text-fg-text-3">©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL v4.0.1</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-label text-section-label text-fg-text-2 uppercase mb-2">Technical Status</span>
+<a class="font-body-sm text-body-sm text-fg-text-3 uppercase hover:text-fg-orange-lt transition-colors" href="#">SYSTEM STATUS: NOMINAL</a>
+<a class="font-body-sm text-body-sm text-fg-text-3 uppercase hover:text-fg-orange-lt transition-colors" href="#">ENCRYPTION: AES-256</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-label text-section-label text-fg-text-2 uppercase mb-2">Intelligence Logs</span>
+<a class="font-body-sm text-body-sm text-fg-text-3 uppercase hover:text-fg-orange-lt transition-colors" href="#">TRANSMISSION LOGS</a>
+<a class="font-body-sm text-body-sm text-fg-text-3 uppercase hover:text-fg-orange-lt transition-colors" href="#">API DOCUMENTATION</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-section-label text-section-label text-fg-text-2 uppercase mb-2">Legal Compliance</span>
+<a class="font-body-sm text-body-sm text-fg-text-3 uppercase hover:text-fg-orange-lt transition-colors" href="#">LEGAL DISCLOSURE</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Micro-interaction: Update active state on hover/click if needed
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('text-on-surface', 'font-bold', 'border-b-2', 'border-primary-container', 'pb-1');
+                    l.classList.add('text-fg-text-3');
+                });
+                link.classList.add('text-on-surface', 'font-bold', 'border-b-2', 'border-primary-container', 'pb-1');
+                link.classList.remove('text-fg-text-3');
+            });
+        });
+    </script>
+</body></html>

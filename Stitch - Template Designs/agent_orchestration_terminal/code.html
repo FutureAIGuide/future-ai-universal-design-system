@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent Orchestration Terminal // FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .active-module {
+            border-color: #9de32e;
+            background: rgba(157, 227, 46, 0.05);
+            box-shadow: 0 0 15px rgba(157, 227, 46, 0.1);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff5f1f !important;
+            box-shadow: inset 0 0 8px rgba(255, 95, 31, 0.2);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #2b1c17; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff5f1f; }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 95, 31, 0.2), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#832700",
+                      "on-tertiary-fixed": "#001e30",
+                      "surface-container-low": "#271813",
+                      "primary-container": "#ff5f1f",
+                      "on-primary-container": "#561700",
+                      "inverse-primary": "#ab3600",
+                      "error": "#ffb4ab",
+                      "fg-orange-dk": "#d9480f",
+                      "on-secondary": "#213600",
+                      "fg-text-1": "#f5f5f5",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "on-error": "#690005",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "fg-amber": "#f59e0b",
+                      "on-primary-fixed": "#390c00",
+                      "secondary-fixed": "#b0f743",
+                      "tertiary": "#8dcdff",
+                      "outline": "#aa897f",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "tertiary-container": "#009de4",
+                      "surface-container": "#2b1c17",
+                      "secondary-fixed-dim": "#95da24",
+                      "primary-fixed": "#ffdbcf",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "secondary": "#9de32e",
+                      "fg-rust": "#ff4444",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "surface-bright": "#47352f",
+                      "surface-container-highest": "#42312b",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#3d2c27",
+                      "primary-fixed-dim": "#ffb59c",
+                      "background": "#1e100b",
+                      "primary": "#ffb59c",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "tertiary-fixed": "#cae6ff",
+                      "on-tertiary-container": "#00304a",
+                      "on-tertiary": "#00344f",
+                      "inverse-surface": "#f9dcd4",
+                      "on-primary": "#5c1900",
+                      "on-surface": "#f9dcd4",
+                      "on-surface-variant": "#e3bfb3",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "fg-orange-lt": "#ff7a45",
+                      "on-background": "#f9dcd4",
+                      "fg-canvas": "#050505",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "outline-variant": "#5b4138",
+                      "on-secondary-fixed": "#111f00",
+                      "surface-variant": "#42312b",
+                      "surface": "#1e100b",
+                      "fg-neutral-85": "#1a1a1a",
+                      "surface-tint": "#ffb59c",
+                      "surface-container-lowest": "#180b07",
+                      "on-secondary-container": "#314d00",
+                      "secondary-container": "#83c600",
+                      "surface-dim": "#1e100b",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#372621"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "1": "4px",
+                      "20": "80px",
+                      "12": "48px",
+                      "4": "16px",
+                      "2": "8px",
+                      "8": "32px",
+                      "16": "64px",
+                      "6": "24px",
+                      "3": "12px"
+              },
+              "fontFamily": {
+                      "mono-data": ["JetBrains Mono"],
+                      "display-md": ["Space Grotesk"],
+                      "section-label": ["JetBrains Mono"],
+                      "body-sm": ["Inter"],
+                      "display-xl": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "display-lg": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-fg-canvas text-fg-text-1 font-body-lg selection:bg-fg-orange-dk selection:text-white overflow-hidden">
+<!-- Global Layout Shell -->
+<div class="flex h-screen w-full relative overflow-hidden">
+<!-- SIDE NAV (Shared Component Integration) -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-20 bg-fg-canvas border-r border-fg-border z-40 hidden md:flex">
+<!-- Brand Context -->
+<div class="px-6 mb-8">
+<div class="font-display-md text-headline-md text-fg-orange-dk font-bold tracking-tight">FUTURE AI</div>
+<div class="font-mono-data text-section-label text-fg-text-3 mt-1">ORCHESTRATION_TERMINAL</div>
+</div>
+<!-- Profile Block -->
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-fg-surface-md border border-fg-border-md flex items-center justify-center">
+<span class="material-symbols-outlined text-fg-orange-lt text-[18px]">account_circle</span>
+</div>
+<div>
+<div class="font-mono-data text-[12px] text-fg-text-1">OPERATOR_01</div>
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">Level 4 Access</div>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-150 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">terminal</span> Command
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data bg-fg-surface-md text-fg-orange-lt border-r-2 border-fg-orange-dk rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span> Agents
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-150 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">database</span> Datasets
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-150 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">policy</span> Evidence
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all duration-150 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span> Logs
+                </a>
+</nav>
+<div class="px-4 py-6 border-t border-fg-border space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span> Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 font-mono-data text-mono-data text-fg-text-3 hover:bg-fg-surface hover:text-fg-text-2 rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span> Secure Logout
+                </a>
+</div>
+</aside>
+<!-- TOP BAR (Shared Component Integration) -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border absolute ml-0 md:ml-64 w-[calc(100%-16rem)]">
+<div class="flex items-center gap-8">
+<span class="font-display-md text-headline-md font-bold text-fg-orange-dk">FUTURE AI GUIDE</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-mono-data text-section-label uppercase tracking-wider text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Terminals</a>
+<a class="font-mono-data text-section-label uppercase tracking-wider text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Directory</a>
+<a class="font-mono-data text-section-label uppercase tracking-wider text-fg-text-1 border-b-2 border-primary-container pb-1" href="#">Orchestration</a>
+<a class="font-mono-data text-section-label uppercase tracking-wider text-fg-text-3 hover:text-fg-text-1 transition-colors duration-200" href="#">Intelligence</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2 mr-4">
+<span class="material-symbols-outlined text-fg-text-3 hover:text-fg-text-1 cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-fg-text-1 cursor-pointer transition-colors">settings</span>
+</div>
+<button class="bg-fg-orange-dk hover:bg-fg-orange-lt text-white px-6 py-2 rounded-sm font-mono-data text-section-label uppercase tracking-widest shadow-[0_0_20px_rgba(217,72,15,0.3)] transition-all active:scale-95">
+                    Deploy Agent
+                </button>
+</div>
+</header>
+<!-- MAIN CONTENT AREA -->
+<main class="flex-1 ml-0 md:ml-64 pt-20 p-8 overflow-y-auto bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<div class="max-w-5xl mx-auto space-y-12">
+<!-- HEADER SECTION -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-fg-border pb-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_#9de32e]"></span>
+<span class="font-mono-data text-section-label text-secondary uppercase">System_Active // No_Interference</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-fg-text-1 tracking-tight">Initialize New Intelligence Unit</h1>
+<p class="font-mono-data text-fg-text-3 mt-2">Constructing a tactical agent with bespoke heuristic mapping and verification protocols.</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex gap-2 mb-2">
+<div class="h-1 w-8 bg-fg-orange-dk"></div>
+<div class="h-1 w-8 bg-fg-surface-md"></div>
+<div class="h-1 w-8 bg-fg-surface-md"></div>
+<div class="h-1 w-8 bg-fg-surface-md"></div>
+</div>
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase tracking-tighter">Configuration Progress: 25%</span>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- LEFT COLUMN: FORM -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Step 01: Unit Identity -->
+<div class="glass-panel p-6 rounded-lg relative overflow-hidden">
+<div class="scanline"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono-data text-headline-lg text-fg-orange-dk">01</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">Unit Identity</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Agent Alias</label>
+<input class="w-full bg-[#000000] border border-fg-border px-4 py-3 font-mono-data text-fg-text-1 focus:border-fg-orange-dk transition-all rounded-sm" placeholder="e.g. VANGUARD-09" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Operator Logic</label>
+<select class="w-full bg-[#000000] border border-fg-border px-4 py-3 font-mono-data text-fg-text-1 focus:border-fg-orange-dk transition-all rounded-sm appearance-none">
+<option>Researcher</option>
+<option>Fact Checker</option>
+<option>Architect</option>
+<option>SEO</option>
+<option>Reviewer</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Step 02: Capability Stack -->
+<div class="glass-panel p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono-data text-headline-lg text-fg-orange-dk">02</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">Capability Stack</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<button class="flex flex-col items-center justify-center gap-4 p-6 border border-fg-border bg-fg-canvas hover:bg-fg-surface-md transition-all active-module text-left group" onclick="this.classList.toggle('active-module')">
+<span class="material-symbols-outlined text-[32px] text-fg-text-3 group-[.active-module]:text-secondary">psychology</span>
+<div class="text-center">
+<div class="font-mono-data text-[12px] text-fg-text-1 mb-1">Neural Forensics</div>
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">Sub-node Analysis</div>
+</div>
+</button>
+<button class="flex flex-col items-center justify-center gap-4 p-6 border border-fg-border bg-fg-canvas hover:bg-fg-surface-md transition-all text-left group" onclick="this.classList.toggle('active-module')">
+<span class="material-symbols-outlined text-[32px] text-fg-text-3 group-[.active-module]:text-secondary">enhanced_encryption</span>
+<div class="text-center">
+<div class="font-mono-data text-[12px] text-fg-text-1 mb-1">Cryptographic Verification</div>
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">Chain Validation</div>
+</div>
+</button>
+<button class="flex flex-col items-center justify-center gap-4 p-6 border border-fg-border bg-fg-canvas hover:bg-fg-surface-md transition-all text-left group" onclick="this.classList.toggle('active-module')">
+<span class="material-symbols-outlined text-[32px] text-fg-text-3 group-[.active-module]:text-secondary">grid_view</span>
+<div class="text-center">
+<div class="font-mono-data text-[12px] text-fg-text-1 mb-1">Multi-modal Analysis</div>
+<div class="font-mono-data text-[10px] text-fg-text-3 uppercase tracking-tighter">Cross-ref Engine</div>
+</div>
+</button>
+</div>
+</div>
+<!-- Step 03: Logic Parameters -->
+<div class="glass-panel p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono-data text-headline-lg text-fg-orange-dk">03</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">Logic Parameters</h2>
+</div>
+<div class="space-y-8">
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Inference Weight</label>
+<span class="font-mono-data text-fg-orange-lt">0.85</span>
+</div>
+<input class="w-full h-1 bg-fg-surface-md appearance-none cursor-pointer accent-fg-orange-dk" type="range" value="85"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Context Window (Tokens)</label>
+<div class="flex items-center gap-2">
+<input class="w-full bg-[#000000] border border-fg-border px-4 py-2 font-mono-data text-fg-text-1 focus:border-fg-orange-dk transition-all" type="number" value="128000"/>
+<span class="font-mono-data text-[10px] text-fg-text-3">MAX</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-mono-data text-section-label text-fg-text-3 uppercase">Accuracy Threshold (%)</label>
+<input class="w-full bg-[#000000] border border-fg-border px-4 py-2 font-mono-data text-fg-text-1 focus:border-fg-orange-dk transition-all" type="number" value="99.2"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 04: Mission Directives -->
+<div class="glass-panel p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="font-mono-data text-headline-lg text-fg-orange-dk">04</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">Mission Directives</h2>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-mono-data text-[10px] text-fg-text-3">SYSTEM_DIRECTIVE_INPUT_V1.0</span>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-fg-orange-dk animate-pulse"></span>
+<span class="font-mono-data text-[10px] text-fg-text-3 uppercase">Awaiting instruction...</span>
+</div>
+</div>
+<textarea class="w-full bg-[#000000] border border-fg-border p-6 font-mono-data text-[13px] text-fg-text-2 leading-relaxed resize-none focus:border-fg-orange-dk transition-all" placeholder="// DEFINE OBJECTIVES HERE...
+// REQUIRE_APPROVAL: TRUE
+// SEARCH_DEPTH: RECURSIVE" rows="8"></textarea>
+<div class="flex items-center gap-2 text-fg-text-3 hover:text-fg-text-1 cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded-none bg-black border-fg-border text-fg-orange-dk focus:ring-0" id="human-loop" type="checkbox"/>
+<label class="font-mono-data text-section-label uppercase cursor-pointer select-none" for="human-loop">Require human-in-the-loop approval for all high-risk logic branches</label>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: STATUS & INFO -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Deployment Preview -->
+<div class="glass-panel p-6 border-t-[3px] border-fg-orange-dk">
+<h3 class="font-headline-md text-headline-md text-fg-text-1 mb-4">Unit Summary</h3>
+<div class="space-y-4 font-mono-data text-mono-data">
+<div class="flex justify-between border-b border-fg-border pb-2">
+<span class="text-fg-text-3">Status</span>
+<span class="text-secondary">READY_FOR_DEPLOY</span>
+</div>
+<div class="flex justify-between border-b border-fg-border pb-2">
+<span class="text-fg-text-3">Encryption Depth</span>
+<span class="text-fg-text-1">4096-BIT_AES</span>
+</div>
+<div class="flex justify-between border-b border-fg-border pb-2">
+<span class="text-fg-text-3">Sync Status</span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+<span class="text-fg-text-1">REAL_TIME</span>
+</span>
+</div>
+<div class="flex justify-between border-b border-fg-border pb-2">
+<span class="text-fg-text-3">Est. Compute</span>
+<span class="text-fg-text-1">0.42 TFLOPS/s</span>
+</div>
+</div>
+<button class="w-full mt-8 bg-fg-orange-dk hover:bg-fg-orange-lt text-white font-bold py-4 rounded-sm transition-all shadow-[0_0_30px_rgba(217,72,15,0.2)] active:scale-95 group flex items-center justify-center gap-2">
+<span class="font-mono-data text-[16px] tracking-[0.2em] uppercase">Deploy Agent</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<p class="text-[10px] font-mono-data text-fg-text-3 text-center mt-4 uppercase">Irreversible deployment protocol following security confirmation.</p>
+</div>
+<!-- System Visualizer Card -->
+<div class="glass-panel p-6 overflow-hidden relative group h-64 border-t-[3px] border-secondary">
+<!-- Visualizer Placeholder -->
+
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div class="font-mono-data text-section-label text-secondary uppercase bg-fg-canvas/80 backdrop-blur px-2 py-1 self-start rounded-sm">Neural_Mapping_Live</div>
+<div class="bg-fg-canvas/80 backdrop-blur p-3 rounded-sm border border-fg-border">
+<div class="font-mono-data text-[10px] text-fg-text-1">IDENTIFIED_ANOMALIES: 0</div>
+<div class="font-mono-data text-[10px] text-fg-text-3">RECALIBRATING_WEIGHTS...</div>
+</div>
+</div>
+</div>
+<!-- Technical Card -->
+<div class="glass-panel p-6 border-t-[3px] border-tertiary-container">
+<h3 class="font-headline-md text-headline-md text-fg-text-1 mb-4">Admissible Evidence</h3>
+<p class="font-body-sm text-fg-text-3 mb-4 leading-relaxed">This unit is configured for high-density information environments. All generated outputs will be cryptographically signed for technical credibility.</p>
+<img class="w-full h-32 object-cover rounded opacity-60 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A technical visualization of complex digital data structures, arranged in a precise, investigative pattern. High contrast, using deep blacks and electric blue accents, matching a professional financial terminal aesthetic with thin glowing lines and structured complexity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeIHPd9Hkt7C4nqBWRzkvvgBNA5rBjsVBS3sx2yXUbx06IjtMLpe1qlraKtqpli1n2LI4fhMqGB7yAcx9o80aPjMb2oTO4nD_ybnLxmAN46fjRg_WDc1KJw3LLY5n6_x8r3vS0UDQ-CaJa-pXq1QyaT-l8prAYzQ_XnvvwH7nhFC4DomX-TURzBiprK65kEjcAXy2c-9gSQq0f5m8dA_GTZsnJKfdgkM9Pc5e5JNzyrycAOFwcMghmsQqaJC_VzEmVB7eTC56rLMY"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER (Shared Component Integration) -->
+<footer class="fixed bottom-0 left-0 w-full px-12 py-8 flex justify-between items-center bg-fg-canvas border-t border-fg-border z-50 ml-0 md:ml-64 md:w-[calc(100%-16rem)]">
+<div class="font-display-md text-headline-md text-fg-orange-dk hidden md:block">FUTURE AI</div>
+<div class="font-mono-data text-section-label uppercase text-fg-text-3">
+                © 2024 FUTURE AI GUIDE // INTEL NETWORK
+            </div>
+<div class="flex gap-8">
+<a class="font-mono-data text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">Protocol</a>
+<a class="font-mono-data text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">API</a>
+<a class="font-mono-data text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">Encryption</a>
+<a class="font-mono-data text-section-label uppercase text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">Status</a>
+</div>
+</footer>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Simple typing effect for terminal simulation
+        const textarea = document.querySelector('textarea');
+        const originalPlaceholder = textarea.placeholder;
+        let i = 0;
+        textarea.placeholder = "";
+        
+        function typeWriter() {
+            if (i < originalPlaceholder.length) {
+                textarea.placeholder += originalPlaceholder.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+            }
+        }
+        setTimeout(typeWriter, 1000);
+    </script>
+</body></html>

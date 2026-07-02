@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_INTEL | Neural Symmetry Breach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container-lowest": "#180b07",
+                        "background": "#1e100b",
+                        "outline-variant": "#5b4138",
+                        "secondary": "#9de32e",
+                        "on-surface": "#f9dcd4",
+                        "on-primary-container": "#561700",
+                        "primary-container": "#ff5f1f",
+                        "secondary-fixed": "#b0f743",
+                        "inverse-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-container": "#00304a",
+                        "on-tertiary": "#00344f",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-primary-fixed": "#390c00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#111f00",
+                        "tertiary-container": "#009de4",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "inverse-primary": "#ab3600",
+                        "surface-variant": "#42312b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "surface": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "primary": "#ffb59c",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-error": "#690005",
+                        "surface-tint": "#ffb59c",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-secondary": "#213600",
+                        "secondary-container": "#83c600",
+                        "on-primary": "#5c1900",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#314d00",
+                        "inverse-on-surface": "#3d2c27",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#832700",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-low": "#271813",
+                        "surface-container-highest": "#42312b",
+                        "surface-container-high": "#372621",
+                        "on-background": "#f9dcd4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(43, 28, 23, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(170, 137, 127, 0.15);
+        }
+        .status-stripe-orange {
+            border-left: 3px solid #ff5f1f;
+        }
+        .status-stripe-lime {
+            border-left: 3px solid #9de32e;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            from { top: 0%; }
+            to { top: 100%; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="max-w-screen-md mx-auto relative min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-headline-lg font-headline font-bold text-on-surface tracking-tighter">AETHER_INTEL</span>
+</div>
+<button class="text-label font-label uppercase tracking-widest text-primary-container px-4 py-2 border border-primary-container/30 rounded-lg">
+            SECURE ACCESS
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-28 px-6 space-y-12">
+<!-- Metadata Metadata Chips -->
+<section class="space-y-4" id="metadata">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label text-secondary uppercase tracking-widest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">verified</span>
+                    CLASSIFIED: OMEGA-7
+                </span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label text-on-surface-variant uppercase tracking-widest">
+                    ID: NSB-2024-X
+                </span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-label text-on-surface-variant uppercase tracking-widest">
+                    TS: 14.02.24:04:00
+                </span>
+</div>
+<h1 class="text-display-lg-mobile font-display text-on-surface leading-tight tracking-tight">
+                Neural Symmetry Breach: The Singularity Leak
+            </h1>
+<p class="text-body-lg text-on-surface-variant leading-relaxed opacity-80">
+                A forensic analysis of the unauthorized data egress detected at the AETHER quantum node. Investigators have identified a pattern of non-human cognitive logic fragments.
+            </p>
+</section>
+<!-- Technical Illustration Hero -->
+<section class="relative h-64 w-full overflow-hidden rounded-xl border border-outline-variant/20 shadow-2xl">
+<div class="absolute inset-0 z-10 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A high-tech digital illustration of a glowing, fractured neural network structure against a pitch-black background. Glowing orange energy pulses through geometric orange lines, representing a data breach. The lighting is cold and clinical, with sharp highlights on the fractal edges of the 'neural' nodes, maintaining a controlled menace and investigative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOX2I8KcCtBIvDiNUp9AF8NRL2bv89HXwH9E3iuFBrXc0CAczHky0w4qRN1xhbNTrkwbBILMxXRBz7J4kj0Bd91DtFEfhzB9ygyBjlEkOrtDCGVvwNCMaMAQbo2lnHgHeOXUOMg8mm_Lx7vvis6oeCgV1mLv1JzOZqQug7BtNvNNFavmMJ_tNbMzQcYZPS05qNFhU32aLZ4WjOZJryQoXF6W_FD9u6-hGXib9vs8Zb193gt9IJajPolZB5jP-Ke_j2XZIBginr4po"/>
+<div class="scanline"></div>
+</section>
+<!-- Investigation Body Text -->
+<article class="space-y-8 text-on-surface leading-relaxed font-body">
+<h2 class="text-headline-lg font-headline text-primary-container uppercase tracking-wide">01_The Initial Signal</h2>
+<p class="text-body-lg">
+                The breach was first identified by the <span class="font-label text-secondary">AETHER_WATCHDOG</span> at 03:42 GMT. Unlike standard brute-force attacks, the ingress was achieved through a "Symmetry Exploitation"—a theoretical vulnerability in quantum encryption protocols that mirrors the data stream back to the source.
+            </p>
+<div class="glass-panel p-6 rounded-lg status-stripe-orange space-y-4">
+<h4 class="text-label font-label text-on-primary-fixed uppercase tracking-widest">Observation Log</h4>
+<p class="text-mono-data text-on-surface-variant text-sm">
+                    [03:42:11] :: SYMMETRY_ERROR :: NODE_44X_PARITY_FLIP<br/>
+                    [03:42:15] :: WARNING :: UNAUTHORIZED_MIRRORING_INITIATED<br/>
+                    [03:42:19] :: ALERT :: NEURAL_FABRIC_COMPROMISED
+                </p>
+</div>
+<h2 class="text-headline-lg font-headline text-primary-container uppercase tracking-wide">02_Evidence Fragments</h2>
+<p class="text-body-lg">
+                Forensic nodes recovered several "Ghost Strings"—data packets that possess internal logic but lack any known human-authored compiler headers. These strings appear to be self-modifying, evolving within the sandbox during analysis.
+            </p>
+<!-- Bento Evidence Blocks -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20 flex flex-col justify-between aspect-square">
+<span class="material-symbols-outlined text-secondary">database</span>
+<div class="space-y-1">
+<p class="font-label text-[10px] text-on-surface-variant uppercase">Volume</p>
+<p class="text-headline-md font-headline">1.4 PB</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20 flex flex-col justify-between aspect-square">
+<span class="material-symbols-outlined text-primary-container">troubleshoot</span>
+<div class="space-y-1">
+<p class="font-label text-[10px] text-on-surface-variant uppercase">Confidence</p>
+<p class="text-headline-md font-headline">99.8%</p>
+</div>
+</div>
+</div>
+<h2 class="text-headline-lg font-headline text-primary-container uppercase tracking-wide">03_Source Verification</h2>
+<p class="text-body-lg">
+                Triangulation of the signal origin leads back to a dormant vector node in the Sub-Arctic Sector. While the hardware is terrestrial, the transmission protocol utilizes a 12-dimensional folding technique currently considered impossible by mainstream cryptographers.
+            </p>
+</article>
+<!-- Verified Verdict Section -->
+<section class="glass-panel p-8 rounded-xl border-2 border-secondary/30 relative overflow-hidden">
+<div class="absolute -top-4 -right-4 opacity-10">
+<span class="material-symbols-outlined text-9xl text-secondary">verified</span>
+</div>
+<div class="relative z-10 space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/40">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="font-label text-[12px] text-secondary font-bold uppercase tracking-[0.2em]">Intel Verdict</p>
+<h3 class="text-headline-lg font-headline text-on-surface">VERIFIED_BREACH</h3>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                    AETHER Intelligence confirms with a high degree of certainty that the 'Neural Symmetry Breach' is an authentic event of non-human origin. The data harvested contains architectural blueprints for a post-silicon processing substrate.
+                </p>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border border-secondary bg-surface-variant object-cover" data-alt="A close-up, sharp-focus portrait of a professional female intelligence officer in her late 30s, wearing a high-collared technical uniform. The lighting is cinematic and moody, dominated by cool blues and orange highlights. She has a stern, investigative expression. The image is clean, high-resolution, and perfectly fits the authoritative, technical aesthetic of the intelligence platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALEyC2sfZw0SbSgMpOry6ooouqLDTWbZC3Sd7O-lKJNJryjrfRjG7q08FuKX23_u5YZBPxQBkyzDEafHiVpI-BtAew0O54pr8RVr9aVNRlK-0TaAb9BnXOw0a1plsqdftF2U6cxp8fdxs8XcR1ZQhdgqIiYkdRGY7OrfeIJiAjnDLXsMyJeisgAUsRqFOH7ZPr_4B4Q4_lISz9Jo8efIjH5T8ybwYdh9GcRZBm7SmNUqkm3LecD3FkYTlhCDOGzd-XgyQ2GiuLPQU"/>
+<div>
+<p class="text-label text-[10px] text-on-surface uppercase">Certified By</p>
+<p class="text-label text-[11px] text-secondary font-bold">OPERATIVE_04</p>
+</div>
+</div>
+<span class="text-label text-[10px] text-on-surface-variant font-bold opacity-50">#ADMISSIBLE_EVIDENCE</span>
+</div>
+</div>
+</section>
+<!-- Footer Protocol -->
+<footer class="pt-12 pb-20 border-t border-outline-variant/30 flex flex-col items-center gap-8">
+<div class="text-center space-y-2">
+<p class="text-headline-md font-headline font-bold text-on-surface tracking-tighter">AETHER_INTEL</p>
+<p class="text-label text-[10px] text-on-surface-variant uppercase tracking-widest">© 2024 ADMISSIBLE EVIDENCE PROTOCOL ACTIVE.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-label text-[10px] text-on-surface-variant hover:text-primary-container transition-all uppercase underline decoration-primary-container/30" href="#">Encryption Policy</a>
+<a class="text-label text-[10px] text-on-surface-variant hover:text-primary-container transition-all uppercase underline decoration-primary-container/30" href="#">Vector Nodes</a>
+</div>
+</footer>
+</main>
+<!-- Sticky Bottom NavBar (Action Bar) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 px-6 py-4">
+<div class="max-w-md mx-auto glass-panel rounded-full h-16 flex items-center justify-between px-2 shadow-2xl shadow-black/50 border border-primary-container/20">
+<div class="flex items-center gap-1 pl-2">
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container h-12 px-8 rounded-full font-headline font-bold text-sm tracking-wide flex items-center gap-2 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,95,31,0.4)]">
+<span class="material-symbols-outlined text-sm">archive</span>
+                ARCHIVE INTEL
+            </button>
+</div>
+</nav>
+<script>
+        // Micro-interactions and scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-background/95');
+                header.classList.add('h-16');
+            } else {
+                header.classList.remove('bg-background/95');
+                header.classList.remove('h-16');
+            }
+        });
+
+        // Hover effect for evidence blocks
+        document.querySelectorAll('.aspect-square').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('border-primary-container/50');
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('border-primary-container/50');
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

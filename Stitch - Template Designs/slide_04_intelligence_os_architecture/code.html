@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE - Product Architecture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "background": "#1e100b",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#ab3600",
+                    "primary": "#ffb59c",
+                    "on-tertiary": "#00344f",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#42312b",
+                    "on-surface-variant": "#e3bfb3",
+                    "surface-dim": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "secondary-fixed-dim": "#95da24",
+                    "on-background": "#f9dcd4",
+                    "outline-variant": "#5b4138",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "secondary-fixed": "#b0f743",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-container-lowest": "#180b07",
+                    "on-secondary-container": "#314d00",
+                    "primary-fixed": "#ffdbcf",
+                    "surface-container": "#2b1c17",
+                    "surface-tint": "#ffb59c",
+                    "surface-container-high": "#372621",
+                    "on-secondary": "#213600",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary": "#5c1900",
+                    "tertiary": "#8dcdff",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "surface-container-low": "#271813",
+                    "on-surface": "#f9dcd4",
+                    "outline": "#aa897f",
+                    "surface-variant": "#42312b",
+                    "surface": "#1e100b",
+                    "on-primary-fixed-variant": "#832700",
+                    "surface-bright": "#47352f",
+                    "inverse-on-surface": "#3d2c27",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-tertiary-container": "#00304a",
+                    "primary-container": "#ff5f1f",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "tertiary-container": "#009de4",
+                    "secondary-container": "#83c600",
+                    "on-secondary-fixed": "#111f00",
+                    "inverse-surface": "#f9dcd4",
+                    "secondary": "#9de32e",
+                    "on-primary-container": "#561700",
+                    "fg-canvas": "#050505",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "fg-text-1": "#f5f5f5",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-effect {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255, 95, 31, 0.05), transparent);
+            height: 10%;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10 flex justify-between items-center px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase text-[11px] tracking-widest" href="#">ARCHITECTURE</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">POSITIONING</a>
+<a class="text-on-surface-variant/40 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">INVESTIGATE</a>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-label text-[11px] font-bold tracking-widest scale-95 active:scale-90 transition-transform rounded-md shadow-lg shadow-primary/20">JOIN NETWORK</button>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-20 fixed left-0 top-0 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex flex-col items-center py-8 gap-8 z-40">
+<div class="flex flex-col items-center gap-2 mb-8">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center font-display font-bold text-secondary text-xs">OS</div>
+<span class="font-label text-[8px] text-on-surface-variant/60">V.2.0.4</span>
+</div>
+<div class="flex flex-col items-center gap-6 w-full">
+<button class="w-full py-3 flex flex-col items-center gap-1 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">radar</span>
+<span class="font-label text-[9px]">PH_01</span>
+</button>
+<button class="w-full py-3 flex flex-col items-center gap-1 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label text-[9px]">PH_02</span>
+</button>
+<button class="w-full py-3 flex flex-col items-center gap-1 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label text-[9px]">PH_03</span>
+</button>
+<button class="w-full py-3 flex flex-col items-center gap-1 bg-primary-container/20 text-primary border-r-2 border-primary transition-all">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label text-[9px]">PH_04</span>
+</button>
+<button class="w-full py-3 flex flex-col items-center gap-1 text-on-surface-variant/40 hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label text-[9px]">PH_05</span>
+</button>
+</div>
+</aside>
+<main class="ml-20 min-h-screen relative p-16">
+<!-- Background Data Layer -->
+<div class="fixed top-0 right-0 w-2/3 h-full opacity-30 pointer-events-none grayscale brightness-50 mix-blend-screen" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLvpEJK3h9zhbD6nsGqxKdtVqrQeJKCR8iSV5xjzzIUahN90Ck5X3hIexvC4wWFAvmDMx9bKvgm3JG-yUkH9BFls_gfV0R-iVi8tN85pWl_mfLiFaVZoHJ2u0ahB9aFVmVsgnk0uwsE8m2_PLrjNDRJcBzO5UAlfowEp7uut2cCOHmS_NTTdJ4CRCLBqL9A-7skmt3KbZ-Zekm5xisLf_GWWvMoopbo9zE7H5-2iIAHPusjxZdrhXYPWXg'); background-size: cover; background-position: center;">
+</div>
+<div class="scanline-effect"></div>
+<section class="max-w-7xl mx-auto relative z-10">
+<!-- Header Section -->
+<div class="mb-20">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-secondary/10 text-secondary font-label text-[10px] tracking-[0.2em] px-3 py-1 rounded-full border border-secondary/20">SYSTEM_ARCHITECTURE</span>
+<span class="text-on-surface-variant/40 font-label text-[10px]">OS_CORE_VERSION_2.0.4</span>
+</div>
+<h1 class="font-display font-bold text-6xl md:text-7xl lg:text-8xl tracking-tight text-on-surface leading-[0.9] mb-4">
+                    A MULTI-LAYERED<br/><span class="text-primary">INTELLIGENCE OS</span>
+</h1>
+<p class="max-w-2xl text-on-surface-variant/70 text-lg">
+                    A decentralized investigative framework engineered for the synthesis of disparate signals into admissible technical evidence.
+                </p>
+</div>
+<!-- Architecture Diagram / Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<!-- The Resource Hub -->
+<div class="md:col-span-4 relative group">
+<div class="glass-panel rounded-xl p-8 h-full transition-all duration-500 hover:bg-white/[0.06] overflow-hidden">
+<div class="status-stripe bg-secondary shadow-lg shadow-secondary/20"></div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-secondary text-4xl">cloud_sync</span>
+<span class="font-label text-[10px] text-on-surface-variant/40">LAYER_01 // PLATFORM</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">The Resource Hub</h3>
+<p class="text-on-surface-variant/60 font-body text-sm leading-relaxed mb-8">
+                            High-density data ingestion and normalization. This layer services the foundational compute power and cross-network indexing required for global asset mapping.
+                        </p>
+<div class="space-y-3 font-label text-[11px] text-on-surface-variant/40">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>SIGNAL_DENSITY</span>
+<span class="text-secondary">CRITICAL_MASS</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>LATENCY_STABILITY</span>
+<span class="text-secondary">0.02ms</span>
+</div>
+<div class="flex justify-between">
+<span>PROTOCOL</span>
+<span class="text-secondary">STABLE-X</span>
+</div>
+</div>
+</div>
+</div>
+<!-- The Investigative Arm -->
+<div class="md:col-span-4 relative">
+<div class="glass-panel rounded-xl p-8 h-full transition-all duration-500 hover:bg-white/[0.06] border-primary/20 bg-primary/5">
+<div class="status-stripe bg-primary shadow-lg shadow-primary/20"></div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-primary text-4xl">travel_explore</span>
+<span class="font-label text-[10px] text-on-surface-variant/40">LAYER_02 // EDITORIAL</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">The Investigative Arm</h3>
+<p class="text-on-surface-variant/60 font-body text-sm leading-relaxed mb-8">
+                            Human-in-the-loop verification engine. Expert analysts utilize neural filtering to validate signals, ensuring that only high-fidelity intel reaches the executive dashboard.
+                        </p>
+<div class="space-y-3 font-label text-[11px] text-on-surface-variant/40">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>TRUTH_QUOTIENT</span>
+<span class="text-primary">99.8%</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>NODE_COUNT</span>
+<span class="text-primary">12,402</span>
+</div>
+<div class="flex justify-between">
+<span>STATUS</span>
+<span class="text-primary">ACTIVE_VERIFY</span>
+</div>
+</div>
+</div>
+</div>
+<!-- The Operator Interface -->
+<div class="md:col-span-4 relative">
+<div class="glass-panel rounded-xl p-8 h-full transition-all duration-500 hover:bg-white/[0.06]">
+<div class="status-stripe bg-tertiary shadow-lg shadow-tertiary/20"></div>
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-tertiary text-4xl">dashboard_customize</span>
+<span class="font-label text-[10px] text-on-surface-variant/40">LAYER_03 // DASHBOARD</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">The Operator Interface</h3>
+<p class="text-on-surface-variant/60 font-body text-sm leading-relaxed mb-8">
+                            Dynamic visualization and action-oriented command suite. Provides real-time tactical overview for decision makers operating in high-stakes environments.
+                        </p>
+<div class="space-y-3 font-label text-[11px] text-on-surface-variant/40">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>UI_LATENCY</span>
+<span class="text-tertiary">ULTRA_LOW</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>INTERACTION_MODE</span>
+<span class="text-tertiary">NEURAL_SYNC</span>
+</div>
+<div class="flex justify-between">
+<span>AUTH_LEVEL</span>
+<span class="text-tertiary">LEVEL_05</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Detail Card (Large) -->
+<div class="md:col-span-12 relative overflow-hidden h-[400px] rounded-xl glass-panel group mt-4">
+<div class="absolute inset-0 grayscale contrast-125 opacity-20 group-hover:opacity-40 transition-opacity duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLvpEJK3h9zhbD6nsGqxKdtVqrQeJKCR8iSV5xjzzIUahN90Ck5X3hIexvC4wWFAvmDMx9bKvgm3JG-yUkH9BFls_gfV0R-iVi8tN85pWl_mfLiFaVZoHJ2u0ahB9aFVmVsgnk0uwsE8m2_PLrjNDRJcBzO5UAlfowEp7uut2cCOHmS_NTTdJ4CRCLBqL9A-7skmt3KbZ-Zekm5xisLf_GWWvMoopbo9zE7H5-2iIAHPusjxZdrhXYPWXg'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-xl">
+<div class="font-label text-primary text-[10px] mb-2">NETWORK_DENSITY_VISUALIZATION</div>
+<h4 class="font-headline text-3xl font-bold text-on-surface mb-4">Unified Intelligence Fabric</h4>
+<p class="text-on-surface-variant/70 text-sm">
+                                Our architecture doesn't just connect data—it synthesizes meaning. The underlying mesh network employs recursive verification algorithms to eliminate noise and isolate critical investigative vectors.
+                            </p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-variant/50 border border-white/10 px-6 py-3 rounded-md font-label text-[11px] tracking-widest hover:bg-white/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                VIEW MAP
+                            </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-md font-label text-[11px] font-bold tracking-widest hover:shadow-[0_0_20px_rgba(255,95,31,0.4)] transition-all">
+                                ACCESS CORE
+                            </button>
+</div>
+</div>
+<!-- Technical Decorative Elements -->
+<div class="absolute top-8 right-8 font-label text-[9px] text-primary/40 text-right leading-loose">
+                        MAP_SECTOR: 08-GAMMA<br/>
+                        COORD_X: 45.2023<br/>
+                        COORD_Y: -12.4431<br/>
+                        SCAN_STATUS: NOMINAL
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 sticky bg-transparent flex justify-between items-center px-16 py-8 z-50">
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE ONLY
+        </div>
+<div class="flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-all" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-all" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-secondary transition-all" href="#">PROTOCOL</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Subtle mouse tracking glow
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.createElement('div');
+            glow.className = 'fixed pointer-events-none w-64 h-64 bg-primary/5 rounded-full blur-[100px] z-0 transition-opacity duration-1000 opacity-0';
+            glow.style.left = e.clientX - 128 + 'px';
+            glow.style.top = e.clientY - 128 + 'px';
+            
+            // Limit creation to prevent performance issues
+            if (Math.random() > 0.95) {
+                document.body.appendChild(glow);
+                setTimeout(() => {
+                    glow.style.opacity = '1';
+                    setTimeout(() => {
+                        glow.style.opacity = '0';
+                        setTimeout(() => glow.remove(), 1000);
+                    }, 500);
+                }, 10);
+            }
+        });
+
+        // Dashboard Number Counter (Visual Fluff)
+        const labels = document.querySelectorAll('.text-secondary, .text-primary, .text-tertiary');
+        labels.forEach(label => {
+            if (label.innerText.includes('%') || !isNaN(parseFloat(label.innerText))) {
+                const originalText = label.innerText;
+                label.addEventListener('mouseenter', () => {
+                    label.classList.add('animate-pulse');
+                });
+                label.addEventListener('mouseleave', () => {
+                    label.classList.remove('animate-pulse');
+                });
+            }
+        });
+    </script>
+</body></html>

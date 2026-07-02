@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // BILLING &amp; USAGE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#f9dcd4",
+                        "surface-tint": "#ffb59c",
+                        "surface-bright": "#47352f",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#314d00",
+                        "tertiary": "#8dcdff",
+                        "on-secondary": "#213600",
+                        "outline-variant": "#5b4138",
+                        "outline": "#aa897f",
+                        "on-surface-variant": "#e3bfb3",
+                        "fg-text-1": "#f5f5f5",
+                        "surface-container-lowest": "#180b07",
+                        "fg-amber": "#f59e0b",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "tertiary-fixed": "#cae6ff",
+                        "background": "#1e100b",
+                        "secondary": "#9de32e",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                        "on-primary-fixed": "#390c00",
+                        "fg-canvas": "#050505",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "on-secondary-fixed": "#111f00",
+                        "primary-container": "#ff5f1f",
+                        "on-background": "#f9dcd4",
+                        "inverse-on-surface": "#3d2c27",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-highest": "#42312b",
+                        "on-error-container": "#ffdad6",
+                        "fg-neutral-85": "#1a1a1a",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#b0f743",
+                        "tertiary-container": "#009de4",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "fg-rust": "#ff4444",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "inverse-surface": "#f9dcd4",
+                        "fg-orange-dk": "#d9480f",
+                        "surface-container-high": "#372621",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "error": "#ffb4ab",
+                        "surface": "#1e100b",
+                        "inverse-primary": "#ab3600",
+                        "surface-variant": "#42312b",
+                        "on-primary-container": "#561700",
+                        "on-primary": "#5c1900",
+                        "on-tertiary-fixed": "#001e30",
+                        "primary": "#ffb59c",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "primary-fixed": "#ffdbcf",
+                        "surface-dim": "#1e100b",
+                        "surface-container-low": "#271813",
+                        "on-primary-fixed-variant": "#832700",
+                        "fg-orange-lt": "#ff7a45",
+                        "surface-container": "#2b1c17",
+                        "on-tertiary": "#00344f",
+                        "secondary-container": "#83c600",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "on-tertiary-container": "#00304a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "md": "8px"
+                    },
+                    "spacing": {
+                        "20": "80px",
+                        "12": "48px",
+                        "8": "32px",
+                        "3": "12px",
+                        "6": "24px",
+                        "16": "64px",
+                        "1": "4px",
+                        "4": "16px",
+                        "2": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "section-label": ["JetBrains Mono"],
+                        "display-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .grid-overlay {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.1);
+            position: absolute;
+            animation: scan 8s linear infinite;
+            z-index: 10;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .sparkline-anim {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s ease-in forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg selection:bg-primary-container selection:text-white">
+<div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+<div class="scanline"></div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border flex justify-between items-center px-16 h-20 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">FUTURE AI GUIDE</span>
+<div class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="text-on-surface font-bold border-b-2 border-primary-container pb-1 font-mono-data uppercase tracking-widest" href="#">TERMINAL</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end mr-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+<span class="font-mono-data text-[10px] text-secondary tracking-widest">SYSTEM STATUS: OPERATIONAL</span>
+</div>
+<span class="font-mono-data text-[10px] text-fg-text-3 tracking-widest">ENCRYPTION: SIGMA-7</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-mono-data text-section-label hover:scale-95 transition-transform active:scale-90">INITIALIZE</button>
+<button class="border border-fg-border-md px-4 py-2 font-mono-data text-section-label hover:bg-fg-surface transition-colors">SECURE</button>
+</div>
+</header>
+<main class="relative pt-32 pb-20 px-16 max-w-[1600px] mx-auto space-y-8">
+<!-- Header & Breadcrumbs -->
+<section>
+<div class="flex items-center gap-2 text-fg-text-3 font-mono-data text-section-label mb-2">
+<span>TERMINAL</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary-container">BILLING_PROTOCOL_V4</span>
+</div>
+<h1 class="font-display-md text-display-md text-fg-text-1">System Resource Ledger</h1>
+</section>
+<!-- Top Section: KPIs -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: Network Throughput -->
+<div class="glass-panel p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-section-label text-section-label text-fg-text-3 uppercase">Network Throughput</p>
+<h2 class="font-display-md text-[32px] text-fg-text-1">14.8M <span class="text-headline-md font-normal text-fg-text-3">REQ</span></h2>
+</div>
+<div class="flex bg-fg-neutral-85 rounded-lg p-1">
+<button class="px-2 py-1 text-[10px] font-mono-data bg-fg-surface-md text-primary-container">D</button>
+<button class="px-2 py-1 text-[10px] font-mono-data text-fg-text-3 hover:text-fg-text-1">W</button>
+<button class="px-2 py-1 text-[10px] font-mono-data text-fg-text-3 hover:text-fg-text-1">M</button>
+</div>
+</div>
+<div class="h-16 w-full mt-4">
+<svg class="w-full h-full" viewbox="0 0 200 40">
+<path class="text-primary-container sparkline-anim" d="M0,35 Q10,10 20,25 T40,15 T60,30 T80,10 T100,20 T120,5 T140,25 T160,15 T180,30 T200,10" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+</svg>
+</div>
+<p class="font-mono-data text-[11px] text-secondary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12.4% FROM LAST CYCLE
+                </p>
+</div>
+<!-- Card 2: Processing Latency -->
+<div class="glass-panel p-6">
+<p class="font-section-label text-section-label text-fg-text-3 uppercase mb-1">Processing Latency</p>
+<h2 class="font-display-md text-[32px] text-fg-text-1">42 <span class="text-headline-md font-normal text-fg-text-3">MS</span></h2>
+<div class="flex items-end gap-1 h-16 mt-4">
+<div class="flex-1 bg-fg-surface-md h-[40%]" title="10-20ms"></div>
+<div class="flex-1 bg-fg-surface-md h-[60%]" title="20-30ms"></div>
+<div class="flex-1 bg-primary-container h-[90%]" title="30-40ms"></div>
+<div class="flex-1 bg-fg-surface-md h-[50%]" title="40-50ms"></div>
+<div class="flex-1 bg-fg-surface-md h-[30%]" title="50-60ms"></div>
+<div class="flex-1 bg-fg-surface-md h-[15%]" title="60-70ms"></div>
+<div class="flex-1 bg-fg-surface-md h-[5%]" title="70ms+"></div>
+</div>
+<div class="flex justify-between font-mono-data text-[10px] text-fg-text-3 mt-2">
+<span>10MS</span>
+<span>AVG DISTRIB</span>
+<span>100MS</span>
+</div>
+</div>
+<!-- Card 3: Accumulated Credits -->
+<div class="glass-panel p-6 flex flex-col justify-between">
+<div>
+<p class="font-section-label text-section-label text-fg-text-3 uppercase">Accumulated Credits</p>
+<div class="flex justify-between items-baseline mt-1">
+<h2 class="font-display-md text-[32px] text-fg-text-1">2,840.00</h2>
+<span class="font-mono-data text-section-label text-fg-text-3">/ 5,000.00 CR</span>
+</div>
+</div>
+<div class="space-y-3 mt-4">
+<div class="w-full h-1.5 bg-fg-surface-md rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[56%] shadow-[0_0_10px_rgba(255,95,31,0.5)]"></div>
+</div>
+<div class="flex justify-between font-mono-data text-[11px]">
+<span class="text-fg-text-2">REMAINING BALANCE</span>
+<span class="text-fg-text-1 font-bold">2,160.00 CR</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Middle Section: Resource Allocation Chart -->
+<section class="glass-panel p-8">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-fg-text-1 mb-1">Resource Allocation over Time</h3>
+<p class="font-body-sm text-body-sm text-fg-text-3">Visualizing computational intensity across decentralized nodes in real-time.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary-container rounded-full"></span>
+<span class="font-mono-data text-section-label text-fg-text-2">NEURAL ENGINE</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-tertiary-container rounded-full"></span>
+<span class="font-mono-data text-section-label text-fg-text-2">STORAGE FABRIC</span>
+</div>
+</div>
+</div>
+<div class="w-full h-[350px] relative">
+<!-- Chart Background Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="border-t border-fg-border-md w-full"></div>
+<div class="border-t border-fg-border-md w-full"></div>
+<div class="border-t border-fg-border-md w-full"></div>
+<div class="border-t border-fg-border-md w-full"></div>
+<div class="border-t border-fg-border-md w-full"></div>
+</div>
+<!-- Axis Labels -->
+<div class="absolute -left-12 inset-y-0 flex flex-col justify-between font-mono-data text-[10px] text-fg-text-3 text-right">
+<span>100%</span>
+<span>75%</span>
+<span>50%</span>
+<span>25%</span>
+<span>0%</span>
+</div>
+<!-- Spline Area Visualization (Simulated) -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 350">
+<!-- Area 1 (Tertiary) -->
+<path d="M0,350 L0,280 Q100,240 200,290 T400,220 T600,260 T800,200 T1000,240 L1000,350 Z" fill="rgba(0,157,228,0.1)" stroke="none"></path>
+<path d="M0,280 Q100,240 200,290 T400,220 T600,260 T800,200 T1000,240" fill="none" opacity="0.6" stroke="#009de4" stroke-width="1.5"></path>
+<!-- Area 2 (Primary) -->
+<path d="M0,350 L0,200 Q150,140 300,180 T500,120 T700,160 T900,100 T1000,130 L1000,350 Z" fill="rgba(255,95,31,0.15)" stroke="none"></path>
+<path class="sparkline-anim" d="M0,200 Q150,140 300,180 T500,120 T700,160 T900,100 T1000,130" fill="none" stroke="#ff5f1f" stroke-width="2"></path>
+<!-- Scan Dots -->
+<circle class="animate-pulse" cx="500" cy="120" fill="#ff5f1f" r="4"></circle>
+<rect fill="rgba(255,255,255,0.02)" height="350" width="10" x="495" y="0"></rect>
+</svg>
+<div class="absolute -bottom-6 inset-x-0 flex justify-between font-mono-data text-[10px] text-fg-text-3">
+<span>00:00 UTC</span>
+<span>04:00 UTC</span>
+<span>08:00 UTC</span>
+<span>12:00 UTC</span>
+<span>16:00 UTC</span>
+<span>20:00 UTC</span>
+<span>23:59 UTC</span>
+</div>
+<!-- Tooltip Overlay -->
+<div class="absolute top-[80px] left-[480px] glass-panel p-3 border-primary-container z-20 pointer-events-none">
+<p class="font-mono-data text-[10px] text-fg-text-3 mb-1">NODE_SNAPSHOT // 12:44</p>
+<p class="font-headline-md text-primary-container">84.2% INTENSITY</p>
+<p class="font-body-sm text-[11px] text-fg-text-2 mt-1">Load spikes detected in sector 4G.</p>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Management -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<!-- Left: Subscription Protocol -->
+<div class="lg:col-span-2 space-y-6">
+<div class="glass-panel p-8 relative overflow-hidden h-full">
+<div class="absolute top-0 left-0 w-full h-[3px] bg-primary-container"></div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-lg text-headline-lg text-fg-text-1">Subscription Protocol</h3>
+<span class="material-symbols-outlined text-primary-container">verified_user</span>
+</div>
+<div class="space-y-8">
+<div>
+<p class="font-section-label text-section-label text-fg-text-3 uppercase mb-2">Current Tier</p>
+<div class="flex items-center gap-4">
+<div class="bg-fg-surface-md w-12 h-12 flex items-center justify-center rounded-lg border border-fg-border">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h4 class="font-display-md text-[24px] text-fg-text-1">Intelligence Level 4</h4>
+<p class="font-mono-data text-[11px] text-fg-text-3">DECENTRALIZED COMPUTE / 24-7 PRIORITY</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-fg-surface-md p-4 rounded-lg border border-fg-border">
+<p class="font-section-label text-section-label text-fg-text-3 uppercase mb-1">Billing Cycle</p>
+<p class="font-mono-data text-fg-text-1">ANNUAL // JAN 01</p>
+</div>
+<div class="bg-fg-surface-md p-4 rounded-lg border border-fg-border">
+<p class="font-section-label text-section-label text-fg-text-3 uppercase mb-1">Renewal</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+<span class="font-mono-data text-fg-text-1 uppercase">Active</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-fg-border flex flex-col gap-3">
+<button class="w-full bg-primary-container text-on-primary-container font-mono-data text-[12px] font-bold py-4 rounded-lg shadow-orange hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings_suggest</span>
+                                MODIFY TIER PROTOCOL
+                            </button>
+<button class="w-full border border-fg-border-md text-fg-text-2 font-mono-data text-[12px] py-4 rounded-lg hover:bg-fg-surface-md transition-all">
+                                DOWNLOAD ALL ARCHIVES (.XLS)
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Transmission History -->
+<div class="lg:col-span-3">
+<div class="glass-panel p-8 h-full">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-lg text-headline-lg text-fg-text-1">Transmission History</h3>
+<div class="flex items-center gap-2 font-mono-data text-section-label text-fg-text-3">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                            FILTERED BY RECENT
+                        </div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-mono-data">
+<thead>
+<tr class="text-fg-text-3 text-[11px] uppercase tracking-widest border-b border-fg-border">
+<th class="py-4 font-medium">Date</th>
+<th class="py-4 font-medium">Node ID</th>
+<th class="py-4 font-medium">Volume</th>
+<th class="py-4 font-medium">Cost</th>
+<th class="py-4 font-medium">Status</th>
+</tr>
+</thead>
+<tbody class="text-[13px]">
+<tr class="border-b border-fg-border hover:bg-fg-surface-md transition-colors group">
+<td class="py-4 text-fg-text-2">2024.05.12</td>
+<td class="py-4 font-bold text-fg-text-1">LX-901-DELTA</td>
+<td class="py-4 text-fg-text-2">4.2 TB</td>
+<td class="py-4 text-fg-text-1">124.50 CR</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border hover:bg-fg-surface-md transition-colors group">
+<td class="py-4 text-fg-text-2">2024.05.11</td>
+<td class="py-4 font-bold text-fg-text-1">XJ-004-GAMMA</td>
+<td class="py-4 text-fg-text-2">1.8 TB</td>
+<td class="py-4 text-fg-text-1">54.00 CR</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border hover:bg-fg-surface-md transition-colors group">
+<td class="py-4 text-fg-text-2">2024.05.11</td>
+<td class="py-4 font-bold text-fg-text-1">RS-882-SIGMA</td>
+<td class="py-4 text-fg-text-2">9.4 TB</td>
+<td class="py-4 text-fg-text-1">212.80 CR</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-fg-amber/10 text-fg-amber text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span> Pending
+                                        </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border hover:bg-fg-surface-md transition-colors group">
+<td class="py-4 text-fg-text-2">2024.05.10</td>
+<td class="py-4 font-bold text-fg-text-1">ZK-112-ALPHA</td>
+<td class="py-4 text-fg-text-2">0.5 TB</td>
+<td class="py-4 text-fg-text-1">15.00 CR</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+<tr class="border-b border-fg-border hover:bg-fg-surface-md transition-colors group">
+<td class="py-4 text-fg-text-2">2024.05.09</td>
+<td class="py-4 font-bold text-fg-text-1">LX-901-DELTA</td>
+<td class="py-4 text-fg-text-2">2.1 TB</td>
+<td class="py-4 text-fg-text-1">63.00 CR</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px] mr-1">check_circle</span> Verified
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 text-center">
+<button class="font-mono-data text-section-label text-fg-text-3 hover:text-fg-text-1 transition-colors uppercase">View Complete Archive [412 ENTRIES]</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bottom-0 bg-fg-canvas border-t border-fg-border-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div class="flex flex-col gap-4">
+<span class="font-mono-data text-mono-data text-primary-container font-bold">FUTURE AI GUIDE</span>
+<p class="font-body-sm text-body-sm text-fg-text-3 max-w-xs">High-density intelligence interface for global investigative networks. All data is subject to encryption protocols.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-section-label text-section-label text-fg-text-1 uppercase">System Health</h5>
+<div class="space-y-2">
+<p class="text-fg-text-3 uppercase font-mono-data text-[10px] hover:text-fg-orange-lt transition-colors cursor-pointer">SYSTEM STATUS: NOMINAL</p>
+<p class="text-fg-text-3 uppercase font-mono-data text-[10px] hover:text-fg-orange-lt transition-colors cursor-pointer">ENCRYPTION: AES-256</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-section-label text-section-label text-fg-text-1 uppercase">Information</h5>
+<div class="space-y-2">
+<p class="text-fg-text-3 uppercase font-mono-data text-[10px] hover:text-fg-orange-lt transition-colors cursor-pointer">TRANSMISSION LOGS</p>
+<p class="text-fg-text-3 uppercase font-mono-data text-[10px] hover:text-fg-orange-lt transition-colors cursor-pointer">API DOCUMENTATION</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-section-label text-section-label text-fg-text-1 uppercase">Protocol</h5>
+<div class="space-y-2">
+<p class="text-fg-text-3 uppercase font-mono-data text-[10px] hover:text-fg-orange-lt transition-colors cursor-pointer">LEGAL DISCLOSURE</p>
+<p class="text-fg-text-1 uppercase font-mono-data text-[10px]">©2024 // EVIDENCE PROTOCOL v4.0.1</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.boxShadow = 'inset 4px 0 0 #ff5f1f';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.boxShadow = 'none';
+            });
+        });
+
+        // Simple credit balance update simulation
+        let balance = 2840.00;
+        setInterval(() => {
+            const increment = Math.random() * 0.05;
+            balance += increment;
+            const balanceEl = document.querySelector('h2.font-display-md.text-\\[32px\\]');
+            if (balanceEl && balanceEl.innerText.includes('2,8')) {
+               // Update balance text occasionally to simulate live data
+               // balanceEl.innerText = balance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+        }, 5000);
+    </script>
+</body></html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // SECURE COMMUNICATIONS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#42312b",
+                    "outline": "#aa897f",
+                    "inverse-surface": "#f9dcd4",
+                    "primary-fixed": "#ffdbcf",
+                    "on-primary-container": "#561700",
+                    "on-error-container": "#ffdad6",
+                    "fg-surface": "rgba(255, 255, 255, 0.04)",
+                    "fg-canvas": "#050505",
+                    "secondary-fixed": "#b0f743",
+                    "surface-dim": "#1e100b",
+                    "outline-variant": "#5b4138",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#42312b",
+                    "inverse-on-surface": "#3d2c27",
+                    "fg-orange-lt": "#ff7a45",
+                    "fg-text-1": "#f5f5f5",
+                    "surface-container-high": "#372621",
+                    "on-secondary": "#213600",
+                    "inverse-primary": "#ab3600",
+                    "on-secondary-fixed-variant": "#324f00",
+                    "primary-fixed-dim": "#ffb59c",
+                    "primary": "#ffb59c",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "secondary": "#9de32e",
+                    "on-surface-variant": "#e3bfb3",
+                    "background": "#1e100b",
+                    "tertiary-fixed": "#cae6ff",
+                    "surface": "#1e100b",
+                    "tertiary-container": "#009de4",
+                    "surface-bright": "#47352f",
+                    "surface-container": "#2b1c17",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-container-lowest": "#180b07",
+                    "secondary-container": "#83c600",
+                    "fg-border": "rgba(255, 255, 255, 0.08)",
+                    "on-tertiary": "#00344f",
+                    "on-secondary-container": "#314d00",
+                    "on-primary": "#5c1900",
+                    "fg-amber": "#f59e0b",
+                    "on-surface": "#f9dcd4",
+                    "tertiary": "#8dcdff",
+                    "on-primary-fixed-variant": "#832700",
+                    "secondary-fixed-dim": "#95da24",
+                    "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                    "fg-orange-dk": "#d9480f",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#390c00",
+                    "fg-neutral-85": "#1a1a1a",
+                    "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                    "primary-container": "#ff5f1f",
+                    "fg-rust": "#ff4444",
+                    "on-tertiary-container": "#00304a",
+                    "surface-container-low": "#271813",
+                    "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                    "on-background": "#f9dcd4",
+                    "on-secondary-fixed": "#111f00",
+                    "surface-tint": "#ffb59c",
+                    "fg-border-md": "rgba(255, 255, 255, 0.14)"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "4": "16px",
+                    "20": "80px",
+                    "6": "24px",
+                    "12": "48px",
+                    "16": "64px",
+                    "8": "32px",
+                    "3": "12px",
+                    "2": "8px",
+                    "1": "4px"
+            },
+            "fontFamily": {
+                    "mono-data": ["JetBrains Mono"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-md": ["Space Grotesk"],
+                    "section-label": ["JetBrains Mono"],
+                    "display-xl": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            cursor: crosshair;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-scan-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 95, 31, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        .grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-fg-text-2 grid-pattern min-h-screen">
+<div class="status-scan-line pointer-events-none"></div>
+<!-- Navigation Header -->
+<header class="fixed top-0 w-full z-50 bg-fg-surface backdrop-blur-[20px] border-b border-fg-border px-16 h-20 flex justify-between items-center">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">FUTURE AI GUIDE</div>
+<nav class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">INTEL</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">NETWORK</a>
+<a class="text-fg-text-3 font-mono-data uppercase tracking-widest hover:text-on-surface transition-colors duration-200" href="#">ARCHIVE</a>
+<a class="text-on-surface font-bold border-b-2 border-primary-container pb-1 font-mono-data uppercase tracking-widest" href="#">TERMINAL</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-mono-data text-mono-data text-fg-text-3 hover:text-on-surface transition-colors px-4 py-2 border border-fg-border-md">SECURE</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-bold hover:shadow-orange/20 shadow-lg active:scale-95 transition-all">INITIALIZE</button>
+</div>
+</header>
+<main class="pt-32 pb-20 px-16 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-16">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+<span class="font-mono-data text-section-label text-secondary uppercase">System Status: Operational</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Secure Communications</h1>
+<div class="flex flex-wrap gap-6 font-mono-data text-mono-data text-fg-text-3 border-l border-fg-border pl-6">
+<div class="flex gap-2">
+<span class="text-fg-text-1">ENCRYPTION:</span>
+<span class="text-primary">AES-256-GCM / 4096-BIT RSA</span>
+</div>
+<div class="flex gap-2">
+<span class="text-fg-text-1">RELAY:</span>
+<span class="text-primary">NODE_771_OSLO_DK</span>
+</div>
+<div class="flex gap-2">
+<span class="text-fg-text-1">TRACE:</span>
+<span class="text-secondary">PROTECTED</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Secure Tip Submission (Left) -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<section class="glass-panel p-8 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Secure Tip Submission</h2>
+<p class="font-body-sm text-body-sm text-fg-text-3">Classified information pipeline. All submissions are automatically scrubbed of metadata.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="lock_open">lock_open</span>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-2 uppercase">Subject Alias</label>
+<input class="w-full bg-black border border-fg-border focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-mono-data px-4 py-3 outline-none transition-all" placeholder="GHOST_PROTOCOL" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-2 uppercase">Security Level</label>
+<select class="w-full bg-black border border-fg-border focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-mono-data px-4 py-3 outline-none transition-all">
+<option>LVL 1 - UNCLASSIFIED</option>
+<option>LVL 2 - RESTRICTED</option>
+<option>LVL 3 - CONFIDENTIAL</option>
+<option>LVL 4 - SECRET</option>
+<option>LVL 5 - TOP SECRET</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-section-label text-section-label text-fg-text-2 uppercase">Intelligence Description</label>
+<textarea class="w-full bg-black border border-fg-border focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-mono-data px-4 py-3 outline-none transition-all resize-none" placeholder="ENTER TRANSMISSION DATA..." rows="6"></textarea>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input class="bg-black border-fg-border text-primary-container focus:ring-primary-container rounded" id="anon" type="checkbox"/>
+<label class="font-mono-data text-mono-data text-fg-text-3" for="anon">ENCRYPT METADATA ON SUBMIT</label>
+</div>
+<button class="bg-primary-container text-on-primary-container font-headline-md px-10 py-4 hover:shadow-[0_0_20px_rgba(255,95,31,0.4)] transition-all flex items-center gap-3" type="submit">
+<span>TRANSMIT DATA</span>
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</form>
+</section>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 flex flex-col justify-between h-32">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase">Encryption Key</span>
+<div class="font-mono-data text-mono-data text-primary">0x8F22...E1A9</div>
+</div>
+<div class="glass-panel p-4 flex flex-col justify-between h-32">
+<span class="font-section-label text-section-label text-fg-text-3 uppercase">Signal Strength</span>
+<div class="flex gap-1 h-4 items-end">
+<div class="w-2 h-2 bg-secondary"></div>
+<div class="w-2 h-4 bg-secondary"></div>
+<div class="w-2 h-3 bg-secondary"></div>
+<div class="w-2 h-4 bg-secondary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- General Inquiry & Map (Right) -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<section class="glass-panel overflow-hidden">
+<div class="h-64 relative">
+<div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="A futuristic topographical dark map of a coastal intelligence hub with glowing data nodes and orange neon connection lines in a technical, minimalist interface style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDChcgcJgaPxTktErB2TWVVLVPjANN4BVgwKSWHzam61dR71yn3Wsh8SOlc-kzJh_4CF1qo4PQdRc0a7NG81nMb6CPPEDKoLG2HQp0eJc3o2dzzLEHCYDXwPvhZLEK5wDuZoAsNKKNSMyVNPJCwJ0BSt81fIVkCjOQPSw8Y0PYaXGPhc5YzoLX2xfR5_zDR0ZvoWvE9UiyEZ8NiwCr4bwcUQGp0Y1Gv0_GOBUanUDFEnq8sYA0GB9TillzXCRCyntjIU3c5zvci6QM')"></div>
+<div class="absolute inset-0 grid-pattern opacity-30"></div>
+<div class="absolute top-4 left-4 z-20 glass-panel px-3 py-1 font-mono-data text-section-label text-on-surface">HQ_LOC: 59.9139° N, 10.7522° E</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 uppercase tracking-tight">General Inquiry</h3>
+<form class="space-y-4">
+<div class="space-y-1">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase">Identity / Email</label>
+<input class="w-full bg-black border border-fg-border focus:border-fg-orange-lt text-on-surface font-mono-data px-4 py-3 outline-none transition-all" placeholder="user@encrypted.net" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="font-section-label text-section-label text-fg-text-3 uppercase">Subject</label>
+<input class="w-full bg-black border border-fg-border focus:border-fg-orange-lt text-on-surface font-mono-data px-4 py-3 outline-none transition-all" placeholder="Partnership, Press, Legal" type="text"/>
+</div>
+<button class="w-full border border-fg-border-md text-on-surface font-bold py-4 hover:bg-fg-surface transition-colors flex justify-center items-center gap-2" type="submit">
+<span>INITIALIZE CHANNEL</span>
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+</button>
+</form>
+</div>
+</section>
+<section class="glass-panel p-8">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 flex items-center justify-center bg-fg-surface rounded-full">
+<span class="material-symbols-outlined text-fg-amber" data-icon="priority_high">priority_high</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">Protocol Alert</h3>
+</div>
+<p class="font-body-sm text-body-sm text-fg-text-2 mb-4 leading-relaxed">
+                        Do not use these channels for immediate physical emergency reporting. For sensitive data, we recommend using the TOR gateway or our onion-address relay services for maximum anonymity.
+                    </p>
+<div class="flex items-center gap-2 text-primary cursor-pointer hover:underline">
+<span class="font-mono-data text-section-label uppercase">View Verification Protocol</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bottom-0 bg-fg-canvas border-t border-fg-border-md">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-16 py-12 max-w-full">
+<div>
+<div class="font-mono-data text-mono-data text-primary-container mb-4">FUTURE AI GUIDE</div>
+<p class="font-body-sm text-body-sm text-fg-text-3">Autonomous intelligence aggregation network. Information is the only admissible evidence in the age of synthetic truth.</p>
+</div>
+<div>
+<h4 class="font-section-label text-section-label text-on-surface mb-6 uppercase">System Logs</h4>
+<ul class="space-y-4 font-mono-data text-mono-data text-fg-text-3">
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">System Status: Nominal</li>
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">Encryption: AES-256</li>
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">Transmission Logs</li>
+</ul>
+</div>
+<div>
+<h4 class="font-section-label text-section-label text-on-surface mb-6 uppercase">Legal Core</h4>
+<ul class="space-y-4 font-mono-data text-mono-data text-fg-text-3">
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">Legal Disclosure</li>
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">API Documentation</li>
+<li class="hover:text-fg-orange-lt transition-colors cursor-pointer uppercase">Privacy Protocol</li>
+</ul>
+</div>
+<div>
+<h4 class="font-section-label text-section-label text-on-surface mb-6 uppercase">Global Network</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-fg-surface text-secondary font-mono-data text-xs border border-fg-border">NODE_NYC</span>
+<span class="px-2 py-1 bg-fg-surface text-secondary font-mono-data text-xs border border-fg-border">NODE_TYO</span>
+<span class="px-2 py-1 bg-fg-surface text-secondary font-mono-data text-xs border border-fg-border">NODE_LON</span>
+<span class="px-2 py-1 bg-fg-surface text-secondary font-mono-data text-xs border border-fg-border">NODE_OSL</span>
+</div>
+</div>
+</div>
+<div class="px-16 py-6 border-t border-fg-border font-mono-data text-[10px] text-fg-text-3 flex justify-between uppercase">
+<div>©2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL v4.0.1</div>
+<div>Secure session: <span id="session-id">LOADING...</span></div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Generate a fake session ID
+        document.getElementById('session-id').textContent = Math.random().toString(16).substring(2, 14).toUpperCase();
+
+        // Subtle parallax/mouse follow on panels
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                panel.style.setProperty('--mouse-x', `${x}px`);
+                panel.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

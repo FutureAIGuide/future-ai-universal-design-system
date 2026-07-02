@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_INTEL | INTELLIGENCE_ARCHIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-lime { border-left: 3px solid #9de32e; }
+        .status-stripe-orange { border-left: 3px solid #ff5f1f; }
+        .status-stripe-amber { border-left: 3px solid #f59e0b; }
+        
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header-anchor {
+            letter-spacing: -0.05em;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #180b07;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #5b4138;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59c",
+                        "surface-container-lowest": "#180b07",
+                        "background": "#1e100b",
+                        "outline-variant": "#5b4138",
+                        "secondary": "#9de32e",
+                        "on-surface": "#f9dcd4",
+                        "on-primary-container": "#561700",
+                        "primary-container": "#ff5f1f",
+                        "secondary-fixed": "#b0f743",
+                        "inverse-surface": "#f9dcd4",
+                        "tertiary": "#8dcdff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-container": "#00304a",
+                        "on-tertiary": "#00344f",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "on-primary-fixed": "#390c00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#111f00",
+                        "tertiary-container": "#009de4",
+                        "surface-bright": "#47352f",
+                        "surface-container": "#2b1c17",
+                        "inverse-primary": "#ab3600",
+                        "surface-variant": "#42312b",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "surface": "#1e100b",
+                        "tertiary-fixed": "#cae6ff",
+                        "primary": "#ffb59c",
+                        "on-surface-variant": "#e3bfb3",
+                        "on-error": "#690005",
+                        "surface-tint": "#ffb59c",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-secondary": "#213600",
+                        "secondary-container": "#83c600",
+                        "on-primary": "#5c1900",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#314d00",
+                        "inverse-on-surface": "#3d2c27",
+                        "surface-dim": "#1e100b",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "outline": "#aa897f",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#832700",
+                        "secondary-fixed-dim": "#95da24",
+                        "surface-container-low": "#271813",
+                        "surface-container-highest": "#42312b",
+                        "surface-container-high": "#372621",
+                        "on-background": "#f9dcd4"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="custom-scrollbar">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-16 h-20 max-w-[1440px] mx-auto">
+<div class="text-headline-lg font-headline font-bold text-on-surface dark:text-on-surface tracking-tighter uppercase header-anchor">
+                AETHER_INTEL
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container transition-colors duration-200 text-label font-label uppercase tracking-widest" href="#">Classified</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container transition-colors duration-200 text-label font-label uppercase tracking-widest" href="#">Signals</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary-container transition-colors duration-200 text-label font-label uppercase tracking-widest" href="#">Evidence</a>
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1 text-label font-label uppercase tracking-widest" href="#">Network</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 text-label font-label font-bold tracking-widest transition-all active:opacity-80 active:scale-95">
+                SECURE ACCESS
+            </button>
+</div>
+</nav>
+<!-- Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant/20 flex flex-col py-8 z-40 mt-20">
+<div class="px-6 mb-10 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A cold, high-contrast portrait of a digital intelligence operative. The lighting is low and dramatic, highlighting sharp facial features against a dark, tech-infused background. The color palette is restricted to deep blacks, subtle grays, and a hint of orange from a nearby terminal screen. Professional, investigative, and intensely focused atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwg6zn0VyP34lzOZ6T672wzuq0Rq-FviMz66bopSOg53p4zS2DaSla44Y_n8HXYKl5XXcfBVwZbZDWomfZ1pHf0lb_09fxuk6CXI6sTHtWebTiyDioLWJu2t0_63Q9YFqzS7gHm3eXockzk2k9gM-6WOAhVugd5LT7aYmM8puy5DAFiXwZuB9D_eQADzEqNHruSDa4z2H4j0yaNq9jgVQfUQKY7ZeH-7jDrafO7E6cJxd4StyAIA3QAvu0kaapEkMAQiv2qVb9aVU"/>
+</div>
+<div>
+<p class="text-headline-md font-headline font-bold text-on-surface uppercase leading-none">OPERATIVE_04</p>
+<p class="text-body-sm font-body text-on-surface-variant opacity-70">Level 5 Clearance</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="text-label font-label">Terminal</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">troubleshoot</span>
+<span class="text-label font-label">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-label font-label">Verified</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container/10 text-secondary border-l-4 border-secondary px-6 py-3" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="text-label font-label">Archive</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-6 py-3 hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label font-label">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full border border-secondary text-secondary py-3 text-label font-label tracking-widest hover:bg-secondary/10 transition-colors">
+                INTEL_DROP
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen relative overflow-hidden">
+<!-- Atmospheric Background Element -->
+
+<section class="max-w-6xl mx-auto relative z-10">
+<!-- Header & Filters -->
+<div class="mb-12">
+<h1 class="text-display-md font-headline font-bold text-on-surface tracking-tighter mb-8 header-anchor">
+                    INTELLIGENCE_ARCHIVE
+                </h1>
+<div class="glass-panel p-1 flex flex-wrap gap-1">
+<!-- Search -->
+<div class="flex-1 min-w-[300px] flex items-center px-4 bg-surface-container-lowest/50 border-r border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label font-label text-on-surface w-full uppercase py-3 placeholder:text-on-surface-variant/30" placeholder="QUERY ENCRYPTED DATABASE..." type="text"/>
+</div>
+<!-- Category Filter -->
+<div class="flex items-center px-4 bg-surface-container-lowest/30 border-r border-outline-variant/20 group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-label font-label text-on-surface-variant mr-4 uppercase">Category:</span>
+<select class="bg-transparent border-none focus:ring-0 text-label font-label text-on-surface uppercase py-3 cursor-pointer">
+<option>ALL_NODES</option>
+<option>Government</option>
+<option>Corporate</option>
+<option>Labs</option>
+</select>
+</div>
+<!-- Status Filter -->
+<div class="flex items-center px-4 bg-surface-container-lowest/30 group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-label font-label text-on-surface-variant mr-4 uppercase">Status:</span>
+<select class="bg-transparent border-none focus:ring-0 text-label font-label text-on-surface uppercase py-3 cursor-pointer">
+<option>ALL_STATES</option>
+<option>Verified</option>
+<option>Breaking</option>
+<option>Under Review</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Investigation Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Verified/Government -->
+<article class="glass-panel status-stripe-lime group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-secondary text-[10px] tracking-[0.2em]">NODE_G01-V</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Verified</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-secondary transition-colors uppercase">The Ouroboros Protocol: Cognitive Drift in Tier 1 Labs</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">Sub-surface monitoring of Neuralink-adjacent facilities suggests a 14% deviation in baseline cognitive stability across verified neural-link test subjects. Data indicates non-standard cortical resonance.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>OCT_24_2024</span>
+<span>12 MIN READ</span>
+</div>
+</div>
+</article>
+<!-- Card 2: Breaking/Corporate -->
+<article class="glass-panel status-stripe-orange group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-primary-container text-[10px] tracking-[0.2em]">NODE_C44-B</span>
+<span class="bg-primary-container/10 text-primary-container text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Breaking</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-primary-container transition-colors uppercase">Hyper-Sovereign Compute Cartels Forming in SE Asia</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">Evidence of a distributed GPU-reserve network operating outside the jurisdiction of the Singapore Accord. Estimated compute density exceeds 400 Exaflops.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>OCT_27_2024</span>
+<span>08 MIN READ</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Under Review/Labs -->
+<article class="glass-panel status-stripe-amber group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-amber-500 text-[10px] tracking-[0.2em]">NODE_L12-R</span>
+<span class="bg-amber-500/10 text-amber-500 text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Under Review</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-amber-500 transition-colors uppercase">Genetic Logic Gates: Synthesis of Bio-Storage Nodes</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">Unverified reports from clandestine biological research facilities detailing the successful implementation of logic gates within synthetic DNA structures. High noise-to-signal ratio.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>OCT_19_2024</span>
+<span>15 MIN READ</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Verified/Government -->
+<article class="glass-panel status-stripe-lime group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-secondary text-[10px] tracking-[0.2em]">NODE_G88-V</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Verified</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-secondary transition-colors uppercase">The Ghost in the Mesh: Autonomous Urban Pathfinding</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">A city-wide logistical AI in Berlin has developed non-optimized routing patterns that suggest emergent territorial behavior. Verified by municipal data streams.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>OCT_12_2024</span>
+<span>21 MIN READ</span>
+</div>
+</div>
+</article>
+<!-- Card 5: Breaking/Labs -->
+<article class="glass-panel status-stripe-orange group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-primary-container text-[10px] tracking-[0.2em]">NODE_L02-B</span>
+<span class="bg-primary-container/10 text-primary-container text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Breaking</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-primary-container transition-colors uppercase">Cold-Fusion Computation: The Absolute Zero Threshold</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">Quantum coherence maintained at room temperature for a duration of 42 seconds. A breakthrough that renders current encryption protocols obsolete within the next fiscal cycle.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>NOV_01_2024</span>
+<span>05 MIN READ</span>
+</div>
+</div>
+</article>
+<!-- Card 6: Under Review/Corporate -->
+<article class="glass-panel status-stripe-amber group hover:bg-white/10 transition-all duration-300">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="text-label font-label text-amber-500 text-[10px] tracking-[0.2em]">NODE_C19-R</span>
+<span class="bg-amber-500/10 text-amber-500 text-[10px] px-2 py-0.5 rounded-full font-label uppercase tracking-tighter">Under Review</span>
+</div>
+<h3 class="text-headline-md font-headline font-bold text-on-surface mb-3 leading-tight group-hover:text-amber-500 transition-colors uppercase">Cognitive Outsource: The Human-in-the-Loop Marketplace</h3>
+<p class="text-body-sm text-on-surface-variant/80 mb-6 line-clamp-3">Investigation into unregulated markets where human cognitive cycles are traded as fractional compute units. Ethical violations flagged but unconfirmed by central nodes.</p>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex justify-between items-center text-label font-label text-on-surface-variant text-[11px] uppercase tracking-widest">
+<span>SEP_28_2024</span>
+<span>18 MIN READ</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-between items-center">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-all text-label font-label uppercase tracking-widest group opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined">chevron_left</span>
+<span>Prev_Sequence</span>
+</button>
+<div class="flex gap-4">
+<button class="w-10 h-10 border border-secondary text-secondary flex items-center justify-center font-label text-sm transition-all hover:bg-secondary/10">01</button>
+<button class="w-10 h-10 border border-outline-variant/30 text-on-surface-variant flex items-center justify-center font-label text-sm transition-all hover:border-on-surface hover:text-on-surface">02</button>
+<button class="w-10 h-10 border border-outline-variant/30 text-on-surface-variant flex items-center justify-center font-label text-sm transition-all hover:border-on-surface hover:text-on-surface">03</button>
+<span class="flex items-end pb-2 px-2 text-on-surface-variant/40">...</span>
+<button class="w-10 h-10 border border-outline-variant/30 text-on-surface-variant flex items-center justify-center font-label text-sm transition-all hover:border-on-surface hover:text-on-surface">14</button>
+</div>
+<button class="flex items-center gap-2 text-on-surface hover:text-primary-container transition-all text-label font-label uppercase tracking-widest group">
+<span>Next_Sequence</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bottom-0 bg-background dark:bg-background border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-16 py-12 max-w-[1440px] mx-auto ml-64 lg:ml-auto">
+<div class="flex flex-col gap-2">
+<div class="text-headline-md font-headline font-bold text-on-surface tracking-tighter uppercase header-anchor">AETHER_INTEL</div>
+<p class="text-body-sm font-body text-on-surface-variant opacity-60 uppercase tracking-widest">© 2024 AETHER_INTEL. ADMISSIBLE EVIDENCE PROTOCOL ACTIVE.</p>
+</div>
+<div class="flex gap-10 mt-8 md:mt-0">
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container transition-all hover:underline decoration-primary-container" href="#">Encryption Policy</a>
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container transition-all hover:underline decoration-primary-container" href="#">Vector Nodes</a>
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container transition-all hover:underline decoration-primary-container" href="#">Data Integrity</a>
+<a class="text-label font-label uppercase text-on-surface-variant hover:text-primary-container transition-all hover:underline decoration-primary-container" href="#">Contact Node</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const badge = card.querySelector('.rounded-full');
+                if (badge) badge.style.transform = 'scale(1.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const badge = card.querySelector('.rounded-full');
+                if (badge) badge.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search input fake "typing" effect on load for aesthetic flair
+        const searchInput = document.querySelector('input[type="text"]');
+        const placeholderText = searchInput.placeholder;
+        searchInput.placeholder = "";
+        let i = 0;
+        function typeWriter() {
+            if (i < placeholderText.length) {
+                searchInput.placeholder += placeholderText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+            }
+        }
+        setTimeout(typeWriter, 1000);
+    </script>
+</body></html>

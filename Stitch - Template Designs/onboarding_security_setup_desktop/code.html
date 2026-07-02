@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE // ENCRYPTION PROTOCOL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#ffb59c",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#180b07",
+            "fg-text-1": "#f5f5f5",
+            "on-surface": "#f9dcd4",
+            "surface-container": "#2b1c17",
+            "primary-fixed": "#ffdbcf",
+            "on-tertiary-fixed": "#001e30",
+            "fg-rust": "#ff4444",
+            "secondary-fixed-dim": "#95da24",
+            "tertiary": "#8dcdff",
+            "fg-text-3": "rgba(245, 245, 245, 0.42)",
+            "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+            "fg-orange-dk": "#d9480f",
+            "on-secondary-fixed": "#111f00",
+            "on-primary-container": "#561700",
+            "surface": "#1e100b",
+            "on-error-container": "#ffdad6",
+            "fg-surface": "rgba(255, 255, 255, 0.04)",
+            "fg-amber": "#f59e0b",
+            "on-primary-fixed-variant": "#832700",
+            "outline-variant": "#5b4138",
+            "on-surface-variant": "#e3bfb3",
+            "fg-border": "rgba(255, 255, 255, 0.08)",
+            "surface-container-high": "#372621",
+            "tertiary-fixed": "#cae6ff",
+            "on-secondary-fixed-variant": "#324f00",
+            "fg-canvas": "#050505",
+            "fg-border-md": "rgba(255, 255, 255, 0.14)",
+            "tertiary-fixed-dim": "#8dcdff",
+            "on-tertiary-fixed-variant": "#004b70",
+            "fg-text-2": "rgba(245, 245, 245, 0.64)",
+            "primary-container": "#ff5f1f",
+            "on-tertiary-container": "#00304a",
+            "surface-bright": "#47352f",
+            "fg-neutral-85": "#1a1a1a",
+            "outline": "#aa897f",
+            "surface-tint": "#ffb59c",
+            "surface-container-highest": "#42312b",
+            "secondary-container": "#83c600",
+            "error-container": "#93000a",
+            "secondary-fixed": "#b0f743",
+            "on-tertiary": "#00344f",
+            "inverse-surface": "#f9dcd4",
+            "surface-variant": "#42312b",
+            "on-error": "#690005",
+            "background": "#1e100b",
+            "on-primary": "#5c1900",
+            "inverse-on-surface": "#3d2c27",
+            "fg-orange-lt": "#ff7a45",
+            "surface-container-low": "#271813",
+            "tertiary-container": "#009de4",
+            "surface-dim": "#1e100b",
+            "on-primary-fixed": "#390c00",
+            "primary-fixed-dim": "#ffb59c",
+            "on-secondary-container": "#314d00",
+            "on-background": "#f9dcd4",
+            "secondary": "#9de32e",
+            "on-secondary": "#213600",
+            "inverse-primary": "#ab3600"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "6": "24px",
+            "8": "32px",
+            "2": "8px",
+            "16": "64px",
+            "4": "16px",
+            "1": "4px",
+            "3": "12px",
+            "12": "48px",
+            "20": "80px"
+          },
+          "fontFamily": {
+            "display-xl": ["Space Grotesk"],
+            "display-lg": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-md": ["Space Grotesk"],
+            "mono-data": ["JetBrains Mono"],
+            "headline-lg": ["Space Grotesk"],
+            "section-label": ["JetBrains Mono"],
+            "display-lg-mobile": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+            "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { background-color: #050505; color: #f5f5f5; }
+    .glass { backdrop-filter: blur(12px); }
+    .status-stripe-orange { border-top: 3px solid #ff5f1f; }
+    .shadow-glow-orange:hover { box-shadow: 0 0 20px rgba(255, 95, 31, 0.4); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .custom-scrollbar</style></head><body></body></html>

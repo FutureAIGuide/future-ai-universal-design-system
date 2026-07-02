@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prompt Template Editor | FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "tertiary": "#8dcdff",
+                      "on-primary-fixed-variant": "#832700",
+                      "fg-neutral-85": "#1a1a1a",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#42312b",
+                      "fg-rust": "#ff4444",
+                      "error": "#ffb4ab",
+                      "primary-fixed-dim": "#ffb59c",
+                      "fg-canvas": "#050505",
+                      "surface-bright": "#47352f",
+                      "surface-container-high": "#372621",
+                      "outline": "#aa897f",
+                      "on-primary-container": "#561700",
+                      "on-surface-variant": "#e3bfb3",
+                      "on-tertiary-fixed": "#001e30",
+                      "fg-orange-dk": "#d9480f",
+                      "secondary-fixed-dim": "#95da24",
+                      "fg-border": "rgba(255, 255, 255, 0.08)",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#009de4",
+                      "on-secondary": "#213600",
+                      "surface-container": "#2b1c17",
+                      "secondary-fixed": "#b0f743",
+                      "fg-orange-lt": "#ff7a45",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                      "background": "#1e100b",
+                      "primary-fixed": "#ffdbcf",
+                      "inverse-on-surface": "#3d2c27",
+                      "inverse-surface": "#f9dcd4",
+                      "secondary": "#9de32e",
+                      "on-tertiary": "#00344f",
+                      "primary": "#ffb59c",
+                      "on-background": "#f9dcd4",
+                      "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                      "outline-variant": "#5b4138",
+                      "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                      "on-error-container": "#ffdad6",
+                      "fg-text-1": "#f5f5f5",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "surface-dim": "#1e100b",
+                      "tertiary-fixed": "#cae6ff",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "fg-amber": "#f59e0b",
+                      "primary-container": "#ff5f1f",
+                      "secondary-container": "#83c600",
+                      "on-primary-fixed": "#390c00",
+                      "on-primary": "#5c1900",
+                      "on-secondary-fixed": "#111f00",
+                      "surface-variant": "#42312b",
+                      "on-surface": "#f9dcd4",
+                      "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                      "surface-container-lowest": "#180b07",
+                      "on-tertiary-container": "#00304a",
+                      "on-secondary-container": "#314d00",
+                      "inverse-primary": "#ab3600",
+                      "surface-tint": "#ffb59c",
+                      "surface-container-low": "#271813",
+                      "surface": "#1e100b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "8": "32px",
+                      "12": "48px",
+                      "4": "16px",
+                      "6": "24px",
+                      "3": "12px",
+                      "20": "80px",
+                      "16": "64px",
+                      "2": "8px",
+                      "1": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "display-md": ["Space Grotesk"],
+                      "section-label": ["JetBrains Mono"],
+                      "display-xl": ["Space Grotesk"],
+                      "headline-md": ["Space Grotesk"],
+                      "body-sm": ["Inter"],
+                      "mono-data": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                      "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .editor-container {
+            height: calc(100vh - 72px);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            height: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #ff5f1f;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .token-badge {
+            background: rgba(163, 233, 53, 0.1);
+            color: #a3e935;
+            border: 1px solid rgba(163, 233, 53, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-md text-headline-lg tracking-tighter text-fg-orange-lt">FUTURE AI GUIDE</span>
+<div class="hidden md:flex gap-6">
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-orange-lt transition-colors duration-200" href="#">Intelligence</a>
+<a class="text-fg-text-1 border-b border-fg-orange-lt font-section-label uppercase" href="#">Terminals</a>
+<a class="text-fg-text-3 font-section-label uppercase hover:text-fg-orange-lt transition-colors duration-200" href="#">Vault</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-fg-surface px-3 py-1 rounded-lg border border-fg-border">
+<span class="material-symbols-outlined text-fg-text-3 text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-section-label w-48 text-fg-text-1" placeholder="QUERY NETWORK..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-fg-orange-lt transition-transform active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-fg-text-3 hover:text-fg-orange-lt transition-transform active:scale-95">terminal</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-fg-orange-lt/40">
+<img class="w-full h-full object-cover" data-alt="A professional close-up of a high-tech system operator wearing a specialized tactical interface headset. The lighting is cinematic with deep blue and sharp orange rim lights against a dark industrial background. The operator's expression is focused and analytical, fitting the cold investigative aesthetic of the Future AI network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1OfL22hvc_UmzB0IOUpdiU2DDUItqIn45Izt9LkYxYc9jLEW3lv6oSUw-AQew13a8XZI01pxr4wH61YhWMjDolYfuYySOwEv3MP1rSUZhLG1HAaMv2xVQ7jQEaPtdvi_mmeOOq0eyc7cXTNnbsRDVjg6VH_Dl7KVgK0PXhP2LZNrEdXRNwCzzmd_y4jxmvdya_Ko_he3NiGJrt7-HRrnByHqaj5WdoXtBeEyjJYPYK1BMf40xltrhJTUAbERdmQjjc3w212FNt0o"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex pt-[72px] h-screen">
+<!-- SideNavBar -->
+<aside class="h-full w-64 border-r border-fg-border bg-fg-canvas flex flex-col py-8 shrink-0">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(163,233,53,0.6)]"></div>
+<span class="font-section-label text-fg-text-1">OP_INTEL_01</span>
+</div>
+<span class="text-fg-text-3 text-xs uppercase tracking-widest font-section-label">Verified Clearance</span>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-lg">radar</span>
+<span class="font-section-label text-xs uppercase">Hub</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-lg">query_stats</span>
+<span class="font-section-label text-xs uppercase">Queue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-fg-orange-lt bg-primary-container/10 border-r-2 border-primary transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span class="font-section-label text-xs uppercase">Prompt Lab</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-lg">folder_managed</span>
+<span class="font-section-label text-xs uppercase">Files</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-fg-text-3 hover:bg-fg-surface-md hover:text-fg-text-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-lg">hub</span>
+<span class="font-section-label text-xs uppercase">Network</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-fg-orange-dk hover:bg-fg-orange-lt text-fg-canvas font-section-label text-xs tracking-tighter transition-colors active:scale-95">
+                    NEW INVESTIGATION
+                </button>
+<div class="mt-4 pt-4 border-t border-fg-border flex justify-around">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-fg-text-1">lock</span>
+<span class="font-mono-data text-[9px] text-fg-text-3 uppercase">Security</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-fg-text-3 group-hover:text-fg-text-1">check_circle</span>
+<span class="font-mono-data text-[9px] text-fg-text-3 uppercase">Status</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Column 1: Variables -->
+<div class="w-64 border-r border-fg-border flex flex-col bg-fg-canvas/50">
+<div class="p-6 border-b border-fg-border">
+<h2 class="font-headline-md text-fg-text-1 mb-1">Variables</h2>
+<p class="font-section-label text-fg-text-3 text-[10px]">DYNAMIC INJECTORS</p>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-3">
+<div class="group cursor-pointer p-3 glass-panel rounded-lg hover:border-fg-orange-lt/50 transition-all active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<code class="font-mono-data text-xs text-fg-orange-lt font-bold">{{TARGET_ENTITY}}</code>
+<span class="material-symbols-outlined text-sm text-fg-text-3">drag_indicator</span>
+</div>
+<p class="text-[10px] text-fg-text-2 leading-relaxed">The primary subject of investigation (Name, Alias, or ID).</p>
+</div>
+<div class="group cursor-pointer p-3 glass-panel rounded-lg hover:border-fg-orange-lt/50 transition-all active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<code class="font-mono-data text-xs text-fg-orange-lt font-bold">{{EVIDENCE_LOG}}</code>
+<span class="material-symbols-outlined text-sm text-fg-text-3">drag_indicator</span>
+</div>
+<p class="text-[10px] text-fg-text-2 leading-relaxed">Raw decrypted logs associated with the target session.</p>
+</div>
+<div class="group cursor-pointer p-3 glass-panel rounded-lg hover:border-fg-orange-lt/50 transition-all active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<code class="font-mono-data text-xs text-fg-orange-lt font-bold">{{TIMESTAMP}}</code>
+<span class="material-symbols-outlined text-sm text-fg-text-3">drag_indicator</span>
+</div>
+<p class="text-[10px] text-fg-text-2 leading-relaxed">ISO-8601 formatted marker of the query initialization.</p>
+</div>
+<div class="group cursor-pointer p-3 glass-panel rounded-lg hover:border-fg-orange-lt/50 transition-all active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<code class="font-mono-data text-xs text-fg-orange-lt font-bold">{{LOCAL_AUTH}}</code>
+<span class="material-symbols-outlined text-sm text-fg-text-3">drag_indicator</span>
+</div>
+<p class="text-[10px] text-fg-text-2 leading-relaxed">The current authorized operative's digital signature.</p>
+</div>
+</div>
+<div class="p-4 bg-fg-surface-md border-t border-fg-border">
+<button class="w-full py-2 border border-fg-border-md text-fg-text-2 font-section-label text-[10px] uppercase flex items-center justify-center gap-2 hover:bg-fg-surface hover:text-fg-text-1 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span> Define Custom Tag
+                    </button>
+</div>
+</div>
+<!-- Column 2: Editor -->
+<div class="flex-1 flex flex-col bg-fg-canvas relative">
+<!-- Editor Toolbar -->
+<div class="h-14 px-6 border-b border-fg-border flex items-center justify-between bg-fg-canvas/90 backdrop-blur-sm sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<div class="flex gap-1 pr-4 border-r border-fg-border">
+<button class="p-1.5 hover:bg-fg-surface rounded text-fg-text-3 hover:text-fg-text-1 transition-colors material-symbols-outlined text-xl">format_bold</button>
+<button class="p-1.5 hover:bg-fg-surface rounded text-fg-text-3 hover:text-fg-text-1 transition-colors material-symbols-outlined text-xl">format_italic</button>
+<button class="p-1.5 hover:bg-fg-surface rounded text-fg-text-3 hover:text-fg-text-1 transition-colors material-symbols-outlined text-xl">code</button>
+</div>
+<div class="flex gap-1">
+<button class="flex items-center gap-2 px-3 py-1.5 hover:bg-fg-surface rounded border border-fg-border text-fg-text-2 hover:text-fg-text-1 transition-colors">
+<span class="material-symbols-outlined text-lg">variable_add</span>
+<span class="font-section-label text-[10px] uppercase">Inject Var</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-[10px] text-fg-text-3 px-2 py-0.5 border border-fg-border rounded">GPT-4_PROMPT_ENGINE_V3</span>
+</div>
+</div>
+<!-- Main Text Editor -->
+<div class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-3xl mx-auto h-full">
+<input class="bg-transparent border-none focus:ring-0 font-headline-lg text-fg-text-1 p-0 mb-6 w-full placeholder:text-fg-text-3" placeholder="Template Name" type="text" value="System_Investigation_Protocol_01"/>
+<div class="min-h-full font-mono-data text-sm leading-relaxed text-fg-text-2 focus:outline-none" contenteditable="true" spellcheck="false">
+<p class="text-fg-orange-lt"># SYSTEM ROLE DEFINITION</p>
+<p>You are an advanced investigative AI operating within the FUTURE AI GUIDE network. Your objective is to analyze evidence and determine the threat level of <span class="text-fg-orange-lt font-bold">{{TARGET_ENTITY}}</span>.</p>
+<br/>
+<p class="text-fg-orange-lt"># EVIDENCE DATASET</p>
+<p>Reference the following logs provided at <span class="text-fg-orange-lt font-bold">{{TIMESTAMP}}</span>:</p>
+<p class="px-4 py-2 my-2 bg-fg-surface border-l-2 border-fg-orange-lt">
+<span class="text-fg-orange-lt font-bold">{{EVIDENCE_LOG}}</span>
+</p>
+<br/>
+<p class="text-fg-orange-lt"># MANDATE</p>
+<p>1. Identify all cryptographic anomalies.<br/>
+                            2. Cross-reference signatures with <span class="text-fg-orange-lt font-bold">{{LOCAL_AUTH}}</span> clearance standards.<br/>
+                            3. Generate a High-Density Probability Report.</p>
+<br/>
+<p class="animate-pulse inline-block border-r-2 border-fg-orange-lt"> </p>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 border-t border-fg-border flex items-center justify-between bg-fg-canvas/90 backdrop-blur-sm">
+<div class="flex items-center gap-4">
+<div class="token-badge px-3 py-1 rounded-full flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-section-label text-[9px] uppercase tracking-widest">Syntax Verified</span>
+</div>
+<span class="font-mono-data text-[10px] text-fg-text-3">142 TOKENS EST.</span>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-fg-border-md text-fg-text-2 font-section-label text-xs uppercase hover:bg-fg-surface-md hover:text-fg-text-1 transition-all">Cancel</button>
+<button class="px-8 py-2 bg-fg-orange-dk hover:bg-fg-orange-lt text-fg-canvas font-section-label text-xs font-bold uppercase shadow-orange/20 shadow-lg transition-all active:scale-95">Save Template</button>
+</div>
+</div>
+</div>
+<!-- Column 3: Preview & Config -->
+<div class="w-80 border-l border-fg-border flex flex-col bg-fg-canvas/50">
+<!-- Preview Header -->
+<div class="h-14 px-6 border-b border-fg-border flex items-center justify-between bg-fg-surface">
+<span class="font-section-label text-xs uppercase tracking-widest text-fg-text-1">Live Output</span>
+<button class="material-symbols-outlined text-lg text-fg-text-3 hover:text-fg-orange-lt">refresh</button>
+</div>
+<!-- Preview Body -->
+<div class="p-6 flex-1 overflow-y-auto space-y-6">
+<div class="glass-panel p-4 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<h4 class="font-section-label text-[10px] text-fg-text-3 uppercase mb-3">Simulation Mode</h4>
+<div class="font-mono-data text-[11px] leading-relaxed text-fg-text-2 space-y-4">
+<p>You are an advanced investigative AI... analyze <span class="bg-secondary/10 text-secondary border border-secondary/20 px-1">SUBJECT_OMEGA_9</span>.</p>
+<p>Reference the following logs provided at <span class="bg-secondary/10 text-secondary border border-secondary/20 px-1">2024-05-21T09:42:00Z</span>:</p>
+<div class="p-2 bg-fg-canvas border border-fg-border text-[9px] text-fg-text-3 italic">
+                                [LOG_START] Critical override detected at node-4. Hash mismatch in sector 7G...
+                            </div>
+</div>
+</div>
+<!-- Config Sliders -->
+<div class="space-y-6 pt-4">
+<h4 class="font-section-label text-xs uppercase tracking-widest text-fg-text-1 border-b border-fg-border pb-2">Technical Parameters</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="font-section-label text-[10px] text-fg-text-2 uppercase">Temperature</label>
+<span class="font-mono-data text-[10px] text-fg-orange-lt">0.72</span>
+</div>
+<input class="w-full" max="1" min="0" step="0.01" type="range" value="0.72"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="font-section-label text-[10px] text-fg-text-2 uppercase">Top-P Sampling</label>
+<span class="font-mono-data text-[10px] text-fg-orange-lt">0.90</span>
+</div>
+<input class="w-full" max="1" min="0" step="0.01" type="range" value="0.9"/>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="font-section-label text-[10px] text-fg-text-2 uppercase">Max Sequence</label>
+<span class="font-mono-data text-[10px] text-fg-orange-lt">2048</span>
+</div>
+<input class="w-full" max="4096" min="256" step="128" type="range" value="2048"/>
+</div>
+<div class="pt-4 border-t border-fg-border">
+<label class="font-section-label text-[10px] text-fg-text-2 uppercase block mb-3">Model Identity</label>
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-between p-2 glass-panel border-fg-orange-lt/40 bg-fg-orange-dk/5 text-fg-orange-lt text-[10px] font-section-label uppercase">
+<span>Claude-3-Opus-G6</span>
+<span class="material-symbols-outlined text-xs">radio_button_checked</span>
+</button>
+<button class="flex items-center justify-between p-2 glass-panel hover:bg-fg-surface text-fg-text-3 text-[10px] font-section-label uppercase transition-colors">
+<span>GPT-4-Turbo-Terminal</span>
+<span class="material-symbols-outlined text-xs">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between p-2 glass-panel hover:bg-fg-surface text-fg-text-3 text-[10px] font-section-label uppercase transition-colors">
+<span>Llama-3-Admissible</span>
+<span class="material-symbols-outlined text-xs">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Model Stats -->
+<div class="p-6 mt-auto bg-fg-canvas border-t border-fg-border">
+<div class="flex justify-between mb-4">
+<div class="text-center">
+<p class="font-mono-data text-[14px] text-fg-text-1">2.4k</p>
+<p class="font-section-label text-[8px] text-fg-text-3 uppercase">Words</p>
+</div>
+<div class="text-center">
+<p class="font-mono-data text-[14px] text-fg-text-1">0.12s</p>
+<p class="font-section-label text-[8px] text-fg-text-3 uppercase">Latency</p>
+</div>
+<div class="text-center">
+<p class="font-mono-data text-[14px] text-fg-text-1">$0.02</p>
+<p class="font-section-label text-[8px] text-fg-text-3 uppercase">Est. Cost</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple drag-and-drop placeholder handling
+        document.querySelectorAll('.cursor-pointer.glass-panel').forEach(item => {
+            item.addEventListener('click', () => {
+                const varText = item.querySelector('code').innerText;
+                const editor = document.querySelector('[contenteditable="true"]');
+                
+                // Simplified insertion for demo - appends to end
+                const span = document.createElement('span');
+                span.className = 'text-fg-orange-lt font-bold';
+                span.textContent = ' ' + varText + ' ';
+                editor.appendChild(span);
+                editor.focus();
+                
+                // Visual feedback
+                item.style.borderColor = '#ff5f1f';
+                setTimeout(() => { item.style.borderColor = 'rgba(255, 255, 255, 0.08)'; }, 300);
+            });
+        });
+
+        // Range slider value display update
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            slider.addEventListener('input', (e) => {
+                const display = e.target.previousElementSibling.querySelector('.font-mono-data');
+                if (display) {
+                    display.innerText = e.target.value;
+                }
+            });
+        });
+    </script>
+</body></html>

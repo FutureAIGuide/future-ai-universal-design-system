@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FUTURE AI GUIDE | Intelligence Network</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-low": "#271813",
+                "surface-tint": "#ffb59c",
+                "on-surface": "#f9dcd4",
+                "fg-orange-dk": "#d9480f",
+                "on-surface-variant": "#e3bfb3",
+                "on-secondary-fixed": "#111f00",
+                "fg-text-1": "#f5f5f5",
+                "on-primary-fixed-variant": "#832700",
+                "tertiary-container": "#009de4",
+                "outline": "#aa897f",
+                "surface-container-highest": "#42312b",
+                "error": "#ffb4ab",
+                "surface-dim": "#1e100b",
+                "on-secondary": "#213600",
+                "on-secondary-fixed-variant": "#324f00",
+                "inverse-surface": "#f9dcd4",
+                "background": "#1e100b",
+                "secondary": "#9de32e",
+                "tertiary-fixed": "#cae6ff",
+                "on-background": "#f9dcd4",
+                "secondary-fixed-dim": "#95da24",
+                "surface": "#1e100b",
+                "surface-bright": "#47352f",
+                "primary-fixed-dim": "#ffb59c",
+                "primary": "#ffb59c",
+                "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                "fg-amber": "#f59e0b",
+                "tertiary": "#8dcdff",
+                "primary-container": "#ff5f1f",
+                "fg-text-3": "rgba(245, 245, 245, 0.42)",
+                "tertiary-fixed-dim": "#8dcdff",
+                "primary-fixed": "#ffdbcf",
+                "on-tertiary-fixed": "#001e30",
+                "on-tertiary-container": "#00304a",
+                "secondary-fixed": "#b0f743",
+                "outline-variant": "#5b4138",
+                "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                "on-error-container": "#ffdad6",
+                "fg-surface": "rgba(255, 255, 255, 0.04)",
+                "on-tertiary": "#00344f",
+                "error-container": "#93000a",
+                "secondary-container": "#83c600",
+                "fg-rust": "#ff4444",
+                "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                "surface-container": "#2b1c17",
+                "inverse-on-surface": "#3d2c27",
+                "inverse-primary": "#ab3600",
+                "on-tertiary-fixed-variant": "#004b70",
+                "fg-border": "rgba(255, 255, 255, 0.08)",
+                "on-primary-container": "#561700",
+                "on-secondary-container": "#314d00",
+                "fg-neutral-85": "#1a1a1a",
+                "surface-container-high": "#372621",
+                "on-primary": "#5c1900",
+                "fg-canvas": "#050505",
+                "surface-variant": "#42312b",
+                "on-primary-fixed": "#390c00",
+                "on-error": "#690005",
+                "fg-orange-lt": "#ff7a45",
+                "surface-container-lowest": "#180b07"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "8": "32px",
+                "12": "48px",
+                "16": "64px",
+                "3": "12px",
+                "4": "16px",
+                "1": "4px",
+                "2": "8px",
+                "6": "24px",
+                "20": "80px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "section-label": ["JetBrains Mono"],
+                "display-lg": ["Space Grotesk"],
+                "display-md": ["Space Grotesk"],
+                "display-xl": ["Space Grotesk"],
+                "body-sm": ["Inter"],
+                "headline-lg": ["Space Grotesk"],
+                "headline-md": ["Space Grotesk"],
+                "mono-data": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-orange:hover {
+            box-shadow: 0 0 20px rgba(255, 122, 69, 0.2);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 122, 69, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .roadmap-line {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(176, 247, 67, 0.5) 0%, rgba(176, 247, 67, 0) 100%);
+        }
+    </style>
+</head>
+<body class="font-body-lg">
+<!-- TOP NAVIGATION -->
+<nav class="fixed top-0 z-50 w-full bg-fg-canvas/80 backdrop-blur-xl border-b border-fg-border">
+<div class="flex justify-between items-center w-full px-16 py-4 max-w-[1440px] mx-auto">
+<div class="text-headline-lg font-headline-lg font-bold tracking-tighter text-fg-text-1 uppercase">
+                FUTURE AI <span class="text-primary-container">GUIDE</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary border-b border-primary pb-1 font-section-label text-section-label uppercase tracking-widest transition-all duration-300" href="#">HUB</a>
+<a class="text-fg-text-3 hover:text-fg-text-1 font-section-label text-section-label uppercase tracking-widest transition-all duration-300" href="#">CORE VALUES</a>
+<a class="text-fg-text-3 hover:text-fg-text-1 font-section-label text-section-label uppercase tracking-widest transition-all duration-300" href="#">PLATFORM</a>
+<a class="text-fg-text-3 hover:text-fg-text-1 font-section-label text-section-label uppercase tracking-widest transition-all duration-300" href="#">KNOWLEDGEBASE</a>
+</div>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 text-section-label font-section-label uppercase tracking-widest transition-all active:scale-95 duration-300" href="#">
+                [YOUR LINK HERE]
+            </a>
+</div>
+</nav>
+<!-- HERO SECTION -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<!-- WebGL Background Layer -->
+<!-- STITCH_SHADER_START:ANIMATION_41 class="absolute inset-0 w-full h-full -z-10 opacity-60" -->
+<div class="absolute inset-0 w-full h-full -z-10 opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_41" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_41');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+varying vec2 v_texCoord;
+
+// --- NOISE FUNCTIONS ---
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float snoise(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+    vec2 i  = floor(v + dot(v, C.yy));
+    vec2 x0 = v -   i + dot(i, C.xx);
+    vec2 i1;
+    i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289(i);
+    vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+    m = m*m;
+    m = m*m;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+    vec3 g;
+    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 center = uv - 0.5;
+    center.x *= u_resolution.x / u_resolution.y;
+    
+    // Controlled Menace Palette
+    vec3 color_bg = vec3(0.02, 0.02, 0.02); // #050505 adjacent
+    vec3 color_orange = vec3(1.0, 0.37, 0.12); // #ff5f1f
+    vec3 color_lime = vec3(0.64, 0.91, 0.21); // #a3e935
+    
+    float t = u_time * 0.15;
+    
+    // Primary flow (Menace)
+    float n1 = snoise(uv * 1.5 + t);
+    float n2 = snoise(uv * 3.0 - t * 1.5);
+    float combined_noise = n1 * 0.5 + n2 * 0.25;
+    
+    // Vertical scanline logic (Intelligence)
+    float scanline = sin(uv.y * 100.0 + u_time * 2.0) * 0.02;
+    float vertical_flow = fract(uv.y * 5.0 - u_time * 0.5);
+    float grid = step(0.98, fract(uv.x * 10.0)) + step(0.98, fract(uv.y * 10.0));
+    
+    // Mouse Interaction
+    float mouse_dist = length(uv - u_mouse/u_resolution);
+    float mouse_flare = smoothstep(0.3, 0.0, mouse_dist) * 0.1;
+    
+    // Composition
+    vec3 final_color = color_bg;
+    
+    // Apply atmosphere
+    final_color += color_orange * smoothstep(0.3, 0.8, combined_noise) * 0.15;
+    
+    // Data stream highlights
+    float streams = step(0.95, fract(uv.x * 20.0 + n1 * 0.5));
+    final_color += color_orange * streams * vertical_flow * 0.05;
+    
+    // Grid pulse
+    final_color += color_lime * grid * (0.02 + sin(u_time) * 0.01);
+    
+    // Vignette
+    float vignette = smoothstep(1.2, 0.3, length(center));
+    final_color *= vignette;
+    
+    // Add mouse flare
+    final_color += color_orange * mouse_flare;
+    
+    gl_FragColor = vec4(final_color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_41 -->
+<div class="relative z-10 px-16 max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-block border border-secondary px-3 py-1">
+<span class="text-secondary font-mono-data text-section-label uppercase tracking-[0.2em]">SYSTEM INITIALIZED</span>
+</div>
+<h1 class="text-display-xl font-display-xl leading-none">
+                    THE ULTIMATE<br/>
+<span class="text-primary-container">AI RESOURCE</span><br/>
+                    HUB
+                </h1>
+<p class="text-fg-text-2 max-w-xl text-body-lg font-body-lg">
+                    Curating, listing, and explaining the rapidly evolving landscape of AI tools. Your authoritative directory for AI enthusiasts, creators, developers, and business leaders.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 text-section-label font-section-label uppercase tracking-widest transition-all hover:bg-primary duration-300 shadow-orange/20 shadow-lg">
+                        EXPLORE DIRECTORY
+                    </button>
+<button class="border border-fg-border-md text-fg-text-1 px-8 py-4 text-section-label font-section-label uppercase tracking-widest hover:bg-fg-surface-md transition-all duration-300">
+                        ACCESS DATABASE
+                    </button>
+</div>
+</div>
+<!-- Interface Preview -->
+<div class="relative lg:block hidden">
+<div class="glass-panel p-2 p-1 relative group transition-all duration-500 hover:border-primary-container">
+<div class="scanline"></div>
+<img class="w-full border border-fg-border-md grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A high-fidelity dashboard interface display on a curved monitor, showing complex data visualizations, network nodes, and investigative files. The UI is dark with orange and lime green accents, glowing in a dark room. Minimalist typography and technical diagrams dominate the layout, suggesting a sophisticated intelligence platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1N7gapLNmaJen7niPZaySfYeov8AhRab4v7DAB21XLGG1g9IAocdT_meWO7R_1RZUvT60yGkJ1Jl4xFszjbCP-UHgg5ExWGXS5ZCfpDnaqUPj-5sJj0YxZ6ChCL39k18M4Xy2aDKHS5JNOFwBmLn0ADG7XuLbB0z2WwTABh72V0ug7AZPI8WLhJYRI2bgLIxFJgqYVMlhWPIvVmqipAtAaCceUcAloZ811dIispKgy8NB185UX11Hj_VvqDufStw2HPZ8NJ5LIWI"/>
+<!-- Accent borders -->
+<div class="absolute -top-4 -right-4 w-12 h-12 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute -bottom-4 -left-4 w-12 h-12 border-b-2 border-l-2 border-secondary"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- KNOWLEDGEBASE / LEARNING ROADMAP -->
+<section class="py-20 px-16 bg-surface-container-lowest relative">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-16 space-y-4">
+<h2 class="text-display-md font-display-md uppercase">IN-DEPTH KNOWLEDGEBASE</h2>
+<p class="text-fg-text-2 max-w-2xl mx-auto text-body-lg font-body-lg">
+                    Beyond a directory, we provide a structured learning roadmap and tutorial systems to help you master AI tools, complete with progress tracking and curated foundational resources.
+                </p>
+</div>
+<!-- Roadmap visualization -->
+<div class="relative py-12 mb-20 overflow-x-auto">
+<div class="min-w-[1000px]">
+<div class="roadmap-line absolute top-1/2 left-0 w-full"></div>
+<div class="flex justify-between items-center relative">
+<!-- Node 1 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-secondary shadow-[0_0_15px_rgba(176,247,67,0.8)] z-10"></div>
+<span class="font-mono-data text-section-label text-secondary uppercase">Foundations</span>
+</div>
+<!-- Node 2 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-secondary shadow-[0_0_15px_rgba(176,247,67,0.4)] z-10"></div>
+<span class="font-mono-data text-section-label text-secondary uppercase">Machine Learning</span>
+</div>
+<!-- Node 3 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-fg-border-md z-10 group-hover:bg-fg-text-1 transition-colors"></div>
+<span class="font-mono-data text-section-label text-fg-text-3 group-hover:text-fg-text-1 uppercase">Deep Learning</span>
+</div>
+<!-- Node 4 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-fg-border-md z-10"></div>
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase">NLP</span>
+</div>
+<!-- Node 5 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-fg-border-md z-10"></div>
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase">Vision</span>
+</div>
+<!-- Node 6 -->
+<div class="flex flex-col items-center gap-4 group">
+<div class="w-4 h-4 rounded-full bg-fg-border-md z-10"></div>
+<span class="font-mono-data text-section-label text-fg-text-3 uppercase">Agents</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Learning Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-panel p-8 border-t-4 border-t-secondary transition-all hover:bg-fg-surface-md group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl">school</span>
+<span class="text-mono-data text-section-label text-secondary">ACTIVE</span>
+</div>
+<h3 class="text-headline-md font-headline-md mb-4 group-hover:text-secondary transition-colors">AI Core Foundations</h3>
+<p class="text-fg-text-3 text-body-sm mb-6">Master the fundamental principles of neural networks and transformer architectures.</p>
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1 bg-fg-border rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-secondary"></div>
+</div>
+<span class="text-mono-data text-section-label text-fg-text-1">65%</span>
+</div>
+</div>
+<div class="glass-panel p-8 border-t-4 border-t-primary-container transition-all hover:bg-fg-surface-md group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-primary-container text-3xl">code</span>
+<span class="text-mono-data text-section-label text-fg-text-3">LOCKED</span>
+</div>
+<h3 class="text-headline-md font-headline-md mb-4">Prompt Engineering Pro</h3>
+<p class="text-fg-text-3 text-body-sm mb-6">Advanced strategies for large language model orchestration and output refinement.</p>
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1 bg-fg-border rounded-full overflow-hidden">
+<div class="w-0 h-full bg-primary-container"></div>
+</div>
+<span class="text-mono-data text-section-label text-fg-text-3">0%</span>
+</div>
+</div>
+<div class="glass-panel p-8 border-t-4 border-t-fg-rust transition-all hover:bg-fg-surface-md group">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-fg-rust text-3xl">policy</span>
+<span class="text-mono-data text-section-label text-fg-text-3">LOCKED</span>
+</div>
+<h3 class="text-headline-md font-headline-md mb-4">AI Safety &amp; Ethics</h3>
+<p class="text-fg-text-3 text-body-sm mb-6">Navigating the legal and moral complexities of synthetic media and automation.</p>
+<div class="flex items-center gap-2">
+<div class="flex-1 h-1 bg-fg-border rounded-full overflow-hidden">
+<div class="w-0 h-full bg-fg-rust"></div>
+</div>
+<span class="text-mono-data text-section-label text-fg-text-3">0%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMPREHENSIVE ECOSYSTEM -->
+<section class="py-20 px-16">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2 space-y-8">
+<h2 class="text-display-md font-display-md leading-tight">
+<span class="text-primary-container">FUTURE AI GUIDE</span><br/>
+                    INTERFACE
+                </h2>
+<h3 class="text-headline-lg font-headline-lg uppercase tracking-wider text-fg-text-1">Comprehensive Directory</h3>
+<div class="space-y-6">
+<p class="text-fg-text-2 text-body-lg font-body-lg">
+                        Experience an intuitive interface designed for discovering and understanding the next generation of AI applications. Our directory provides in-depth explanations and categorizes tools to streamline your workflow.
+                    </p>
+<p class="text-fg-text-3 text-body-lg font-body-lg">
+                        Whether you are looking for generative AI solutions, SaaS integrations, or prompt engineering resources, the platform is structured for efficient exploration.
+                    </p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-fg-text-1">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-mono-data">Validated Technical Specifications</span>
+</li>
+<li class="flex items-center gap-3 text-fg-text-1">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-mono-data">Integration Difficulty Ratings</span>
+</li>
+<li class="flex items-center gap-3 text-fg-text-1">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="font-mono-data">Cost-Benefit Analysis Frameworks</span>
+</li>
+</ul>
+</div>
+<div class="lg:w-1/2">
+<div class="relative">
+<div class="w-full aspect-[4/3] glass-panel border-fg-border-md p-1 shadow-2xl overflow-hidden group" data-alt="A clean, minimalist UI layout showing a grid of AI software tiles. Each tile has a high-quality icon, a short technical description, and small status indicators. The overall design is professional and data-rich, using a dark theme with vibrant orange accents for CTA buttons. The lighting is crisp and the composition is balanced." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUNLqBa5mdK89qKTTuzzu7HEwp3COZWCWL5jri8VNNeDNz2Zqe64z0XelJ7HEW2O_mYa-J9GJH7upUqDKu3_6o1zwKvx1sY9a86pXlwuzwv4XHJVL3YbUBM3p0VL2zr4VfsWta1Ng-wpMdse4AmyzhBAQRJn3JPM2STfgSPQsYK_DSElU1nlwvqy60GG7KBy319tNXtcGAIYOQmfHot3AafBQ57-bx9Pwdu_YV4Gkh3fj3cPLXvlP2N0cZ0gaS8WGi3xQUdV1M3HM')">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCw2zXEFxnNcz-DvXc8lmRSWBtDqFi71hGHw0cQ8yjyVEIdL7T_gQ2wUCvnrj-2YZTdi4aIWEi3u8AlIfpP4y_fK9BNnsQFy5KKEXaGfx_EgFj8A-Dl7mup8NYTDRW8RSGvNkepUryT0aIEfGtF53nOt4EoTMm1waPOxy2NxwZvhwUDmUmisQNAceoLFYGLMTAQWZ0cjcwv6SOwV4i0zqYq__eewMVbowDSJ9lMhUo1FPm4wqoxXhw567VUXtX3e9MyXISMStCxk5I')"></div>
+</div>
+<!-- UI overlay elements -->
+<div class="absolute -top-6 -right-6 glass-panel px-6 py-4 border-l-4 border-l-secondary animate-pulse">
+<div class="text-mono-data text-section-label text-secondary mb-1">NETWORK LIVE</div>
+<div class="text-headline-md font-headline-md">1,204 ENTRIES</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LATEST INVESTIGATIONS -->
+<section class="py-20 px-16 bg-fg-canvas relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-display-md font-display-md uppercase">Latest Investigations</h2>
+<p class="text-fg-text-3 font-mono-data">TRACKING THE EVOLUTION OF MACHINE INTELLIGENCE</p>
+</div>
+<a class="text-primary hover:underline font-section-label text-section-label uppercase tracking-widest" href="#">VIEW ALL REPORTS →</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-panel group overflow-hidden border-t-2 border-secondary">
+<div class="h-48 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A macro photograph of an advanced microchip processor with glowing green electrical currents flowing through its circuits. The image is captured with a shallow depth of field, emphasizing the intricate technical details. High-contrast lighting with deep shadows conveys a sense of powerful hidden computing." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApqFg8vibB6cv1LZP19VZOAbVkYQ60RDT7JwH_f4wZDE662mm7z0jiwmNLHAU_U8XJWeQkBmH0JdW8IjpZi46x3WPGFk0pHGlKNzJiyTPw0wxAEscff7TwFkild_3Aosmfk7iIHytrfedL10acUSKxGO0ZEmuh74FW88jqPmuy6OmpA5RlU-rKJpB9DMyLkmO0hf1VD5kCEQjPB6XtIKPG8vsLQFrWB_vypqecYCczi4RPbE4OqocL49Eaj0mHZSx0kZYIgoNpVKs')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary/10 text-secondary border border-secondary px-2 py-0.5 rounded-full text-[10px] font-mono-data font-bold">VERIFIED</span>
+</div>
+</div>
+<div class="p-6">
+<span class="text-mono-data text-xs text-fg-text-3 mb-2 block">FILE #882-X</span>
+<h4 class="text-headline-md font-headline-md mb-3 group-hover:text-primary transition-colors">Astra-1: First Multi-Modal Core</h4>
+<p class="text-fg-text-2 text-body-sm mb-4">Deep dive into the architecture of the first truly unified vision-language model.</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono-data text-fg-text-3">RELEASE: 24.11.02</span>
+<span class="material-symbols-outlined text-fg-text-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel group overflow-hidden border-t-2 border-primary-container">
+<div class="h-48 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A digital rendering of a neural network represented as a constellation of orange sparks in a void. Long exposure effects create streaks of light connecting the nodes. The mood is analytical yet energetic, suggesting rapid communication and complex reasoning." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWXds5WnCb4fn8rW5Bm5FT9JHsciVJ85n5n1lMBBjZAsI_ur5vImVo_CJa_-OMQFvgB6kqk251NNR5HUZlXpjzuBo14TT_P8fGQwg87_7AcwogL-qWtX0LSGoaPbvixDEmOo7RQ51Sr6vag-9M9yw14aaxe5h0r27Ond-eQK4uEnF1I3JyfAxqAW0UDB8kC4LPtC1ruoYZgm5YRsLVRx9Vn6tfET18ZLaISQVHSHsa3UmCQmd5HxtBSNCOeNtZXxPAeOKcfnH7z1U')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/10 text-primary-container border border-primary-container px-2 py-0.5 rounded-full text-[10px] font-mono-data font-bold uppercase">Investigating</span>
+</div>
+</div>
+<div class="p-6">
+<span class="text-mono-data text-xs text-fg-text-3 mb-2 block">FILE #441-A</span>
+<h4 class="text-headline-md font-headline-md mb-3 group-hover:text-primary transition-colors">Sovereign Agent Swarms</h4>
+<p class="text-fg-text-2 text-body-sm mb-4">Analyzing the emergence of autonomous collaborative agent networks in fintech.</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono-data text-fg-text-3">STATUS: ONGOING</span>
+<span class="material-symbols-outlined text-fg-text-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel group overflow-hidden border-t-2 border-secondary">
+<div class="h-48 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="An abstract visualization of digital encryption layers, appearing as translucent floating planes of code and geometric patterns in a dark space. Cool blue and sharp green highlights define the edges. The aesthetic is extremely precise and technical, resembling an intelligence readout." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMpCIE-wkI900EEx_gNIB-dn7JZr17oAobQvgh9H3S5bjRT-XmAqAUNpsYYq5BL9KeFkJlB4mq59RoTo-usICLa4Oql2N7b8bFTZFaXMCzQSU92I0uNt6lDLT345SbjoRn4Qbi_8BrqNUK3e4-ZZJo8uUiniNpONhDh-PDU0nK5teSeicUrnRUSI6TlZrVLX_txmGVBo8LlmLp7xkkl0d89XkFxCCTUaulaL5-EW2XGGz0LufEgol4xZwyxoBebFGuMojAfegRFS8')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary/10 text-secondary border border-secondary px-2 py-0.5 rounded-full text-[10px] font-mono-data font-bold">VERIFIED</span>
+</div>
+</div>
+<div class="p-6">
+<span class="text-mono-data text-xs text-fg-text-3 mb-2 block">FILE #903-Y</span>
+<h4 class="text-headline-md font-headline-md mb-3 group-hover:text-primary transition-colors">Quantum Embedding Patterns</h4>
+<p class="text-fg-text-2 text-body-sm mb-4">New methods for high-dimensional vector space mapping in distributed databases.</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono-data text-fg-text-3">RELEASE: 24.10.28</span>
+<span class="material-symbols-outlined text-fg-text-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel group overflow-hidden border-t-2 border-primary-container">
+<div class="h-48 relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="A stylized portrait of a human silhouette constructed entirely of golden digital dust and light particles. The silhouette is disintegrating into the darkness, representing the blurring lines between human and machine. Dramatic backlighting creates a profound, almost spiritual investigative mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCV2pzAnm8uDSpNXXCET6QYABMn5y64kj80cLtL7SypERiNPfPXN_WMPLIEtGFDStDqJWITnOEU_9xRxXnDpi_OFsGS8jt0gyo0UUQqne6Z6cXZSbyOtSPD40i-97Wiwch5u9K_3N4Cp_GUdsLHln7JPTN2vj6EhIeV0U0L9C4u9uuqvasgEysxIcwEff9fuBmvoYAgT2jKnC1W1SfMQDhOKXmOWERnQ5_Zqkc5sjOaePKktJm5bHF6GJhTrK8ISFFKwhPMwAS3Q7Q')"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/10 text-primary-container border border-primary-container px-2 py-0.5 rounded-full text-[10px] font-mono-data font-bold uppercase">Investigating</span>
+</div>
+</div>
+<div class="p-6">
+<span class="text-mono-data text-xs text-fg-text-3 mb-2 block">FILE #112-Q</span>
+<h4 class="text-headline-md font-headline-md mb-3 group-hover:text-primary transition-colors">Neural Symbiosis Limits</h4>
+<p class="text-fg-text-2 text-body-sm mb-4">Examining the threshold of human-AI cognitive integration in 2025.</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono-data text-fg-text-3">STATUS: PRIORITY</span>
+<span class="material-symbols-outlined text-fg-text-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="bg-surface-container-lowest border-t border-fg-border-md">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-16 py-20 w-full max-w-[1440px] mx-auto">
+<div class="space-y-6">
+<div class="text-headline-md font-headline-md text-fg-text-2 uppercase">FUTURE AI GUIDE</div>
+<p class="text-body-sm font-body-sm text-fg-text-3">The authoritative source for investigative AI intelligence and tool mapping. Internal Intelligence Network access only.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer">database</span>
+<span class="material-symbols-outlined text-fg-text-3 hover:text-primary cursor-pointer">terminal</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="text-mono-data font-mono-data text-fg-orange-lt uppercase text-xs tracking-widest">NETWORK</div>
+<ul class="space-y-2">
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">TERMINOLOGY</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">NETWORK STATUS</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">API ACCESS</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">ADMISSIBLE EVIDENCE</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<div class="text-mono-data font-mono-data text-fg-orange-lt uppercase text-xs tracking-widest">DIRECTORY</div>
+<ul class="space-y-2">
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">GENERATIVE AGENTS</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">LLM FRAMEWORKS</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">INFRASTRUCTURE</a></li>
+<li><a class="text-body-sm text-fg-text-3 hover:text-fg-text-1 underline underline-offset-4 transition-colors" href="#">DIFFUSION MODELS</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<div class="text-mono-data font-mono-data text-fg-orange-lt uppercase text-xs tracking-widest">TRANSMISSION</div>
+<div class="flex gap-0">
+<input class="bg-black border border-fg-border text-fg-text-1 text-body-sm px-4 py-2 w-full focus:outline-none focus:border-primary" placeholder="SECURE EMAIL" type="email"/>
+<button class="bg-primary-container px-4 text-on-primary-container hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<p class="text-[10px] text-fg-text-3 font-mono-data">© 2024 FUTURE AI GUIDE. INTERNAL INTELLIGENCE NETWORK. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<!-- INTERACTION SCRIPTS -->
+<script>
+        // Micro-interaction for roadmap nodes
+        document.querySelectorAll('.roadmap-line').forEach(line => {
+            line.style.transition = 'width 2s ease-in-out';
+            setTimeout(() => {
+                line.style.width = '100%';
+            }, 500);
+        });
+
+        // Tonal Layering Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-orange/10', 'shadow-lg');
+            } else {
+                nav.classList.remove('shadow-orange/10', 'shadow-lg');
+            }
+        });
+    </script>
+</body></html>

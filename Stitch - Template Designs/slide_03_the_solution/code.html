@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ADMISSIBLE INTELLIGENCE | FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#690005",
+                      "background": "#1e100b",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#ab3600",
+                      "primary": "#ffb59c",
+                      "on-tertiary": "#00344f",
+                      "error-container": "#93000a",
+                      "surface-container-highest": "#42312b",
+                      "on-surface-variant": "#e3bfb3",
+                      "surface-dim": "#1e100b",
+                      "tertiary-fixed": "#cae6ff",
+                      "secondary-fixed-dim": "#95da24",
+                      "on-background": "#f9dcd4",
+                      "outline-variant": "#5b4138",
+                      "on-tertiary-fixed-variant": "#004b70",
+                      "secondary-fixed": "#b0f743",
+                      "on-tertiary-fixed": "#001e30",
+                      "surface-container-lowest": "#180b07",
+                      "on-secondary-container": "#314d00",
+                      "primary-fixed": "#ffdbcf",
+                      "surface-container": "#2b1c17",
+                      "surface-tint": "#ffb59c",
+                      "surface-container-high": "#372621",
+                      "on-secondary": "#213600",
+                      "on-primary-fixed": "#390c00",
+                      "on-primary": "#5c1900",
+                      "tertiary": "#8dcdff",
+                      "tertiary-fixed-dim": "#8dcdff",
+                      "surface-container-low": "#271813",
+                      "on-surface": "#f9dcd4",
+                      "outline": "#aa897f",
+                      "surface-variant": "#42312b",
+                      "surface": "#1e100b",
+                      "on-primary-fixed-variant": "#832700",
+                      "surface-bright": "#47352f",
+                      "inverse-on-surface": "#3d2c27",
+                      "primary-fixed-dim": "#ffb59c",
+                      "on-tertiary-container": "#00304a",
+                      "primary-container": "#ff5f1f",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed-variant": "#324f00",
+                      "tertiary-container": "#009de4",
+                      "secondary-container": "#83c600",
+                      "on-secondary-fixed": "#111f00",
+                      "inverse-surface": "#f9dcd4",
+                      "secondary": "#9de32e",
+                      "on-primary-container": "#561700",
+                      "fg-canvas": "#050505",
+                      "fg-surface": "rgba(255, 255, 255, 0.04)",
+                      "fg-border": "rgba(255, 255, 255, 0.08)"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "display": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["JetBrains Mono"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f9dcd4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #9de32e, transparent);
+            position: absolute;
+            opacity: 0.3;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        .data-glow {
+            filter: drop-shadow(0 0 15px rgba(157, 227, 46, 0.4));
+        }
+    </style>
+</head>
+<body class="bg-fg-canvas selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-transparent backdrop-blur-xl border-b border-outline-variant shadow-orange/10 transition-transform">
+<div class="flex justify-between items-center w-full px-16 py-6">
+<div class="font-display text-xl font-bold tracking-tighter text-primary">FUTURE AI GUIDE</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">STRATEGY</a>
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">ARCHITECTURE</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase text-[11px] tracking-widest" href="#">POSITIONING</a>
+<a class="text-on-surface-variant/50 font-label uppercase text-[11px] tracking-widest hover:text-primary transition-colors duration-300" href="#">INVESTIGATE</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label text-[11px] font-bold tracking-widest uppercase scale-95 active:scale-90 transition-transform shadow-lg shadow-primary/20">
+                JOIN NETWORK
+            </button>
+</div>
+</header>
+<!-- SideNavBar (Hidden on transactional slide context as per instructions, but kept for structural layout if needed - currently hidden) -->
+<aside class="h-screen w-20 fixed left-0 top-0 bg-surface-container-lowest/80 backdrop-blur-md border-r border-outline-variant flex flex-col items-center py-8 gap-8 z-40 hidden xl:flex">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex flex-col gap-8 mt-12">
+<div class="group cursor-pointer flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">radar</span>
+<span class="font-label text-[8px] text-on-surface-variant/40 uppercase">P_01</span>
+</div>
+<div class="group cursor-pointer flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">analytics</span>
+<span class="font-label text-[8px] text-on-surface-variant/40 uppercase">P_02</span>
+</div>
+<div class="flex flex-col items-center gap-1 bg-primary-container/20 text-primary border-r-2 border-primary py-2 w-20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<span class="font-label text-[8px] uppercase">P_03</span>
+</div>
+<div class="group cursor-pointer flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-all">query_stats</span>
+<span class="font-label text-[8px] text-on-surface-variant/40 uppercase">P_04</span>
+</div>
+</div>
+</aside>
+<main class="relative min-h-screen pt-20 px-8 md:px-16 lg:pl-36 lg:pr-16 pb-32">
+<!-- Abstract Background Element -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden opacity-20">
+
+</div>
+<!-- Section Label -->
+<div class="mb-8 inline-flex items-center gap-4">
+<span class="w-12 h-px bg-secondary"></span>
+<span class="font-label text-[11px] tracking-[0.3em] text-secondary uppercase">Slide 03 // Solution Architecture</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+<!-- Left Column: Content -->
+<div class="lg:col-span-5 flex flex-col gap-12">
+<div>
+<h1 class="font-headline text-[64px] font-bold leading-[1.1] tracking-tight text-on-surface uppercase mb-6">
+                        ADMISSIBLE<br/>
+<span class="text-secondary">INTELLIGENCE</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-md">
+                        Introducing <span class="text-primary font-semibold">Future AI Guide</span>: an evidence-aware foundation designed to eliminate hallucination through structural rigor and technical verification.
+                    </p>
+</div>
+<!-- Bento Style Pillars -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Pillar 1 -->
+<div class="glass-panel p-6 rounded-lg border-l-4 border-secondary hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-4 mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-headline text-lg font-bold tracking-tight uppercase">Direct Evidence</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant/80">Every output is anchored to a traceable source. No inference without attribution. The system prioritizes primary documents over secondary syntheses.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="glass-panel p-6 rounded-lg border-l-4 border-secondary hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-4 mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">visibility</span>
+<h3 class="font-headline text-lg font-bold tracking-tight uppercase">Visual Discipline</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant/80">Information density is managed through a cold, investigative UI. High-contrast signals ensure critical data points are never lost in noise.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="glass-panel p-6 rounded-lg border-l-4 border-secondary hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-4 mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h3 class="font-headline text-lg font-bold tracking-tight uppercase">Technical Literacy</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant/80">Bridging the gap between raw compute and human decision-making with monochromatic data clarity and mono-spaced precision.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Graphic -->
+<div class="lg:col-span-7 flex flex-col gap-6 sticky top-32">
+<div class="relative aspect-square md:aspect-video lg:aspect-square w-full glass-panel rounded-xl flex items-center justify-center overflow-hidden border border-outline-variant shadow-2xl shadow-secondary/5">
+<div class="scanline"></div>
+<!-- Central Verified Data Node Graphic -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-64 h-64 relative">
+<!-- Outer Ring -->
+<div class="absolute inset-0 rounded-full border border-secondary/20 animate-[spin_20s_linear_infinite]"></div>
+<!-- Middle Ring -->
+<div class="absolute inset-4 rounded-full border border-dashed border-primary/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Inner Verified Node -->
+<div class="absolute inset-12 rounded-xl glass-panel flex items-center justify-center data-glow border-secondary shadow-[0_0_30px_rgba(157,227,46,0.2)]">
+<div class="text-center">
+<span class="material-symbols-outlined text-6xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">hub</span>
+<div class="font-label text-[10px] tracking-widest text-secondary uppercase font-bold">NODE_ALPHA_VERIFIED</div>
+<div class="font-label text-[8px] text-on-surface-variant/40 uppercase mt-1">STATUS: ADMISSIBLE</div>
+</div>
+</div>
+<!-- Floating Data Points -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 glass-panel px-3 py-1 rounded-full flex items-center gap-2 border-secondary/40">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></div>
+<span class="font-label text-[9px] text-secondary">LATENCY: 0.04ms</span>
+</div>
+<div class="absolute bottom-8 -right-8 glass-panel px-3 py-1 rounded-full flex items-center gap-2 border-primary/40">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label text-[9px] text-primary">INTEGRITY: 99.9%</span>
+</div>
+</div>
+<!-- Data Stream Feed -->
+<div class="mt-12 w-full max-w-sm font-label text-[10px] text-on-surface-variant/60 leading-tight space-y-1">
+<div class="flex justify-between border-b border-outline-variant/30 pb-1">
+<span>[EXECUTION_LOG]</span>
+<span class="text-secondary">0x7F4A2</span>
+</div>
+<p class="pt-2">&gt;&gt; VALIDATING CRYPTOGRAPHIC PROOF...</p>
+<p class="text-secondary">&gt;&gt; SOURCE VERIFIED: GLOBAL_INTEL_INDEX</p>
+<p>&gt;&gt; STRUCTURING EVIDENCE NODES...</p>
+<p class="text-primary">&gt;&gt; WARNING: HIGH VOLUME INGRESS DETECTED</p>
+<p class="text-secondary">&gt;&gt; COMPLIANCE PROTOCOL: ACTIVE</p>
+</div>
+</div>
+<!-- Background Image for context -->
+<div class="absolute inset-0 z-0 opacity-10">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A macro close-up of a futuristic quantum processor core glowing with a soft lime green light. The surface of the chip is etched with precise, geometric circuitry paths. The lighting is low-key, emphasizing the deep blacks of the hardware and the sharp, neon green illumination. The aesthetic is professional, technical, and investigative, reflecting a state-of-the-art AI intelligence environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrPdoKYzYykIvYM6oMCiZUYh5r-NZ_7_Oz0CdrIAnVRASJn772hbmLXi4qJEzttPRAQc3T3qc4MN9KropVnca4gacZb59_tE0WU2K7-XbU0C4VkYB1XW5---GKm6JlUP2kD05qL04xFGhHcyGpQrqacBvs8ZN0kx9mohhYwvqdf4PKKNbt60EafytlvnWXhztFSHW1jAFItIaD7J6VDFyfnBIZgm82N4VsOnGGcVdWwIMzU38wwu9_p-g_KG5O7Z3wKdeU4EGx8HA"/>
+</div>
+</div>
+<!-- Secondary Data Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-4 rounded-lg flex items-center justify-between border-b border-secondary/30">
+<div>
+<div class="font-label text-[9px] text-on-surface-variant/60 uppercase">Trust Index</div>
+<div class="font-headline text-xl font-bold text-secondary">0.9982</div>
+</div>
+<span class="material-symbols-outlined text-secondary/40">shield_lock</span>
+</div>
+<div class="glass-panel p-4 rounded-lg flex items-center justify-between border-b border-primary/30">
+<div>
+<div class="font-label text-[9px] text-on-surface-variant/60 uppercase">Evidence Density</div>
+<div class="font-headline text-xl font-bold text-primary">14.2TB/S</div>
+</div>
+<span class="material-symbols-outlined text-primary/40">account_tree</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bottom-0 fixed z-50 bg-transparent flex justify-between items-center px-16 py-8 pointer-events-none">
+<div class="pointer-events-auto font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50">
+            ©2024 FUTURE AI GUIDE // <span class="text-secondary">ADMISSIBLE EVIDENCE ONLY</span>
+</div>
+<div class="pointer-events-auto flex gap-8">
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">TERMINAL</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/50 hover:text-on-surface transition-colors" href="#">PROTOCOL</a>
+</div>
+</footer>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const panels = document.querySelectorAll('.glass-panel');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            panels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const distanceX = (e.clientX - centerX) / 50;
+                const distanceY = (e.clientY - centerY) / 50;
+                
+                panel.style.transform = `translate3d(${distanceX}px, ${distanceY}px, 0)`;
+            });
+        });
+    </script>
+</body></html>

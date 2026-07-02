@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYSTEM_CONFIGURATION // FUTURE AI GUIDE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#00344f",
+                        "error": "#ffb4ab",
+                        "on-background": "#f9dcd4",
+                        "outline": "#aa897f",
+                        "surface-container": "#2b1c17",
+                        "tertiary-fixed-dim": "#8dcdff",
+                        "on-error": "#690005",
+                        "fg-rust": "#ff4444",
+                        "fg-orange-lt": "#ff7a45",
+                        "on-secondary": "#213600",
+                        "on-secondary-fixed": "#111f00",
+                        "fg-amber": "#f59e0b",
+                        "surface-dim": "#1e100b",
+                        "inverse-surface": "#f9dcd4",
+                        "secondary-container": "#83c600",
+                        "tertiary-fixed": "#cae6ff",
+                        "surface-container-high": "#372621",
+                        "surface": "#1e100b",
+                        "primary-fixed-dim": "#ffb59c",
+                        "fg-orange-dk": "#d9480f",
+                        "tertiary-container": "#009de4",
+                        "secondary": "#9de32e",
+                        "surface-container-lowest": "#180b07",
+                        "fg-text-1": "#f5f5f5",
+                        "surface-container-low": "#271813",
+                        "fg-border-md": "rgba(255, 255, 255, 0.14)",
+                        "on-tertiary-fixed": "#001e30",
+                        "secondary-fixed": "#b0f743",
+                        "on-surface": "#f9dcd4",
+                        "on-primary-fixed-variant": "#832700",
+                        "error-container": "#93000a",
+                        "on-primary": "#5c1900",
+                        "surface-bright": "#47352f",
+                        "on-tertiary-fixed-variant": "#004b70",
+                        "outline-variant": "#5b4138",
+                        "on-tertiary-container": "#00304a",
+                        "fg-surface-md": "rgba(255, 255, 255, 0.06)",
+                        "fg-surface": "rgba(255, 255, 255, 0.04)",
+                        "fg-neutral-85": "#1a1a1a",
+                        "on-secondary-container": "#314d00",
+                        "on-primary-container": "#561700",
+                        "primary-container": "#ff5f1f",
+                        "on-secondary-fixed-variant": "#324f00",
+                        "fg-canvas": "#050505",
+                        "background": "#1e100b",
+                        "surface-variant": "#42312b",
+                        "secondary-fixed-dim": "#95da24",
+                        "primary-fixed": "#ffdbcf",
+                        "inverse-on-surface": "#3d2c27",
+                        "on-primary-fixed": "#390c00",
+                        "fg-border": "rgba(255, 255, 255, 0.08)",
+                        "surface-tint": "#ffb59c",
+                        "fg-text-2": "rgba(245, 245, 245, 0.64)",
+                        "surface-container-highest": "#42312b",
+                        "primary": "#ffb59c",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#e3bfb3",
+                        "inverse-primary": "#ab3600",
+                        "tertiary": "#8dcdff",
+                        "fg-text-3": "rgba(245, 245, 245, 0.42)"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "2": "8px",
+                        "4": "16px",
+                        "20": "80px",
+                        "16": "64px",
+                        "1": "4px",
+                        "12": "48px",
+                        "3": "12px",
+                        "6": "24px",
+                        "8": "32px"
+                    },
+                    "fontFamily": {
+                        "display-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "section-label": ["JetBrains Mono"],
+                        "mono-data": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-md": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "section-label": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "mono-data": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "headline-md": ["19px", {"lineHeight": "1.35", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .status-stripe-orange { border-top: 3px solid #ff7a45; }
+        .status-stripe-lime { border-top: 3px solid #9de32e; }
+        .shadow-orange-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 122, 69, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus {
+            box-shadow: inset 0 0 4px rgba(255, 122, 69, 0.4);
+            outline: none;
+        }
+        .terminal-toggle input:checked + label .toggle-handle {
+            transform: translateX(100%);
+            background-color: #9de32e;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="font-body-lg">
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none z-0">
+
+</div>
+<div class="flex min-h-screen relative z-10">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full w-20 flex flex-col items-center py-8 bg-fg-neutral-85/40 backdrop-blur-md border-r border-fg-border z-50">
+<div class="mb-12">
+<span class="material-symbols-outlined text-fg-orange-lt text-3xl">terminal</span>
+</div>
+<nav class="flex-1 flex flex-col gap-8">
+<!-- Investigator - Active -->
+<a class="text-fg-orange-lt bg-fg-surface-md rounded-xl p-3 shadow-orange-glow transition-all group relative" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-fg-neutral-85 text-[10px] font-mono-data opacity-0 group-hover:opacity-100 transition-opacity">INVESTIGATOR</span>
+</a>
+<a class="text-fg-text-3 p-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all group relative" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-fg-neutral-85 text-[10px] font-mono-data opacity-0 group-hover:opacity-100 transition-opacity">TELEMETRY</span>
+</a>
+<a class="text-fg-text-3 p-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all group relative" href="#">
+<span class="material-symbols-outlined">encrypted</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-fg-neutral-85 text-[10px] font-mono-data opacity-0 group-hover:opacity-100 transition-opacity">ENCRYPTION</span>
+</a>
+<a class="text-fg-text-3 p-3 hover:bg-fg-surface hover:text-fg-text-2 transition-all group relative" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="absolute left-full ml-4 px-2 py-1 bg-fg-neutral-85 text-[10px] font-mono-data opacity-0 group-hover:opacity-100 transition-opacity">INTELLIGENCE</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-6">
+<a class="text-fg-text-3 hover:text-fg-orange-lt transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-20 flex-1 px-16 py-12">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-16">
+<div>
+<p class="font-mono-data text-fg-orange-lt text-section-label uppercase tracking-[0.2em] mb-2">SYSTEM_INTERFACE_01</p>
+<h1 class="font-display-md text-display-md text-fg-text-1">SYSTEM_CONFIGURATION</h1>
+</div>
+<div class="text-right">
+<p class="font-mono-data text-fg-text-1 text-headline-md font-bold">NODE_7749</p>
+<p class="font-mono-data text-fg-text-3 text-section-label">CLEARANCE: LEVEL_5</p>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-6">
+<!-- 1. PROFILE_MANAGEMENT -->
+<section class="col-span-12 lg:col-span-8">
+<div class="glass-panel status-stripe-orange p-8 h-full">
+<div class="flex justify-between items-start mb-8">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">01. PROFILE_MANAGEMENT</h2>
+<span class="font-mono-data text-section-label text-fg-text-3 px-2 py-1 border border-fg-border">ID: PRO_772</span>
+</div>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="flex-1 space-y-8">
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-2 uppercase">Investigator Alias</label>
+<input class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-fg-text-1 focus:border-fg-orange-lt transition-colors" type="text" value="GHOST_OPERATIVE"/>
+</div>
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-2 uppercase">Network Signature</label>
+<input class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-fg-text-1 focus:border-fg-orange-lt transition-colors" type="text" value="0x7749_BETA_PRIME"/>
+</div>
+<div class="pt-4">
+<button class="bg-fg-orange-lt text-black px-8 py-3 font-mono-data font-bold hover:shadow-orange-glow transition-all uppercase text-sm">Update_Identity</button>
+</div>
+</div>
+<div class="w-48">
+<div class="aspect-square relative glass-panel flex items-center justify-center border-dashed border-2 border-fg-border-md overflow-hidden group">
+<div class="absolute inset-0 opacity-40 mix-blend-screen grayscale">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized neural silhouette of a human head, composed of glowing orange data nodes and digital circuitry. The portrait is set against a pitch-black background with subtle lens flare, evoking a sophisticated, investigative AI intelligence aesthetic with sharp, cinematic lighting and high-contrast digital grain." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8ZjL_mzQnSfwFluNXFB4bfDKLZbcYMCidCjQQVla5zmfJHdOAvFESI8cTrCdAmkxlKHFN93mHi1vew0hRh3rAWH84Oxj05rTA77e-p2zJMk-6iA_sNOr8vFP4mowSKGKiNusL8HmvYiLVB3ik0_nnuAIJD9HH136voT3LQEAgu0q5N3iTvCWdJBq_krj6pH06mVUDgkBbTpToi2Q-3A4TLrxO43VWRHdo_vWZWAOevSPjECvy-WrE_LUzw6FZcNrnlnMm_jMBUZY')"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center p-4">
+<span class="material-symbols-outlined text-4xl text-fg-orange-lt mb-2">face</span>
+<p class="font-mono-data text-[10px] text-fg-text-3 uppercase">Neural_Scan_Ready</p>
+</div>
+<div class="absolute inset-0 bg-fg-orange-lt/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+<span class="font-mono-data text-xs text-fg-text-1 font-bold">RESCAN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SUBSCRIPTION_TELEMETRY -->
+<section class="col-span-12 lg:col-span-4">
+<div class="glass-panel status-stripe-lime p-8 h-full flex flex-col">
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1 mb-1">DATA_STATUS</h2>
+<p class="font-mono-data text-section-label text-fg-text-3">REAL-TIME INGESTION STREAM</p>
+</div>
+<div class="flex-1 flex flex-col justify-center gap-8">
+<div class="space-y-2">
+<div class="flex justify-between font-mono-data text-xs mb-1">
+<span class="text-fg-text-2">INTELLIGENCE_LEVEL</span>
+<span class="text-secondary">LEVEL_4</span>
+</div>
+<div class="w-full h-1 bg-fg-surface-md">
+<div class="h-full bg-secondary w-3/4 shadow-[0_0_10px_#9de32e]"></div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 border-l border-fg-border pl-4">
+<div>
+<p class="font-mono-data text-section-label text-fg-text-3">INGESTION_LIMIT</p>
+<p class="font-headline-md text-headline-md text-fg-text-1">842 / 1000 GB</p>
+</div>
+</div>
+<div class="flex items-center gap-4 border-l border-fg-border pl-4">
+<div>
+<p class="font-mono-data text-section-label text-fg-text-3">UPTIME_INDEX</p>
+<p class="font-headline-md text-headline-md text-fg-text-1">99.98%</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<button class="w-full border border-secondary text-secondary hover:bg-secondary/10 transition-all py-3 font-mono-data font-bold uppercase text-sm tracking-widest">
+                                UPGRADE_CAPACITY
+                            </button>
+</div>
+</div>
+</section>
+<!-- 2. TELEMETRY_NOTIFICATIONS -->
+<section class="col-span-12 lg:col-span-6">
+<div class="glass-panel p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-fg-text-3">notifications_active</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">02. TELEMETRY_NOTIFICATIONS</h2>
+</div>
+<div class="space-y-1">
+<!-- Toggle Item -->
+<div class="flex items-center justify-between py-4 border-b border-fg-border/50 group">
+<div>
+<p class="font-mono-data text-fg-text-1 uppercase">Critical Breach Alerts</p>
+<p class="font-body-sm text-body-sm text-fg-text-3">Immediate priority overrides on node compromise.</p>
+</div>
+<div class="terminal-toggle">
+<input checked="" class="hidden" id="t1" type="checkbox"/>
+<label class="w-12 h-6 bg-fg-surface-md flex items-center px-1 cursor-pointer transition-colors border border-fg-border" for="t1">
+<span class="toggle-handle w-4 h-4 bg-fg-text-3 transition-transform"></span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-fg-border/50 group">
+<div>
+<p class="font-mono-data text-fg-text-1 uppercase">System Heartbeat</p>
+<p class="font-body-sm text-body-sm text-fg-text-3">Periodic pulse logs to confirm node connectivity.</p>
+</div>
+<div class="terminal-toggle">
+<input checked="" class="hidden" id="t2" type="checkbox"/>
+<label class="w-12 h-6 bg-fg-surface-md flex items-center px-1 cursor-pointer transition-colors border border-fg-border" for="t2">
+<span class="toggle-handle w-4 h-4 bg-fg-text-3 transition-transform"></span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 group">
+<div>
+<p class="font-mono-data text-fg-text-1 uppercase">Node Sync Updates</p>
+<p class="font-body-sm text-body-sm text-fg-text-3">Batch updates for distributed investigation nodes.</p>
+</div>
+<div class="terminal-toggle">
+<input class="hidden" id="t3" type="checkbox"/>
+<label class="w-12 h-6 bg-fg-surface-md flex items-center px-1 cursor-pointer transition-colors border border-fg-border" for="t3">
+<span class="toggle-handle w-4 h-4 bg-fg-text-3 transition-transform"></span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECURITY_PROTOCOLS -->
+<section class="col-span-12 lg:col-span-6">
+<div class="glass-panel p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-fg-text-3">security</span>
+<h2 class="font-headline-lg text-headline-lg text-fg-text-1">03. SECURITY_PROTOCOLS</h2>
+</div>
+<div class="space-y-8">
+<div class="space-y-2">
+<label class="block font-mono-data text-section-label text-fg-text-2 uppercase">Encryption Depth</label>
+<div class="relative">
+<select class="w-full bg-black border border-fg-border px-4 py-3 font-mono-data text-fg-text-1 appearance-none focus:border-fg-orange-lt transition-colors">
+<option>AES_256_GCM</option>
+<option>RSA_4096_PKCS</option>
+<option>CHA_CHA_20_POLY</option>
+<option>QUANTUM_RESISTANT_BETA</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-fg-text-3">expand_more</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-fg-surface border border-fg-border">
+<div>
+<p class="font-mono-data text-fg-text-1 uppercase">Two-Factor Biometric</p>
+<p class="font-body-sm text-body-sm text-fg-text-3">Mandatory eye-scan for root level access.</p>
+</div>
+<div class="terminal-toggle">
+<input checked="" class="hidden" id="t4" type="checkbox"/>
+<label class="w-12 h-6 bg-fg-surface-md flex items-center px-1 cursor-pointer transition-colors border border-fg-border" for="t4">
+<span class="toggle-handle w-4 h-4 bg-fg-text-3 transition-transform"></span>
+</label>
+</div>
+</div>
+<div class="flex gap-4 items-center p-4 border border-fg-rust/20 bg-fg-rust/5">
+<span class="material-symbols-outlined text-fg-rust">warning</span>
+<p class="font-mono-data text-xs text-fg-rust uppercase">Warning: System failsafe is currently set to [AUTO_WIPE] on 3 failed attempts.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Anchor -->
+<footer class="mt-20 pt-12 border-t border-fg-border flex flex-col md:flex-row justify-between items-center opacity-60">
+<p class="font-mono-data text-body-sm text-fg-text-3 mb-4 md:mb-0">© 2024 FUTURE AI GUIDE // ADMISSIBLE EVIDENCE PROTOCOL</p>
+<div class="flex gap-8">
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt underline transition-all" href="#">SYSTEM STATUS</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt underline transition-all" href="#">PRIVACY</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt underline transition-all" href="#">SECURITY</a>
+<a class="font-mono-data text-body-sm text-fg-text-3 hover:text-fg-orange-lt underline transition-all" href="#">NETWORK</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Active Indicator Logic Script -->
+<script>
+        document.querySelectorAll('.terminal-toggle input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const label = e.target.nextElementSibling;
+                const status = e.target.checked ? 'VERIFIED' : 'DEACTIVATED';
+                // Micro-interaction: Subtle log print console-style?
+                console.log(`[SYS]: Setting changed for ${e.target.id} -> ${status}`);
+            });
+        });
+
+        // Background atmosphere interactivity
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            // Can pass these to the shader if needed, for now just subtle UI drift
+        });
+    </script>
+</body></html>
